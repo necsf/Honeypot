@@ -27,6 +27,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'common':resolve('src/common')//出现错误error:This dependency was not found
     }
   },
   module: {

@@ -4,9 +4,26 @@
   <el-header height=220px; >
       <div class="header-1">
           <p class="p-1">
-            <i class="el-icon-share"></i>
-            系统管理员&nbsp;&nbsp;&nbsp;
-            <i class="el-icon-tickets"></i>
+               <el-dropdown>
+                  <span class="el-dropdown-link" >
+                        <i class="el-icon-share"></i>
+                        系统管理员&nbsp;{{administrator}}&nbsp;&nbsp;
+                  </span>
+                   <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item>修改密码</el-dropdown-item>
+                        <el-dropdown-item>注销账号</el-dropdown-item>
+                    </el-dropdown-menu> 
+                </el-dropdown>
+                <el-dropdown>
+                    <span class="el-dropdown-link">
+                        <i class="el-icon-tickets"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item>资质</el-dropdown-item>
+                        <el-dropdown-item>帮助</el-dropdown-item>
+                        <el-dropdown-item>关于</el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
           </p>
           <!-- <i class="el-icon-minus"></i> <i class="el-icon-close"></i>     减号和X号 -->
           </div>
@@ -43,12 +60,12 @@
                         :index="indexMethod">
                         </el-table-column>
                         <el-table-column
-                        prop="address"
+                        prop="warningtype"
                         label="警告类型"
                         width="180">
                         </el-table-column>
                         <el-table-column
-                        prop="name"
+                        prop="realtimewarning"
                         label="实时警告"
                         width="180">
                         </el-table-column>
@@ -137,6 +154,10 @@
         width: 100%;
     }
     /* 黑色管理员 */
+    .el-dropdown-link{
+        color: rgb(252, 249, 249);
+        font-size: 14pt;
+    }
     .p-1{
         position: relative;
         right:80px;
@@ -166,20 +187,49 @@
        width: 100%;
        /* font-family: '微软雅黑'; */
    } 
+    .main-1-1{
+       width: 40%;
+       height: 100%;
+       float: left;
+   }
+    .main-1-1-1{
+       width: 100%;
+       height: 30px;
+       background-color: #EDEDED;
+       font-size: 11pt;
+    }
+     .main-1-1-2{
+        height: 100%;
+    }
+    .main-1-2{
+        width: 57%;
+       height: 100%;
+        float:right;
+    }
+    .main-1-2-1{
+       width: 100%;
+       height: 30px;
+       background-color: #EDEDED;  
+       font-size: 11pt;
+
+   }
    .main-2{
        height: 50%;
        width: 100%;
        /* font-family: '微软雅黑'; */
    }
-   .main-1-1{
-       width: 40%;
-       height: 100%;
-       float: left;
-   }
    .main-2-1{
        width: 40%;
        height: 100%;
        float: left;
+   }
+    .main-2-1-1{
+       margin-top:20px; 
+       width: 100%;
+       height: 30px;
+       background-color: #EDEDED;
+       /* font-family: '微软雅黑';  */
+       font-size: 11pt;
    }
    .main-2-2{
        width: 57%;
@@ -194,28 +244,22 @@
        font-family: 'Microsoft YaHei';
        font-size: 11pt;
    }
-   .main-1-1-1{
-       width: 100%;
-       height: 30px;
-       background-color: #EDEDED;
-       font-size: 11pt;
 
-   }
-   .main-2-1-1{
-       margin-top:20px; 
-       width: 100%;
-       height: 30px;
-       background-color: #EDEDED;
-       /* font-family: '微软雅黑';  */
-       font-size: 11pt;
-   }
-   .main-1-2-1{
-       width: 100%;
-       height: 30px;
-       background-color: #EDEDED;  
-       font-size: 11pt;
-
-   }
+  .main-p1{
+       /* 实时警告版 */
+       margin: 0;
+       margin-top:4px; 
+       margin-left:10px;
+       margin-bottom: 10px;
+       font-family:'Microsoft YaHei';
+       float: left;
+    }
+    .main-p2{
+        margin: 0;
+        margin-top:4px; 
+        margin-right:10px;
+        float: right; 
+    }
    .main-p3{
        margin: 0;
        margin-top:4px; 
@@ -232,33 +276,12 @@
        font-family:'Microsoft YaHei';
        float: left;
    }
-   .main-p1{
-       /* 实时警告版 */
-       margin: 0;
-       margin-top:4px; 
-       margin-left:10px;
-       margin-bottom: 10px;
-       font-family:'Microsoft YaHei';
-       float: left;
-    }
-    .main-p2{
-        margin: 0;
-        margin-top:4px; 
-        margin-right:10px;
-        float: right; 
-    }
+   
     .table1 td{
         padding: 0;
         height: 30px;
     }
-    .main-1-1-2{
-        height: 100%;
-    }
-    .main-1-2{
-        width: 57%;
-       height: 100%;
-        float:right;
-    }
+   
     .charts-1{
         width:740px;
         height: 730px;
@@ -266,10 +289,6 @@
         
     }
     /****************************************** main  end */
-    .el-menu-demo{
-        font-size: 18pt;
-    }
-    /* ****************************************test */
      .menu-1{
         font-size: 15pt;
         margin: 0;
@@ -308,66 +327,48 @@ export default {
     
     data() {
       return {
+          administrator:'wulala',
           times:'2018-5-21',
             // ***************表格数据start
             tableData: [{
             date: '2016-05-03',
-            name: '王小虎',
-            address: '可疑序列警告 ',
+            realtimewarning: '王小虎',
+            warningtype: '可疑序列警告 ',
             tag: ''
             },{
             date: '2016-05-03',
-            name: '王小虎',
-            address: '可疑序列警告 ',
+            realtimewarning: '王小虎',
+            warningtype: '可疑序列警告 ',
             tag: ''
             },{
             date: '2016-05-02',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '可疑序列警告',
-            zip: 200333,
-            tag: '公司'
+            realtimewarning: '王小虎',
+            warningtype: '可疑序列警告',
+            tag: ''
             },   {
             date: '2016-05-02',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '可疑序列警告',
-            zip: 200333,
-            tag: '公司'
+           realtimewarning: '王小虎',
+            warningtype: '可疑序列警告',
             },{
             date: '2016-05-01',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '可疑序列警告 ',
-            zip: 200333,
-            tag: '公司'
+            realtimewarning: '王小虎',
+            warningtype: '可疑序列警告 ',
+            tag: ''
             },{
             date: '2016-05-01',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '可疑序列警告 ',
-            zip: 200333,
-            tag: '公司'
+            realtimewarning: '王小虎',
+            warningtype: '可疑序列警告 ',
+            tag: ''
             },{
             date: '2016-05-01',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '可疑序列警告 ',
-            zip: 200333,
-            tag: '公司'
+           realtimewarning: '王小虎',
+            warningtype: '可疑序列警告 ',
+            tag: ''
             },{
             date: '2016-05-01',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '可疑序列警告 ',
-            zip: 200333,
-            tag: '公司'
+           realtimewarning: '王小虎',
+            warningtype: '可疑序列警告 ',
+            tag: ''
             }
             ],
             // *****************表格数据end
@@ -375,10 +376,9 @@ export default {
       
     },
     mounted(){
+        // *****************echarts图  2个折线图，一个柱状图
         this.drawLine();
-       // window.onresize = myChart.resize;
          window.addEventListener("resize", function() {
-              //     myChart1.setOption(option1);
                  myChart.resize();
             }); 
             
@@ -386,11 +386,12 @@ export default {
      methods: {
         drawLine(){
             // 基于准备好的dom，初始化echarts实例
-            let myChart = this.$echarts.init(document.getElementById('myChart'))
-            let myChart2 = this.$echarts.init(document.getElementById('myChart2'))
-            let myChart3 = this.$echarts.init(document.getElementById('myChart3'))
+            let myChart = this.$echarts.init(document.getElementById('myChart'))//单折线图
+            let myChart2 = this.$echarts.init(document.getElementById('myChart2'))// 柱状图
+            let myChart3 = this.$echarts.init(document.getElementById('myChart3'))// 双折线图
             // 绘制图表
-            // window.onresize = myChart.resize; 
+
+            //双折线图
              myChart3.setOption({
                 title: {  },
                 tooltip : {
@@ -436,9 +437,14 @@ export default {
                 }
                 ]            
             })
+            //柱状图
              myChart2.setOption({
                 title: {  },
-                tooltip: {},
+                tooltip: { },
+                // legend:{
+                //     data:['告警数量']
+                // },
+
                 xAxis: {
                     data: ["可疑序列告警","敏感行为告警","虚拟机告警"]
                 },
@@ -449,6 +455,7 @@ export default {
                     data: [900, 1000, 8200]
                 }]            
             })
+            // 单折线图
             myChart.setOption({
                 title: {  },
                 tooltip: {
