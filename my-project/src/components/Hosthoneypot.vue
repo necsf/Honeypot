@@ -1,40 +1,13 @@
 <template>
 <el-container style="height:100%;" direction="vertrcal">
     <!-- header -->
-  <el-header height=220px; >
-      <div class="header-1">
-          <p class="p-1">
-               <el-dropdown>
-                  <span class="el-dropdown-link" >
-                        <i class="el-icon-share"></i>
-                        系统管理员&nbsp;{{administrator}}&nbsp;&nbsp;
-                  </span>
-                   <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>修改密码</el-dropdown-item>
-                        <el-dropdown-item>注销账号</el-dropdown-item>
-                    </el-dropdown-menu> 
-                </el-dropdown>
-                <el-dropdown>
-                    <span class="el-dropdown-link">
-                        <i class="el-icon-tickets"></i>
-                    </span>
-                    <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>资质</el-dropdown-item>
-                        <el-dropdown-item>帮助</el-dropdown-item>
-                        <el-dropdown-item>关于</el-dropdown-item>
-                    </el-dropdown-menu>
-                </el-dropdown>
-          </p>
-          <!-- <i class="el-icon-minus"></i> <i class="el-icon-close"></i>     减号和X号 -->
-          </div>
-          <div class="header-2">
+      <!-- main -->
+  <el-main  > 
+      <div class="header-2">
               <p class="p-2"> <i class="el-icon-menu"></i>主机蜜罐
               </p>
           </div>
           <hr style="margin-bottom:0;"/>
-      </el-header>
-      <!-- main -->
-  <el-main  > 
       <div class="main-1">
             <el-tabs 
                 class="tabs-1"
@@ -92,7 +65,7 @@
                             <!-- <el-col :span="5"> -->
                             <el-menu 
                             router
-                            default-active="2" 
+                            default-active="$route.name" 
                             class="el-menu-vertical" 
                             @select="handleSelect"
                             @open="handleOpen" 
@@ -149,53 +122,10 @@
     
  </el-main>
   <!-- footer -->
-  <el-footer>
-        <hr/>
-        <el-menu 
-        :default-active="$route.path" 
-        background-color=""
-        class="el-menu-demo"
-        mode="horizontal"
-        active-text-color="#00FF00"
-        @select="handleSelect"
-        
-        >
-        <el-menu-item index="1"  ><p class="menu-1"><i class="el-icon-delete"></i>系统主页</p></el-menu-item>
-        <el-menu-item index="/about" ><p class="menu-1"><i class="el-icon-delete"></i>监测状态</p></el-menu-item>
-        <el-menu-item index="3" ><p class="menu-1"><i class="el-icon-delete"></i>蜜网构建</p></el-menu-item>
-        <el-menu-item index="4"><p class="menu-1"><i class="el-icon-delete"></i>应用蜜罐</p></el-menu-item>
-        <el-menu-item index="5"><p class="menu-1"><i class="el-icon-delete"></i>主机蜜罐</p></el-menu-item>
-        <el-menu-item index="6"><p class="menu-1"><i class="el-icon-delete"></i>平台管理</p></el-menu-item>
-        </el-menu>
-        <div class="footer-1">
-        
-            <p class="footer-p"> <i class="el-icon-info"></i>&nbsp;&nbsp;&nbsp;监测状态：</p>
-            <p class="footer-p2">登录时间:&nbsp;&nbsp;{{times}}</p>
-        </div>
-  </el-footer>
 </el-container>
 </template>
 <style>
-        /* ***********************head开始*********************** */
-        /* 黑色条框 */
-    .header-1{
-        text-align: right;
-        background-color: rgb(10, 10, 10);
-        color: rgb(252, 249, 249);
-        height: 100px;
-        font-family: "微软雅黑";
-        width: 100%;
-    }
-    /* 黑色管理员 */
-    .el-dropdown-link{
-        color: rgb(252, 249, 249);
-        font-size: 14pt;
-    }
-    .p-1{
-        position: relative;
-        right:80px;
-        top: 27px;
-    }
+       /* *********************************************mian start*****************/
     /* 绿色字体 */
     .p-2{
         position: relative;
@@ -212,7 +142,7 @@
         width:100%;
         color:#B3EE3A;
         font-weight: 500;
-    }                    /* *********************************************header结束*****************/  
+    }                      
     .el-main{
         padding-top: 2px;
     }
@@ -255,46 +185,11 @@
         background-color: #F56C6C;
     } */
     /****************************************** main  end */
-    /****************************************** footer start */
-     .menu-1{
-        font-size: 15pt;
-        margin: 0;
-    } 
-    .footer-1{
-        width: 100%;
-        height: 25px;
-        margin: 0;
-        background-color: #515151;
-    }
-   .footer-p{
-       margin: 0;
-       position: relative;
-       left: 35px;
-       top:4px;
-       font-size: 12px;
-       font-family: 'Microsoft YaHei';
-       color:aliceblue;
-       float: left;
-   }
-   .footer-p2{
-       position: relative;
-       right: 35px;
-       top:4px;
-       font-size: 12px;
-       font-family: 'Microsoft YaHei';
-       color:aliceblue;
-       margin: 0;
-       float: right;
-   }
+    
 </style>
 <script>
 export default {
-    props:{
-        activ:{
-            type:String,
-            required:true
-        }
-    },
+   
     data() {
       return {
           page:'4',
