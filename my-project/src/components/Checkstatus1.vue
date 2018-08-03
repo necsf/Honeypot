@@ -24,6 +24,8 @@
               <div class="main-1-1-2">
                     <el-table
                         height=274
+                        row-style="30px"
+                        cell-style="padding:0"
                         class="table1"
                         :data="tableData"
                         style="width: 100%; ">
@@ -213,11 +215,11 @@
        float: left;
    }
    
-    .table1 td{
+    /* .table1 td{
         padding: 0;
         height: 30px;
     }
-   
+    */
     .charts-1{
         width:740px;
         height: 730px;

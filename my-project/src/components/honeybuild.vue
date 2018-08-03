@@ -87,6 +87,8 @@
                             <el-table
                                 :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
                                 class="table1"
+                                row-style="30px"
+                                cell-style="padding:0"
                                 id="table11"
                                 :data="temdata"
                                 style="width: 100%"><!--表的名字-->
@@ -160,6 +162,8 @@
                             <el-table
                                 :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
                                 class="table1"
+                                row-style="30px"
+                                cell-style="padding:0"
                                 id="table11"
                                 :data="temdata"
                                 style="width: 100%"><!--表的名字-->
@@ -275,10 +279,10 @@
         color:#BFBFBF;
     }
     /* *********table 的行边框 */
-    .table1 td{
+    /* .table1 td{
         padding: 0;
         height: 30px;
-    }
+    } */
     /* ******原始日志查询-左侧菜单栏 start*/
     .tab-aside{
         height: 100%;

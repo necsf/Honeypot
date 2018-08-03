@@ -32,6 +32,8 @@
         <el-main class="m-table">
             <el-table
                 :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+                row-style="30px"
+                cell-style="padding:0"
                 class="table1"
                 id="table11"
                 :data="filemap"
