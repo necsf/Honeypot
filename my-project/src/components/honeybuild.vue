@@ -219,26 +219,30 @@
   <!-- footer -->
 </el-container>
 </template>
-<style>
+<style scoped>
        /* *********************************************mian start*****************/
     /* 绿色字体 */
     .p-2{
         position: relative;
-        top: 25px;
+        top: 10px;
         font-size: 18pt;
-        left: 30px;
+        left: 20px;
         font-family: '微软雅黑';
         margin: 0;
-    }
+    }       
     /* 白色条框 */
     .header-2{
         margin: 0;
-        height:60px;
+        height:45px;
         width:100%;
         color:#B3EE3A;
         font-weight: 500;
     }                      
-    .el-main{
+    /* .el-main-2{
+        padding: 2px;
+    } */
+    
+    .el-main-2{
         padding: 2px;
     }
         /* ************************************tabs的颜色 */
@@ -270,9 +274,6 @@
        margin-bottom: 10px;
     }
 
-    .el-main-2{
-        padding-top: 2px;
-    }
     .table-p1{
         font-family: 'Microsoft YaHei';
         font-size: 12pt;

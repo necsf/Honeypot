@@ -86,10 +86,10 @@
     </el-container>
 </template>
 <style>
-.table1 td{
+/* .table1 td{
         padding: 0;
         height: 30px;
-}
+} */
 .m-table{
     width: 100%;
     height: 100%;
