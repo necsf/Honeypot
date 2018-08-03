@@ -3,11 +3,11 @@
         <!--******************************* head -->
         <el-header height=100px; >
       <div class="header-1">
-          <p class="p-1">
+          <p class="ps-1">
                <el-dropdown>
                   <span class="el-dropdown-link" >
                         <i class="el-icon-share"></i>
-                        系统管理员&nbsp;{{administrator}}&nbsp;&nbsp;
+                        系统管理员&nbsp;{{administrator}}&nbsp;
                   </span>
                    <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>修改密码</el-dropdown-item>
@@ -57,13 +57,13 @@
   </el-footer>
 </el-container>
 </template>
-<style>
+<style scoped>
  
         /* ***********************head开始*********************** */
         /* 黑色条框 */
     .header-1{
         text-align: right;
-        background-color: #708090;
+        background-color:#262626;
         color: rgb(252, 249, 249);
         height: 100px;
         font-family: "微软雅黑";
@@ -74,7 +74,7 @@
         color: rgb(252, 249, 249);
         font-size: 14pt;
     }
-    .p-1{
+    .ps-1{
         position: relative;
         right:80px;
         top: 27px;

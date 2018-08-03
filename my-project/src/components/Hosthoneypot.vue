@@ -2,7 +2,7 @@
 <el-container style="height:100%;" direction="vertrcal">
     <!-- header -->
       <!-- main -->
-  <el-main  > 
+  <el-main  class="el-main-1"> 
       <div class="header-2">
               <p class="p-2"> <i class="el-icon-menu"></i>主机蜜罐
               </p>
@@ -124,27 +124,27 @@
   <!-- footer -->
 </el-container>
 </template>
-<style>
+<style scoped>
        /* *********************************************mian start*****************/
-    /* 绿色字体 */
-    .p-2{
-        position: relative;
-        top: 25px;
-        font-size: 18pt;
-        left: 30px;
-        font-family: '微软雅黑';
-        margin: 0;
-    }
-    /* 白色条框 */
+     /* 白色条框 */
     .header-2{
         margin: 0;
-        height:60px;
+        height:45px;
         width:100%;
         color:#B3EE3A;
         font-weight: 500;
-    }                      
-    .el-main{
-        padding-top: 2px;
+    }     
+    /* 绿色字体 */
+    .p-2{
+        position: relative;
+        top: 10px;
+        font-size: 18pt;
+        left: 20px;
+        font-family: '微软雅黑';
+        margin: 0;
+    }       
+    .el-main-1{
+        padding: 2px;
     }
         /* ************************************tabs的颜色 */
     .el-tabs__item.is-active{

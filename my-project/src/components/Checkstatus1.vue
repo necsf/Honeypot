@@ -3,7 +3,7 @@
     <!-- header -->
 
       <!-- main -->
-  <el-main style="padding-top:2px;">  
+  <el-main  class="el-main-3">  
         <div class="header-2">
             <p class="p-2"> <i class="el-icon-menu"></i>监测状态
             </p>
@@ -93,14 +93,14 @@
 
 </el-container>
 </template>
-<style>
+<style scoped>
 
                /* *********************************************header结束*****************/       
             /* **********************************************************mian开始**************** */
      /* 白色条框 */
     .header-2{
         margin: 0;
-        height:60px;
+        height:45px;
         width:100%;
         color:#B3EE3A;
         font-weight: 500;
@@ -108,12 +108,15 @@
     /* 绿色字体 */
     .p-2{
         position: relative;
-        top: 25px;
+        top: 10px;
         font-size: 18pt;
-        left: 30px;
+        left: 20px;
         font-family: '微软雅黑';
         margin: 0;
     }   
+    .el-main-3{
+        padding:2px ;
+    }
     /* 设置了第一个的父标签-1（共两个）最大高和宽 */
    .main-1{
        height: 50%;
