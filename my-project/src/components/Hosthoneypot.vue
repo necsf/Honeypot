@@ -18,13 +18,13 @@
                 <el-tab-pane label="主机蜜罐管理">
                     <div class="tab-1">
                         <div class="tab-1-1">
-                            <el-button type="danger">删除</el-button>
+                            <el-button style="background:#E95513;color:#ffffff;">删除</el-button>
                             &nbsp;&nbsp;
-                            <el-button type="danger">编辑</el-button>
+                            <el-button style="background:#E95513;color:#ffffff;">编辑</el-button>
                         </div><!--table-1-1-->
                         <div class="tab-1-2">
                             <el-table
-                                :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+                                :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
@@ -149,11 +149,11 @@
         padding: 2px;
     }
         /* ************************************tabs的颜色 */
-    .el-tabs__item.is-active{
-        color: #F56C6C;
+    main-1.el-tabs__item.is-active{
+        color: #E95513 !important;
     }
-    .el-tabs__item:hover{
-        color: #F56C6C;
+    main-1.el-tabs__item:hover{
+        color: #E95513 !important;
     }
     .tab-1-1{
         margin-left: 30px;
@@ -178,10 +178,10 @@
     }
     /* 菜单点击颜色 */
     .el-menu-item.is-active{
-         color: #F56C6C;
+         color: #E95513;
     }
     .el-menu-item:hover{
-        color: #F56C6C;
+        color: #E95513;
     }
     /* .tab-main{
         background-color: #F56C6C;

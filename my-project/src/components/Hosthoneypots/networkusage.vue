@@ -2,7 +2,7 @@
     <div class="table-network">
         <!-- <div style="height:100px;"></div> -->
         <el-table
-            :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+            :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
             class="table1"
             row-style="30px"
             cell-style="padding:0"

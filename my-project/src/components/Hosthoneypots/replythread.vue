@@ -25,13 +25,13 @@
                         <el-input v-model="formInline.date" ></el-input>
                     </el-form-item>
                    <el-form-item>
-                    <el-button type="danger"  @click="onSubmit">查询</el-button>
+                    <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询</el-button>
                 </el-form-item> 
             </el-form>
         </el-header>
         <el-main class="m-table">
             <el-table
-                :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+                :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                 row-style="30px"
                 cell-style="padding:0"
                 class="table1"
