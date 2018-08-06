@@ -84,16 +84,20 @@
                     width="150">
                 </el-table-column>
             </el-table>
+            <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
             <div style="float:right;margin-top:10px;">
                 <!-- <p class="p-page">显示第1到第{{1}}条记录  每页显示</p> -->
                 <!-- *********************************分页按钮 -->
                 <el-pagination 
+                background
+                prev-text="上一页"
+                next-text="下一页"
                 @size-change="handleSizeChange"
                  @current-change="handleCurrentChange" 
                  :current-page="currentPage4" 
                  :page-sizes="[10, 20, 30, 40]" 
                  :page-size="100" 
-                 layout="total, sizes, prev, pager, next, jumper" :total="50">
+                 layout=" sizes, prev, pager, next, jumper" :total="50">
                 </el-pagination>
             </div>
             
@@ -105,6 +109,12 @@
         padding: 0;
         height: 30px;
 } */
+.p-page{
+    padding-top: 15px;
+    color:#666666;
+    float:left;
+    font-size: 12pt;
+}
 .m-table{
     width: 100%;
     height: 100%;

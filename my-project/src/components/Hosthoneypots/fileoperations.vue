@@ -84,23 +84,28 @@
                     width="150">
                 </el-table-column>
             </el-table>
+            <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+            
             <div style="float:right;margin-top:10px;">
-                <!-- <p class="p-page">显示第1到第{{1}}条记录  每页显示</p> -->
+                
                 <!-- *********************************分页按钮 -->
                 <el-pagination 
+                background="#E95513"
+                prev-text="上一页"
+                next-text="下一页"
                 @size-change="handleSizeChange"
                  @current-change="handleCurrentChange" 
                  :current-page="currentPage4" 
-                 :page-sizes="[10, 20, 30, 40]" 
+                 :page-sizes="[10, 20]" 
                  :page-size="100" 
-                 layout="total, sizes, prev, pager, next, jumper" :total="50">
+                 layout="slot,sizes ,prev, pager, next,jumper" :total="50">
+                <!-- <slot name="as">dddd</slot> -->
                 </el-pagination>
             </div>
-            
         </el-main>    
     </el-container>
 </template>
-<style scoped>
+<style >
 /* .table1 td{
         padding: 0;
         height: 30px;
@@ -113,7 +118,17 @@
     width: 100%;
 }
 .p-page{
+    padding-top: 15px;
+    color:#666666;
+    float:left;
     font-size: 12pt;
+}
+/* 翻页背景色 */
+.el-pagination .el-pager .active{
+    background-color: #E95513 !important;
+}
+.el-pagination.is-background .el-pager li:not(.disabled):hover{
+    color:#E95513 !important;
 }
 </style>
 <script>

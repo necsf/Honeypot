@@ -18,7 +18,7 @@
                 <el-tab-pane label="节点配置">
                     <div class="tab-1">
                         <div class="tab-1-1">
-                            <el-button style="background:#E95513;color:#ffffff;" @click="dialogFormVisible = true">添加模板</el-button>
+                            <el-button  type="danger" @click="dialogFormVisible = true" style="background-color:#E95513">添加模板</el-button>
                             <el-dialog title="添加模板" :visible.sync="dialogFormVisible">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
@@ -46,11 +46,11 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button @click="dialogFormVisible = false">取 消</el-button>
-                                <el-button style="background:#E95513;color:#ffffff;" @click="dialogFormVisible = false">确 定</el-button>
+                                <el-button type="danger" @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button style="background:#E95513;color:#ffffff;" @click="dialogText = true">部署网络</el-button><!--找不到别的合法信号量了，只能用dialogText了-->
+                            <el-button type="danger" @click="dialogText = true" style="background-color:#E95513">部署网络</el-button><!--找不到别的合法信号量了，只能用dialogText了-->
                             <el-dialog title="部署网络" :visible.sync="dialogText">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
@@ -77,11 +77,11 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button @click="dialogText = false">取 消</el-button>
-                                <el-button style="background:#E95513;color:#ffffff;" @click="dialogText = false">确 定</el-button>
+                                <el-button type="danger" @click="dialogText = false" style="background-color:#E95513">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button style="background:#E95513;color:#ffffff;" @click="open2">删除</el-button>
+                            <el-button type="danger" @click="open2" style="background-color:#E95513">删除</el-button>
                         </div><!--table-1-1-->
                         <div class="tab-1-2">
                             <el-table
@@ -118,7 +118,7 @@
                                     @click="dialog = true">查看详情</el-button>
                                   <el-dialog title="查看更多" :visible.sync="dialog">
                                     <el-table
-                                      :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+                                      :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                       class="table1"
                                       id="table11"
                                       :data="temdata"
@@ -161,7 +161,7 @@
                                     </el-table>
                                     <div slot="footer" class="dialog-footer">
                                       <el-button @click="dialog = false">取 消</el-button>
-                                      <el-button style="background:#E95513;color:#ffffff;" @click="dialog = false">确 定</el-button>
+                                      <el-button type="danger" @click="dialog = false">确 定</el-button>
                                     </div>
                                   </el-dialog>
                                 </template>
@@ -170,12 +170,40 @@
                             </el-table>
                         </div><!--table-1-2-->
                     </div><!--table-1-->
+                    <div class="page">
+                    <p>显示第1到第16条记录，总共16条记录&nbsp;&nbsp;&nbsp;&nbsp;每页显示
+                      <el-select v-model="value" placeholder="10" style="width:100px">
+                        <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value">
+                        </el-option>
+                      </el-select>&nbsp;条记录&nbsp;&nbsp;转到&nbsp;
+                      <el-input v-model="input" placeholder="10" style="width:50px"></el-input>
+                      &nbsp;页&nbsp;<el-button type="danger">跳转</el-button>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <el-button>上一页</el-button>
+                      <el-button type="danger" style="background-color:#E95513">1</el-button>
+                      <el-button >2</el-button>
+                      <el-button>下一页</el-button>
+
+                    </p>
+                  </div>
                 </el-tab-pane>
+
                 <!-- 服务器配置 -->
                 <el-tab-pane label="服务器配置">
                     <div class="tab-2">
                         <div class="tab-2-1">
-                                <el-button  style="background:#E95513;color:#ffffff;" @click="dialogFormVisible = true">添加服务器</el-button>
+                                <el-button type="danger" @click="dialogFormVisible = true" style="background-color:#E95513">添加服务器</el-button>
                                 <el-dialog title="添加服务器" :visible.sync="dialogFormVisible">
                                 <el-form :model="form">
                                     <el-form-item label="服务器名称" :label-width="formLabelWidth">
@@ -187,13 +215,14 @@
                                 </el-form>
                                 <div slot="footer" class="dialog-footer">
                                     <el-button @click="dialogFormVisible = false">取 消</el-button>
-                                    <el-button style="background:#E95513;color:#ffffff;" @click="dialogFormVisible = false">确 定</el-button>
+                                    <el-button type="danger" @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
                                 </div>
                                 </el-dialog>
                                 &nbsp;&nbsp;
-                                <el-button style="background:#E95513;color:#ffffff;" @click="open2">删除</el-button>
+                                <el-button type="danger" @click="open2" style="background-color:#E95513">删除</el-button>
                                 &nbsp;&nbsp;
                         </div><!--table-2-1-->
+
                         <div class="tab-2-2">
                             <el-table
                                 :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
@@ -225,11 +254,32 @@
                                 </el-table-column>
                             </el-table>
                         </div><!--table-2-2-->
-                    </div><!--table-1-->
-                 
+                      <div class="page">
+                        <p>显示第1到第16条记录，总共16条记录&nbsp;&nbsp;&nbsp;&nbsp;每页显示
+                          <el-select v-model="value" placeholder="10" style="width:100px">
+                            <el-option
+                              v-for="item in options"
+                              :key="item.value"
+                              :label="item.label"
+                              :value="item.value">
+                            </el-option>
+                          </el-select>&nbsp;条记录&nbsp;&nbsp;转到&nbsp;
+                          <el-input v-model="input" placeholder="10" style="width:50px"></el-input>
+                          &nbsp;页&nbsp;<el-button type="danger">跳转</el-button>
+                          <el-button>上一页</el-button>
+                          <el-button type="danger" style="width:20px">1</el-button>
+                          <el-button style="width:20px">2</el-button>
+                          <el-button>下一页</el-button>
+
+                        </p>
+                      </div>
+                    </div> <!--table-1-->
+
+
                 </el-tab-pane>
+
                 <!-- 原始日志查询 -->
-                <el-tab-pane label="网络拓扑"><!--写了部分代码，但是一直没有出现树形图-->         
+                <el-tab-pane label="网络拓扑"><!--写了部分代码，但是一直没有出现树形图-->          
                 </el-tab-pane>
             </el-tabs>
       </div> <!--main-1-->
@@ -240,7 +290,7 @@
 </el-container>
 
 </template>
-<style scoped>
+<style >
        /* *********************************************mian start*****************/
     /* 绿色字体 */
     .p-2{
@@ -258,31 +308,32 @@
         width:100%;
         color:#B3EE3A;
         font-weight: 500;
+        overflow: hidden;
     }                      
     /* .el-main-2{
         padding: 2px;
     } */
     
     .el-main-2{
-        padding: 2px;
+        padding: 2px !important;
     }
         /* ************************************tabs的颜色 */
     .el-tabs__item.is-active{
-        color: #E95513;
+        color: #E95513 !important;
     }
     .el-tabs__item:hover{
-        color: #E95513;
+        color: #E95513 !important;
     }
     /********************************** 查看详情的颜色 */
     .el-button--text{
 
-        color:#E95513;
+        color:#E95513 !important;
     }
     .el-button--text.is-active{
-        color: #E95513;
+        color: #E95513 !important ;
     }
     .el-button--text:hover{
-        color: #E95513;
+        color: #E95513 !important;
     }
     .tab-1-1{
         margin-left: 30px;
@@ -310,13 +361,6 @@
         height: 100%;
         overflow: hidden;
         
-    }
-    /* 菜单点击颜色 */
-    .el-menu-item.is-active{
-         color: #F56C6C;
-    }
-    .el-menu-item:hover{
-        color: #F56C6C;
     }
     /* .tab-main{
         background-color: #F56C6C;

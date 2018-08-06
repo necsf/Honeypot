@@ -8,10 +8,14 @@
               <p class="p-2"> <i class="el-icon-menu"></i>应用蜜罐
               </p><br/>
               <hr style="margin-bottom:0;"/>
-              <el-button>应用蜜罐信息</el-button>
+              <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tab-pane label="应用蜜罐信息" name="first"></el-tab-pane>
+    
+  </el-tabs>
+
           </div>
       <div class="ip-select">
-        <p>IP地址：&nbsp;
+        <p class="ip">IP地址：&nbsp;
         <el-input v-model="input" placeholder="请输入IP地址查询" style="width:300px">
         </el-input>
         &nbsp;
@@ -79,7 +83,7 @@
       :value="item.value">
     </el-option>
   </el-select>&nbsp;条记录&nbsp;&nbsp;转到&nbsp;
-  <el-input v-model="input" placeholder="10" style="width:50px"></el-input>
+  <el-input v-model="input" placeholder="10"style="width:50px"></el-input>
   &nbsp;页&nbsp;<el-button type="danger">跳转</el-button>
   <p class="abs">
   <el-button >上一页</el-button>
@@ -88,6 +92,10 @@
   <el-button>下一页</el-button >
   </p>
 
+
+
+
+</p>
   </div>
 
    </el-main>
@@ -106,21 +114,35 @@
         line-height:25px;
         font-family: '微软雅黑';
         margin: 0;
-        color:#B3EE3A;
-    }    
+        color:#01DF01;
+    }  
+  .ip{
+    position: absolute;
+  left:40px;
+  right:auto;
+  top: 245px;
+
+  }  
 .abs{
   position: absolute;
   
 
   left:1250px;
   
-  top: 380px;
+  top: 520px;
 }   
 .bbs{
   position: absolute;
   left:10px;
   right:auto;
-  top: 380px;
+  top: 520px;
+
+}
+.table1{
+  position: absolute;
+  left:20px;
+  right:auto;
+  top: 320px;
 
 }
     

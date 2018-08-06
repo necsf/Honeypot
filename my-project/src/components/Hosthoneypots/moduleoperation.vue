@@ -69,6 +69,7 @@
                 <!-- <p class="p-page">显示第1到第{{1}}条记录  每页显示</p> -->
                 <!-- *********************************分页按钮 -->
                 <el-pagination 
+                background
                 @size-change="handleSizeChange"
                  @current-change="handleCurrentChange" 
                  :current-page="currentPage4" 
