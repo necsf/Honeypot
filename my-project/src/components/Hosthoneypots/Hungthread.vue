@@ -62,7 +62,7 @@
                 <el-table-column
                     prop="XprogressID"
                     label="被挂起线程依附线程ID"
-                    width="150">
+                    width="200">
                 </el-table-column>
                 <el-table-column
                     prop="date"

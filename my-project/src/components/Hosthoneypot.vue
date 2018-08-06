@@ -15,7 +15,8 @@
                 type="card" 
                 @tab-click="handleClick">
                 <!-- 主机蜜罐管理 -->
-                <el-tab-pane label="主机蜜罐管理">
+                <el-tab-pane 
+                label="主机蜜罐管理">
                     <div class="tab-1">
                         <div class="tab-1-1">
                             <el-button style="background:#E95513;color:#ffffff;">删除</el-button>
@@ -126,7 +127,7 @@
   <!-- footer -->
 </el-container>
 </template>
-<style scoped>
+<style  >
        /* *********************************************mian start*****************/
      /* 白色条框 */
     .header-2{
@@ -146,13 +147,13 @@
         margin: 0;
     }       
     .el-main-1{
-        padding: 2px;
+        padding: 2px !important;
     }
         /* ************************************tabs的颜色 */
-    main-1.el-tabs__item.is-active{
+    .el-tabs__item.is-active{
         color: #E95513 !important;
     }
-    main-1.el-tabs__item:hover{
+    .el-tabs__item:hover{
         color: #E95513 !important;
     }
     .tab-1-1{
@@ -178,10 +179,10 @@
     }
     /* 菜单点击颜色 */
     .el-menu-item.is-active{
-         color: #E95513;
+         color: #E95513 !important;
     }
     .el-menu-item:hover{
-        color: #E95513;
+        color: #E95513 !important;
     }
     /* .tab-main{
         background-color: #F56C6C;
