@@ -178,10 +178,10 @@
         
     }
     /* 菜单点击颜色 */
-    .el-menu-item.is-active{
+    .el-menu-vertical.el-menu-item.is-active{
          color: #E95513 !important;
     }
-    .el-menu-item:hover{
+    .el-menu-vertical.el-menu-item:hover{
         color: #E95513 !important;
     }
     /* .tab-main{

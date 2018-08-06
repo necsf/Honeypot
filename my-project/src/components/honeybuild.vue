@@ -18,7 +18,7 @@
                 <el-tab-pane label="节点配置">
                     <div class="tab-1">
                         <div class="tab-1-1">
-                            <el-button type="danger" @click="dialogFormVisible = true">添加模板</el-button>
+                            <el-button style="background:#E95513;color:#ffffff;" @click="dialogFormVisible = true">添加模板</el-button>
                             <el-dialog title="添加模板" :visible.sync="dialogFormVisible">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
@@ -46,11 +46,11 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button @click="dialogFormVisible = false">取 消</el-button>
-                                <el-button type="danger" @click="dialogFormVisible = false">确 定</el-button>
+                                <el-button style="background:#E95513;color:#ffffff;" @click="dialogFormVisible = false">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button type="danger" @click="dialogText = true">部署网络</el-button><!--找不到别的合法信号量了，只能用dialogText了-->
+                            <el-button style="background:#E95513;color:#ffffff;" @click="dialogText = true">部署网络</el-button><!--找不到别的合法信号量了，只能用dialogText了-->
                             <el-dialog title="部署网络" :visible.sync="dialogText">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
@@ -77,15 +77,15 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button @click="dialogText = false">取 消</el-button>
-                                <el-button type="danger" @click="dialogText = false">确 定</el-button>
+                                <el-button style="background:#E95513;color:#ffffff;" @click="dialogText = false">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button type="danger" @click="open2">删除</el-button>
+                            <el-button style="background:#E95513;color:#ffffff;" @click="open2">删除</el-button>
                         </div><!--table-1-1-->
                         <div class="tab-1-2">
                             <el-table
-                                :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+                                :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
@@ -115,31 +115,67 @@
                                     <el-button
                                     type="text"
                                     size="mini"
-                                    @click="handleEdit(scope.$index, scope.row)">查看详情</el-button>
+                                    @click="dialog = true">查看详情</el-button>
+                                  <el-dialog title="查看更多" :visible.sync="dialog">
+                                    <el-table
+                                      :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+                                      class="table1"
+                                      id="table11"
+                                      :data="temdata"
+                                      style="width: 100%"><!--表的名字-->
+                                      <!-- 选择框   -->
+
+                                      <el-table-column
+                                        type="index"
+                                        label="编号"
+                                        :index="indexMethod">
+                                      </el-table-column>
+                                      <el-table-column
+                                        prop="template"
+                                        label="模板名">
+                                      </el-table-column>
+                                      <el-table-column
+                                        prop="IP"
+                                        label="IP">
+                                      </el-table-column>
+                                      <el-table-column
+                                        prop="server_name"
+                                        label="服务器">
+                                      </el-table-column>
+                                      <el-table-column
+                                        prop="region"
+                                        label="蜜罐类型">
+                                      </el-table-column>
+                                      <el-table-column
+                                        prop="IP"
+                                        label="IP">
+                                      </el-table-column>
+                                      <el-table-column
+                                        prop="server_name"
+                                        label="服务器">
+                                      </el-table-column>
+                                      <el-table-column
+                                        prop="region"
+                                        label="蜜罐类型">
+                                      </el-table-column>
+                                    </el-table>
+                                    <div slot="footer" class="dialog-footer">
+                                      <el-button @click="dialog = false">取 消</el-button>
+                                      <el-button style="background:#E95513;color:#ffffff;" @click="dialog = false">确 定</el-button>
+                                    </div>
+                                  </el-dialog>
                                 </template>
+
                                 </el-table-column>
                             </el-table>
                         </div><!--table-1-2-->
-                        <p class="table-p1">显示第1条到第{{page}}条记录，总共{{page}}记录</p>
                     </div><!--table-1-->
-                    <div class="block"><!--页码-->
-                        <span class="demonstration"></span>
-                        <el-pagination
-                            @size-change="handleSizeChange"
-                            @current-change="handleCurrentChange"
-                            :current-page="Page"
-                            :page-sizes="[10, 20, 30, 40]"
-                            :page-size="10"
-                            layout="total, sizes, prev, pager, next, jumper"
-                            :total="40">
-                        </el-pagination>
-                    </div>
                 </el-tab-pane>
                 <!-- 服务器配置 -->
                 <el-tab-pane label="服务器配置">
                     <div class="tab-2">
                         <div class="tab-2-1">
-                                <el-button type="danger" @click="dialogFormVisible = true">添加服务器</el-button>
+                                <el-button  style="background:#E95513;color:#ffffff;" @click="dialogFormVisible = true">添加服务器</el-button>
                                 <el-dialog title="添加服务器" :visible.sync="dialogFormVisible">
                                 <el-form :model="form">
                                     <el-form-item label="服务器名称" :label-width="formLabelWidth">
@@ -151,16 +187,16 @@
                                 </el-form>
                                 <div slot="footer" class="dialog-footer">
                                     <el-button @click="dialogFormVisible = false">取 消</el-button>
-                                    <el-button type="danger" @click="dialogFormVisible = false">确 定</el-button>
+                                    <el-button style="background:#E95513;color:#ffffff;" @click="dialogFormVisible = false">确 定</el-button>
                                 </div>
                                 </el-dialog>
                                 &nbsp;&nbsp;
-                                <el-button type="danger" @click="open2">删除</el-button>
+                                <el-button style="background:#E95513;color:#ffffff;" @click="open2">删除</el-button>
                                 &nbsp;&nbsp;
                         </div><!--table-2-1-->
                         <div class="tab-2-2">
                             <el-table
-                                :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+                                :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
@@ -189,35 +225,20 @@
                                 </el-table-column>
                             </el-table>
                         </div><!--table-2-2-->
-                        <p class="table-p1">显示第1条到第{{page}}条记录，总共{{page}}记录</p>
                     </div><!--table-1-->
-                    <div class="block"><!--页码-->
-                        <span class="demonstration"></span>
-                        <el-pagination
-                            @size-change="handleSizeChange"
-                            @current-change="handleCurrentChange"
-                            :current-page="Page"
-                            :page-sizes="[10, 20, 30, 40]"
-                            :page-size="10"
-                            layout="total, sizes, prev, pager, next, jumper"
-                            :total="40">
-                        </el-pagination>
-                    </div>
+                 
                 </el-tab-pane>
-
-
                 <!-- 原始日志查询 -->
-                <el-tab-pane label="网络拓扑">
-                    
-                        
+                <el-tab-pane label="网络拓扑"><!--写了部分代码，但是一直没有出现树形图-->         
                 </el-tab-pane>
             </el-tabs>
       </div> <!--main-1-->
 
-    
  </el-main>
   <!-- footer -->
+
 </el-container>
+
 </template>
 <style scoped>
        /* *********************************************mian start*****************/
@@ -247,21 +268,21 @@
     }
         /* ************************************tabs的颜色 */
     .el-tabs__item.is-active{
-        color: #F56C6C;
+        color: #E95513;
     }
     .el-tabs__item:hover{
-        color: #F56C6C;
+        color: #E95513;
     }
     /********************************** 查看详情的颜色 */
     .el-button--text{
 
-        color:#F56C6C;
+        color:#E95513;
     }
     .el-button--text.is-active{
-        color: #F56C6C;
+        color: #E95513;
     }
     .el-button--text:hover{
-        color: #F56C6C;
+        color: #E95513;
     }
     .tab-1-1{
         margin-left: 30px;
@@ -305,90 +326,158 @@
 </style>
 <script>
 export default {
-    data() {
-      return {
-        page: '4',
-        Page1: 5,
-        Page2: 5,
-        Page3: 5,
-        Page4: 4,
-        dialogFormVisible: false,
-        dialogText: false,
-        dialogTable: false,
-        form: {
-          name: '',
-          IP:'',
-          temserver:'',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        },
-        formLabelWidth: '120px',
-        // 表的名字
-          temdata:[
-              
-              {
-                  IP:'168.196.2.1',
-                  template:'123',
-                  user:'win789',
-                  temserver:'server1'
-              },
-              {
-                  IP:'168.196.2.1',
-                  template:'123',
-                  user:'win789',
-                  temserver:'server2'
-              },
-              {
-                  IP:'168.196.2.1',
-                  template:'123',
-                  user:'win789',
-                  temserver:'server3'
-              },
-              {
-                  IP:'168.196.2.1',
-                  template:'123',
-                  user:'win789',
-                  temserver:'server4'
-              },
-              {
-                  domainIP:'168.196.2.1',
-                  domainID:'123',
-                  user:'win789',
 
-              },
-          ]
-    
-        }
-    },
-    methods: {
-      open2() {
-        this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          });
+  data() {
+    return {
+        chartData: [
+          {
+            IP: '168.196.2.1',
+            user: 'win789',
+            temserver: 'server1'
+          },
+          {
+            IP: '168.196.2.1',
+            user: 'win789',
+            temserver: 'server2'
+          },
+          {
+            IP: '168.196.2.1',
+            user: 'win789',
+            temserver: 'server1'
+          },
+          {
+            IP: '168.196.2.1',
+            user: 'win789',
+            temserver: 'server2'
+          },
+      ],
+      page: '4',
+      Page1: 5,
+      Page2: 5,
+      Page3: 5,
+      Page4: 4,
+      dialogFormVisible: false,
+      dialogText: false,
+      dialog: false,
+      form: {
+        name: '',
+        IP: '',
+        temserver: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
+      formLabelWidth: '120px',
+      // 表的名字
+      temdata: [
+
+        {
+          IP: '168.196.2.1',
+          template: '123',
+          user: 'win789',
+          temserver: 'server1'
+        },
+        {
+          IP: '168.196.2.1',
+          template: '123',
+          user: 'win789',
+          temserver: 'server2'
+        },
+        {
+          IP: '168.196.2.1',
+          template: '123',
+          user: 'win789',
+          temserver: 'server3'
+        },
+        {
+          IP: '168.196.2.1',
+          template: '123',
+          user: 'win789',
+          temserver: 'server4'
+        },
+        {
+          domainIP: '168.196.2.1',
+          domainID: '123',
+          user: 'win789',
+
+        },
+      ]
+
+    }
+  },
+
+  mounted() {
+    this.initChart()
+  },
+
+  beforeDestroy() {
+    if (!this.chart) {
+      return
+    }
+    this.chart.dispose()
+    this.chart = null
+  },
+
+
+
+  methods: {
+    open2() {
+      this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
         });
-      },
-      handleSizeChange(val) {
-        console.log(`每页 ${val} 条`);
-      },
-      handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
-      }
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        });
+      });
     },
-};
+    initChart() {
+      this.chart = echarts.init(document.getElementById('orgManagement'))
+      this.chart.on('contextmenu', params => {
+        console.log(params)
+        if (params.componentType === 'series') {
+          this.selectedOrg = params.data
+          this.popoverPanelShow = true
+        } else {
+          return
+        }
+      }),
+        this.Chart.setOption({
+          tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+          },
+          series: [
+            {
+              type: 'tree',
+              data: [this.chartData],
+              top: '1%',
+              bottom: '11%',
+              layout: 'radial',
+              symbol: 'emptyCircle',
+              symbolSize: 7,
+              initialTreeDepth: 3,
+              animationDurationUpdate: 750
+            }
+          ]
+        })
+    },
+    hidePopoverPanel(){
+      this.popoverPanelShow = false;
+    }
+
+  }
+
+}
 </script>
