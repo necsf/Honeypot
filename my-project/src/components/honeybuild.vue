@@ -170,32 +170,23 @@
                             </el-table>
                         </div><!--table-1-2-->
                     </div><!--table-1-->
-                    <div class="page">
-                    <p>显示第1到第16条记录，总共16条记录&nbsp;&nbsp;&nbsp;&nbsp;每页显示
-                      <el-select v-model="value" placeholder="10" style="width:100px">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-                        </el-option>
-                      </el-select>&nbsp;条记录&nbsp;&nbsp;转到&nbsp;
-                      <el-input v-model="input" placeholder="10" style="width:50px"></el-input>
-                      &nbsp;页&nbsp;<el-button type="danger">跳转</el-button>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <el-button>上一页</el-button>
-                      <el-button type="danger" style="background-color:#E95513">1</el-button>
-                      <el-button >2</el-button>
-                      <el-button>下一页</el-button>
+                  <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
 
-                    </p>
+                  <div style="float:right;margin-top:10px;">
+
+                    <!-- *********************************分页按钮 -->
+                    <el-pagination
+                      background="#E95513"
+                      prev-text="上一页"
+                      next-text="下一页"
+                      @size-change="handleSizeChange"
+                      @current-change="handleCurrentChange"
+                      :current-page="currentPage4"
+                      :page-sizes="[10, 20]"
+                      :page-size="100"
+                      layout="slot,sizes ,prev, pager, next,jumper" :total="50">
+                      <!-- <slot name="as">dddd</slot> -->
+                    </el-pagination>
                   </div>
                 </el-tab-pane>
 
@@ -254,24 +245,23 @@
                                 </el-table-column>
                             </el-table>
                         </div><!--table-2-2-->
-                      <div class="page">
-                        <p>显示第1到第16条记录，总共16条记录&nbsp;&nbsp;&nbsp;&nbsp;每页显示
-                          <el-select v-model="value" placeholder="10" style="width:100px">
-                            <el-option
-                              v-for="item in options"
-                              :key="item.value"
-                              :label="item.label"
-                              :value="item.value">
-                            </el-option>
-                          </el-select>&nbsp;条记录&nbsp;&nbsp;转到&nbsp;
-                          <el-input v-model="input" placeholder="10" style="width:50px"></el-input>
-                          &nbsp;页&nbsp;<el-button type="danger">跳转</el-button>
-                          <el-button>上一页</el-button>
-                          <el-button type="danger" style="width:20px">1</el-button>
-                          <el-button style="width:20px">2</el-button>
-                          <el-button>下一页</el-button>
+                      <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
 
-                        </p>
+                      <div style="float:right;margin-top:10px;">
+
+                        <!-- *********************************分页按钮 -->
+                        <el-pagination
+                          background="#E95513"
+                          prev-text="上一页"
+                          next-text="下一页"
+                          @size-change="handleSizeChange"
+                          @current-change="handleCurrentChange"
+                          :current-page="currentPage4"
+                          :page-sizes="[10, 20]"
+                          :page-size="100"
+                          layout="slot,sizes ,prev, pager, next,jumper" :total="50">
+                          <!-- <slot name="as">dddd</slot> -->
+                        </el-pagination>
                       </div>
                     </div> <!--table-1-->
 
@@ -300,7 +290,7 @@
         left: 20px;
         font-family: '微软雅黑';
         margin: 0;
-    }       
+    }
     /* 白色条框 */
     .header-2{
         margin: 0;
@@ -309,7 +299,19 @@
         color:#B3EE3A;
         font-weight: 500;
         overflow: hidden;
-    }                      
+    }
+       .el-pagination .el-pager .active{
+         background-color: #E95513 !important;
+       }
+       .el-pagination.is-background .el-pager li:not(.disabled):hover{
+         color:#E95513 !important;
+       }
+       .p-page{
+         padding-top: 15px;
+         color:#666666;
+         float:left;
+         font-size: 12pt;
+       }
     /* .el-main-2{
         padding: 2px;
     } */
@@ -395,11 +397,10 @@ export default {
             temserver: 'server2'
           },
       ],
-      page: '4',
-      Page1: 5,
-      Page2: 5,
-      Page3: 5,
-      Page4: 4,
+      currentPage1: 5,
+      currentPage2: 5,
+      currentPage3: 5,
+      currentPage4: 4,
       dialogFormVisible: false,
       dialogText: false,
       dialog: false,
@@ -469,6 +470,12 @@ export default {
 
 
   methods: {
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    },
     open2() {
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
