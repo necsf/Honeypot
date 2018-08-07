@@ -1,31 +1,25 @@
 <template>
-
 <el-container style="height:100%;" direction="vertrcal">
     <!-- header -->
       <!-- main -->
   <el-main class="el-main-2" > 
       <div class="header-2">
               <p class="p-2"> <i class="el-icon-menu"></i>应用蜜罐
-              </p><br/>
-              <hr style="margin-bottom:0;"/>
-              <el-tabs v-model="activeName" @tab-click="handleClick">
-    <el-tab-pane label="应用蜜罐信息" name="first"></el-tab-pane>
-    
-  </el-tabs>
-
+              </p>
           </div>
-      <div class="ip-select">
-        <p class="ip">IP地址：&nbsp;
-        <el-input v-model="input" placeholder="请输入IP地址查询" style="width:300px">
-        </el-input>
-        &nbsp;
-        <el-button type="danger">查询主机</el-button>
-      </p>
-      </div>
-
-
-      <div >
-      <el-table
+          <hr style="margin-bottom:0;"/>
+      <div class="main-1">
+            <el-tabs 
+                class="tabs-1"
+                :tab-position="top" 
+                type="card" 
+                @tab-click="handleClick">
+                <!-- 节点配置 -->
+                <el-tab-pane label="应用蜜罐信息">
+                    <div class="tab-1">
+                        
+                        <div class="tab-1-2">
+                            <el-table
       :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
                                 class="table1"
                                 row-style="30px"
@@ -33,126 +27,198 @@
                                 id="table11"
                                 :data="temdata"
                                 style="width: 100%">
-      <el-table-column
-        prop="number"
-        label="序号"
-        width="100">
-      </el-table-column>
-      <el-table-column
-        prop="IP"
-        label="IP地址"
-        width="350">
-      </el-table-column>
-      <el-table-column
-        prop="type"
-        label="主机类型"
-        width="220">
-      </el-table-column>
-      <el-table-column
-        prop="pan"
-        label="硬盘"
-        width="200">
-      </el-table-column>
-      <el-table-column
-        prop="CPU"
-        label="CPU"
-        width="220">
-      </el-table-column>
-      <el-table-column
-        prop="load"
-        label="内存"
-        width="220">
-      </el-table-column>
-      <el-table-column
-        prop="operater"
-        label="操作"
-        width="220">
-      </el-table-column>
+                                    <el-table-column
+                                        prop="number"
+                                        label="序号"
+                                        width="100">
+                                    </el-table-column>
+                                    <el-table-column
+                                        prop="IP"
+                                        label="IP地址"
+                                        width="350">
+                                    </el-table-column>
+                                    <el-table-column
+                                        prop="type"
+                                        label="主机类型"
+                                        width="220">
+                                    </el-table-column>
+                                    <el-table-column
+                                        prop="pan"
+                                        label="硬盘"
+                                        width="200">
+                                    </el-table-column>
+                                    <el-table-column
+                                        prop="CPU"
+                                        label="CPU"
+                                        width="220">
+                                    </el-table-column>
+                                    <el-table-column
+                                        prop="load"
+                                        label="内存"
+                                        width="220">
+                                    </el-table-column>
+                                    <el-table-column
+                                        prop="operater"
+                                        label="操作"
+                                        width="220">
+                                    </el-table-column>
+                                </el-table>
+                                <template slot-scope="scope">
+                                    <el-button
+                                    type="text"
+                                    size="mini"
+                                    @click="handleEdit(scope.$index, scope.row)">查看详情</el-button>
+                                </template>
+        
+                            
+                        </div>
+                        </div><!--table-1-2-->
+                        <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+            <div style="float:right;margin-top:10px;">
+                <!-- <p class="p-page">显示第1到第{{1}}条记录  每页显示</p> -->
+                <!-- *********************************分页按钮 -->
+                <el-pagination 
+                background
+                prev-text="上一页"
+                next-text="下一页"
+                @size-change="handleSizeChange"
+                 @current-change="handleCurrentChange" 
+                 :current-page="currentPage4" 
+                 :page-sizes="[10, 20, 30, 40]" 
+                 :page-size="100" 
+                 layout=" sizes, prev, pager, next, jumper" :total="50">
+                </el-pagination>
+            </div>
 
-      
 
-    </el-table>
-  </div>
-  <div class="page">
-    <p class="bbs">显示第1到第16条记录，总共16条记录&nbsp;&nbsp;&nbsp;&nbsp;每页显示
-     <el-select v-model="value" placeholder="10" style="width:100px">
-    <el-option
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value">
-    </el-option>
-  </el-select>&nbsp;条记录&nbsp;&nbsp;转到&nbsp;
-  <el-input v-model="input" placeholder="10"style="width:50px"></el-input>
-  &nbsp;页&nbsp;<el-button type="danger">跳转</el-button>
-  <p class="abs">
-  <el-button >上一页</el-button>
-  <el-button type="danger" style="width:20px" >1</el-button>
-  <el-button style="width:20px" >2</el-button>
-  <el-button>下一页</el-button >
-  </p>
+ </el-tab-pane>
+                
+            </el-tabs>
+      </div> <!--main-1-->
 
-
-
-
-</p>
-  </div>
-
-   </el-main>
+    
+ </el-main>
+  <!-- footer -->
 </el-container>
-
 </template>
 <style scoped>
-
-
-
-.p-2{
+       /* *********************************************mian start*****************/
+    /* 绿色字体 */
+    .p-page{
+    padding-top: 15px;
+    color:#666666;
+    float:left;
+    font-size: 12pt;}
+    .p-2{
         position: relative;
         top: 10px;
         font-size: 18pt;
         left: 20px;
-        line-height:25px;
         font-family: '微软雅黑';
         margin: 0;
-        color:#01DF01;
-    }  
-  .ip{
-    position: absolute;
-  left:40px;
-  right:auto;
-  top: 245px;
+    }       
+    /* 白色条框 */
+    .header-2{
+        margin: 0;
+        height:45px;
+        width:100%;
+        color:#B3EE3A;
+        font-weight: 500;
+    }                      
+    /* .el-main-2{
+        padding: 2px;
+    } */
+    
+    .el-main-2{
+        padding: 2px;
+    }
+        /* ************************************tabs的颜色 */
+    .el-tabs__item.is-active{
+        color: #F56C6C;
+    }
+    .el-tabs__item:hover{
+        color: #F56C6C;
+    }
+    /********************************** 查看详情的颜色 */
+    .el-button--text{
 
-  }  
-.abs{
-  position: absolute;
-  
+        color:#F56C6C;
+    }
+    .el-button--text.is-active{
+        color: #F56C6C;
+    }
+    .el-button--text:hover{
+        color: #F56C6C;
+    }
+    .tab-1-1{
+        margin-left: 30px;
+        margin-top:15px;
+        margin-bottom: 10px; 
+    }
+    .tab-2-1{
+       margin-left: 30px;
+       margin-top:15px;
+       margin-bottom: 10px;
+    }
 
-  left:1250px;
-  
-  top: 520px;
-}   
-.bbs{
-  position: absolute;
-  left:10px;
-  right:auto;
-  top: 520px;
-
-}
-.table1{
-  position: absolute;
-  left:20px;
-  right:auto;
-  top: 320px;
-
-}
+    .table-p1{
+        font-family: 'Microsoft YaHei';
+        font-size: 12pt;
+        color:#BFBFBF;
+    }
+    /* *********table 的行边框 */
+    /* .table1 td{
+        padding: 0;
+        height: 30px;
+    } */
+    /* ******原始日志查询-左侧菜单栏 start*/
+    .tab-aside{
+        height: 100%;
+        overflow: hidden;
+        
+    }
+    /* 菜单点击颜色 */
+    .el-menu-item.is-active{
+         color: #F56C6C;
+    }
+    .el-menu-item:hover{
+        color: #F56C6C;
+    }
+    /* .tab-main{
+        background-color: #F56C6C;
+    } */
+    /****************************************** main  end */
     
 </style>
-  <script>
-   
+<script>
 export default {
-      data() {
-        return {
-          temdata: [{
+    data() {
+      return {
+        page: '16',
+        Page1: 5,
+        Page2: 5,
+        Page3: 5,
+        Page4: 4,
+        dialogFormVisible: false,
+        dialogText: false,
+        dialogTable: false,
+        form: {
+          name: '',
+          IP:'',
+          temserver:'',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+        formLabelWidth: '120px',
+        // 表的名字
+          temdata:[
+              
+              {
             number: '1',
             IP: '192.168.1.13',
             type: '复合蜜罐',
@@ -207,20 +273,36 @@ export default {
             pan:"100G",
             CPU:"1cpu",
             load:"5g",
-            operater:"查看详情 蜜罐管理",}
-          ],
-          options: [{
-          value: '选项1',
-          label: '10'
-        }, {
-          value: '选项2',
-          label: '20'
+            operater:"查看详情 蜜罐管理",},
+          ]
+          
+    
         }
-        ],
-        input: ''
-
-        }
+    },
+    methods: {
+      open2() {
+        this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
       }
-    }
-
+    },
+};
 </script>

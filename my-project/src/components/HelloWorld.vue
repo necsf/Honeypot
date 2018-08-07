@@ -1,154 +1,135 @@
 <template>
-  <div>
-    <div class="grey"></div>
-      <p>
-        <i class="el-icon-location" style="color:blue;font-size:70px"></i>
-        <strong class="abs" style="color:white;font-size:50px ">ELE<span style=" color:blue">X</span>博智</strong>
-      </p>
-      <p>
-        <i class="el-icon-printer" style="color:orange;font-size:140px"></i>
-        <span class="bbs" style="color:white;font-size:40px">博智<span class="bs" style="font-size:20px">TM</span></span>
-        <span class="cbs" style="color:white;font-size:80px">
-          智能网络蜜罐系统
-        </span>
-      </p>
-    <div class="white"></div>
-    <div class='login'>
-      <p>
-        <i class="el-icon-location-outline"  style="color:blue;font-size:70px;position: absolute;left:80px"></i>
-        <span  class="ads" style="font-size:50px ;color:white">ELE<span style="color:blue">X</span>博智</span>
-        <span class="bds" style="color:#C0C0C0;font-size:120px">|</span>
-        <i class="el-icon-printer" style="color:orange;font-size:140px;position: absolute;left:240px;right:auto;top:450px"></i>
-        <span class="cds" style="color:white;font-size:40px">博智<span class="cs" style="font-size:20px">TM</span></span>
-        <span class="dds" style="color:white;font-size:50px">
-          智能网络蜜罐系统
-        </span>
-      </p>
-      <p>
-        <i class="el-icon-service" style="color:orange;font-size:60px"></i>
-        <el-input class="name" v-model="input" placeholder="" style="width:300px"></el-input>
-        <i class="el-icon-bell" style="color:orange;font-size:60px"></i>
-        <el-input class="password" v-model="input" placeholder="" style="width:300px"></el-input>
-        <el-button  type="danger" style="position:absolute;left:1120px;right:auto;top: 640px;width:140px">登录</el-button>  
-        <el-button type="info"   style="position:absolute;left:1270px;right:auto;top: 640px;width:140px">退出</el-button>
+<el-container style="height:100%;" direction="vertrcal">
+  <el-aside width="60%">
+      <div class="logo">
+          <i class="el-icon-success"></i>
+            <div class="name" style="color:white">ELE
+                <span style="color:blue">X</span>博智
+            </div>
+            <div class="line">
+                    |
+                    <i class="el-icon-printer"></i>
+                    <span class="kuang" style="font-size:40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;智能网络蜜罐系统</span>
+            </div>      
+      </div>
+      <div class="vuesb">
+                博智
+            </div>
+  </el-aside>
+  <el-main>
+      <div class="kuang">
+          <i class="el-icon-service">
+              <el-input v-model="input" style="width:240px "></el-input></i>
+          
+           <i class="el-icon-view">
+               <el-input v-model="input" style="width:240px " ></el-input>
+               <div class="bottom">
+
+                    <el-button type="danger" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
+                    <el-button type="info">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;&nbsp;</el-button>
+   
 
 
-      </p>
-    </div>
-  </div>
+               </div>
+           </i>
+      
+
+      </div>
+
+  </el-main>
+</el-container>
+
+
+
+
+
+
+    
 </template>
-<style type="text/css">
-.grey{
-    width:100 %;
-    height:350px;
-    background:#424242;
+<style>
+ .el-aside {
+    background-color: rgb(45,45,45);
+    color:white;
+    text-align: left;
+    
   }
-  .white{
-    width:80%;
-    height:70px;
-    background:white;
-    float: left;
+  
+  .el-main {
+    background-color:rgb(45,45,45);
+    color: white;
+    text-align: left;
+    line-height: 160px;
   }
-  .login{
-    padding-top:0;
-    width:100%;
-    height:350px;
-    background:#424242;
-    float: left;
-  }
-  .el-icon-location{
-    position: absolute;
-    left:80px;
-    right:auto;
-    top: 0px;
-  }
-  .el-icon-printer{
-    position: absolute;
-    left:750px;
-    right:auto;
-    top: 150px;
-  }
-  .el-icon-service{
-    position: absolute;
-    left:1050px;
-    right:auto;
-    top: 490px;
-  }
-  .el-icon-bell{
-    position: absolute;
-    left:1050px;
-    right:auto;
-    top: 570px;
-  }
-  .abs{
-    position: absolute;
-    left:10px;
-    right:auto;
-    top: 80px;
-
-  }
-  .bbs{
-    position: absolute;
-    left:900px;
-    right:auto;
-    top: 140px;
-  }
-  .bs{
-    position: absolute;
-    left:80px;
-    right:auto;
-    top: 0px;
-  }
-  .cbs{
-    position: absolute;
-    left:900px;
-    right:auto;
-    top: 180px;
-  }
-  .ads{
-    position: absolute;
-    left:10px;
-    right:auto;
-    top: 520px;
-  }
-  .bds{
-    position: absolute;
-    left:220px;
-    right:auto;
-    top:420px;
-  }
-  .cds{
-    position: absolute;
-    left:380px;
-    right:auto;
-    top:440px;
-
-  }
-  .cs{
-    position: absolute;
-    left:80px;
-    right:auto;
-    top: 0px;
-  }
-  .dds{
-    position: absolute;
-    left:380px;
-    right:auto;
-    top: 500px;
+  .logo{
+      color:rgb(0,159,232);
+      font-size:80px;
+      padding-left:140px;
+      padding-top: 20px;
   }
   .name{
-    position: absolute;
-    left:1120px;
-    right:auto;
-    top: 500px;
+        position: absolute;
+        left:60px;
+        right:auto;
+        top: 100px;
+        font-size:60px;
   }
-  .password{
-    position: absolute;
-    left:1120px;
-    right:auto;
-    top: 580px;
+  .line{
+        position: absolute;
+        left:340px;
+        right:auto;
+        top: 0px;
+        font-size:140px;
+        color:rgb(255,255,255);
+
+  }
+  .el-icon-printer{
+      color:chocolate;
+      position: absolute;
+      left:20px;
+      top:40px;
+    
+  }
+  .vuesb{
+      position: absolute;
+        left:500px;
+        right:auto;
+        top: 0px;
+        font-size:80px;
+        color:white;
+
+  }
+  .el-icon-service{
+      font-size: 35px;
+      color:chocolate;
+       position: absolute;
+        top:320px
+
+
+  }
+  .el-icon-view{
+      font-size: 35px;
+      color:chocolate;
+       position: absolute;
+        top:390px;
+
+  }
+  .bottom{
+      position: absolute;
+      left:50px;
+
   }
 
-  
-  
+
+
 </style>
+<script>
+export default {
+  data() {
+    return {
+      input: ''
+    }
+  }
+}
+
+
+</script>
