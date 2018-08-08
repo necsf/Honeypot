@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import vPage from 'v-page'
 import HelloWorld from '@/components/HelloWorld'
+import login from '@/components/login'
 import Checkstatus1 from '@/components/Checkstatus1'
 import Hosthoneypot from '@/components/Hosthoneypot'
 import test from '@/components/test'
@@ -30,6 +31,11 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     },
     {
       path:'/index',

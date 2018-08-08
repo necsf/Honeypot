@@ -107,6 +107,7 @@
         width:100%;
         color:#B3EE3A;
         font-weight: 500;
+        overflow: hidden;
     }     
     /* 绿色字体 */
     .p-2{

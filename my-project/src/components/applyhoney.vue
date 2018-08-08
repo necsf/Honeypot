@@ -20,7 +20,7 @@
                         
                         <div class="tab-1-2">
                             <el-table
-      :header-cell-style="{background:'#EE6363',padding:0,color:'#FFFFFF'}"
+                                :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
@@ -101,7 +101,7 @@
   <!-- footer -->
 </el-container>
 </template>
-<style scoped>
+<style >
        /* *********************************************mian start*****************/
     /* 绿色字体 */
     .p-page{
@@ -134,21 +134,21 @@
     }
         /* ************************************tabs的颜色 */
     .el-tabs__item.is-active{
-        color: #F56C6C;
+        color: #E95513 !important;
     }
     .el-tabs__item:hover{
-        color: #F56C6C;
+        color: #E95513 !important;
     }
     /********************************** 查看详情的颜色 */
     .el-button--text{
 
-        color:#F56C6C;
+        color:#E95513;
     }
     .el-button--text.is-active{
-        color: #F56C6C;
+        color: #E95513;
     }
     .el-button--text:hover{
-        color: #F56C6C;
+        color: #E95513;
     }
     .tab-1-1{
         margin-left: 30px;
@@ -177,12 +177,14 @@
         overflow: hidden;
         
     }
-    /* 菜单点击颜色 */
-    .el-menu-item.is-active{
-         color: #F56C6C;
+
+ 
+    /* 翻页背景色 */
+    .el-pagination .el-pager .active{
+        background-color: #E95513 !important;
     }
-    .el-menu-item:hover{
-        color: #F56C6C;
+    .el-pagination.is-background .el-pager li:not(.disabled):hover{
+        color:#E95513 !important;
     }
     /* .tab-main{
         background-color: #F56C6C;
