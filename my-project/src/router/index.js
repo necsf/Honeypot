@@ -20,6 +20,7 @@ import operationthread from '@/components/Hosthoneypots/operationthread'
 import Hungthread  from '@/components/Hosthoneypots/Hungthread'
 import replythread  from '@/components/Hosthoneypots/replythread'
 import moduleoperation  from '@/components/Hosthoneypots/moduleoperation'
+import HoneyControl from '@/components/HoneyControl'
 
 Vue.use(vPage)
 Vue.use(Router)
@@ -80,7 +81,7 @@ export default new Router({
               path:'/filemap',
               name:'filemap',
               component: filemap
-    
+
             },
             {
               path:'/networkusage',
@@ -121,16 +122,20 @@ export default new Router({
               path:'/moduleoperation',
               name:'moduleoperation',
               component: moduleoperation
-            }
-    
+            },
           ]
+        },
+        {
+          path:'/honeycontrol',
+          name:'honeycontrol',
+          component: HoneyControl
         }
-        
+
       ]
     },
 
-    
-    
+
+
 
   ]
 })

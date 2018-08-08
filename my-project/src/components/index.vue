@@ -12,7 +12,7 @@
                    <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>修改密码</el-dropdown-item>
                         <el-dropdown-item>注销账号</el-dropdown-item>
-                    </el-dropdown-menu> 
+                    </el-dropdown-menu>
                 </el-dropdown>
                 <el-dropdown>
                     <span class="el-dropdown-link">
@@ -34,7 +34,7 @@
     </el-main>
   <el-footer>
       <hr/>
-    <el-menu 
+    <el-menu
     :default-active="$route.name"
     background-color=""
        mode="horizontal"
@@ -47,10 +47,10 @@
     <el-menu-item index="honeybuild" ><p class="menu-1"><i class="el-icon-delete"></i>蜜网构建</p></el-menu-item>
     <el-menu-item index="applyhoney"><p class="menu-1"><i class="el-icon-delete"></i>应用蜜罐</p></el-menu-item>
     <el-menu-item index="Hosthoneypot"><p class="menu-1"><i class="el-icon-delete"></i>主机蜜罐</p></el-menu-item>
-    <el-menu-item index="platform"><p class="menu-1"><i class="el-icon-delete"></i>平台管理</p></el-menu-item>
+    <el-menu-item index="honeycontrol"><p class="menu-1"><i class="el-icon-delete"></i>平台管理</p></el-menu-item>
     </el-menu>
     <div class="footer-1">
-       
+
         <p class="footer-p"> <i class="el-icon-info"></i>&nbsp;&nbsp;&nbsp;监测状态：</p>
         <p class="footer-p2">登录时间:&nbsp;&nbsp;{{times}}</p>
     </div>
@@ -58,7 +58,7 @@
 </el-container>
 </template>
 <style scoped>
- 
+
         /* ***********************head开始*********************** */
         /* 黑色条框 */
     .header-1{
@@ -84,7 +84,7 @@
  .menu-1{
         font-size: 15pt;
         margin: 0;
-    } 
+    }
     .footer-1{
         width: 100%;
         height: 25px;
@@ -121,6 +121,6 @@ export default {
         }
 
     },
-    
+
 }
 </script>
