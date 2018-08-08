@@ -7,7 +7,6 @@ import Checkstatus1 from '@/components/Checkstatus1'
 import Hosthoneypot from '@/components/Hosthoneypot'
 import test from '@/components/test'
 import index from '@/components/index'
-import platform from '@/components/platform'
 import applyhoney from '@/components/applyhoney'
 import systemindex from '@/components/systemindex'
 import honeybuild from '@/components/honeybuild'
@@ -47,11 +46,6 @@ export default new Router({
           path:'/applyhoney',
           name:'applyhoney',
           component:  applyhoney
-        },
-        {
-          path:'/platform',
-          name:'platform',
-          component: platform
         },
         {
           path:'/Checkstatus1',

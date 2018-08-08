@@ -263,7 +263,7 @@
                   <el-tab-pane label="＞  安全配置"> <div id="main2">
 
                     <i class="el-icon-circle-plus-outline" style="margin-bottom: 5px"></i><span style="color: #909399;">安全配置</span>
-                    <table class="td">
+                    <table class="td-1">
                       <tr >
                         <td >用户密码最小长度(位)</td>
                         <td ><el-input-number v-model="num1" size="mini" controls-position="right" @change="handleChange" :min="1" :max="100" style="width: 250px"></el-input-number></td>
@@ -552,10 +552,7 @@
   /****************************************** main  end */
   .button{
     background-color: #E95513;
-    color: #fff;
-  }
-  .el-menu-item.is-active {
-    color: #E95513 !important;
+    color: #ffff;
   }
   .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
     background-color: #E95513 !important;
@@ -566,7 +563,7 @@
     background-color: #E95513 !important;
     border-color:#E95513 !important;
   }
-  .td td{
+  .td-1 td{
     padding-left: 15px;
     color: #909399;
 
