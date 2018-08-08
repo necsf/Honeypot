@@ -20,10 +20,10 @@
               <div class="tab-1-1">
                 <el-row>
                   <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
-                  <el-button  type="warning" class="button" >查询</el-button>
-                  <el-button  type="warning" class="button" @click="dialogFormVisible = true">添加</el-button>
-                  <el-button  type="warning" class="button" @click="dialogFormVisible1 = true">修改</el-button>
-                  <el-button  type="warning" class="button"  @click="open2">删除</el-button>
+                  <el-button   class="button" >查询</el-button>
+                  <el-button   class="button" @click="dialogFormVisible = true">添加</el-button>
+                  <el-button   class="button" @click="dialogFormVisible1 = true">修改</el-button>
+                  <el-button   class="button"  @click="open2">删除</el-button>
                 </el-row>
 
               </div><!--table-1-1-->
@@ -162,10 +162,10 @@
                     <div  id="main1">
                       <el-row>
                         <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
-                        <el-button type="warning" class="button" >查询</el-button>
-                        <el-button type="warning" class="button" @click="dialogFormVisible2_0 = true">添加</el-button>
-                        <el-button type="warning" class="button" @click="dialogFormVisible2_1 = true">修改</el-button>
-                        <el-button type="warning" class="button"  @click="open2_">删除</el-button>
+                        <el-button  class="button" >查询</el-button>
+                        <el-button  class="button" @click="dialogFormVisible2_0 = true">添加</el-button>
+                        <el-button  class="button" @click="dialogFormVisible2_1 = true">修改</el-button>
+                        <el-button  class="button"  @click="open2_">删除</el-button>
                       </el-row>
                       <el-container style="height:100%;" direction="vertrcal">
                         <!-- header -->
@@ -281,7 +281,7 @@
                       </tr>
 
                     </table>
-                    <el-button class="button" type="warning" style="margin-left: 39%;margin-top: 15px">保存</el-button>
+                    <el-button class="button"  style="margin-left: 39%;margin-top: 15px">保存</el-button>
                   </div>
                   </el-tab-pane>
 
@@ -300,8 +300,8 @@
               <div class="tab-1-1">
                 <el-row>
                   <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
-                  <el-button type="warning" class="button" >查询</el-button>
-                  <el-button type="warning" class="button"  @click="open3">删除</el-button>
+                  <el-button  class="button" >查询</el-button>
+                  <el-button  class="button"  @click="open3">删除</el-button>
                 </el-row>
                 <el-container style="height:100%;" direction="vertrcal">
                   <!-- header -->
@@ -376,8 +376,8 @@
               <div class="tab-1-1">
                 <el-row>
                   <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
-                  <el-button type="warning" class="button" >查询</el-button>
-                  <el-button type="warning" class="button"  @click="open4">删除</el-button>
+                  <el-button  class="button" >查询</el-button>
+                  <el-button  class="button"  @click="open4">删除</el-button>
                 </el-row>
                 <el-container style="height:100%;" direction="vertrcal">
                   <!-- header -->
