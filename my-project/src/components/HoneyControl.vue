@@ -259,7 +259,6 @@
                     </div>
                   </el-main>
                   </el-tab-pane>
-                  
                   <el-tab-pane label="＞  安全配置"> <div id="main2">
 
                     <i class="el-icon-circle-plus-outline" style="margin-bottom: 5px"></i><span style="color: #909399;">安全配置</span>
