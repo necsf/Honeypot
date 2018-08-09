@@ -1,7 +1,8 @@
-<template>
-    <el-container style="height:100%;" direction="vertrcal">
+
+<template >
+    <el-container style="height:100%;overflow-y:hidden">
         <!--******************************* head -->
-        <el-header height=100px; >
+        <el-header height=90px >
       <div class="header-1">
           <p class="ps-1">
                <el-dropdown>
@@ -29,11 +30,11 @@
           </div>
 
       </el-header>
-    <el-main >
+    <el-main  >
         <router-view></router-view>
     </el-main>
-  <el-footer>
-      <hr/>
+  <el-footer  >
+    <hr/>
     <el-menu
     :default-active="$route.name"
     background-color=""
@@ -56,13 +57,21 @@
     </div>
   </el-footer>
 </el-container>
+
 </template>
 <style scoped>
+html{
+    overflow-y:hidden;
+}
 
         /* ***********************head开始*********************** */
         /* 黑色条框 */
+        
+        .el-footer{
+     margin-bottom: 43.1px;
+ }
     .header-1{
-        text-align: right;
+                 text-align: right;
         background-color:#262626;
         color: rgb(252, 249, 249);
         height: 100px;
@@ -81,6 +90,9 @@
     }
     /* ***********************************head end */
 /* ****************************************foot */
+ .el-footer{
+     margin-bottom: 43.1px;
+ }
  .menu-1{
         font-size: 15pt;
         margin: 0;
