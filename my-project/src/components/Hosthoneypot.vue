@@ -2,20 +2,20 @@
 <el-container style="height:100%;" direction="vertrcal">
     <!-- header -->
       <!-- main -->
-  <el-main  class="el-main-1"> 
+  <el-main  class="el-main-1">
       <div class="header-2">
               <p class="p-2"> <i class="el-icon-menu"></i>主机蜜罐
               </p>
           </div>
           <hr style="margin-bottom:0;"/>
       <div class="main-1">
-            <el-tabs 
+            <el-tabs
                 class="tabs-1"
-                :tab-position="top" 
-                type="card" 
+                :tab-position="top"
+                type="card"
                 @tab-click="handleClick">
                 <!-- 主机蜜罐管理 -->
-                <el-tab-pane 
+                <el-tab-pane
                 label="主机蜜罐管理">
                     <div class="tab-1">
                         <div class="tab-1-1">
@@ -61,19 +61,20 @@
 
                 </el-tab-pane>
                 <!-- 原始日志查询 -->
-                <el-tab-pane label="原始日志查询">
+                <el-tab-pane label="原始日志查询" class="origindairy">
                     <el-container style="height:100%;" direction="vertrcal">
                         <!-- 左侧菜单栏 -->
-                        <el-aside class="tab-aside">
+                        <el-aside class="tab-aside" style="width: 210px">
                             <!-- <el-col :span="5"> -->
-                            <el-menu 
+                            <el-menu
                             router
                             active-text-color="#E95513"
-                            default-active="$route.name" 
-                            class="el-menu-vertical" 
+                            default-active="$route.name"
+                            class="el-menu-vertical"
                             @select="handleSelect"
-                            @open="handleOpen" 
-                            @close="handleClose">
+                            @open="handleOpen"
+                            @close="handleClose"
+                            style="width: 200px;height: 500px;background: #ebecf2; ">
                             <el-submenu index="1">
                                 <template slot="title">
                                 <span>文件操作信息</span>
@@ -116,14 +117,14 @@
                             <router-view></router-view>
                         </el-main>
                     </el-container>
-                        
+
                 </el-tab-pane>
                 <el-tab-pane label="样本捕获">
 
                 </el-tab-pane>
             </el-tabs>
         </div> <!--main-1-->
-    
+
  </el-main>
   <!-- footer -->
 </el-container>
@@ -138,7 +139,7 @@
         color:#B3EE3A;
         font-weight: 500;
         overflow: hidden;
-    }     
+    }
     /* 绿色字体 */
     .p-2{
         position: relative;
@@ -147,7 +148,7 @@
         left: 20px;
         font-family: '微软雅黑';
         margin: 0;
-    }       
+    }
     .el-main-1{
         padding: 2px !important;
     }
@@ -160,11 +161,11 @@
     }
     .tab-1-1{
         margin-left: 30px;
-        margin-top:15px; 
-        margin-bottom: 10px; 
+        margin-top:15px;
+        margin-bottom: 10px;
     }
     .table-p1{
-         font-family: 'Microsoft YaHei'; 
+         font-family: 'Microsoft YaHei';
         font-size: 12pt;
         color:#BFBFBF;
     }
@@ -177,7 +178,7 @@
     .tab-aside{
         height: 100%;
         overflow: hidden;
-        
+
     }
     /* 菜单点击颜色 */
     .el-menu-vertical.el-menu-item.is-active{
@@ -190,18 +191,52 @@
         background-color: #F56C6C;
     } */
     /****************************************** main  end */
-    
+       .el-submenu__title:hover {
+         color: #E95513 !important;
+         background-color: #ebecf2;
+       }
+       .el-menu-item:focus, .el-menu-item:hover {
+         outline: 0;
+         color: #E95513 !important;
+         background-color: #ebecf2;
+       }
+       .origindairy .el-submenu__title{
+         background: #ebecf2;
+       }
+       .origindairy .el-menu-item{
+         background: #ebecf2;
+       }
+
+       element.style {
+         width: 210px;
+       }
+       .el-aside{
+         height: 100%;
+         overflow: hidden;
+         width: 210px;
+       }
+       /*.el-main{*/
+         /*padding: 0px;*/
+       /*}*/
+       /*.el-header{*/
+         /*padding: 0;*/
+       /*}*/
+       /*.el-footer{*/
+         /*padding: 0;*/
+       /*}*/
+
+
 </style>
 <script>
 export default {
-   
+
     data() {
       return {
           page:'4',
           administrator:'wulala',
           times:'2018-5-21',
           admindata:[
-              
+
               {
                   IP:'168.196.2.1',
                   domainID:'123',
@@ -228,7 +263,7 @@ export default {
                   user:'win789'
               },
           ]
-    
+
         }
     },
     methods: {
@@ -238,9 +273,9 @@ export default {
         indexMethod(index) {
             return index;
         },
-      
-     
+
+
     },
-    
+
 };
 </script>

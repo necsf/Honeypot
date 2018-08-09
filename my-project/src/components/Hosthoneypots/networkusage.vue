@@ -36,14 +36,16 @@
         </el-table>
         <p class="table-p1">显示第1条到第{{page}}条记录，总共{{page}}记录</p>
     </div>
-    
+
 </template>
 <style>
 .table-p1{
-         font-family: 'Microsoft YaHei'; 
+         font-family: 'Microsoft YaHei';
         font-size: 12pt;
         color:#BFBFBF;
     }
+
+
 </style>
 
 <script>
@@ -52,7 +54,7 @@ export default {
         return{
             page:'4',
             admindata:[
-              
+
               {
                   IP:'168.196.2.1',
                   domainID:'123',
