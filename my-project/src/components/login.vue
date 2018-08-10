@@ -1,135 +1,83 @@
+
 <template>
+
 <el-container style="height:100%;" direction="vertrcal">
-  <el-aside width="60%">
-      <div class="logo">
-          <i class="el-icon-success"></i>
-            <div class="name" style="color:white">ELE
-                <span style="color:blue">X</span>博智
-            </div>
-            <div class="line">
-                    |
-                    <i class="el-icon-printer"></i>
-                    <span class="kuang" style="font-size:40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;智能网络蜜罐系统</span>
-            </div>      
-      </div>
-      <div class="vuesb">
-                博智
-            </div>
-  </el-aside>
-  <el-main class="main1">
-      <div class="kuang">
-          <i class="el-icon-service">
-              <el-input v-model="input" style="width:240px "></el-input></i>
+<el-main>
+
+      <img class="logo"  src="../assets/elex.png"/>
+        <div class="login">
+            <div>
+            <img  class="name" src="../assets/name.png"/>   
+            <el-input class="kuang1" size="large" v-model="input" style="width:270px" ></el-input>
+             </div>
           
-           <i class="el-icon-view">
-               <el-input v-model="input" style="width:240px " ></el-input>
-               <div class="bottom">
+            <div>
+        
+            <img  class="password" src="../assets/password.png"/>  
+            <el-input class="kuang2" v-model="input" style="width:270px" ></el-input>
+            </div>
+            <br/>
+        <div class="sb">
+            <el-button type="danger" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
+            &nbsp;&nbsp;&nbsp;
+            <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
+         </div>        
 
-                    <el-button type="danger" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
-                    <el-button type="info">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;&nbsp;</el-button>
-   
+        </div>
+</el-main>
+</el-container>  
 
-
-               </div>
-           </i>
-      
-
-      </div>
-
-  </el-main>
-</el-container>
-
-
-
-
-
-
-    
 </template>
-<style>
- .el-aside {
-    background-color: rgb(45,45,45);
-    color:white;
-    text-align: left;
-    
-  }
+
+
+<style  scoped>
+
+
+.el-main{
+    background-color: rgb(26,26,26);
+}
+.logo{
+    margin-top: 50px;
+}
+.login{
+    float:right;
+    margin-top: 400px;
+    margin-right: 50px;
+
+}
+.name{
+   position: relative;
+   top:20px;
   
-  .main1 {
-    background-color:rgb(45,45,45);
-    color: white;
-    text-align: left;
-    line-height: 160px;
-  }
-  .logo{
-      color:rgb(0,159,232);
-      font-size:80px;
-      padding-left:140px;
-      padding-top: 20px;
-  }
-  .name{
-        position: absolute;
-        left:60px;
-        right:auto;
-        top: 100px;
-        font-size:60px;
-  }
-  .line{
-        position: absolute;
-        left:340px;
-        right:auto;
-        top: 0px;
-        font-size:140px;
-        color:rgb(255,255,255);
-
-  }
-  .el-icon-printer{
-      color:chocolate;
-      position: absolute;
-      left:20px;
-      top:40px;
-    
-  }
-  .vuesb{
-      position: absolute;
-        left:500px;
-        right:auto;
-        top: 0px;
-        font-size:80px;
-        color:white;
-
-  }
-  .el-icon-service{
-      font-size: 35px;
-      color:chocolate;
-       position: absolute;
-        top:320px
 
 
-  }
-  .el-icon-view{
-      font-size: 35px;
-      color:chocolate;
-       position: absolute;
-        top:390px;
+}
+.password{
+    position: relative;
+    top:24px;
+  
 
-  }
-  .bottom{
-      position: absolute;
-      left:50px;
-
-  }
-
+}
+.kuang2{
+    position: relative;
+    right:6px;
+}
+.sb{
+    position: relative;
+    left:20px;
+}
 
 
 </style>
 <script>
 export default {
-  data() {
+    data() {
     return {
       input: ''
     }
   }
+
 }
-
-
 </script>
+>
+
