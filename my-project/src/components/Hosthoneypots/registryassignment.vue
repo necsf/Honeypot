@@ -7,21 +7,21 @@
             class="demo-form-inline" 
             :label-position="right" >
                     <el-form-item label="进程名:">
-                        <el-input v-model="formInline.progress" ></el-input>
+                        <el-input v-model="formInline.progress" style="padding-left:27px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="进程ID:">
-                        <el-input v-model="formInline.progressID" ></el-input>
+                        <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px"></el-input>
                     </el-form-item>
-                    <el-form-item label="键名">
-                        <el-input v-model="formInline.keyname" ></el-input>
-                    </el-form-item>
-                    <el-form-item label="注册表路径">
-                        <el-input v-model="formInline.path" ></el-input>
+                    <el-form-item label="键名:">
+                        <el-input v-model="formInline.keyname" style="padding-left:15px;width:187px"></el-input>
+                    </el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <el-form-item label="注册表路径:">
+                        <el-input v-model="formInline.path" style="padding-left:1px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="操作时间:">
-                        <el-input v-model="formInline.date" ></el-input>
+                        <el-input v-model="formInline.date" style="padding-left:1px;width:187px"></el-input>
                     </el-form-item>
-                   <el-form-item>
+                   <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询</el-button>
                 </el-form-item> 
             </el-form>

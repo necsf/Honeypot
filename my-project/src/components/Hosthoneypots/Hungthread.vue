@@ -7,24 +7,24 @@
             class="demo-form-inline" 
             :label-position="right" >
                     <el-form-item label="当前进程名:">
-                        <el-input v-model="formInline.progress" ></el-input>
+                        <el-input v-model="formInline.progress" style="padding-left:70px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="当前进程ID:">
-                        <el-input v-model="formInline.progressID" ></el-input>
+                        <el-input v-model="formInline.progressID" style="padding-left:70px;width:187px"></el-input>
                     </el-form-item>
-                    <el-form-item label="被挂起线程：">
-                        <el-input v-model="formInline.Xthread" ></el-input>
+                    <el-form-item label="被挂起线程:">
+                        <el-input v-model="formInline.Xthread" style="padding-left:1px;width:187px"></el-input>
                     </el-form-item>
-                    <el-form-item label="被挂起线程依附线程名：">
+                    <el-form-item label="被挂起线程依附线程名:" >
                         <el-input v-model="formInline.Xattthread" ></el-input>
                     </el-form-item>
-                    <el-form-item label="被挂起线程依附线程ID：">
-                        <el-input v-model="formInline.XprogressID" ></el-input>
+                    <el-form-item label="被挂起线程依附线程ID:" >
+                        <el-input v-model="formInline.XprogressID" style="padding-left:1px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="操作时间:">
-                        <el-input v-model="formInline.date" ></el-input>
+                        <el-input v-model="formInline.date" style="padding-left:15px;width:187px"></el-input>
                     </el-form-item>
-                   <el-form-item>
+                   <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询</el-button>
                 </el-form-item> 
             </el-form>
@@ -62,7 +62,7 @@
                 <el-table-column
                     prop="XprogressID"
                     label="被挂起线程依附线程ID"
-                    width="200">
+                    width="250">
                 </el-table-column>
                 <el-table-column
                     prop="date"
