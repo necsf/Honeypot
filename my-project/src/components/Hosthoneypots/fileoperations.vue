@@ -9,7 +9,7 @@
             :label-position="right"
             >
                 <el-form-item label="操作类型:">
-                    <el-select v-model="formInline.operations"style="padding-left:1px;width:187px" >
+                    <el-select v-model="formInline.operations" style="padding-left:1px;width:187px" >
                     <el-option label="打开文件" value="111"></el-option>
                     <el-option label="写文件" value="222"></el-option>
                     </el-select>

@@ -23,17 +23,6 @@
                     <el-option label="C://" value="C:/"></el-option>
                     <el-option label="C://" value="C:/"></el-option>
                     </el-select>
-<<<<<<< HEAD
-                </el-form-item>
-                    <el-form-item label="进程ID:" >
-                        <el-input v-model="formInline.progressID" style="width:187px;padding-left:15px;"></el-input>
-                    </el-form-item>
-                    <el-form-item label="进程名:">
-                        <el-input v-model="formInline.progress"  style="width:187px;padding-left:15px;"></el-input>
-                    </el-form-item>
-                    <el-form-item label="操作时间:">
-                        <el-input v-model="formInline.date" style="width:187px;padding-left:2px;" ></el-input>
-=======
                 </el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <el-form-item label="进程ID:" >
                         <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px"></el-input>
@@ -43,7 +32,6 @@
                     </el-form-item>
                     <el-form-item label="操作时间:">
                         <el-input v-model="formInline.date" style="padding-left:1px;width:187px"></el-input>
->>>>>>> d2018d27b8886ef0513cc813273f43173fffe574
                     </el-form-item>
                    <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询</el-button>
