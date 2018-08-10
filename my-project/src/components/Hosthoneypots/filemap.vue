@@ -24,14 +24,14 @@
                     <el-option label="C://" value="C:/"></el-option>
                     </el-select>
                 </el-form-item>
-                    <el-form-item label="进程ID:">
-                        <el-input v-model="formInline.progressID" ></el-input>
+                    <el-form-item label="进程ID:" >
+                        <el-input v-model="formInline.progressID" style="width:187px;padding-left:15px;"></el-input>
                     </el-form-item>
                     <el-form-item label="进程名:">
-                        <el-input v-model="formInline.progress" ></el-input>
+                        <el-input v-model="formInline.progress"  style="width:187px;padding-left:15px;"></el-input>
                     </el-form-item>
                     <el-form-item label="操作时间:">
-                        <el-input v-model="formInline.date" ></el-input>
+                        <el-input v-model="formInline.date" style="width:187px;padding-left:2px;" ></el-input>
                     </el-form-item>
                    <el-form-item>
                     <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询</el-button>

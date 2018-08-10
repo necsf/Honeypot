@@ -195,11 +195,11 @@
          color: #E95513 !important;
          background-color: #ebecf2;
        }
-       .el-menu-item:focus, .el-menu-item:hover {
+       /* .el-menu-item:focus, .el-menu-item:hover {
          outline: 0;
          color: #E95513 !important;
          background-color: #ebecf2;
-       }
+       } */
        .origindairy .el-submenu__title{
          background: #ebecf2;
        }
