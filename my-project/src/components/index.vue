@@ -1,13 +1,16 @@
 <template>
-    <el-container style="height:100%;" direction="vertrcal">
+    <el-container style="height:100%; overflow-y:hidden; " direction="vertrcal">
         <!--******************************* head -->
-        <el-header height=100px; >
+        <el-header height=80px; >
       <div class="header-1">
+          
           <p class="ps-1">
+    
                <el-dropdown>
                   <span class="el-dropdown-link" >
-                        <i class="el-icon-share"></i>
-                        系统管理员&nbsp;{{administrator}}&nbsp;
+                      <span class="smallpeople">
+                        <img src="../assets/smallpeople.png"/></span>
+                        系统管理员[SysAdmin]&nbsp;{{administrator}}&nbsp;
                   </span>
                    <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>修改密码</el-dropdown-item>
@@ -24,16 +27,24 @@
                         <el-dropdown-item>关于</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
+           
           </p>
+             <span class="lefttop">
+              <img src="../assets/lefttop.png"/>
+          </span>
+         
+          
+          
           <!-- <i class="el-icon-minus"></i> <i class="el-icon-close"></i>     减号和X号 -->
           </div>
+         
 
       </el-header>
-    <el-main >
+    <el-main class="tmd">
         <router-view></router-view>
     </el-main>
-  <el-footer>
-      <hr/>
+  <el-footer class="nmd">
+      <hr style="marign:0px;"/>
     <el-menu
     :default-active="$route.name"
     background-color=""
@@ -61,11 +72,34 @@
 
         /* ***********************head开始*********************** */
         /* 黑色条框 */
+        html { overflow-y:hidden; overflow-x:hidden;}
+        .smallpeople{
+            position: relative;
+            top:6px;
+        }
+        .el-dropdown-link{
+             position: relative;
+             bottom:20px;
+        }
+        span.lefttop{
+            text-align: left;
+            margin-right:1400px;
+              position: relative;
+              bottom:45px;    
+
+        }
+        .tmd{
+            padding: 0;
+        }
+        .nmd{
+            padding:0;
+        }
+        
     .header-1{
         text-align: right;
-        background-color:#262626;
+        background-color:rgb(21,21,21);
         color: rgb(252, 249, 249);
-        height: 100px;
+        height: 80px;
         font-family: "微软雅黑";
         width: 100%;
     }
@@ -110,6 +144,12 @@
        color:aliceblue;
        margin: 0;
        float: right;
+   }
+   .el-footer{
+
+        margin-bottom:40px;
+
+
    }
    /* ***************************************foot end */
 </style>

@@ -5,7 +5,7 @@
       <!-- main -->
   <el-main  class="el-main-3">  
         <div class="header-2">
-            <p class="p-2"> <i class="el-icon-menu"></i>监测状态
+            <p class="p-2"> <img src="../assets/see.png" /> <span class="wow">监测状态</span>
             </p>
         </div>
         <hr/>
@@ -101,11 +101,15 @@
                /* *********************************************header结束*****************/       
             /* **********************************************************mian开始**************** */
      /* 白色条框 */
+      .wow{position: relative;
+    bottom:15px;
+
+    }
     .header-2{
         margin: 0;
-        height:45px;
+        height:60px;
         width:100%;
-        color:#B3EE3A;
+        color:black;
         font-weight: 500;
         overflow: hidden;
     }     

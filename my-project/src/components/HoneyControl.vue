@@ -4,7 +4,7 @@
     <!-- main -->
     <el-main class="el-main-2" >
       <div class="header-2">
-        <p class="p-2"> <i class="el-icon-setting"></i>平台管理
+        <p class="p-2"> <img src="../assets/platform.png"><span class="wow">平台管理</span>
         </p>
       </div>
       <hr style="margin-bottom:0;"/>
@@ -464,6 +464,9 @@
 <style >
   /* *********************************************mian start*****************/
   /* 绿色字体 */
+  .wow{position: relative;
+        bottom:10px;}
+
   .p-2{
     position: relative;
     top: 10px;
@@ -475,9 +478,9 @@
   /* 白色条框 */
   .header-2{
     margin: 0;
-    height:45px;
+    height:60px;
     width:100%;
-    color:#B3EE3A;
+    color:black;
     font-weight: 500;
     overflow: hidden;
   }

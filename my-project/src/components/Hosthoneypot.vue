@@ -4,7 +4,7 @@
       <!-- main -->
   <el-main  class="el-main-1"> 
       <div class="header-2">
-              <p class="p-2"> <i class="el-icon-menu"></i>主机蜜罐
+              <p class="p-2"> <img src="../assets/important.png"><span class="wow">主机蜜罐</span>
               </p>
           </div>
           <hr style="margin-bottom:0;"/>
@@ -131,11 +131,14 @@
 <style  >
        /* *********************************************mian start*****************/
      /* 白色条框 */
+      .wow{position: relative;
+        bottom:10px;}
+
     .header-2{
         margin: 0;
-        height:45px;
+        height:60px;
         width:100%;
-        color:#B3EE3A;
+        color:black;
         font-weight: 500;
         overflow: hidden;
     }     

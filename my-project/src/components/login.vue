@@ -42,7 +42,9 @@
 .login{
     float:right;
     margin-top: 400px;
-    margin-right: 50px;
+     position: relative;
+    right:100px;
+    /*margin-left: 1250px;*/
 
 }
 .name{
