@@ -7,29 +7,29 @@
             class="demo-form-inline" 
             :label-position="right" >
                 <el-form-item label="操作类型:">
-                    <el-select v-model="formInline.operations" >
+                    <el-select v-model="formInline.operations" style="padding-left:30px;width:187px" >
                     <el-option label="结束当前进程" value="111"></el-option>
                     <el-option label="创建进程" value="222"></el-option>
                     </el-select>
                 </el-form-item>
                     <el-form-item label="当前进程名:">
-                        <el-input v-model="formInline.progress" ></el-input>
+                        <el-input v-model="formInline.progress" style="padding-left:15px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="当前进程ID:">
-                        <el-input v-model="formInline.progressID" ></el-input>
+                        <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px"></el-input>
                     </el-form-item>
-                    <el-form-item label="被操作进程名：">
-                        <el-input v-model="formInline.progressname" ></el-input>
+                    <el-form-item label="被操作进程名:">
+                        <el-input v-model="formInline.progressname" style="padding-left:2px;width:187px"></el-input>
                     </el-form-item>
-                    <el-form-item label="被操作进程ID">
-                        <el-input v-model="formInline.XprogressID" ></el-input>
+                    <el-form-item label="被操作进程ID:">
+                        <el-input v-model="formInline.XprogressID" style="padding-left:1px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="操作时间:">
-                        <el-input v-model="formInline.date" ></el-input>
+                        <el-input v-model="formInline.date" style="padding-left:30px;width:187px"></el-input>
                     </el-form-item>
-                   <el-form-item>
+                   <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询</el-button>
-                </el-form-item> 
+                </el-form-item>
             </el-form>
         </el-header>
         <el-main class="m-table">

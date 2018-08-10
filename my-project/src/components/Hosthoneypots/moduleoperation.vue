@@ -7,19 +7,19 @@
             class="demo-form-inline" 
             :label-position="right" >
                     <el-form-item label="操作类型:">
-                        <el-input v-model="formInline.operation" ></el-input>
+                        <el-input v-model="formInline.operation" style="padding-left:1px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="进程名:">
-                        <el-input v-model="formInline.progress" ></el-input>
+                        <el-input v-model="formInline.progress" style="padding-left:15px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="进程ID:">
-                        <el-input v-model="formInline.progressID" ></el-input>
-                    </el-form-item>
-                    <el-form-item label="模块名">
-                        <el-input v-model="formInline.modulname" ></el-input>
+                        <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px" ></el-input>
+                    </el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <el-form-item label="模块名:">
+                        <el-input v-model="formInline.modulname" style="padding-left:15px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="操作时间:">
-                        <el-input v-model="formInline.date" ></el-input>
+                        <el-input v-model="formInline.date" style="padding-left:1px;width:187px"></el-input>
                     </el-form-item>
                    <el-form-item>
                     <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询</el-button>
