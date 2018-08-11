@@ -53,12 +53,12 @@
        @select="handleSelect"
         router
        >
-    <el-menu-item  index="systemindex"><p class="menu-1"><i class="el-icon-delete"></i>系统主页</p></el-menu-item>
-    <el-menu-item index="Checkstatus1" ><p class="menu-1"><i class="el-icon-delete"></i>监测状态</p></el-menu-item>
-    <el-menu-item index="honeybuild" ><p class="menu-1"><i class="el-icon-delete"></i>蜜网构建</p></el-menu-item>
-    <el-menu-item index="applyhoney"><p class="menu-1"><i class="el-icon-delete"></i>应用蜜罐</p></el-menu-item>
-    <el-menu-item index="Hosthoneypot"><p class="menu-1"><i class="el-icon-delete"></i>主机蜜罐</p></el-menu-item>
-    <el-menu-item index="honeycontrol"><p class="menu-1"><i class="el-icon-delete"></i>平台管理</p></el-menu-item>
+    <el-menu-item  index="systemindex"><p class="menu-1"><img src="../assets/bottom1.png" />系统主页</p></el-menu-item>
+    <el-menu-item index="Checkstatus1" ><p class="menu-1"><img src="../assets/bottom2.png" />监测状态</p></el-menu-item>
+    <el-menu-item index="honeybuild" ><p class="menu-1"><img src="../assets/bottom3.png" />蜜网构建</p></el-menu-item>
+    <el-menu-item index="applyhoney"><p class="menu-1"><img src="../assets/bottom4.png" />应用蜜罐</p></el-menu-item>
+    <el-menu-item index="Hosthoneypot"><p class="menu-1"><img src="../assets/bottom5.png" />主机蜜罐</p></el-menu-item>
+    <el-menu-item index="honeycontrol"><p class="menu-1"><img src="../assets/bottom6.png" />平台管理</p></el-menu-item>
     </el-menu>
     <div class="footer-1">
 
