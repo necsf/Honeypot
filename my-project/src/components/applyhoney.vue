@@ -8,6 +8,7 @@
               </p>
           </div>
           <hr style="margin-bottom:0;"/>
+
       <div class="main-1">
             <el-tabs 
                 class="tabs-1"
@@ -15,10 +16,27 @@
                 type="card" 
                 @tab-click="handleClick">
                 <!-- 节点配置 -->
+
                 <el-tab-pane label="应用蜜罐信息">
+
                     <div class="tab-1">
-                        
+                        <div class="tab-1-1">
+                          <el-form :inline="true"
+                                   :model="temdata"
+                                   size="small"
+                                   class="demo-form-inline"
+                                   :label-position="right"
+                          >
+                            <el-form-item label="IP地址:">
+                              <el-input v-model="temdata.IP" style="width:187px"></el-input>
+                            </el-form-item>
+                            <el-form-item>
+                              <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询主机</el-button>
+                            </el-form-item>
+                          </el-form>
+                        </div>
                         <div class="tab-1-2">
+
                             <el-table
                                 :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                 class="table1"
@@ -29,7 +47,7 @@
                                 style="width: 100%">
                                     <el-table-column
                                         prop="number"
-                                        label="序号"
+                                        label="编号"
                                         width="100">
                                     </el-table-column>
                                     <el-table-column
@@ -61,19 +79,39 @@
                                         prop="operater"
                                         label="操作"
                                         width="220">
+                                      <template slot-scope="scope">
+                                        <el-button
+                                          type="text"
+                                          size="mini"
+                                          @click="dialog = true">查看详情 蜜罐管理</el-button>
+                                        <el-dialog title="查看更多" :visible.sync="dialog">
+                                          <el-table
+                                            :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
+                                            class="table1"
+                                            id="table11"
+                                            :data="temdata"
+                                            style="width: 100%"><!--表的名字-->
+                                            <!-- 选择框   -->
+
+                                          </el-table>
+                                          <div slot="footer" class="dialog-footer">
+                                            <el-button @click="dialog = false">取 消</el-button>
+                                            <el-button type="danger" @click="dialog = false">确 定</el-button>
+                                          </div>
+                                        </el-dialog>
+                                      </template>
                                     </el-table-column>
                                 </el-table>
                                 <template slot-scope="scope">
                                     <el-button
                                     type="text"
                                     size="mini"
+                                    style="background-color: #E95513"
                                     @click="handleEdit(scope.$index, scope.row)">查看详情</el-button>
                                 </template>
-        
-                            
-                        </div>
+                           </div>
                         </div><!--table-1-2-->
-                        <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+                  <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
             <div style="float:right;margin-top:10px;">
                 <!-- <p class="p-page">显示第1到第{{1}}条记录  每页显示</p> -->
                 <!-- *********************************分页按钮 -->
@@ -118,6 +156,7 @@
         position: relative;
         top: 10px;
         font-size: 18pt;
+      font-weight: bold;
         left: 20px;
         font-family: '微软雅黑';
         margin: 0;
@@ -129,11 +168,13 @@
         width:100%;
         color:black;
         font-weight: 500;
-    }                      
+    }
     /* .el-main-2{
         padding: 2px;
     } */
-    
+       .el-table .success-row {
+         background: #ffffff;
+       }
     .el-main-2{
         padding: 2px;
     }

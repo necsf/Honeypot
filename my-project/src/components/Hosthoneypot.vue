@@ -19,7 +19,7 @@
                 label="主机蜜罐管理">
                     <div class="tab-1">
                         <div class="tab-1-1">
-                            <el-button style="background:#E95513;color:#ffffff;" >删除</el-button>
+                            <el-button style="background:#E95513;color:#ffffff;" >  删除  </el-button>
                             &nbsp;&nbsp;
                             <el-button style="background:#E95513;color:#ffffff;" >编辑</el-button>
                         </div><!--table-1-1-->

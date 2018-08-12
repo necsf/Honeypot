@@ -1,11 +1,13 @@
 <template>
     <el-container style="height:100%;" direction="vertrcal">
+
         <el-header class="h-input" height=150px; >
-            <el-form :inline="true" 
+            <el-form :inline="true"
             :model="formInline" 
             size="small"
             class="demo-form-inline" 
             :label-position="right" >
+              <div class="h">
                 <el-form-item label="操作类型:">
                     <el-select v-model="formInline.operations" style="padding-left:30px;width:187px" >
                     <el-option label="结束当前进程" value="111"></el-option>
@@ -30,8 +32,11 @@
                    <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询</el-button>
                 </el-form-item>
+              </div>
             </el-form>
+
         </el-header>
+
         <el-main class="m-table">
             <el-table
                 :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
