@@ -291,7 +291,7 @@
     .p-2{
         position: relative;
         top: 10px;
-      
+   
         font-size: 18pt;
         left: 20px;
         font-family: '微软雅黑';

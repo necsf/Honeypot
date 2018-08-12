@@ -1,11 +1,16 @@
-<template  background="../assets/logo.png"
-style=" background-repeat:no-repeat ;
-background-size:100% 100%; 
-background-attachment:fixed;">
-
-   
+<template >
+<div class="background">
+<img src="../assets/logo.png"/>
+</div>
 </template>
 <style>
+.background{
+    
+    margin-left: 20px;
+
+
+}
+
 
 
 

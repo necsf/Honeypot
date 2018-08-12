@@ -10,7 +10,7 @@
                   <span class="el-dropdown-link" >
                       <span class="smallpeople">
                         <img src="../assets/smallpeople.png"/></span>
-                        系统管理员[SysAdmin]&nbsp;{{administrator}}&nbsp;
+                        <span style="color:grey ;font-size:14pt">系统管理员[SysAdmin]</span>&nbsp;{{administrator}}&nbsp;
                   </span>
                    <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>修改密码</el-dropdown-item>
@@ -44,7 +44,7 @@
         <router-view></router-view>
     </el-main>
   <el-footer class="nmd">
-      <hr style="marign:0px;"/>
+      <hr class="image"/>
     <el-menu
     :default-active="$route.name"
     background-color=""
@@ -52,13 +52,14 @@
      active-text-color="#76EE00"
        @select="handleSelect"
         router
+        class="font"
        >
-    <el-menu-item  index="systemindex"><p class="menu-1"><img src="../assets/bottom1.png" />系统主页</p></el-menu-item>
-    <el-menu-item index="Checkstatus1" ><p class="menu-1"><img src="../assets/bottom2.png" />监测状态</p></el-menu-item>
-    <el-menu-item index="honeybuild" ><p class="menu-1"><img src="../assets/bottom3.png" />蜜网构建</p></el-menu-item>
-    <el-menu-item index="applyhoney"><p class="menu-1"><img src="../assets/bottom4.png" />应用蜜罐</p></el-menu-item>
-    <el-menu-item index="Hosthoneypot"><p class="menu-1"><img src="../assets/bottom5.png" />主机蜜罐</p></el-menu-item>
-    <el-menu-item index="honeycontrol"><p class="menu-1"><img src="../assets/bottom6.png" />平台管理</p></el-menu-item>
+    <el-menu-item  index="systemindex"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom1.png" />系统主页</p></el-menu-item>
+    <el-menu-item index="Checkstatus1" ><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom2.png" />监测状态</p></el-menu-item>
+    <el-menu-item index="honeybuild" ><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom3.png" />蜜网构建</p></el-menu-item>
+    <el-menu-item index="applyhoney"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom4.png" />应用蜜罐</p></el-menu-item>
+    <el-menu-item index="Hosthoneypot"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom5.png" />主机蜜罐</p></el-menu-item>
+    <el-menu-item index="honeycontrol"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom6.png" />平台管理</p></el-menu-item>
     </el-menu>
     <div class="footer-1">
 
@@ -73,6 +74,13 @@
         /* ***********************head开始*********************** */
         /* 黑色条框 */
         html { overflow-y:hidden; overflow-x:hidden;}
+        hr{
+            
+    margin-top: 0px;
+
+
+        }
+       
         .smallpeople{
             position: relative;
             top:6px;
@@ -80,6 +88,7 @@
         .el-dropdown-link{
              position: relative;
              bottom:20px;
+          
         }
         span.lefttop{
             text-align: left;
@@ -99,7 +108,7 @@
         text-align: right;
         background-color:rgb(21,21,21);
         color: rgb(252, 249, 249);
-        height: 80px;
+        height: 65px;
         font-family: "微软雅黑";
         width: 100%;
     }
@@ -117,6 +126,7 @@
 /* ****************************************foot */
  .menu-1{
         font-size: 15pt;
+        font-weight: normal;
         margin: 0;
     }
     .footer-1{

@@ -465,9 +465,10 @@
   /* *********************************************mian start*****************/
   /* 绿色字体 */
   .wow{position: relative;
-        bottom:10px;}
+        bottom:15px;}
 
   .p-2{
+ 
     position: relative;
     top: 10px;
     font-size: 18pt;
