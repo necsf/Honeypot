@@ -125,6 +125,7 @@
 /* ****************************************foot */
  .menu-1{
         font-size: 15pt;
+        font-weight: normal;
         margin: 0;
     }
     .footer-1{
