@@ -145,7 +145,7 @@
     }
     /* 绿色字体 */
     .p-2{
-        font-weight:bold;
+     
         position: relative;
         top: 10px;
         font-size: 18pt;

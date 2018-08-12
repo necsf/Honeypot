@@ -88,6 +88,7 @@
         .el-dropdown-link{
              position: relative;
              bottom:20px;
+          
         }
         span.lefttop{
             text-align: left;
@@ -107,7 +108,7 @@
         text-align: right;
         background-color:rgb(21,21,21);
         color: rgb(252, 249, 249);
-        height: 80px;
+        height: 65px;
         font-family: "微软雅黑";
         width: 100%;
     }
