@@ -21,11 +21,12 @@
 
                     <div class="tab-1">
                         <div class="tab-1-1">
-                          <el-form :inline="true"
+                        <el-form :inline="true"
                                    :model="temdata"
-                                   size="small"
+                                   
                                    class="demo-form-inline"
                                    :label-position="right"
+                                   style="width: 100%"
                           >
                             <el-form-item label="IP地址:">
                               <el-input v-model="temdata.IP" style="width:187px"></el-input>
@@ -36,9 +37,8 @@
                           </el-form>
                         </div>
                         <div class="tab-1-2">
-
-                            <el-table
-                                :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
+                        <el-table
+                            :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
@@ -47,8 +47,8 @@
                                 style="width: 100%">
                                     <el-table-column
                                         prop="number"
-                                        label="编号"
-                                        width="100">
+                                        label="序号"
+                                        width="150">
                                     </el-table-column>
                                     <el-table-column
                                         prop="IP"
@@ -58,27 +58,29 @@
                                     <el-table-column
                                         prop="type"
                                         label="主机类型"
-                                        width="220">
+                                        width="250">
                                     </el-table-column>
                                     <el-table-column
                                         prop="pan"
                                         label="硬盘"
-                                        width="200">
+                                        width="220">
                                     </el-table-column>
                                     <el-table-column
                                         prop="CPU"
                                         label="CPU"
-                                        width="220">
+                                        width="250">
                                     </el-table-column>
                                     <el-table-column
                                         prop="load"
                                         label="内存"
-                                        width="220">
+                                        width="250">
                                     </el-table-column>
                                     <el-table-column
                                         prop="operater"
                                         label="操作"
-                                        width="220">
+                                        width="250">
+                                    </el-table-column>
+                                </el-table>
                                       <template slot-scope="scope">
                                         <el-button
                                           type="text"
@@ -99,9 +101,10 @@
                                             <el-button type="danger" @click="dialog = false">确 定</el-button>
                                           </div>
                                         </el-dialog>
+                                       
+                                
                                       </template>
-                                    </el-table-column>
-                                </el-table>
+                                
                                 <template slot-scope="scope">
                                     <el-button
                                     type="text"
@@ -170,12 +173,12 @@
         color:black;
         font-weight: 500;
     }
-    /* .el-main-2{
+    .el-main-2{
         padding: 2px;
-    } */
-       .el-table .success-row {
+    } 
+      /* .el-table .success-row {
          background: #ffffff;
-       }
+       }*/
     .el-main-2{
         padding: 2px;
     }

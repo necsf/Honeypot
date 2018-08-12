@@ -1,17 +1,81 @@
 <template >
-<div class="background">
-<img src="../assets/logo.png"/>
-</div>
+<el-container style="height:100%;" direction="vertrcal">
+<el-main>
+
+      <img class="logo"  src="../assets/elex.png"/>
+        <div class="login">
+            <div>
+            <img  class="name" src="../assets/name.png"/>   
+            <el-input class="kuang1" size="large" v-model="input" style="width:270px" ></el-input>
+             </div>
+          
+            <div>
+        
+            <img  class="password" src="../assets/password.png"/>  
+            <el-input class="kuang2" v-model="input" style="width:270px" ></el-input>
+            </div>
+            <br/>
+        <div class="sb">&nbsp;&nbsp;&nbsp;&nbsp;
+            <el-button type="danger" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
+           
+            <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
+         </div>        
+
+        </div>
+</el-main>
+</el-container>  
 </template>
-<style>
-.background{
-    
-    margin-left: 20px;
+<style scoped>
+.el-main{
+    background-color: rgb(26,26,26);
+   padding: 0px;
+   margin-left: 20px;
+   margin-right: 20px;
+}
+.logo{
+    margin-top: 50px;
+}
+.login{
+    float:right;
+    margin-top: 400px;
+     position: relative;
+    right:100px;
+    /*margin-left: 1250px;*/
+
+}
+.name{
+   position: relative;
+   top:20px;
+  
 
 
+}
+.password{
+    position: relative;
+    top:24px;
+  
+
+}
+.kuang2{
+    position: relative;
+    right:6px;
+}
+.sb{
+    position: relative;
+    left:20px;
 }
 
 
 
 
 </style>
+<script>
+export default {
+    data() {
+    return {
+      input: ''
+    }
+  }
+
+}
+</script>

@@ -43,32 +43,32 @@
                   <el-table-column
                     prop="number"
                     label="编号"
-                    width="100">
+                    width="250">
                   </el-table-column>
                   <el-table-column
                     prop="user"
                     label="用户"
-                    width="350">
+                    width="250">
                   </el-table-column>
                   <el-table-column
                     prop="name"
                     label="真实姓名"
-                    width="220">
+                    width="250">
                   </el-table-column>
                   <el-table-column
                     prop="role"
                     label="角色"
-                    width="200">
+                    width="300">
                   </el-table-column>
                   <el-table-column
                     prop="department"
                     label="部门"
-                    width="220">
+                    width="320">
                   </el-table-column>
                   <el-table-column
                     prop="operater"
                     label="解锁/重置密码"
-                    width="220">
+                    width="300">
                   </el-table-column>
                 </el-table>
                 <el-dialog title="添加用户" :visible.sync="dialogFormVisible"  >
