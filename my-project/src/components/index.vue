@@ -64,7 +64,7 @@
     <div class="footer-1">
 
         <p class="footer-p"> <i class="el-icon-info"></i>&nbsp;&nbsp;&nbsp;监测状态：</p>
-        <p class="footer-p2">登录时间:&nbsp;&nbsp;{{times}}</p>
+        <p class="footer-p2">登录时间:&nbsp;&nbsp;{{date|formatDate}}</p>
     </div>
   </el-footer>
 </el-container>
@@ -164,13 +164,28 @@
    /* ***************************************foot end */
 </style>
 <script>
+import {formatDate} from './common/date.js';
 export default {
     data(){
         return{
-            times:'2018-1-2'
+            date:{}
         }
 
     },
+  mounted: function () {
+    var _this = this;
+    setInterval(function(){
+      _this.date = new Date();  //修改数据date
+    },1000)
+
+  },
+
+  filters:{
+    formatDate(time) {
+      var data = new Date(time);
+      return formatDate(time, 'yyyy-MM-dd hh:mm');
+    }
+  }
 
 }
 </script>
