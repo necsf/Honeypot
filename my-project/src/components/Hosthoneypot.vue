@@ -132,8 +132,10 @@
 <style  >
        /* *********************************************mian start*****************/
      /* 白色条框 */
-      .wow{position: relative;
-        bottom:15px;}
+      .wow{
+        position: relative;
+        bottom:15px;
+      }
 
     .header-2{
         margin: 0;
@@ -145,7 +147,7 @@
     }
     /* 绿色字体 */
     .p-2{
-     
+
         position: relative;
         top: 10px;
         font-size: 18pt;
@@ -153,9 +155,7 @@
         font-family: '微软雅黑';
         margin: 0;
     }
-    .el-main-1{
-        padding: 2px !important;
-    }
+
         /* ************************************tabs的颜色 */
     .el-tabs__item.is-active{
         color: #E95513 !important;
@@ -168,10 +168,14 @@
         margin-top:15px;
         margin-bottom: 10px;
     }
+       .el-main-1{
+         padding: 2px !important;
+
+       }
     .table-p1{
          font-family: 'Microsoft YaHei';
         font-size: 12pt;
-        color:#BFBFBF;
+
     }
     /* *********table 的行边框 */
     /* .table1 td{
@@ -179,6 +183,10 @@
         height: 30px;
     } */
     /* ******原始日志查询-左侧菜单栏 start*/
+       .origindairy{
+
+         border-bottom-color:#E95513 !important;
+       }
     .tab-aside{
         height: 100%;
         overflow: hidden;

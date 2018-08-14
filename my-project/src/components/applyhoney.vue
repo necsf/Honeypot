@@ -8,7 +8,6 @@
               </p>
           </div>
           <hr style="margin-bottom:0;"/>
-
       <div class="main-1">
             <el-tabs 
                 class="tabs-1"
@@ -21,20 +20,10 @@
 
                     <div class="tab-1">
                         <div class="tab-1-1">
-                        <el-form :inline="true"
-                                   :model="temdata"
-                                   
-                                   class="demo-form-inline"
-                                   :label-position="right"
-                                   style="width: 100%"
-                          >
-                            <el-form-item label="IP地址:">
-                              <el-input v-model="temdata.IP" style="width:187px"></el-input>
-                            </el-form-item>
-                            <el-form-item>
-                              <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询主机</el-button>
-                            </el-form-item>
-                          </el-form>
+                                <p class="IP" style="position: relative;top:0px">IP地址:
+                                    <el-input v-model="temdata.IP" style="width:187px"></el-input>
+                                    <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询主机</el-button>
+                                </p>
                         </div>
                         <div class="tab-1-2">
                         <el-table
@@ -53,7 +42,7 @@
                                     <el-table-column
                                         prop="IP"
                                         label="IP地址"
-                                        width="350">
+                                        width="250">
                                     </el-table-column>
                                     <el-table-column
                                         prop="type"
@@ -73,14 +62,12 @@
                                     <el-table-column
                                         prop="load"
                                         label="内存"
-                                        width="250">
+                                        width="200">
                                     </el-table-column>
                                     <el-table-column
                                         prop="operater"
                                         label="操作"
-                                        width="250">
-                                    </el-table-column>
-                                </el-table>
+                                       >
                                       <template slot-scope="scope">
                                         <el-button
                                           type="text"
@@ -101,17 +88,13 @@
                                             <el-button type="danger" @click="dialog = false">确 定</el-button>
                                           </div>
                                         </el-dialog>
-                                       
-                                
+
+
                                       </template>
-                                
-                                <template slot-scope="scope">
-                                    <el-button
-                                    type="text"
-                                    size="mini"
-                                    style="background-color: #E95513"
-                                    @click="handleEdit(scope.$index, scope.row)">查看详情</el-button>
-                                </template>
+                                    </el-table-column>
+                                </el-table>
+
+
                            </div>
                         </div><!--table-1-2-->
                   <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
@@ -147,7 +130,7 @@
     /* 绿色字体 */
     .wow{
         position: relative;
-    bottom:10px;
+    bottom:15px;
 
     }
     .p-page{
@@ -156,11 +139,10 @@
     float:left;
     font-size: 12pt;}
     .p-2{
-        
         position: relative;
         top: 10px;
         font-size: 18pt;
-      font-weight: bold;
+        font-weight: bold;
         left: 20px;
         font-family: '微软雅黑';
         margin: 0;
@@ -172,15 +154,17 @@
         width:100%;
         color:black;
         font-weight: 500;
+        overflow: hidden;
     }
-    .el-main-2{
-        padding: 2px;
+
+    .main-1{
+        padding: 2px !important;
     } 
       /* .el-table .success-row {
          background: #ffffff;
        }*/
     .el-main-2{
-        padding: 2px;
+        padding: 2px !important;
     }
         /* ************************************tabs的颜色 */
     .el-tabs__item.is-active{
@@ -200,11 +184,13 @@
     .el-button--text:hover{
         color: #E95513;
     }
+
     .tab-1-1{
         margin-left: 30px;
         margin-top:15px;
         margin-bottom: 10px; 
     }
+
     .tab-2-1{
        margin-left: 30px;
        margin-top:15px;
@@ -220,6 +206,7 @@
     /* .table1 td{
         padding: 0;
         height: 30px;
+
     } */
     /* ******原始日志查询-左侧菜单栏 start*/
     .tab-aside{
@@ -227,15 +214,24 @@
         overflow: hidden;
         
     }
-
- 
+       .p-page{
+         padding-top: 15px;
+         color:#666666;
+         float:left;
+         font-size: 12pt;
+       }
+       .el-main-2{
+         padding: 2px !important;
+       }
     /* 翻页背景色 */
     .el-pagination .el-pager .active{
         background-color: #E95513 !important;
     }
     .el-pagination.is-background .el-pager li:not(.disabled):hover{
         color:#E95513 !important;
+
     }
+
     /* .tab-main{
         background-color: #F56C6C;
     } */

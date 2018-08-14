@@ -160,7 +160,7 @@
                   <el-tab-pane label="＞  部门管理" >
                     <el-main style="width: 100%" >
                     <div  id="main1">
-                      <el-row>
+                      <el-row class="input1" style="position: relative;bottom: 10px">
                         <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
                         <el-button  class="button1" >查询</el-button>
                         <el-button  class="button1" @click="dialogFormVisible2_0 = true">添加</el-button>
@@ -298,7 +298,7 @@
           <el-tab-pane label="系统日志">
             <div class="tab-1">
               <div class="tab-1-1">
-                <el-row>
+                <el-row class="input2" style="position: relative;bottom: 10px">
                   <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
                   <el-button  class="button1" >查询</el-button>
                   <el-button  class="button1"  @click="open3">删除</el-button>
@@ -374,7 +374,7 @@
           <el-tab-pane label="审计日志">
             <div class="tab-1">
               <div class="tab-1-1">
-                <el-row>
+                <el-row class="input2" style="position: relative;bottom: 10px">
                   <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
                   <el-button  class="button1" >查询</el-button>
                   <el-button  class="button1"  @click="open4">删除</el-button>

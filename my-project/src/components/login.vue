@@ -8,13 +8,13 @@
         <div class="login">
             <div>
             <img  class="name" src="../assets/name.png"/>   
-            <el-input class="kuang1" size="large" v-model="input" style="width:270px" ></el-input>
+            <el-input class="kuang1" size="large" v-model="input1" style="width:270px" ></el-input>
              </div>
           
             <div>
         
             <img  class="password" src="../assets/password.png"/>  
-            <el-input class="kuang2" v-model="input" style="width:270px" ></el-input>
+            <el-input class="kuang2" size="large" v-model="input2" style="width:270px" ></el-input>
             </div>
             <br/>
         <div class="sb">
@@ -28,7 +28,7 @@
 </el-container>  
 
 </template>
-
+dw
 
 <style  scoped>
 
@@ -75,7 +75,8 @@
 export default {
     data() {
     return {
-      input: ''
+      input1: '',
+      input2: ''
     }
   }
 
