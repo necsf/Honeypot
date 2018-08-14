@@ -19,21 +19,23 @@
             <div class="tab-1">
               <div class="tab-1-1">
                 <el-row>
-                  <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
+                  <el-input v-model="input" class="inputType1"  placeholder="请输入查询信息" style="width: 200px;margin-right:0px"></el-input>
                   <el-button   class="button1" >查询</el-button>
-                  <el-button   class="button1" @click="dialogFormVisible = true">添加</el-button>
+                  <el-button   class="button1" @click="dialogFormVisible = true" >添加</el-button>
                   <el-button   class="button1" @click="dialogFormVisible1 = true">修改</el-button>
                   <el-button   class="button1"  @click="open2">删除</el-button>
                 </el-row>
 
               </div><!--table-1-1-->
-              <div class="tab-1-2">
+              <div class="tab-1-2" style="margin-left: 30px;
+    margin-right: 30px;">
                 <el-table
                   :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                   class="table1"
                   row-style="30px"
                   cell-style="padding:0"
                   id="table11"
+                  border="true"
                   :data="temdata"
                   style="width: 100%">
                   <el-table-column
@@ -43,32 +45,32 @@
                   <el-table-column
                     prop="number"
                     label="编号"
-                    width="250">
+                    width="100">
                   </el-table-column>
                   <el-table-column
                     prop="user"
                     label="用户"
-                    width="250">
+                    width="350">
                   </el-table-column>
                   <el-table-column
                     prop="name"
                     label="真实姓名"
-                    width="250">
+                    width="220">
                   </el-table-column>
                   <el-table-column
                     prop="role"
                     label="角色"
-                    width="300">
+                    width="200">
                   </el-table-column>
                   <el-table-column
                     prop="department"
                     label="部门"
-                    width="320">
+                    width="220">
                   </el-table-column>
                   <el-table-column
                     prop="operater"
                     label="解锁/重置密码"
-                    width="300">
+                    width="490">
                   </el-table-column>
                 </el-table>
                 <el-dialog title="添加用户" :visible.sync="dialogFormVisible"  >
@@ -131,22 +133,32 @@
                 </el-dialog>
               </div><!--table-1-2-->
             </div><!--table-1-->
-            <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+            <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+              <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+              <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                <el-option label="10" value="10"></el-option>
+                <el-option label="20" value="20"></el-option>
 
-            <div style="float:right;margin-top:10px;">
+              </el-select>
+              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
+
+            <div style="float:right;margin-top:10px;margin-right: 30px;">
 
               <!-- *********************************分页按钮 -->
               <el-pagination
                 background="#E95513"
                 prev-text="上一页"
                 next-text="下一页"
+                jumper-text="转到"
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
                 :current-page="currentPage4"
                 :page-sizes="[10, 20]"
                 :page-size="100"
-                layout="slot,sizes ,prev, pager, next,jumper" :total="50">
+
+                layout="slot,prev, pager, next" :total="50">
                 <!-- <slot name="as">dddd</slot> -->
+
               </el-pagination>
             </div>
           </el-tab-pane>
@@ -157,107 +169,118 @@
               <div class="tab-2-1">
                 <el-tabs tab-position="left" style="height: 500px;width: 100%">
 
-                  <el-tab-pane label="＞  部门管理" >
+                  <el-tab-pane label="  ＞  部门管理" >
                     <el-main style="width: 100%" >
-                    <div  id="main1">
-                      <el-row class="input1" style="position: relative;bottom: 10px">
-                        <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
-                        <el-button  class="button1" >查询</el-button>
-                        <el-button  class="button1" @click="dialogFormVisible2_0 = true">添加</el-button>
-                        <el-button  class="button1" @click="dialogFormVisible2_1 = true">修改</el-button>
-                        <el-button  class="button1"  @click="open2_">删除</el-button>
-                      </el-row>
-                      <el-container style="height:100%;" direction="vertrcal">
-                        <!-- header -->
-                        <!-- main -->
-                        <el-main class="el-main-2" >
-                          <div>
-                            <el-table
-                              :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
-                              class="table1"
-                              row-style="30px"
-                              cell-style="padding:0"
-                              id="table12"
-                              :data="temdata2"
-                              style="width: 100%">
-                              <el-table-column
-                                type="selection"
-                                width="100">
-                              </el-table-column>
-                              <el-table-column
-                                prop="number"
-                                label="编号"
-                                width="300">
-                              </el-table-column>
+                      <div  id="main1">
+                        <el-row>
+                          <el-input v-model="input" class="inputType1" placeholder="请输入查询信息" style="width: 200px"></el-input>
+                          <el-button  class="button1" >查询</el-button>
+                          <el-button  class="button1" @click="dialogFormVisible2_0 = true">添加</el-button>
+                          <el-button  class="button1" @click="dialogFormVisible2_1 = true">修改</el-button>
+                          <el-button  class="button1"  @click="open2_">删除</el-button>
+                        </el-row>
+                        <el-container style="height:100%;" direction="vertrcal">
+                          <!-- header -->
+                          <!-- main -->
+                          <el-main class="el-main-2" >
+                            <div style="
+    ">
+                              <el-table
+                                :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
+                                class="table1"
+                                row-style="30px"
+                                cell-style="padding:0"
+                                id="table12"
+                                border="true"
+                                :data="temdata2"
+                                style="width: 100%">
+                                <el-table-column
+                                  type="selection"
+                                  width="55">
+                                </el-table-column>
+                                <el-table-column
+                                  prop="number"
+                                  label="编号"
+                                  width="200">
+                                </el-table-column>
 
-                              <el-table-column
-                                prop="department"
-                                label="部门"
-                                width="300">
-                              </el-table-column>
-                              <el-table-column
-                                prop="departmentman"
-                                label="部门负责人"
-                                width="800">
-                              </el-table-column>
-                            </el-table>
-                          </div>
-                          <el-dialog title="添加部门" :visible.sync="dialogFormVisible2_0"  >
-                            <el-form :model="form2">
-                              <el-form-item label="部门名称" :label-width="formLabelWidth">
-                                <el-input v-model="form2.departmentName" placeholder=""></el-input>
-                              </el-form-item>
-                              <el-form-item label="部门负责人" :label-width="formLabelWidth">
-                                <el-input v-model="form2.departmentman" placeholder=""></el-input>
-                              </el-form-item>
-                            </el-form>
-                            <div slot="footer" class="dialog-footer">
-                              <el-button @click="dialogFormVisible2_0 = false">取 消</el-button>
-                              <el-button type="primary" @click="dialogFormVisible2_0 = false">确 定</el-button>
+                                <el-table-column
+                                  prop="department"
+                                  label="部门"
+                                  width="360">
+                                </el-table-column>
+                                <el-table-column
+                                  prop="departmentman"
+                                  label="部门负责人"
+                                  width="768">
+                                </el-table-column>
+                              </el-table>
                             </div>
-                          </el-dialog>
+                            <el-dialog title="添加部门" :visible.sync="dialogFormVisible2_0"  >
+                              <el-form :model="form2">
+                                <el-form-item label="部门名称" :label-width="formLabelWidth">
+                                  <el-input v-model="form2.departmentName" placeholder=""></el-input>
+                                </el-form-item>
+                                <el-form-item label="部门负责人" :label-width="formLabelWidth">
+                                  <el-input v-model="form2.departmentman" placeholder=""></el-input>
+                                </el-form-item>
+                              </el-form>
+                              <div slot="footer" class="dialog-footer">
+                                <el-button @click="dialogFormVisible2_0 = false">取 消</el-button>
+                                <el-button type="primary" @click="dialogFormVisible2_0 = false">确 定</el-button>
+                              </div>
+                            </el-dialog>
 
 
-                          <el-dialog title="添加部门" :visible.sync="dialogFormVisible2_1"  >
-                            <el-form :model="form2_1">
+                            <el-dialog title="添加部门" :visible.sync="dialogFormVisible2_1"  >
+                              <el-form :model="form2_1">
 
-                              <el-form-item label="部门" :label-width="formLabelWidth">
-                                <el-select v-model="form2_1.department" placeholder="">
-                                  <el-option label="测试部" value="shanghai"></el-option>
-                                  <el-option label="安全处" value="beijing"></el-option>
-                                </el-select>
-                              </el-form-item>
-                              <el-form-item label="部门负责人" :label-width="formLabelWidth">
-                                <el-input v-model="form2_1.departmentman" placeholder=""></el-input>
-                              </el-form-item>
-                            </el-form>
-                            <div slot="footer" class="dialog-footer">
-                              <el-button @click="dialogFormVisible2_1 = false">取 消</el-button>
-                              <el-button type="primary" @click="dialogFormVisible12_1 = false">确 定</el-button>
-                            </div>
-                          </el-dialog>
-                        </el-main>
-                      </el-container>
-                    </div>
-                    <div class="p-page" style="margin-left: 10px">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+                                <el-form-item label="部门" :label-width="formLabelWidth">
+                                  <el-select v-model="form2_1.department" placeholder="">
+                                    <el-option label="测试部" value="shanghai"></el-option>
+                                    <el-option label="安全处" value="beijing"></el-option>
+                                  </el-select>
+                                </el-form-item>
+                                <el-form-item label="部门负责人" :label-width="formLabelWidth">
+                                  <el-input v-model="form2_1.departmentman" placeholder=""></el-input>
+                                </el-form-item>
+                              </el-form>
+                              <div slot="footer" class="dialog-footer">
+                                <el-button @click="dialogFormVisible2_1 = false">取 消</el-button>
+                                <el-button type="primary" @click="dialogFormVisible12_1 = false">确 定</el-button>
+                              </div>
+                            </el-dialog>
+                          </el-main>
+                        </el-container>
+                      </div>
+                      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+                        <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                        <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                          <el-option label="10" value="10"></el-option>
+                          <el-option label="20" value="20"></el-option>
 
-                    <div style="float:right;margin-top:10px;">
+                        </el-select>
+                        <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
 
-                      <!-- *********************************分页按钮 -->
-                      <el-pagination
-                        background="#E95513"
-                        prev-text="上一页"
-                        next-text="下一页"
-                        @size-change="handleSizeChange"
-                        @current-change="handleCurrentChange"
-                        :current-page="currentPage4"
-                        :page-sizes="[10, 20]"
-                        :page-size="100"
-                        layout="slot,sizes ,prev, pager, next,jumper" :total="50">
-                        <!-- <slot name="as">dddd</slot> -->
-                      </el-pagination>
-                    </div>
-                  </el-main>
+                      <div style="float:right;margin-top:10px;">
+
+                        <!-- *********************************分页按钮 -->
+                        <el-pagination
+                          background="#E95513"
+                          prev-text="上一页"
+                          next-text="下一页"
+                          jumper-text="转到"
+                          @size-change="handleSizeChange"
+                          @current-change="handleCurrentChange"
+                          :current-page="currentPage4"
+                          :page-sizes="[10, 20]"
+                          :page-size="100"
+
+                          layout="slot,prev, pager, next" :total="50">
+                          <!-- <slot name="as">dddd</slot> -->
+                        </el-pagination>
+                      </div>
+                    </el-main>
                   </el-tab-pane>
                   <el-tab-pane label="＞  安全配置"> <div id="main2">
 
@@ -298,8 +321,8 @@
           <el-tab-pane label="系统日志">
             <div class="tab-1">
               <div class="tab-1-1">
-                <el-row class="input2" style="position: relative;bottom: 10px">
-                  <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
+                <el-row>
+                  <el-input v-model="input" class="inputType1" placeholder="请输入查询信息" style="width: 200px"></el-input>
                   <el-button  class="button1" >查询</el-button>
                   <el-button  class="button1"  @click="open3">删除</el-button>
                 </el-row>
@@ -307,10 +330,12 @@
                   <!-- header -->
                   <!-- main -->
                   <el-main class="el-main-2" >
-                    <div>
+                    <div style="margin-left: 30px;
+    margin-right: 30px;">
                       <el-table
                         :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                         class="table1"
+                        border="true"
                         row-style="30px"
                         cell-style="padding:0"
                         id="table3"
@@ -328,7 +353,7 @@
                         <el-table-column
                           prop="time"
                           label="操作时间"
-                          width="450">
+                          width="350">
                         </el-table-column>
                         <el-table-column
                           prop="operator"
@@ -343,7 +368,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="600">
+                          width="650">
                         </el-table-column>
                       </el-table>
                     </div>
@@ -351,21 +376,30 @@
                 </el-container>
               </div><!--table-1-2-->
             </div><!--table-1-->
-            <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+            <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+              <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+              <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                <el-option label="10" value="10"></el-option>
+                <el-option label="20" value="20"></el-option>
 
-            <div style="float:right;margin-top:10px;">
+              </el-select>
+              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
+
+            <div style="float:right;margin-top:10px;margin-right: 30px;">
 
               <!-- *********************************分页按钮 -->
               <el-pagination
                 background="#E95513"
                 prev-text="上一页"
                 next-text="下一页"
+                jumper-text="转到"
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
                 :current-page="currentPage4"
                 :page-sizes="[10, 20]"
                 :page-size="100"
-                layout="slot,sizes ,prev, pager, next,jumper" :total="50">
+
+                layout="slot,prev, pager, next" :total="50">
                 <!-- <slot name="as">dddd</slot> -->
               </el-pagination>
             </div>
@@ -374,8 +408,8 @@
           <el-tab-pane label="审计日志">
             <div class="tab-1">
               <div class="tab-1-1">
-                <el-row class="input2" style="position: relative;bottom: 10px">
-                  <el-input v-model="input" placeholder="请输入查询信息" style="width: 200px"></el-input>
+                <el-row>
+                  <el-input v-model="input"   class="inputType1" placeholder="请输入查询信息" style="width: 200px"></el-input>
                   <el-button  class="button1" >查询</el-button>
                   <el-button  class="button1"  @click="open4">删除</el-button>
                 </el-row>
@@ -383,10 +417,12 @@
                   <!-- header -->
                   <!-- main -->
                   <el-main class="el-main-2" >
-                    <div>
+                    <div style="margin-left: 30px;
+    margin-right: 30px;">
                       <el-table
                         :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                         class="table1"
+                        border="true"
                         row-style="30px"
                         cell-style="padding:0"
                         id="table4"
@@ -404,7 +440,7 @@
                         <el-table-column
                           prop="time"
                           label="操作时间"
-                          width="450">
+                          width="350">
                         </el-table-column>
                         <el-table-column
                           prop="operator"
@@ -424,7 +460,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="500">
+                          width="522">
                         </el-table-column>
                       </el-table>
                     </div>
@@ -433,21 +469,30 @@
               </div>
             </div>
 
-            <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+            <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+              <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+              <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                <el-option label="10" value="10"></el-option>
+                <el-option label="20" value="20"></el-option>
 
-            <div style="float:right;margin-top:10px;">
+              </el-select>
+              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
+
+            <div style="float:right;margin-top:10px;margin-right: 30px;">
 
               <!-- *********************************分页按钮 -->
               <el-pagination
                 background="#E95513"
                 prev-text="上一页"
                 next-text="下一页"
+                jumper-text="转到"
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
                 :current-page="currentPage4"
                 :page-sizes="[10, 20]"
                 :page-size="100"
-                layout="slot,sizes ,prev, pager, next,jumper" :total="50">
+
+                layout="slot,prev, pager, next" :total="50">
                 <!-- <slot name="as">dddd</slot> -->
               </el-pagination>
             </div>
@@ -465,10 +510,10 @@
   /* *********************************************mian start*****************/
   /* 绿色字体 */
   .wow{position: relative;
-        bottom:15px;}
+    bottom:15px;}
 
   .p-2{
- 
+
     position: relative;
     top: 10px;
     font-size: 18pt;
@@ -506,7 +551,7 @@
   }
   /* ************************************tabs的颜色 */
   .el-tabs__item.is-active{
-    color: #E95513 !important;
+    color: #666666 !important;
   }
   .el-tabs__item:hover{
     color: #E95513 !important;
@@ -532,6 +577,13 @@
     margin-top:15px;
     margin-bottom: 10px;
   }
+  .button1{
+    width: 80px;
+    height: 30px;
+    font-size: 12.14px;
+    line-height:6px;
+    border-radius: 0px;
+  }
 
   .table-p1{
     font-family: 'Microsoft YaHei';
@@ -556,6 +608,7 @@
   .button1{
     background-color: #E95513 !important;
     color: #ffff !important;
+
   }
   .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
     background-color: #E95513 !important;
@@ -574,12 +627,189 @@
   .el-tabs__active-bar {
     background-color:#eee;
   }
+  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
+    border-bottom: 2px solid #E95513;
+  }
+  .el-tabs--left .el-tabs__item.is-left, .el-tabs--left .el-tabs__item.is-left.is-active{
+    text-align: left;
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    /*padding-left: 25px;*/
+    /*background:#D3D5E3 ;*/
+  }
+  .el-tabs--left .el-tabs__item.is-left{
+    /*padding-left: 25px;*/
+  }
+  /*.el-tabs__item .is-left{*/
+  /*padding-left: 25px;*/
+  /*}*/
+
+  /*侧面导航栏布局*/
+  .tab-2-1 {
+    margin-left: 0px;
+
+  }
+  /*导航栏背景颜色*/
+  .el-tabs__nav-wrap.is-left {
+    background: #F2F2F2;
+  }
+  .el-tabs__nav-wrap::after {
+    background: #F2F2F2;
+  }
+  .el-tabs--card>.el-tabs__header .el-tabs__nav {
+    background: #F2F2F2;
+  }
+  /*导航栏间隔*/
+  .el-tabs__header {
+    padding: 0;
+    position: relative;
+    margin: 0 0 10px;
+  }
+  .el-tabs__item:active {
+    color: #E95513 !important;
+    background: #fff;
+  }
+  .el-tabs__item:focus, .el-tabs__item:active {
+    color: #E95513 !important;
+    outline: 0;
+    background: #fff;
+  }
+  .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
+    background: #fff;
+  }
+  /*导航栏样式*/
+  .el-tabs__item.is-left.is-active{
+    color: #E95513 !important;
+  }
+  /*输入框样式*/
+  .inputType1 .el-input__inner{
+    height: 30px;
+    border-right: 0px;
+    border-radius: 0px;
+    margin-right: 0px;
+  }
+  .el-table th>.cell {
+    background: #e95513;
+    color: #fff;
+    /*border-right: 1px solid #fff;*/
+    font-weight: bold;
+    font-size: 12px;
+
+    vertical-align: center;
+    padding-left: 20px;
+    margin-bottom: 0px;
+    /* line-height: initial; */
+  }
+  .el-table th{
+    height: 29px;
+    border-right: 1px solid #fff;
+  }
+  .el-table__body, .el-table__footer, .el-table__header{
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .el-pagination .el-select .el-input .el-input__inner{
+    float:left;
+  }
+  /*分页*/
+  .el-pagination .el-select .el-input {
+    position: absolute;
+    left: -640px;
+    top:-15px;
+    font-size: 12px;
+    border-radius: 0px;
+  }
+  .button2{
+    background-color: #E95513 !important;
+    color: #ffff !important;
+    width: 60px;
+    height: 30px;
+    border-radius: 0px;
+    vertical-align: center;
+    padding: 2px;
+    font-size: 12px;
+    margin-left:10px ;
+  }
+  .el-pagination__jump{
+    position: relative;
+    left: -1140px;
+    top:9px;
+  }
+  .el-select-dropdown__item.selected {
+    color: #409EFF;
+    font-weight: 700;
+    background: #e95513;
+  }
+  el-pagination__sizes .el-input .el-input__inner:hover {
+    border-color: #fff;
+  }
+  .el-select-dropdown__item.selected {
+    color: #fff;
+    font-weight: 700;
+    background: #e95513;
+  }
+  .el-select .el-input .el-select__caret{
+
+    font-size: 12px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+  }
+  .el-input{
+    font-size: 12px;
+  }
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
+    background: #e95513;
+  }
+  .el-select.el-input. el-input--suffix{
+    height: 30px;
+  }
+  .el-select .el-input.is-focus .el-input__inner{
+    border-color:#c0c4cc;
+  }
+  .el-select.el-input.el-input__inner {
+    color: #606266;
+    height: 30px;
+    line-height: 30px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-select>.el-input--suffix{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-input__suffix{
+    height: 30px;
+  }
+  .el-input__inner{
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .el-icon-arrow-up{
+    line-height: 10px;
+    height: 30px;
+  }
+  .is-reverse{
+    line-height: 30px;
+    height: 30px;
+  }
+
+
+
+
 </style>
 <script>
   export default {
     name: "honey-admin",
     data() {
       return {
+        jumper:10,
+        pagesize:10,
         temdata: [{
           number: '1',
           user: 'test1',
