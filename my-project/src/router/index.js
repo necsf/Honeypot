@@ -21,6 +21,7 @@ import Hungthread  from '@/components/Hosthoneypots/Hungthread'
 import replythread  from '@/components/Hosthoneypots/replythread'
 import moduleoperation  from '@/components/Hosthoneypots/moduleoperation'
 import HoneyControl from '@/components/HoneyControl'
+import Operator from "@/components/Operator"
 
 Vue.use(vPage)
 Vue.use(Router)
@@ -129,7 +130,12 @@ export default new Router({
           path:'/honeycontrol',
           name:'honeycontrol',
           component: HoneyControl
-        }
+        },
+        {
+          path: '/Operator',
+          name: 'Operator',
+          component: Operator
+        },
 
       ]
     },

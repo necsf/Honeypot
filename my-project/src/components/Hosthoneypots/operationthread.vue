@@ -10,7 +10,7 @@
                         <el-input v-model="formInline.progress" style="padding-left:15px;width:187px"></el-input>
                     </el-form-item>
                     <el-form-item label="当前进程ID:">
-                        <el-input v-model="formInline.progressID"style="padding-left:15px;width:187px" ></el-input>
+                        <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px" ></el-input>
                     </el-form-item>
                     <el-form-item label="线程句柄:">
                         <el-input v-model="formInline.handle" style="padding-left:15px;width:187px"></el-input>

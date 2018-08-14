@@ -59,6 +59,7 @@
     <el-menu-item index="honeybuild" ><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom3.png" />蜜网构建</p></el-menu-item>
     <el-menu-item index="applyhoney"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom4.png" />应用蜜罐</p></el-menu-item>
     <el-menu-item index="Hosthoneypot"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom5.png" />主机蜜罐</p></el-menu-item>
+    <el-menu-item index="Operator"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom5.png" />样本操作</p></el-menu-item>
     <el-menu-item index="honeycontrol"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom6.png" />平台管理</p></el-menu-item>
     </el-menu>
     <div class="footer-1">

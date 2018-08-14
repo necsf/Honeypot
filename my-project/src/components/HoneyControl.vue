@@ -182,23 +182,23 @@
                               style="width: 100%">
                               <el-table-column
                                 type="selection"
-                                width="55">
+                                width="100">
                               </el-table-column>
                               <el-table-column
                                 prop="number"
                                 label="编号"
-                                width="100">
+                                width="300">
                               </el-table-column>
 
                               <el-table-column
                                 prop="department"
                                 label="部门"
-                                width="220">
+                                width="300">
                               </el-table-column>
                               <el-table-column
                                 prop="departmentman"
                                 label="部门负责人"
-                                width="600">
+                                width="800">
                               </el-table-column>
                             </el-table>
                           </div>
@@ -328,7 +328,7 @@
                         <el-table-column
                           prop="time"
                           label="操作时间"
-                          width="350">
+                          width="450">
                         </el-table-column>
                         <el-table-column
                           prop="operator"
@@ -404,7 +404,7 @@
                         <el-table-column
                           prop="time"
                           label="操作时间"
-                          width="350">
+                          width="450">
                         </el-table-column>
                         <el-table-column
                           prop="operator"
@@ -424,7 +424,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="450">
+                          width="500">
                         </el-table-column>
                       </el-table>
                     </div>
