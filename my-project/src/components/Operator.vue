@@ -215,6 +215,10 @@
 export default {
     data() {
       return {
+        
+        activeName2: 'first',
+      
+
         administrator:'wulala',
           times:'2018-5-21',
          tableData: [{

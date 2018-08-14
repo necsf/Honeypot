@@ -1,6 +1,6 @@
 <template >
 <el-container style="height:100%;" direction="vertrcal">
-<el-main>
+<el-main style="height:100%;">
 
       <img class="logo"  src="../assets/elex.png"/>
         <div class="login">
