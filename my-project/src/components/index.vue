@@ -46,10 +46,11 @@
   <el-footer class="nmd">
       <hr class="image"/>
     <el-menu
-    :default-active="$route.name"
-    background-color=""
+       :default-active="$route.name"
+       background-color=""
        mode="horizontal"
-     active-text-color="#76EE00"
+       active-text-color="#76EE00"
+
        @select="handleSelect"
         router
         class="font"
@@ -124,6 +125,9 @@
         top: 27px;
     }
     /* ***********************************head end */
+     .font{
+
+     }
 /* ****************************************foot */
  .menu-1{
         font-size: 15pt;

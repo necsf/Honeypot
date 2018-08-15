@@ -8,15 +8,17 @@
               </p>
           </div>
           <hr style="margin-bottom:0;"/>
-      <div class="main-1">
+      <div class="main-1" >
             <el-tabs 
                 class="tabs-1"
                 :tab-position="top" 
-                type="card" 
-                @tab-click="handleClick">
+                type="card"
+                @tab-click="handleClick"
+
+                 >
                 <!-- 节点配置 -->
 
-                <el-tab-pane label="应用蜜罐信息">
+                <el-tab-pane label="应用蜜罐信息"  >
 
                     <div class="tab-1">
                         <div class="tab-1-1">
