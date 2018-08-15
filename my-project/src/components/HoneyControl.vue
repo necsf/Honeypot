@@ -384,7 +384,6 @@
 
               </el-select>
               <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
-
             <div style="float:right;margin-top:10px;margin-right: 30px;">
 
               <!-- *********************************分页按钮 -->
@@ -517,9 +516,10 @@
     position: relative;
     top: 10px;
     font-size: 18pt;
+    font-weight: bold;
     left: 20px;
     font-family: '微软雅黑';
-    margin: 0;
+    margin-bottom: 20px;
   }
   /* 白色条框 */
   .header-2{
@@ -669,6 +669,10 @@
   .el-tabs__item:active {
     color: #E95513 !important;
     background: #fff;
+  }
+  .el-tabs__item:hover{
+    color: #E95513 !important;
+    border: 2px solid #5baeff !important;
   }
   .el-tabs__item:focus, .el-tabs__item:active {
     color: #E95513 !important;

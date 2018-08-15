@@ -61,7 +61,31 @@
                   </el-table-column>
                 </el-table>
               </div><!--table-1-2-->
-              <p class="table-p1">显示第1条到第{{page}}条记录，总共{{page}}记录</p>
+              <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+                <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                  <el-option label="10" value="10"></el-option>
+                  <el-option label="20" value="20"></el-option>
+                </el-select>
+                <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span>
+              </div>
+
+              <div style="float:right;margin-top:10px;margin-right: 30px;">
+                <!-- *********************************分页按钮 -->
+                <el-pagination
+                  background="#E95513"
+                  prev-text="上一页"
+                  next-text="下一页"
+                  jumper-text="转到"
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage4"
+                  :page-sizes="[10, 20]"
+                  :page-size="100"
+                  layout="slot,prev, pager, next" :total="50">
+                  <!-- <slot name="as">dddd</slot> -->
+                </el-pagination>
+              </div>
             </div><!--table-1-->
           </el-tab-pane>
           <el-tab-pane label="主机告警分析">
@@ -150,7 +174,7 @@
     height:60px;
     width:100%;
     color:black;
-    font-weight: 500;
+    font-weight: bold;
     overflow: hidden;
   }
   /* 绿色字体 */
@@ -170,9 +194,7 @@
   .el-tabs__item.is-active{
     color: #666666;
   }
-  .el-tabs__item:hover{
-    color: #E95513 !important;
-  }
+
   .tab-1-1{
     margin-left: 30px;
     margin-top:15px;
@@ -276,6 +298,7 @@
     margin-bottom: 0px;
     /* line-height: initial; */
   }
+
   .el-table th{
     height: 29px;
     border-right: 1px solid #fff;
@@ -409,7 +432,29 @@
   .nav-left{
     padding-left: 20px !important;
   }
-
+  .el-pagination .el-pager .active{
+    background-color: #E95513 !important;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled):hover{
+    color:#E95513 !important;
+  }
+  .p-page{
+    padding-top: 15px;
+    color:#666666;
+    float:left;
+    font-size: 12pt;
+  }
+  .el-pagination .el-select .el-input .el-input__inner{
+    float:left;
+  }
+  /*分页*/
+  .el-pagination .el-select .el-input {
+    position: absolute;
+    left: -640px;
+    top:-15px;
+    font-size: 12px;
+    border-radius: 0px;
+  }
 
 
 </style>

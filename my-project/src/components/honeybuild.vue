@@ -18,7 +18,7 @@
                 <el-tab-pane label="节点配置">
                     <div class="tab-1">
                         <div class="tab-1-1">
-                            <el-button  type="danger" @click="dialogFormVisible = true" style="background-color:#E95513">添加模板</el-button>
+                            <el-button  class="button4"  @click="dialogFormVisible = true" style="background-color:#E95513">添加模板</el-button>
                             <el-dialog title="添加模板" :visible.sync="dialogFormVisible">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
@@ -45,12 +45,12 @@
                                 </el-form-item>
                             </el-form>
                             <div slot="footer" class="dialog-footer">
-                                <el-button @click="dialogFormVisible = false">取 消</el-button>
-                                <el-button type="danger" @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
+                                <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
+                                <el-button class="button2"  @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button type="danger" @click="dialogText = true" style="background-color:#E95513">部署网络</el-button><!--找不到别的合法信号量了，只能用dialogText了-->
+                            <el-button class="button4" @click="dialogText = true" style="background-color:#E95513">部署网络</el-button><!--找不到别的合法信号量了，只能用dialogText了-->
                             <el-dialog title="部署网络" :visible.sync="dialogText">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
@@ -76,12 +76,12 @@
                                 </el-form-item>
                             </el-form>
                             <div slot="footer" class="dialog-footer">
-                                <el-button @click="dialogText = false">取 消</el-button>
-                                <el-button type="danger" @click="dialogText = false" style="background-color:#E95513">确 定</el-button>
+                                <el-button class="button3" @click="dialogText = false">取 消</el-button>
+                                <el-button  class="button2"  @click="dialogText = false" style="background-color:#E95513">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button type="danger" @click="open2" style="background-color:#E95513">删除</el-button>
+                            <el-button class="button4"  @click="open2" style="background-color:#E95513">删除</el-button>
                         </div><!--table-1-1-->
                         <div class="tab-1-2">
                             <el-table
@@ -116,6 +116,7 @@
                                     <el-button
                                     type="text"
                                     size="mini"
+                                    style="font-weight: bold"
                                     @click="dialog = true">查看详情</el-button>
                                   <el-dialog title="查看更多" :visible.sync="dialog">
                                     <el-table
@@ -161,8 +162,8 @@
                                       </el-table-column>
                                     </el-table>
                                     <div slot="footer" class="dialog-footer">
-                                      <el-button @click="dialog = false">取 消</el-button>
-                                      <el-button type="danger" @click="dialog = false">确 定</el-button>
+                                      <el-button class="button3" @click="dialog = false">取 消</el-button>
+                                      <el-button  class="button2" @click="dialog = false">确 定</el-button>
                                     </div>
                                   </el-dialog>
                                 </template>
@@ -171,21 +172,28 @@
                             </el-table>
                         </div><!--table-1-2-->
                     </div><!--table-1-->
-                  <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+                  <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+                    <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                    <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                      <el-option label="10" value="10"></el-option>
+                      <el-option label="20" value="20"></el-option>
+                    </el-select>
+                    <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span>
+                  </div>
 
-                  <div style="float:right;margin-top:10px;">
-
+                  <div style="float:right;margin-top:10px;margin-right: 30px;">
                     <!-- *********************************分页按钮 -->
                     <el-pagination
                       background="#E95513"
                       prev-text="上一页"
                       next-text="下一页"
+                      jumper-text="转到"
                       @size-change="handleSizeChange"
                       @current-change="handleCurrentChange"
                       :current-page="currentPage4"
                       :page-sizes="[10, 20]"
                       :page-size="100"
-                      layout="slot,sizes ,prev, pager, next,jumper" :total="50">
+                      layout="slot,prev, pager, next" :total="50">
                       <!-- <slot name="as">dddd</slot> -->
                     </el-pagination>
                   </div>
@@ -195,7 +203,7 @@
                 <el-tab-pane label="服务器配置">
                     <div class="tab-2">
                         <div class="tab-2-1">
-                                <el-button type="danger" @click="dialogFormVisible = true" style="background-color:#E95513">添加服务器</el-button>
+                                <el-button class="button4" @click="dialogFormVisible = true" style="background-color:#E95513">添加服务器</el-button>
                                 <el-dialog title="添加服务器" :visible.sync="dialogFormVisible">
                                 <el-form :model="form">
                                     <el-form-item label="服务器名称" :label-width="formLabelWidth">
@@ -206,12 +214,12 @@
                                     </el-form-item>
                                 </el-form>
                                 <div slot="footer" class="dialog-footer">
-                                    <el-button @click="dialogFormVisible = false">取 消</el-button>
-                                    <el-button type="danger" @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
+                                    <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
+                                    <el-button class="button2"  @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
                                 </div>
                                 </el-dialog>
                                 &nbsp;&nbsp;
-                                <el-button type="danger" @click="open2" style="background-color:#E95513">删除</el-button>
+                                <el-button class="button4"  @click="open2" style="background-color:#E95513">删除</el-button>
                                 &nbsp;&nbsp;
                         </div><!--table-2-1-->
 
@@ -246,27 +254,32 @@
                                 </el-table-column>
                             </el-table>
                         </div><!--table-2-2-->
-                      <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
+                        <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+                           <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                           <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                              <el-option label="10" value="10"></el-option>
+                              <el-option label="20" value="20"></el-option>
+                            </el-select>
+                        <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span>
+                         </div>
 
-                      <div style="float:right;margin-top:10px;">
-
-                        <!-- *********************************分页按钮 -->
-                        <el-pagination
-                          background="#E95513"
-                          prev-text="上一页"
-                          next-text="下一页"
-                          @size-change="handleSizeChange"
-                          @current-change="handleCurrentChange"
-                          :current-page="currentPage4"
-                          :page-sizes="[10, 20]"
-                          :page-size="100"
-                          layout="slot,sizes ,prev, pager, next,jumper" :total="50">
+                        <div style="float:right;margin-top:10px;margin-right: 30px;">
+                          <!-- *********************************分页按钮 -->
+                           <el-pagination
+                              background="#E95513"
+                              prev-text="上一页"
+                              next-text="下一页"
+                              jumper-text="转到"
+                              @size-change="handleSizeChange"
+                              @current-change="handleCurrentChange"
+                              :current-page="currentPage4"
+                              :page-sizes="[10, 20]"
+                              :page-size="100"
+                          layout="slot,prev, pager, next" :total="50">
                           <!-- <slot name="as">dddd</slot> -->
                         </el-pagination>
                       </div>
-                    </div> <!--table-1-->
-
-
+                    </div>
                 </el-tab-pane>
 
                 <!-- 原始日志查询 -->
@@ -285,13 +298,12 @@
        /* *********************************************mian start*****************/
     /* 绿色字体 */
     .wow{position: relative;
-        bottom:10px;
 
     }
     .p-2{
         position: relative;
         top: 10px;
-   
+      font-weight: bold;
         font-size: 18pt;
         left: 20px;
         font-family: '微软雅黑';
@@ -304,9 +316,25 @@
         width:100%;
         color:black;
         font-weight: 500;
-    
-        /*overflow: hidden;*/
+        overflow: hidden;
     }
+       .button3{
+         background-color: #ffffff !important;
+         color: black !important;
+         width: 60px;
+         height: 30px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+       }
+       html{
+         font-size: 12px;
+         font-family: '微软雅黑';
+         font-weight: normal;
+         /*border: 1px so;*/
+       }
        .el-pagination .el-pager .active{
          background-color: #E95513 !important;
        }
@@ -319,48 +347,98 @@
          float:left;
          font-size: 12pt;
        }
+
+       .el-pagination .el-select .el-input .el-input__inner{
+         float:left;
+       }
+       /*分页*/
+       .el-pagination .el-select .el-input {
+         position: absolute;
+         left: -640px;
+         top:-15px;
+         font-size: 12px;
+         border-radius: 0px;
+       }
+       .el-pagination__sizes .el-input .el-input__inner:hover {
+         border-color: #fff;
+       }
+       /*导航栏间隔*/
+       .el-tabs__header {
+         padding: 0;
+         position: relative;
+         margin: 0 0 10px;
+       }
+       .el-tabs__item:active {
+         color: #E95513 !important;
+         background: #fff;
+       }
+       .el-tabs__item:hover{
+         color: #E95513 !important;
+         border: 2px solid #5baeff !important;
+       }
+       .el-tabs__item:focus, .el-tabs__item:active {
+         color: #E95513 !important;
+         outline: 0;
+         background: #fff;
+       }
+       .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
+         background: #fff;
+       }
+       /*导航栏样式*/
+       .el-tabs__item.is-left.is-active{
+         color: #E95513 !important;
+       }
+       .el-table th>.cell {
+         background: #e95513;
+         color: #fff;
+         /*border-right: 1px solid #fff;*/
+         font-weight: bold;
+         font-size: 12px;
+
+         vertical-align: center;
+         padding-left: 20px;
+         margin-bottom: 0px;
+         /* line-height: initial; */
+       }
+       .el-table th{
+         height: 29px;
+         border-right: 1px solid #fff;
+       }
+       .el-table__body, .el-table__footer, .el-table__header{
+         font-weight: bold;
+         font-size: 12px;
+       }
+
     /* .el-main-2{
         padding: 2px;
     } */
     
     .el-main-2{
         padding: 2px !important;
+
     }
         /* ************************************tabs的颜色 */
-    .el-tabs__item.is-active{
-        color: #E95513 !important;
-    }
+
     .el-tabs__item:hover{
         color: #E95513 !important;
+        border: 2px solid #5baeff !important;
     }
     /********************************** 查看详情的颜色 */
-    .el-button--text{
 
-        color:#E95513 !important;
-    }
-    .el-button--text.is-active{
-        color: #E95513 !important ;
-    }
-    .el-button--text:hover{
-        color: #E95513 !important;
-    }
-    .el-tabs__item:hover{
-      border: 2px solid #5baeff !important;
-    }
-       .el-tabs__item:after{
-         border-bottom:2px solid #E95513 !important;
-       }
     .tab-1-1{
         margin-left: 30px;
         margin-top:15px;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     .tab-2-1{
        margin-left: 30px;
        margin-top:15px;
        margin-bottom: 10px;
     }
-
+       .el-table__body, .el-table__footer, .el-table__header{
+         font-weight: bold;
+         font-size: 12px;
+       }
     .table-p1{
         font-family: 'Microsoft YaHei';
         font-size: 12pt;
@@ -381,7 +459,17 @@
         background-color: #F56C6C;
     } */
     /****************************************** main  end */
-    
+       .button4{
+         background-color: #E95513 !important;
+         color: #ffff !important;
+         width: 80px;
+         height: 30px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+       }
 </style>
 <script>
 export default {

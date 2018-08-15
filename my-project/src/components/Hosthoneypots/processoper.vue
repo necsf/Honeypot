@@ -127,6 +127,9 @@
   }
   .p-page{
     font-size: 12pt;
+    padding-top: 15px;
+    color:#666666;
+    float:left;
   }
   .el-submenu__title{
     font-size:12px;

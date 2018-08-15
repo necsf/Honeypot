@@ -24,7 +24,7 @@
                         <div class="tab-1-1">
                                 <p class="IP" style="position: relative;top:0px">IP地址:
                                     <el-input v-model="temdata.IP" style="width:187px"></el-input>
-                                    <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询主机</el-button>
+                                    <el-button class="button4" style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询主机</el-button>
                                 </p>
                         </div>
                         <div class="tab-1-2">
@@ -74,6 +74,7 @@
                                         <el-button
                                           type="text"
                                           size="mini"
+                                          style="font-weight:bold"
                                           @click="dialog = true">查看详情 蜜罐管理</el-button>
                                         <el-dialog title="查看更多" :visible.sync="dialog">
                                           <el-table
@@ -99,22 +100,31 @@
 
                            </div>
                         </div><!--table-1-2-->
-                  <div class="p-page">显示第1到第{{1}}条记录，总共{{10}}条记录</div>
-            <div style="float:right;margin-top:10px;">
-                <!-- <p class="p-page">显示第1到第{{1}}条记录  每页显示</p> -->
-                <!-- *********************************分页按钮 -->
-                <el-pagination 
-                background
-                prev-text="上一页"
-                next-text="下一页"
-                @size-change="handleSizeChange"
-                 @current-change="handleCurrentChange" 
-                 :current-page="currentPage4" 
-                 :page-sizes="[10, 20, 30, 40]" 
-                 :page-size="100" 
-                 layout=" sizes, prev, pager, next, jumper" :total="50">
-                </el-pagination>
-            </div>
+                  <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+                    <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                    <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                      <el-option label="10" value="10"></el-option>
+                      <el-option label="20" value="20"></el-option>
+                    </el-select>
+                    <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span>
+                  </div>
+
+                  <div style="float:right;margin-top:10px;margin-right: 30px;">
+                    <!-- *********************************分页按钮 -->
+                    <el-pagination
+                      background="#E95513"
+                      prev-text="上一页"
+                      next-text="下一页"
+                      jumper-text="转到"
+                      @size-change="handleSizeChange"
+                      @current-change="handleCurrentChange"
+                      :current-page="currentPage4"
+                      :page-sizes="[10, 20]"
+                      :page-size="100"
+                      layout="slot,prev, pager, next" :total="50">
+                      <!-- <slot name="as">dddd</slot> -->
+                    </el-pagination>
+                  </div>
 
 
  </el-tab-pane>
@@ -147,7 +157,7 @@
         font-weight: bold;
         left: 20px;
         font-family: '微软雅黑';
-        margin: 0;
+        margin-bottom: 20px;
     }       
     /* 白色条框 */
     .header-2{
@@ -158,23 +168,84 @@
         font-weight: 500;
         overflow: hidden;
     }
-
     .main-1{
         padding: 2px !important;
-    } 
-      /* .el-table .success-row {
-         background: #ffffff;
-       }*/
+    }
+       .el-table__body, .el-table__footer, .el-table__header{
+         font-weight: bold;
+         font-size: 12px;
+       }
     .el-main-2{
         padding: 2px !important;
     }
         /* ************************************tabs的颜色 */
-    .el-tabs__item.is-active{
-        color: #E95513 !important;
-    }
-    .el-tabs__item:hover{
-        color: #E95513 !important;
-    }
+       /*导航栏背景颜色*/
+       .el-tabs__nav-wrap.is-left {
+         background: #F2F2F2;
+       }
+       .el-tabs__nav-wrap::after {
+         background: #F2F2F2;
+       }
+       .el-tabs--card>.el-tabs__header .el-tabs__nav {
+         background: #F2F2F2;
+       }
+       /*导航栏间隔*/
+       .el-tabs__header {
+         padding: 0;
+         position: relative;
+         margin: 0 0 10px;
+       }
+       .el-tabs__item:active {
+         color: #E95513 !important;
+         background: #fff;
+       }
+       .el-tabs__item:focus, .el-tabs__item:active {
+         color: #E95513 !important;
+         outline: 0;
+         background: #fff;
+       }
+       .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
+         background: #fff;
+       }
+       /*导航栏背景颜色*/
+       .el-tabs--card>.el-tabs__header .el-tabs__nav {
+         background: #F2F2F2;
+       }
+       /*导航栏间隔*/
+       .el-tabs__header {
+         padding: 0;
+         position: relative;
+         margin: 0 0 10px;
+       }
+       .el-tabs__item:hover{
+         color: #E95513 !important;
+         border: 2px solid #5baeff !important;
+       }
+       .el-tabs__item:focus, .el-tabs__item:active {
+         color: #E95513 !important;
+         outline: 0;
+         background: #fff;
+       }
+
+       /*导航栏样式*/
+       .el-tabs__item.is-left.is-active{
+         color: #E95513 !important;
+       }
+       /*表格样式*/
+       .el-table th>.cell {
+         background: #e95513;
+         color: #fff;
+         font-weight: lighter;
+         font-size: 12px;
+         vertical-align: center;
+         padding-left: 20px;
+         margin-bottom: 0px;
+         /* line-height: initial; */
+       }
+
+       .tab-1-2 tr:hover{
+            background-color: #fff !important;
+       }
     /********************************** 查看详情的颜色 */
     .el-button--text{
 
@@ -216,15 +287,10 @@
         overflow: hidden;
         
     }
-       .p-page{
-         padding-top: 15px;
-         color:#666666;
-         float:left;
-         font-size: 12pt;
-       }
        .el-main-2{
          padding: 2px !important;
        }
+
     /* 翻页背景色 */
     .el-pagination .el-pager .active{
         background-color: #E95513 !important;

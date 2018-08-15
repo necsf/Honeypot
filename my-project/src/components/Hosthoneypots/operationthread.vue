@@ -22,7 +22,7 @@
           <el-input v-model="formInline.XprogressID" style="padding-left:1px;width:187px"></el-input>
         </el-form-item>
         <el-form-item label="操作时间:">
-          <el-input v-model="formInline.date" style="padding-left:15px;width:187px" ></el-input>
+          <el-input v-model="formInline.date" style="padding-left:30px;width:187px" ></el-input>
         </el-form-item>
         <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
