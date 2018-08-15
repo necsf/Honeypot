@@ -344,6 +344,12 @@
     .el-button--text:hover{
         color: #E95513 !important;
     }
+    .el-tabs__item:hover{
+      border: 2px solid #5baeff !important;
+    }
+       .el-tabs__item:after{
+         border-bottom:2px solid #E95513 !important;
+       }
     .tab-1-1{
         margin-left: 30px;
         margin-top:15px;

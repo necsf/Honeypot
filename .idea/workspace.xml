@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1b87669b-0498-41eb-9475-114bbcc588df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project/src/components/HoneyControl.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/components/HoneyControl.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project/src/components/Hosthoneypot.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/components/Hosthoneypot.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-project/src/components/applyhoney.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/components/applyhoney.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project/src/components/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/components/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/src/components/honeybuild.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/components/honeybuild.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/src/components/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/components/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,21 +20,22 @@
     <session id="-1362384867">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="vue" value="888" />
+          <entry key="vue" value="1074" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Vue.js" value="888" />
+          <entry key="Vue.js" value="1074" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -59,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/my-project/src/components/Hosthoneypot.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
@@ -72,13 +72,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-project/src/components/applyhoney.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="150" column="14" lean-forward="true" selection-start-line="150" selection-start-column="14" selection-end-line="150" selection-end-column="14" />
+            <state relative-caret-position="-361">
+              <caret line="112" column="48" lean-forward="true" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
               <folding>
                 <element signature="n#style#0;n#hr#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-input#0;n#p#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-button#0;n#p#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-table#0;n#el-dialog#0;n#template#0;n#el-table-column#6;n#el-table#0;n#div#1;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
@@ -87,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-project/src/components/honeybuild.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="94" column="39" lean-forward="true" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
+            <state relative-caret-position="410">
+              <caret line="349" column="23" lean-forward="true" selection-start-line="349" selection-start-column="23" selection-end-line="349" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#el-button#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
@@ -101,53 +98,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-project/src/components/HoneyControl.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="366" column="32" selection-start-line="366" selection-start-column="32" selection-end-line="366" selection-end-column="32" />
-              <folding>
-                <element signature="n#style#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#hr#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#el-input#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#el-input#0;n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#2;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-table#0;n#div#0;n#el-main#0;n#el-container#0;n#div#0;n#div#0;n#el-tab-pane#2;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#3;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/my-project/src/components/login.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-input#0;n#div#1;n#div#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#677#683#0" expanded="true" />
-                <element signature="e#683#689#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-project/src/components/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="129" column="15" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="15" />
+            <state relative-caret-position="1645">
+              <caret line="128" selection-start-line="128" selection-end-line="128" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#el-menu-item#0;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#el-menu-item#1;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#el-menu-item#2;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#el-menu-item#3;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#el-menu-item#4;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#el-menu-item#5;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#el-menu-item#5;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="e#2959#2965#0" expanded="true" />
                 <element signature="e#2965#2971#0" expanded="true" />
@@ -192,11 +153,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/my-project/build/date.js" />
-        <option value="$PROJECT_DIR$/my-project/src/components/index.vue" />
         <option value="$PROJECT_DIR$/my-project/src/components/Hosthoneypot.vue" />
-        <option value="$PROJECT_DIR$/my-project/src/components/applyhoney.vue" />
         <option value="$PROJECT_DIR$/my-project/src/components/HoneyControl.vue" />
         <option value="$PROJECT_DIR$/my-project/src/components/login.vue" />
+        <option value="$PROJECT_DIR$/my-project/src/components/applyhoney.vue" />
+        <option value="$PROJECT_DIR$/my-project/src/components/index.vue" />
+        <option value="$PROJECT_DIR$/my-project/src/components/honeybuild.vue" />
       </list>
     </option>
   </component>
@@ -225,7 +187,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,6 +236,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,12 +270,13 @@
       <updated>1534124341082</updated>
       <workItem from="1534124346288" duration="9065000" />
       <workItem from="1534137346155" duration="5650000" />
-      <workItem from="1534208589864" duration="4120000" />
+      <workItem from="1534208589864" duration="8901000" />
+      <workItem from="1534295802387" duration="1277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18835000" />
+    <option name="totallyTimeSpent" value="24893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -379,10 +342,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#140#161#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -400,6 +359,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/my-project/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-project/src/components/Hosthoneypot.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-project/src/components/HoneyControl.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4294">
+          <caret line="366" column="32" selection-start-line="366" selection-start-column="32" selection-end-line="366" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-input#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-input#0;n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-project/src/components/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+          <folding>
+            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-input#0;n#div#1;n#div#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#677#683#0" expanded="true" />
+            <element signature="e#683#689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/my-project/src/components/test.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -412,47 +416,12 @@
     <entry file="file://$PROJECT_DIR$/my-project/src/components/HelloWorld.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-project/src/components/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="129" column="15" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#el-menu-item#0;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#el-menu-item#1;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#el-menu-item#2;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#el-menu-item#3;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#el-menu-item#4;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#el-menu-item#5;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#2959#2965#0" expanded="true" />
-            <element signature="e#2965#2971#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-project/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-project/src/components/Hosthoneypot.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-project/src/components/applyhoney.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="150" column="14" lean-forward="true" selection-start-line="150" selection-start-column="14" selection-end-line="150" selection-end-column="14" />
+        <state relative-caret-position="-361">
+          <caret line="112" column="48" lean-forward="true" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
           <folding>
             <element signature="n#style#0;n#hr#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-input#0;n#p#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-button#0;n#p#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-table#0;n#el-dialog#0;n#template#0;n#el-table-column#6;n#el-table#0;n#div#1;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
@@ -460,46 +429,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/my-project/src/components/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1645">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#el-menu-item#0;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#el-menu-item#1;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#el-menu-item#2;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#el-menu-item#3;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#el-menu-item#4;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#el-menu-item#5;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#el-menu-item#5;n#el-menu#0;n#el-footer#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#2959#2965#0" expanded="true" />
+            <element signature="e#2965#2971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/my-project/src/components/honeybuild.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="94" column="39" lean-forward="true" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
+        <state relative-caret-position="410">
+          <caret line="349" column="23" lean-forward="true" selection-start-line="349" selection-start-column="23" selection-end-line="349" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#el-button#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-project/src/components/HoneyControl.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="366" column="32" selection-start-line="366" selection-start-column="32" selection-end-line="366" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#el-input#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#0;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#el-input#0;n#el-row#0;n#div#0;n#el-main#0;n#el-tab-pane#0;n#el-tabs#0;n#div#0;n#div#0;n#el-tab-pane#1;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#2;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-table#0;n#div#0;n#el-main#0;n#el-container#0;n#div#0;n#div#0;n#el-tab-pane#2;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-row#0;n#div#0;n#div#0;n#el-tab-pane#3;n#el-tabs#0;n#div#1;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-project/src/components/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-input#0;n#div#1;n#div#0;n#el-main#0;n#el-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#677#683#0" expanded="true" />
-            <element signature="e#683#689#0" expanded="true" />
           </folding>
         </state>
       </provider>
