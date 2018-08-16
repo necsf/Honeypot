@@ -55,13 +55,13 @@
         router
         class="font"
        >
-    <el-menu-item  index="systemindex"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom1.png" />系统主页</p></el-menu-item>
-    <el-menu-item index="Checkstatus1" ><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom2.png" />监测状态</p></el-menu-item>
-    <el-menu-item index="honeybuild" ><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom3.png" />蜜网构建</p></el-menu-item>
-    <el-menu-item index="applyhoney"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom4.png" />应用蜜罐</p></el-menu-item>
-    <el-menu-item index="Hosthoneypot"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom5.png" />主机蜜罐</p></el-menu-item>
-    <el-menu-item index="Operator"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom5.png" />样本操作</p></el-menu-item>
-    <el-menu-item index="honeycontrol"><p class="menu-1" style="font-size:18pt"><img src="../assets/bottom6.png" />平台管理</p></el-menu-item>
+    <el-menu-item  index="systemindex"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe606;</i>系统主页</p></el-menu-item>
+    <el-menu-item index="Checkstatus1" ><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe61a;</i>监测状态</p></el-menu-item>
+    <el-menu-item index="honeybuild" ><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe603;</i>蜜网构建</p></el-menu-item>
+    <el-menu-item index="applyhoney"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe651;</i>应用蜜罐</p></el-menu-item>
+    <el-menu-item index="Hosthoneypot"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe652;</i>主机蜜罐</p></el-menu-item>
+    <el-menu-item index="Operator"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe652;</i>样本操作</p></el-menu-item>
+    <el-menu-item index="honeycontrol"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe606;</i>平台管理</p></el-menu-item>
     </el-menu>
     <div class="footer-1">
 
@@ -72,6 +72,21 @@
 </el-container>
 </template>
 <style scoped>
+@font-face {
+  font-family: 'iconfont';  /* project id 796633 */
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+     font-size:36px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.4px;
+    ;}
+ 
 
         /* ***********************head开始*********************** */
         /* 黑色条框 */
