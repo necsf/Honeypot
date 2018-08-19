@@ -670,10 +670,6 @@
     color: #E95513 !important;
     background: #fff;
   }
-  .el-tabs__item:hover{
-    color: #E95513 !important;
-    border: 2px solid #5baeff !important;
-  }
   .el-tabs__item:focus, .el-tabs__item:active {
     color: #E95513 !important;
     outline: 0;
@@ -741,11 +737,7 @@
     left: -1140px;
     top:9px;
   }
-  .el-select-dropdown__item.selected {
-    color: #409EFF;
-    font-weight: 700;
-    background: #e95513;
-  }
+
   el-pagination__sizes .el-input .el-input__inner:hover {
     border-color: #fff;
   }
