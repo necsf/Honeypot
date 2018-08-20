@@ -140,7 +140,7 @@
                 <el-option label="20" value="20"></el-option>
 
               </el-select>
-              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
+              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span></div>
 
             <div style="float:right;margin-top:10px;margin-right: 30px;">
 
@@ -260,7 +260,7 @@
                           <el-option label="20" value="20"></el-option>
 
                         </el-select>
-                        <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
+                        <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span></div>
 
                       <div style="float:right;margin-top:10px;">
 
@@ -383,7 +383,7 @@
                 <el-option label="20" value="20"></el-option>
 
               </el-select>
-              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
+              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span></div>
             <div style="float:right;margin-top:10px;margin-right: 30px;">
 
               <!-- *********************************分页按钮 -->
@@ -475,7 +475,7 @@
                 <el-option label="20" value="20"></el-option>
 
               </el-select>
-              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2"style="font-size: 12px;">跳转</el-button></span></div>
+              <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span></div>
 
             <div style="float:right;margin-top:10px;margin-right: 30px;">
 
@@ -638,9 +638,9 @@
     /*padding-left: 25px;*/
     /*background:#D3D5E3 ;*/
   }
-  .el-tabs--left .el-tabs__item.is-left{
+  /*.el-tabs--left .el-tabs__item.is-left{
     /*padding-left: 25px;*/
-  }
+ 
   /*.el-tabs__item .is-left{*/
   /*padding-left: 25px;*/
   /*}*/
@@ -767,7 +767,7 @@
   .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
     background: #e95513;
   }
-  .el-select.el-input. el-input--suffix{
+  /*.el-select.el-input*/ .el-input--suffix{
     height: 30px;
   }
   .el-select .el-input.is-focus .el-input__inner{
