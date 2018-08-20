@@ -508,11 +508,12 @@
 <style >
   /* *********************************************mian start*****************/
   /* 绿色字体 */
-  .wow{position: relative;
-    bottom:15px;}
+  .wow{
+    position: relative;
+    bottom:15px;
+  }
 
   .p-2{
-
     position: relative;
     top: 10px;
     font-size: 18pt;
@@ -542,10 +543,6 @@
     float:left;
     font-size: 12pt;
   }
-  /* .el-main-2{
-      padding: 2px;
-  } */
-
   .el-main-2{
     padding: 2px !important;
   }
@@ -590,20 +587,11 @@
     font-size: 12pt;
     color:#BFBFBF;
   }
-  /* *********table 的行边框 */
-  /* .table1 td{
-      padding: 0;
-      height: 30px;
-  } */
   /* ******原始日志查询-左侧菜单栏 start*/
   .tab-aside{
     height: 100%;
     overflow: hidden;
-
   }
-  /* .tab-main{
-      background-color: #F56C6C;
-  } */
   /****************************************** main  end */
   .button1{
     background-color: #E95513 !important;
@@ -622,7 +610,6 @@
   .td-1 td{
     padding-left: 15px;
     color: #909399;
-
   }
   .el-tabs__active-bar {
     background-color:#eee;
@@ -635,20 +622,10 @@
     width: 250px;
     height: 30px;
     line-height: 30px;
-    /*padding-left: 25px;*/
-    /*background:#D3D5E3 ;*/
   }
-  /*.el-tabs--left .el-tabs__item.is-left{
-    /*padding-left: 25px;*/
- 
-  /*.el-tabs__item .is-left{*/
-  /*padding-left: 25px;*/
-  /*}*/
-
   /*侧面导航栏布局*/
   .tab-2-1 {
     margin-left: 0px;
-
   }
   /*导航栏背景颜色*/
   .el-tabs__nav-wrap.is-left {
@@ -737,7 +714,6 @@
     left: -1140px;
     top:9px;
   }
-
   el-pagination__sizes .el-input .el-input__inner:hover {
     border-color: #fff;
   }
@@ -747,7 +723,6 @@
     background: #e95513;
   }
   .el-select .el-input .el-select__caret{
-
     font-size: 12px;
   }
   .el-select.el-input__icon{
@@ -794,10 +769,6 @@
     line-height: 30px;
     height: 30px;
   }
-
-
-
-
 </style>
 <script>
   export default {

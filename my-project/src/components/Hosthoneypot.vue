@@ -194,7 +194,6 @@
   .el-tabs__item.is-active{
     color: #666666;
   }
-
   .tab-1-1{
     margin-left: 30px;
     margin-top:15px;
@@ -214,7 +213,6 @@
   .tab-aside{
     height: 100%;
     overflow: hidden;
-
   }
   /* 菜单点击颜色 */
   .el-menu-vertical.el-menu-item.is-active{
@@ -223,19 +221,13 @@
   .el-menu-vertical.el-menu-item:hover{
     color: #E95513 !important;
   }
-  /* .tab-main{
-      background-color: #F56C6C;
-  } */
+
   /****************************************** main  end */
   .el-submenu__title:hover {
     color: #E95513 !important;
     background-color: #ebecf2;
   }
-  /* .el-menu-item:focus, .el-menu-item:hover {
-    outline: 0;
-    color: #E95513 !important;
-    background-color: #ebecf2;
-  } */
+  
   .origindairy .el-submenu__title{
     background: #ebecf2;
   }
@@ -254,12 +246,7 @@
   .el-menu-item-group__title {
     padding: 0px 0 0px 20px;
   }
-  html{
-    font-size: 12px;
-    font-family: '微软雅黑';
-    font-weight: normal;
-    /*border: 1px so;*/
-  }
+
   .el-tabs__item {
 
     font-size: 12px;
@@ -314,6 +301,8 @@
     display: inline-block;
   }
   .arrow1{
+    width: 20px;
+    height: 20px;
     line-height: 1px;
     position: relative;
     top: -3px;
@@ -326,7 +315,7 @@
     height: 30px;
     line-height: 30px;
     position: relative;
-    -webkit-box-sizing: border-box;
+   
     white-space: nowrap;
     list-style: none;
   }
@@ -364,7 +353,6 @@
     top:9px;
   }
   .el-select-dropdown__item.selected {
-    color: #409EFF;
     font-weight: 700;
     background: #e95513;
   }
@@ -424,9 +412,6 @@
     line-height: 30px;
     height: 30px;
   }
-  /*.el-menu-item-group.el-menu-item{*/
-  /*padding-left: 20px;*/
-  /*}*/
   .nav-left{
     padding-left: 20px !important;
   }

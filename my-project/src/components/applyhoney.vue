@@ -142,8 +142,7 @@
     /* 绿色字体 */
     .wow{
         position: relative;
-    bottom:15px;
-
+        bottom:15px;
     }
     .p-page{
     padding-top: 15px;
@@ -236,7 +235,6 @@
          vertical-align: center;
          padding-left: 20px;
          margin-bottom: 0px;
-         /* line-height: initial; */
        }
 
        .tab-1-2 tr:hover{
@@ -271,21 +269,6 @@
         font-size: 12pt;
         color:#BFBFBF;
     }
-    /* *********table 的行边框 */
-    /* .table1 td{
-        padding: 0;
-        height: 30px;
-
-    } */
-    /* ******原始日志查询-左侧菜单栏 start*/
-    .tab-aside{
-        height: 100%;
-        overflow: hidden;
-    }
-       .el-main-2{
-         padding: 2px !important;
-       }
-
     /* 翻页背景色 */
     .el-pagination .el-pager .active{
         background-color: #E95513 !important;
@@ -294,10 +277,6 @@
         color:#E95513 !important;
 
     }
-
-    /* .tab-main{
-        background-color: #F56C6C;
-    } */
     /****************************************** main  end */
     
 </style>

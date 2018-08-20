@@ -195,11 +195,35 @@
   .el-menu-item:hover{
     color: #E95513 !important;
   }
+  .el-tabs__item:hover{
+    color: #E95513 !important;
+  }
+  .el-tabs__item:focus, .el-tabs__item:active {
+    color: #E95513 !important;
+    outline: 0;
+    background: #fff;
+  }
+  .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
+    background: #fff;
+ }
+  .el-tabs__item {
+    font-size: 12px;
+    font-weight: normal;
+    color: #666666;
+    background: #F2F2F2;
+  }
 
-
-  
-
- 
+  .el-tabs__item:focus:active {
+    outline: 0;
+    /* font-size: 12px; */
+    /* border-bottom-color: #E95513; */
+    border-bottom: 2px solid #E95513;
+  }
+  /*导航栏激活时下面有颜色的border*/
+  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
+    border-bottom: 2px solid #E95513;
+  }
+       
   .what{
       margin-left: 20px;
       margin-right: 20px;
@@ -215,7 +239,6 @@
       width: 300px;
       margin-left: 10px;
       font-size:30px;
-    
   }
   .bottom{
       width:300px;

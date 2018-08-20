@@ -329,12 +329,6 @@
          font-size: 12px;
          margin-left:10px ;
        }
-       html{
-         font-size: 12px;
-         font-family: '微软雅黑';
-         font-weight: normal;
-         /*border: 1px so;*/
-       }
        .el-pagination .el-pager .active{
          background-color: #E95513 !important;
        }
@@ -362,12 +356,10 @@
        .el-pagination__sizes .el-input .el-input__inner:hover {
          border-color: #fff;
        }
-       /*导航栏间隔*/
-
-       .el-tabs__item:active {
+  
+       .el-tabs__item:hover{
          color: #E95513 !important;
-         background: #fff;
-       }
+        }
        .el-tabs__item:focus, .el-tabs__item:active {
          color: #E95513 !important;
          outline: 0;
@@ -376,6 +368,7 @@
        .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
          background: #fff;
        }
+
        /*导航栏样式*/
        .el-table th>.cell {
          background: #e95513;
@@ -418,20 +411,12 @@
         font-size: 12pt;
         color:#BFBFBF;
     }
-    /* *********table 的行边框 */
-    /* .table1 td{
-        padding: 0;
-        height: 30px;
-    } */
     /* ******原始日志查询-左侧菜单栏 start*/
     .tab-aside{
         height: 100%;
         overflow: hidden;
         
     }
-    /* .tab-main{
-        background-color: #F56C6C;
-    } */
     /****************************************** main  end */
        .button4{
          background-color: #E95513 !important;
