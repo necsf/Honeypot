@@ -314,8 +314,6 @@
     display: inline-block;
   }
   .arrow1{
-    width: 20px;
-    height: 20px;
     line-height: 1px;
     position: relative;
     top: -3px;
