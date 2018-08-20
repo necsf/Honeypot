@@ -363,18 +363,10 @@
          border-color: #fff;
        }
        /*导航栏间隔*/
-       .el-tabs__header {
-         padding: 0;
-         position: relative;
-         margin: 0 0 10px;
-       }
+
        .el-tabs__item:active {
          color: #E95513 !important;
          background: #fff;
-       }
-       .el-tabs__item:hover{
-         color: #E95513 !important;
-         border: 2px solid #5baeff !important;
        }
        .el-tabs__item:focus, .el-tabs__item:active {
          color: #E95513 !important;
@@ -385,9 +377,6 @@
          background: #fff;
        }
        /*导航栏样式*/
-       .el-tabs__item.is-left.is-active{
-         color: #E95513 !important;
-       }
        .el-table th>.cell {
          background: #e95513;
          color: #fff;
@@ -404,24 +393,9 @@
          height: 29px;
          border-right: 1px solid #fff;
        }
-       .el-table__body, .el-table__footer, .el-table__header{
-         font-weight: bold;
-         font-size: 12px;
-       }
-
-    /* .el-main-2{
-        padding: 2px;
-    } */
-    
     .el-main-2{
         padding: 2px !important;
 
-    }
-        /* ************************************tabs的颜色 */
-
-    .el-tabs__item:hover{
-        color: #E95513 !important;
-        border: 2px solid #5baeff !important;
     }
     /********************************** 查看详情的颜色 */
 

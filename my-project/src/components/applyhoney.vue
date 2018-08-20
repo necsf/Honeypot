@@ -217,10 +217,6 @@
          position: relative;
          margin: 0 0 10px;
        }
-       .el-tabs__item:hover{
-         color: #E95513 !important;
-         border: 2px solid #5baeff !important;
-       }
        .el-tabs__item:focus, .el-tabs__item:active {
          color: #E95513 !important;
          outline: 0;
@@ -285,7 +281,6 @@
     .tab-aside{
         height: 100%;
         overflow: hidden;
-        
     }
        .el-main-2{
          padding: 2px !important;
