@@ -4,7 +4,7 @@
     <!-- main -->
     <el-main  class="el-main-1">
       <div class="header-2">
-        <p class="p-2"> <img src="../assets/important.png"><span class="wow">主机蜜罐</span>
+        <p class="p-2"> <i class="iconfont">&#xe652;</i>主机蜜罐
         </p>
       </div>
       <hr style="margin-bottom:0;"/>
@@ -164,17 +164,32 @@
 </template>
 <style  >
 
+@font-face {
+  font-family: 'iconfont';  /* project id 796633 */
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+     font-size:36px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.4px;
+    color:#76EE00;
+    ;}
+
   /* *********************************************mian start*****************/
   /* 白色条框 */
-  .wow{position: relative;
-    bottom:15px;}
+ 
 
   .header-2{
     margin: 0;
     height:60px;
     width:100%;
     color:black;
-    font-weight: bold;
+  
     overflow: hidden;
   }
   /* 绿色字体 */
@@ -182,9 +197,10 @@
 
     position: relative;
     top: 10px;
-    font-size: 12pt;
+    font-size: 18pt;
     left: 20px;
     font-family: '微软雅黑';
+    font-weight: bold;
     margin: 0;
   }
   .el-main-1{
@@ -356,7 +372,7 @@
     font-weight: 700;
     background: #e95513;
   }
-  el-pagination__sizes .el-input .el-input__inner:hover {
+  .el-pagination__sizes, .el-input .el-input__inner:hover {
     border-color: #fff;
   }
   .el-select-dropdown__item.selected {

@@ -4,8 +4,7 @@
       <!-- main -->
   <el-main class="el-main-2" > 
       <div class="header-2">
-              <p class="p-2"> <img src="../assets/applyhoney.png"><span class="wow">应用蜜罐</span>
-              </p>
+              <p class="p-2"><i class="iconfont">&#xe651;</i>应用蜜罐</p>
           </div>
           <hr style="margin-bottom:0;"/>
       <div class="main-1" >
@@ -138,11 +137,25 @@
 </el-container>
 </template>
 <style >
+@font-face {
+  font-family: 'iconfont';  /* project id 796633 */
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+     font-size:36px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0px;
+    color:#76EE00;
+    ;}
        /* *********************************************mian start*****************/
     /* 绿色字体 */
     .wow{
         position: relative;
-        bottom:15px;
     }
     .p-page{
     padding-top: 15px;

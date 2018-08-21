@@ -1,8 +1,8 @@
 <template>
  <el-container class="what" style="height:100%;" direction="vertrcal">
-  <el-header height="150px"> 
+  <el-header class="top"  height="150px"> 
       <div class="header-2">
-              <p class="p-2"> <img src="../assets/important.png"><span class="wow">样本操作</span>
+              <p class="p-2"><i class="iconfont">&#xe652;</i>样本操作
               </p>
           </div>
           <hr style="margin-bottom:0;"/>
@@ -33,7 +33,7 @@
     <el-main>
         <div>
         样本名称：<el-input class="small" v-model="input" placeholder="请输入样本名称查询"></el-input>
-          <el-button type="danger">查询样本</el-button>
+          <el-button  class="button7" style="background:#E95513;color:#ffffff;">查询样本</el-button>
         </div>
         <br/>
         <div>
@@ -140,8 +140,8 @@
     <el-tab-pane label="样本分析" name="second">
         <div class="center">
             样本上传:<el-input class="big" v-model="input" placeholder="请选择样本上传"></el-input>
-             <el-button style="font-size:20px" type="danger">&nbsp;&nbsp;&nbsp;分析样本&nbsp;&nbsp;&nbsp;</el-button>
-            <hr class="bottom" />
+             <el-button  class="button7"  style="font-size:20px;background:#E95513;color:#ffffff;">&nbsp;&nbsp;&nbsp;分析样本&nbsp;&nbsp;&nbsp;</el-button>
+          
 
         </div>
     </el-tab-pane>
@@ -157,11 +157,21 @@
 <style scoped>
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
-  src: url('//at.alicdn.com/t/font_796633_fcj51erlsf.eot');
-  src: url('//at.alicdn.com/t/font_796633_fcj51erlsf.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_796633_fcj51erlsf.woff') format('woff'),
-  url('//at.alicdn.com/t/font_796633_fcj51erlsf.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_796633_fcj51erlsf.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+     font-size:36px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0px;
+    color:#76EE00;
+    ;}
+.top{
+  padding: 0;
 }
  .wow{
         position: relative;
@@ -182,7 +192,7 @@
         position: relative;
         top: 10px;
         font-size: 18pt;
-        left: 20px;
+        left: 0px;
         font-family: '微软雅黑';
         margin: 0;
     }
@@ -195,35 +205,9 @@
   .el-menu-item:hover{
     color: #E95513 !important;
   }
-  .el-tabs__item:hover{
-    color: #E95513 !important;
-  }
-  .el-tabs__item:focus, .el-tabs__item:active {
-    color: #E95513 !important;
-    outline: 0;
-    background: #fff;
-  }
-  .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
-    background: #fff;
- }
-  .el-tabs__item {
-    font-size: 12px;
-    font-weight: normal;
-    color: #666666;
-    background: #F2F2F2;
-  }
 
-  .el-tabs__item:focus:active {
-    outline: 0;
-    /* font-size: 12px; */
-    /* border-bottom-color: #E95513; */
-    border-bottom: 2px solid #E95513;
-  }
-  /*导航栏激活时下面有颜色的border*/
-  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
-    border-bottom: 2px solid #E95513;
-  }
-       
+
+ 
   .what{
       margin-left: 20px;
       margin-right: 20px;
@@ -239,6 +223,7 @@
       width: 300px;
       margin-left: 10px;
       font-size:30px;
+    
   }
   .bottom{
       width:300px;

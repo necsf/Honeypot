@@ -84,7 +84,7 @@
     font-family:"iconfont" !important;
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-width: 0px;
     ;}
  
 
@@ -125,7 +125,7 @@
         text-align: right;
         background-color:rgb(21,21,21);
         color: rgb(252, 249, 249);
-        height: 65px;
+        height: 80px;
         font-family: "微软雅黑";
         width: 100%;
     }
@@ -140,6 +140,8 @@
         top: 27px;
     }
     /* ***********************************head end */
+    
+/* ****************************************foot */
  .menu-1{
         font-size: 15pt;
         font-weight: normal;
