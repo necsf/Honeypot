@@ -1,6 +1,6 @@
 <template >
-<el-container style="height:100%;" direction="vertrcal">
-<el-main class="ww">
+
+<el-main >
 
       <img class="logo"  src="../assets/elex.png"/>
         <div class="login">
@@ -23,17 +23,16 @@
 
         </div>
 </el-main>
-</el-container>  
+
 </template>
 <style scoped>
-.class{
-    height:100%;
-}
+
 .el-main{
     background-color: rgb(26,26,26);
-   padding: 0px;
+ 
    margin-left: 20px;
    margin-right: 20px;
+   height:100%;
 }
 .logo{
     margin-top: 50px;
