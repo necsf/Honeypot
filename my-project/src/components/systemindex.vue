@@ -27,12 +27,18 @@
 </template>
 <style scoped>
 
+html{
+    width:100%;
+    height:100%;
+    background:rgb(26,26,26);
+}
 .first{
     background-color: rgb(26,26,26);
  
    margin-left: 20px;
    margin-right: 20px;
    height:100%;
+   
 }
 .logo{
     margin-top: 50px;
