@@ -1,6 +1,6 @@
 <template >
 
-<div class="first" >
+<div class="background" >
 
       <img class="logo"  src="../assets/elex.png"/>
         <div class="login">
@@ -15,7 +15,7 @@
             <el-input class="kuang2" v-model="input" style="width:270px" ></el-input>
             </div>
             <br/>
-        <div class="sb">&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="ss">&nbsp;&nbsp;&nbsp;&nbsp;
             <el-button type="danger" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
            
             <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
@@ -32,7 +32,7 @@ html{
     height:100%;
     background:rgb(26,26,26);
 }
-.first{
+.background{
     background-color: rgb(26,26,26);
  
    margin-left: 20px;
@@ -68,7 +68,7 @@ html{
     position: relative;
     right:6px;
 }
-.sb{
+.ss{
     position: relative;
     left:20px;
 }

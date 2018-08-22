@@ -40,7 +40,7 @@
          
 
       </el-header>
-    <el-main class="tmd">
+    <el-main class="ttt">
         <router-view></router-view>
     </el-main>
   <el-footer class="nmd">
@@ -114,7 +114,7 @@
               bottom:45px;    
 
         }
-        .tmd{
+        .ttt{
             padding: 0;
         }
         .nmd{
