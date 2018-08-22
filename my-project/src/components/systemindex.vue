@@ -1,6 +1,6 @@
 <template >
 
-<el-main >
+<div class="first" >
 
       <img class="logo"  src="../assets/elex.png"/>
         <div class="login">
@@ -22,12 +22,12 @@
          </div>        
 
         </div>
-</el-main>
+</div>
 
 </template>
 <style scoped>
 
-.el-main{
+.first{
     background-color: rgb(26,26,26);
  
    margin-left: 20px;
@@ -75,7 +75,9 @@
 export default {
     data() {
     return {
-      input: ''
+      
+    input:''
+     
     }
   }
 
