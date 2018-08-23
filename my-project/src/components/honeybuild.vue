@@ -514,7 +514,12 @@
     line-height: 30px;
     height: 30px;
   }
-  
+  html { 
+            overflow-y:hidden; 
+            overflow-x:hidden;
+            overflow: hidden;
+           
+        }
 /********************************** 查看详情的颜色 */
     .el-button--text{
 

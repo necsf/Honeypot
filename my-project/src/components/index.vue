@@ -82,10 +82,6 @@
     padding-right: 0px;
 }
 
- html
-{
-    margin-left: 40px;
-}
 
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
@@ -107,7 +103,9 @@
         /* 黑色条框 */
         html { 
             overflow-y:hidden; 
-            overflow-x:hidden;}
+            overflow-x:hidden;
+            margin-left: 40px;
+        }
         hr{
             
     margin-top: 0px;
