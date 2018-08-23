@@ -217,6 +217,13 @@
     font-size: 12pt;
     color:#BFBFBF;
   }
+  /*tabs的颜色 */
+  .el-tabs__item.is-active{
+      color: #666666 !important;
+  }
+  .el-tabs__item:hover{
+      color: #E95513 !important;
+  }
   /*导航栏背景颜色*/
        .el-tabs__nav-wrap.is-left {
          background: #F2F2F2;
@@ -268,7 +275,10 @@
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
     border-bottom: 2px solid #E95513;
   }
-
+/*导航栏样式*/
+  .el-tabs__item.is-left.is-active{
+    color: #E95513 !important;
+  }
   /* 菜单点击颜色 */
   .el-menu-vertical.el-menu-item.is-active{
     color: #E95513 !important;
@@ -466,14 +476,27 @@
     border-radius: 0px;
   }
 
-
+ /*********************确定 跳转 按钮样式*********************/
+    .button2{
+        background-color: #E95513 !important;
+        color: #ffff !important;
+        width: 60px;
+        height: 30px;
+        border-radius: 0px;
+        vertical-align: center;
+        padding: 2px;
+        font-size: 12px;
+        margin-left:10px ;
+    }
 </style>
 <script>
   export default {
 
     data() {
       return {
-        page:'7',
+        jumper:10,
+        pagesize:10,
+    
         administrator:'wulala',
         times:'2018-5-21',
         admindata:[
