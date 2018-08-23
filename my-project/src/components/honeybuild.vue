@@ -318,7 +318,7 @@
     }
     .p-2{
         position: relative;
-        top: 10px;
+      
       font-weight: bold;
         font-size: 18pt;
         left: 20px;

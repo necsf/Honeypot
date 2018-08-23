@@ -45,7 +45,9 @@
     </el-main>
   <el-footer class="nmd">
       <hr class="image"/>
-    <el-menu
+    
+    
+         <el-menu
        :default-active="$route.name"
        background-color=""
        mode="horizontal"
@@ -64,14 +66,27 @@
     <el-menu-item index="honeycontrol"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe606;</i>平台管理</p></el-menu-item>
     </el-menu>
     <div class="footer-1">
-
         <p class="footer-p"> <i class="el-icon-info"></i>&nbsp;&nbsp;&nbsp;监测状态：</p>
         <p class="footer-p2">登录时间:&nbsp;&nbsp;{{date|formatDate}}</p>
+        
     </div>
+  
+
   </el-footer>
 </el-container>
 </template>
 <style scoped>
+ header.el-header
+{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+ html
+{
+    margin-left: 40px;
+}
+
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -147,12 +162,13 @@
         font-weight: normal;
         margin: 0;
     }
-    .footer-1{
+    .footer-2,.footer-1{
         width: 100%;
         height: 25px;
         margin: 0;
         background-color: #515151;
     }
+
    .footer-p{
        margin: 0;
        position: relative;

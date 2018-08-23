@@ -1,6 +1,6 @@
 <template >
 
-<div class="background" >
+<el-main >
 
       <img class="logo"  src="../assets/elex.png"/>
         <div class="login">
@@ -22,7 +22,7 @@
          </div>        
 
         </div>
-</div>
+</el-main>
 
 </template>
 <style scoped>
@@ -32,12 +32,13 @@ html{
     height:100%;
     background:rgb(26,26,26);
 }
-.background{
-    background-color: rgb(26,26,26);
- 
+.el-main{
+    width: 100%;
+    height:100%;
    margin-left: 20px;
    margin-right: 20px;
    height:100%;
+    background-color: rgb(26,26,26);
    
 }
 .logo{
