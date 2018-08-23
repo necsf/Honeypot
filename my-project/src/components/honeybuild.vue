@@ -402,10 +402,7 @@
          height: 29px;
          border-right: 1px solid #fff;
        }
-    .el-main-2{
-        padding: 2px !important;
-
-    }
+   
     /********************************** 查看详情的颜色 */
 
     .tab-1-1{

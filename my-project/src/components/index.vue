@@ -90,14 +90,18 @@
 
         /* ***********************head开始*********************** */
         /* 黑色条框 */
-        html { overflow-y:hidden; overflow-x:hidden;}
+        html { 
+            overflow-y:hidden; 
+            overflow-x:hidden;}
         hr{
             
     margin-top: 0px;
 
 
         }
-       
+       .ttt{
+           padding: 0px;
+       }
         .smallpeople{
             position: relative;
             top:6px;
@@ -113,10 +117,7 @@
               position: relative;
               bottom:45px;    
 
-        }
-        .ttt{
-            padding: 0;
-        }
+        }   
         .nmd{
             padding:0;
         }
