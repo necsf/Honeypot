@@ -1,92 +1,75 @@
-<template >
-
-<el-main >
-
-      <img class="logo"  src="../assets/elex.png"/>
-        <div class="login">
-            <div>
+<template>
+<div class="biggest" style="overflow:-Scroll;overflow-x:hidden">
+    <div class="page">
+        <img class="logo"  src="../assets/elex.png"/>
+    </div>
+    <div class="login">
+        <div class="first">
             <img  class="name" src="../assets/name.png"/>   
             <el-input class="kuang1" size="large" v-model="input" style="width:270px" ></el-input>
-             </div>
-          
-            <div>
-        
+        </div>
+
+        <div class="second">
             <img  class="password" src="../assets/password.png"/>  
             <el-input class="kuang2" v-model="input" style="width:270px" ></el-input>
-            </div>
-            <br/>
-        <div class="ss">&nbsp;&nbsp;&nbsp;&nbsp;
-            <el-button type="danger" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
-           
-            <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
-         </div>        
-
         </div>
-</el-main>
 
+        <div class="ss">&nbsp;&nbsp;&nbsp;&nbsp;
+            <el-button type="danger" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>          
+            <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
+        </div>        
+
+    </div>
+
+</div>
+    
 </template>
-<style scoped>
 
+
+<style>
 html{
+    width: 100%;
+}
+.biggest{
     width:100%;
-    height:100%;
+    height: 100%;
     background:rgb(26,26,26);
 }
-.el-main{
-    width: 100%;
-    height:100%;
-   margin-left: 20px;
-   margin-right: 20px;
-   height:100%;
-    background-color: rgb(26,26,26);
-   
-}
-.logo{
-    margin-top: 50px;
+.page{
+    position: relative;
+    top:120px;
 }
 .login{
-    float:right;
-    margin-top: 400px;
-     position: relative;
-    right:100px;
-    /*margin-left: 1250px;*/
-
+    position: relative;
+    left:1300px;
+    top:150px;
 }
 .name{
-   position: relative;
-   top:20px;
-  
-
-
+    position: relative;
+    top:18px;
 }
 .password{
     position: relative;
-    top:24px;
-  
-
+    top:20px;
+    right:8px;
 }
-.kuang2{
+.kuang1{
     position: relative;
-    right:6px;
+    left:5px;
+
 }
 .ss{
     position: relative;
-    left:20px;
+    top:15px;
+    left:30px;
 }
-
-
 
 
 </style>
+
 <script>
 export default {
-    data() {
-    return {
-      
-    input:''
-     
-    }
-  }
-
+    
 }
 </script>
+

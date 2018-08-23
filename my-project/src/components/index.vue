@@ -124,7 +124,7 @@
         }
         span.lefttop{
             text-align: left;
-            margin-right:1400px;
+            margin-right:1600px;
               position: relative;
               bottom:45px;    
 
