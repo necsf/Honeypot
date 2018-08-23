@@ -175,6 +175,7 @@
 }
     .header-2{
         margin: 0;
+        padding:0;
         height:60px;
         width:100%;
         color:black;

@@ -313,9 +313,7 @@
 
        /* *********************************************mian start*****************/
     /* 绿色字体 */
-    .wow{position: relative;
-
-    }
+   
     .p-2{
         position: relative;
       
@@ -327,7 +325,7 @@
     }
     /* 白色条框 */
     .header-2{
-        margin: 0;
+   
         height:60px;
         width:100%;
         color:black;
