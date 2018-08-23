@@ -33,7 +33,7 @@
     <el-main>
         <div>
         样本名称：<el-input class="small" v-model="input" placeholder="请输入样本名称查询"></el-input>
-          <el-button  class="button7" style="background:#E95513;color:#ffffff;">查询样本</el-button>
+          <el-button  class="button4" style="background:#E95513;color:#ffffff;">查询样本</el-button>
         </div>
         <br/>
         <div>
@@ -140,7 +140,7 @@
     <el-tab-pane label="样本分析" name="second">
         <div class="center">
             样本上传:<el-input class="big" v-model="input" placeholder="请选择样本上传"></el-input>
-             <el-button  class="button7"  style="font-size:20px;background:#E95513;color:#ffffff;">&nbsp;&nbsp;&nbsp;分析样本&nbsp;&nbsp;&nbsp;</el-button>
+             <el-button  class="button4"  style="font-size:20px;background:#E95513;color:#ffffff;">&nbsp;&nbsp;&nbsp;分析样本&nbsp;&nbsp;&nbsp;</el-button>
           
 
         </div>
