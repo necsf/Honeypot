@@ -1,5 +1,5 @@
 <template>
-<div class="biggest" style="overflow:-Scroll;overflow-x:hidden">
+<div class="biggest" style="overflow:-Scroll;overflow-x:hidden;overflow-y:hidden">
     <div class="page">
         <img class="logo"  src="../assets/elex.png"/>
     </div>
@@ -27,12 +27,10 @@
 
 
 <style>
-html{
-    width: 100%;
-}
+
 .biggest{
     width:100%;
-    height: 100%;
+    height:800px;
     background:rgb(26,26,26);
 }
 .page{
