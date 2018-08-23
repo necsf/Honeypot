@@ -154,9 +154,7 @@
     ;}
        /* *********************************************mian start*****************/
     /* 绿色字体 */
-    .wow{
-        position: relative;
-    }
+  
     .p-page{
     padding-top: 15px;
     color:#666666;
@@ -164,7 +162,7 @@
     font-size: 12pt;}
     .p-2{
         position: relative;
-        top: 10px;
+        
         font-size: 18pt;
         font-weight: bold;
         left: 20px;
