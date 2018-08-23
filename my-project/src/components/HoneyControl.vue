@@ -562,7 +562,7 @@
   .el-main-2{
     padding: 2px !important;
   }
-  /* ************************************tabs的颜色 */
+  /**tabs的颜色 */
   .el-tabs__item.is-active{
     color: #666666 !important;
   }

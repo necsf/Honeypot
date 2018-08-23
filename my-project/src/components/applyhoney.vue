@@ -188,7 +188,13 @@
     .el-main-2{
         padding: 2px !important;
     }
-        /* ************************************tabs的颜色 */
+  /*tabs的颜色 */
+  .el-tabs__item.is-active{
+      color: #666666 !important;
+  }
+  .el-tabs__item:hover{
+      color: #E95513 !important;
+  }
        /*导航栏背景颜色*/
        .el-tabs__nav-wrap.is-left {
          background: #F2F2F2;
@@ -240,6 +246,11 @@
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
     border-bottom: 2px solid #E95513;
   }
+  /*导航栏样式*/
+  .el-tabs__item.is-left.is-active{
+    color: #E95513 !important;
+  }
+
        /*表格样式*/
        .el-table th>.cell {
          background: #e95513;
@@ -290,7 +301,78 @@
     .el-pagination.is-background .el-pager li:not(.disabled):hover{
         color:#E95513 !important;
     }
-    /****************************************** main  end */
+     .el-pagination .el-select .el-input .el-input__inner{
+    float:left;
+  }
+  /*分页*/
+  .el-pagination .el-select .el-input {
+    position: absolute;
+    left: -640px;
+    top:-15px;
+    font-size: 12px;
+    border-radius: 0px;
+  }   
+  .el-pagination__jump{
+    position: relative;
+    left: -1140px;
+    top:9px;
+  }
+  el-pagination__sizes .el-input .el-input__inner:hover {
+    border-color: #fff;
+  }
+  .el-select-dropdown__item.selected {
+    color: #fff;
+    font-weight: 700;
+    background: #e95513;
+  }
+  .el-select .el-input .el-select__caret{
+    font-size: 12px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+  }
+  .el-input{
+    font-size: 12px;
+  }
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
+    background: #e95513;
+  }
+  /*.el-select.el-input*/ .el-input--suffix{
+    height: 30px;
+  }
+  .el-select .el-input.is-focus .el-input__inner{
+    border-color:#c0c4cc;
+  }
+  .el-select.el-input.el-input__inner {
+    color: #606266;
+    height: 30px;
+    line-height: 30px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-select>.el-input--suffix{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-input__suffix{
+    height: 30px;
+  }
+  .el-input__inner{
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .el-icon-arrow-up{
+    line-height: 10px;
+    height: 30px;
+  }
+  .is-reverse{
+    line-height: 30px;
+    height: 30px;
+  }
+
     /*********************确定 跳转 按钮样式*********************/
     .button2{
         background-color: #E95513 !important;
@@ -320,11 +402,8 @@
 export default {
     data() {
       return {
-        page: '16',
-        Page1: 5,
-        Page2: 5,
-        Page3: 5,
-        Page4: 4,
+        jumper:10,
+        pagesize:10,
         dialogFormVisible: false,
         dialogText: false,
         dialogTable: false,

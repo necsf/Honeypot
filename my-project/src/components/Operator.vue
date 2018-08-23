@@ -226,16 +226,85 @@
     color: #666666;
     background: #F2F2F2;
   }
+  
+  /*tabs的颜色 */
+  .el-tabs__item.is-active{
+      color: #666666 !important;
+  }
+  .el-tabs__item:hover{
+      color: #E95513 !important;
+  }
+  /*导航栏背景颜色*/
+       .el-tabs__nav-wrap.is-left {
+         background: #F2F2F2;
+       }
+       .el-tabs__nav-wrap::after {
+         background: #F2F2F2;
+       }
+       .el-tabs--card>.el-tabs__header .el-tabs__nav {
+         background: #F2F2F2;
+       }
+    /*导航栏间隔*/
+       .el-tabs__header {
+         padding: 0;
+         position: relative;
+         margin: 0 0 10px;
+       }
+       .el-tabs__item:active {
+         color: #E95513 !important;
+         background: #fff;
+       }
+       .el-tabs__item:focus, .el-tabs__item:active {
+         color: #E95513 !important;
+         outline: 0;
+         background: #fff;
+       }
+       .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
+         background: #fff;
+       }
+  /*标签页背景色*/
+  .el-tabs__item {
+    font-size: 12px;
+    font-weight: normal;
+    color: #666666;
+    background: #F2F2F2;
+  }
   .el-tabs__item:focus:active {
     outline: 0;
     /* font-size: 12px; */
     /* border-bottom-color: #E95513; */
+    color: #E95513 !important;
+    background: #fff;
     border-bottom: 2px solid #E95513;
+  }
+  /*悬停时的背景色*/
+  .el-tabs__item:hover{
+    color: #E95513 !important;
   }
   /*导航栏激活时下面有颜色的border*/
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
     border-bottom: 2px solid #E95513;
   }
+/*导航栏样式*/
+  .el-tabs__item.is-left.is-active{
+    color: #E95513 !important;
+  }
+  /* 菜单点击颜色 */
+  .el-menu-vertical.el-menu-item.is-active{
+    color: #E95513 !important;
+  }
+  .el-menu-vertical.el-menu-item:hover{
+    color: #E95513 !important;
+  }
+
+  /*输入框样式*/
+  .inputType1 .el-input__inner{
+    height: 30px;
+    border-right: 0px;
+    border-radius: 0px;
+    margin-right: 0px;
+  }
+
   /* 菜单点击颜色 */
   .el-menu-vertical.el-menu-item.is-active{
     color: #E95513 !important;
@@ -250,6 +319,91 @@
     .el-pagination.is-background .el-pager li:not(.disabled):hover{
         color:#E95513 !important;
     }
+
+   .el-pagination .el-select .el-input .el-input__inner{
+    float:left;
+  }
+  /*分页*/
+  .el-pagination .el-select .el-input {
+    position: absolute;
+    left: -640px;
+    top:-15px;
+    font-size: 12px;
+    border-radius: 0px;
+  }   
+  .el-pagination__jump{
+    position: relative;
+    left: -1140px;
+    top:9px;
+  }
+  el-pagination__sizes .el-input .el-input__inner:hover {
+    border-color: #fff;
+  }
+  .el-select-dropdown__item.selected {
+    color: #fff;
+    font-weight: 700;
+    background: #e95513;
+  }
+  .el-select .el-input .el-select__caret{
+    font-size: 12px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+  }
+  .el-input{
+    font-size: 12px;
+  }
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
+    background: #e95513;
+  }
+  /*.el-select.el-input*/ .el-input--suffix{
+    height: 30px;
+  }
+  .el-select .el-input.is-focus .el-input__inner{
+    border-color:#c0c4cc;
+  }
+  .el-select.el-input.el-input__inner {
+    color: #606266;
+    height: 30px;
+    line-height: 30px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-select>.el-input--suffix{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-input__suffix{
+    height: 30px;
+  }
+  .el-input__inner{
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .el-icon-arrow-up{
+    line-height: 10px;
+    height: 30px;
+  }
+  .is-reverse{
+    line-height: 30px;
+    height: 30px;
+  }
+
+
+   /********************************** 查看详情的颜色 */
+  .el-button--text{
+
+    color:#E95513 !important;
+  }
+  .el-button--text.is-active{
+    color: #E95513 !important ;
+  }
+  .el-button--text:hover{
+    color: #E95513 !important;
+  }
   /*********************确定 跳转 按钮样式*********************/
     .button2{
         background-color: #E95513 !important;
@@ -294,7 +448,8 @@ export default {
       return {
         
         activeName2: 'first',
-      
+        jumper:10,
+        pagesize:10,
 
         administrator:'wulala',
           times:'2018-5-21',
