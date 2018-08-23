@@ -215,7 +215,7 @@
                                 </el-form>
                                 <div slot="footer" class="dialog-footer">
                                     <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
-                                    <el-button class="button2"  @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
+                                    <el-button class="button2" @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
                                 </div>
                                 </el-dialog>
                                 &nbsp;&nbsp;
@@ -334,17 +334,7 @@
         font-weight: 500;
         overflow: hidden;
     }
-       .button3{
-         background-color: #ffffff !important;
-         color: black !important;
-         width: 60px;
-         height: 30px;
-         border-radius: 0px;
-         vertical-align: center;
-         padding: 2px;
-         font-size: 12px;
-         margin-left:10px ;
-       }
+       
        .el-pagination .el-pager .active{
          background-color: #E95513 !important;
        }
@@ -372,10 +362,26 @@
        .el-pagination__sizes .el-input .el-input__inner:hover {
          border-color: #fff;
        }
-  
-       .el-tabs__item:hover{
+  /*导航栏背景颜色*/
+       .el-tabs__nav-wrap.is-left {
+         background: #F2F2F2;
+       }
+       .el-tabs__nav-wrap::after {
+         background: #F2F2F2;
+       }
+       .el-tabs--card>.el-tabs__header .el-tabs__nav {
+         background: #F2F2F2;
+       }
+    /*导航栏间隔*/
+       .el-tabs__header {
+         padding: 0;
+         position: relative;
+         margin: 0 0 10px;
+       }
+       .el-tabs__item:active {
          color: #E95513 !important;
-        }
+         background: #fff;
+       }
        .el-tabs__item:focus, .el-tabs__item:active {
          color: #E95513 !important;
          outline: 0;
@@ -384,6 +390,30 @@
        .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
          background: #fff;
        }
+  /*标签页背景色*/
+  .el-tabs__item {
+    font-size: 12px;
+    font-weight: normal;
+    color: #666666;
+    background: #F2F2F2;
+  }
+  .el-tabs__item:focus:active {
+    outline: 0;
+    /* font-size: 12px; */
+    /* border-bottom-color: #E95513; */
+    color: #E95513 !important;
+    background: #fff;
+    border-bottom: 2px solid #E95513;
+  }
+  /*悬停时的背景色*/
+  .el-tabs__item:hover{
+    color: #E95513 !important;
+  }
+  /*导航栏激活时下面有颜色的border*/
+  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
+    border-bottom: 2px solid #E95513;
+  }
+
 
        /*导航栏样式*/
        .el-table th>.cell {
@@ -402,9 +432,17 @@
          height: 29px;
          border-right: 1px solid #fff;
        }
-   
-    /********************************** 查看详情的颜色 */
+/********************************** 查看详情的颜色 */
+    .el-button--text{
 
+        color:#E95513;
+    }
+    .el-button--text.is-active{
+        color: #E95513;
+    }
+    .el-button--text:hover{
+        color: #E95513;
+    }
     .tab-1-1{
         margin-left: 30px;
         margin-top:15px;
@@ -430,8 +468,32 @@
         overflow: hidden;
         
     }
-    /****************************************** main  end */
-       .button4{
+    /*********************确定 跳转 按钮样式*********************/
+    .button2{
+        background-color: #E95513 !important;
+        color: #ffff !important;
+        width: 60px;
+        height: 30px;
+        border-radius: 0px;
+        vertical-align: center;
+        padding: 2px;
+        font-size: 12px;
+        margin-left:10px ;
+    }
+    /*********************取消按钮样式*********************/
+    .button3{
+         background-color: #ffffff !important;
+         color: black !important;
+         width: 60px;
+         height: 30px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+    }
+    /*********************普通按钮样式*********************/
+    .button4{
          background-color: #E95513 !important;
          color: #ffff !important;
          width: 80px;
@@ -441,7 +503,8 @@
          padding: 2px;
          font-size: 12px;
          margin-left:10px ;
-       }
+    } 
+    
 </style>
 <script>
 export default {
