@@ -140,7 +140,7 @@
     <el-tab-pane label="样本分析" name="second">
         <div class="center">
             样本上传:<el-input class="big" v-model="input" placeholder="请选择样本上传"></el-input>
-             <el-button  class="button4"  style="font-size:20px;background:#E95513;color:#ffffff;">&nbsp;&nbsp;&nbsp;分析样本&nbsp;&nbsp;&nbsp;</el-button>
+             <el-button  class="button5"  style="font-size:20px;background:#E95513;color:#ffffff;">&nbsp;&nbsp;&nbsp;分析样本&nbsp;&nbsp;&nbsp;</el-button>
           
 
         </div>
@@ -154,7 +154,7 @@
 </el-container>
  
 </template>
-<style scoped>
+<style >
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -173,11 +173,6 @@
 .top{
   padding: 0;
 }
- .wow{
-        position: relative;
-        bottom:15px;
-      }
-
     .header-2{
         margin: 0;
         height:60px;
@@ -196,18 +191,7 @@
         font-family: '微软雅黑';
         margin: 0;
     }
-    .el-menu{
-        width: 245px;
-    }
-    .el-menu-item.is-active{
-    color: #E95513 !important;
-  }
-  .el-menu-item:hover{
-    color: #E95513 !important;
-  }
-
-
- 
+  
   .what{
       margin-left: 20px;
       margin-right: 20px;
@@ -235,7 +219,73 @@
   .small{
       width:250px;
   }
-
+   /*标签页背景色*/
+  .el-tabs__item {
+    font-size: 12px;
+    font-weight: normal;
+    color: #666666;
+    background: #F2F2F2;
+  }
+  .el-tabs__item:focus:active {
+    outline: 0;
+    /* font-size: 12px; */
+    /* border-bottom-color: #E95513; */
+    border-bottom: 2px solid #E95513;
+  }
+  /*导航栏激活时下面有颜色的border*/
+  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
+    border-bottom: 2px solid #E95513;
+  }
+  /* 菜单点击颜色 */
+  .el-menu-vertical.el-menu-item.is-active{
+    color: #E95513 !important;
+  }
+  .el-menu-vertical.el-menu-item:hover{
+    color: #E95513 !important;
+  }
+  /* 翻页背景色 */
+  .el-pagination .el-pager .active{
+      background-color: #E95513 !important;
+    }
+    .el-pagination.is-background .el-pager li:not(.disabled):hover{
+        color:#E95513 !important;
+    }
+  /*********************确定 跳转 按钮样式*********************/
+    .button2{
+        background-color: #E95513 !important;
+        color: #ffff !important;
+        width: 60px;
+        height: 30px;
+        border-radius: 0px;
+        vertical-align: center;
+        padding: 2px;
+        font-size: 12px;
+        margin-left:10px ;
+    } 
+ /*********************普通按钮样式*********************/
+    .button4{
+         background-color: #E95513 !important;
+         color: #ffff !important;
+         width: 80px;
+         height: 30px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+    }   
+/*********************分析样本 按钮样式*********************/  
+    .button5{
+         background-color: #E95513 !important;
+         color: #ffff !important;
+         width: 150px;
+         height: 50px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+    }
 
 </style>
 <script>

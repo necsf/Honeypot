@@ -160,16 +160,7 @@
     font-size: 12px;
     border-radius: 0px;
   }
-  .button2{
-    background-color: #E95513 !important;
-    color: #ffff !important;
-    width: 60px;
-    height: 30px;
-    border-radius: 0px;
-    vertical-align: center;
-    padding: 2px;
-    font-size: 12px;
-  }
+  
   .el-pagination__jump{
     position: relative;
     left: -840px;

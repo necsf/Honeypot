@@ -206,10 +206,7 @@
   .el-main-1{
     padding: 2px !important;
   }
-  /* ************************************tabs的颜色 */
-  .el-tabs__item.is-active{
-    color: #666666;
-  }
+  
   .tab-1-1{
     margin-left: 30px;
     margin-top:15px;
@@ -220,16 +217,58 @@
     font-size: 12pt;
     color:#BFBFBF;
   }
-  /* *********table 的行边框 */
-  /* .table1 td{
-      padding: 0;
-      height: 30px;
-  } */
-  /* ******原始日志查询-左侧菜单栏 start*/
-  .tab-aside{
-    height: 100%;
-    overflow: hidden;
+  /*导航栏背景颜色*/
+       .el-tabs__nav-wrap.is-left {
+         background: #F2F2F2;
+       }
+       .el-tabs__nav-wrap::after {
+         background: #F2F2F2;
+       }
+       .el-tabs--card>.el-tabs__header .el-tabs__nav {
+         background: #F2F2F2;
+       }
+    /*导航栏间隔*/
+       .el-tabs__header {
+         padding: 0;
+         position: relative;
+         margin: 0 0 10px;
+       }
+       .el-tabs__item:active {
+         color: #E95513 !important;
+         background: #fff;
+       }
+       .el-tabs__item:focus, .el-tabs__item:active {
+         color: #E95513 !important;
+         outline: 0;
+         background: #fff;
+       }
+       .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
+         background: #fff;
+       }
+  /*标签页背景色*/
+  .el-tabs__item {
+    font-size: 12px;
+    font-weight: normal;
+    color: #666666;
+    background: #F2F2F2;
   }
+  .el-tabs__item:focus:active {
+    outline: 0;
+    /* font-size: 12px; */
+    /* border-bottom-color: #E95513; */
+    color: #E95513 !important;
+    background: #fff;
+    border-bottom: 2px solid #E95513;
+  }
+  /*悬停时的背景色*/
+  .el-tabs__item:hover{
+    color: #E95513 !important;
+  }
+  /*导航栏激活时下面有颜色的border*/
+  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
+    border-bottom: 2px solid #E95513;
+  }
+
   /* 菜单点击颜色 */
   .el-menu-vertical.el-menu-item.is-active{
     color: #E95513 !important;
@@ -262,25 +301,7 @@
   .el-menu-item-group__title {
     padding: 0px 0 0px 20px;
   }
-
-  .el-tabs__item {
-
-    font-size: 12px;
-    font-weight: normal;
-    color: #666666;
-    background: #F2F2F2;
-  }
-
-  .el-tabs__item:focus:active {
-    outline: 0;
-    /* font-size: 12px; */
-    /* border-bottom-color: #E95513; */
-    border-bottom: 2px solid #E95513;
-  }
-  /*导航栏激活时下面有颜色的border*/
-  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
-    border-bottom: 2px solid #E95513;
-  }
+  
   /*按钮样式调整*/
   .funButton{
     width: 80px;
@@ -352,17 +373,7 @@
   #nav-left.el-menu-item{
     padding-left: 20px;
   }
-  .button2{
-    background-color: #E95513 !important;
-    color: #ffff !important;
-    width: 60px;
-    height: 30px;
-    border-radius: 0px;
-    vertical-align: center;
-    padding: 2px;
-    font-size: 12px;
-    margin-left:10px ;
-  }
+  
   .el-pagination__jump{
     position: relative;
     left: -1140px;

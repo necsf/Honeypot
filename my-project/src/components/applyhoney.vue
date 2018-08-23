@@ -199,7 +199,7 @@
        .el-tabs--card>.el-tabs__header .el-tabs__nav {
          background: #F2F2F2;
        }
-       /*导航栏间隔*/
+    /*导航栏间隔*/
        .el-tabs__header {
          padding: 0;
          position: relative;
@@ -217,26 +217,29 @@
        .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
          background: #fff;
        }
-       /*导航栏背景颜色*/
-       .el-tabs--card>.el-tabs__header .el-tabs__nav {
-         background: #F2F2F2;
-       }
-       /*导航栏间隔*/
-       .el-tabs__header {
-         padding: 0;
-         position: relative;
-         margin: 0 0 10px;
-       }
-       .el-tabs__item:focus, .el-tabs__item:active {
-         color: #E95513 !important;
-         outline: 0;
-         background: #fff;
-       }
-
-       /*导航栏样式*/
-       .el-tabs__item.is-left.is-active{
-         color: #E95513 !important;
-       }
+  /*标签页背景色*/
+  .el-tabs__item {
+    font-size: 12px;
+    font-weight: normal;
+    color: #666666;
+    background: #F2F2F2;
+  }
+  .el-tabs__item:focus:active {
+    outline: 0;
+    /* font-size: 12px; */
+    /* border-bottom-color: #E95513; */
+    color: #E95513 !important;
+    background: #fff;
+    border-bottom: 2px solid #E95513;
+  }
+  /*悬停时的背景色*/
+  .el-tabs__item:hover{
+    color: #E95513 !important;
+  }
+  /*导航栏激活时下面有颜色的border*/
+  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
+    border-bottom: 2px solid #E95513;
+  }
        /*表格样式*/
        .el-table th>.cell {
          background: #e95513;
@@ -286,10 +289,32 @@
     }
     .el-pagination.is-background .el-pager li:not(.disabled):hover{
         color:#E95513 !important;
-
     }
     /****************************************** main  end */
-    
+    /*********************确定 跳转 按钮样式*********************/
+    .button2{
+        background-color: #E95513 !important;
+        color: #ffff !important;
+        width: 60px;
+        height: 30px;
+        border-radius: 0px;
+        vertical-align: center;
+        padding: 2px;
+        font-size: 12px;
+        margin-left:10px ;
+    } 
+ /*********************普通按钮样式*********************/
+    .button4{
+         background-color: #E95513 !important;
+         color: #ffff !important;
+         width: 80px;
+         height: 30px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+    }  
 </style>
 <script>
 export default {
