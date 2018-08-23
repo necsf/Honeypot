@@ -193,7 +193,7 @@
     }
   
   .what{
-      margin-left: 20px;
+     
       margin-right: 20px;
 
   }
