@@ -18,8 +18,8 @@
                 <el-tab-pane label="节点配置">
                     <div class="tab-1">
                         <div class="tab-1-1">
-                            <el-button  class="button4"  @click="dialogFormVisible = true" style="background-color:#E95513">添加模板</el-button>
-                            <el-dialog title="添加模板" :visible.sync="dialogFormVisible">
+                            <el-button  class="button4"  @click="dialogText1 = true" style="background-color:#E95513">添加模板</el-button>
+                            <el-dialog title="添加模板" :visible.sync="dialogText1">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
                                     <el-input v-model="form.name" auto-complete="off"></el-input>
@@ -45,8 +45,8 @@
                                 </el-form-item>
                             </el-form>
                             <div slot="footer" class="dialog-footer">
-                                <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
-                                <el-button class="button2"  @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
+                                <el-button class="button3" @click="dialogText1 = false">取 消</el-button>
+                                <el-button class="button2"  @click="dialogText1 = false" style="background-color:#E95513">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
@@ -626,6 +626,7 @@ export default {
       jumper:10,
       pagesize:10,
       dialogFormVisible: false,
+      dialogText1: false,
       dialogText: false,
       dialog: false,
       form: {

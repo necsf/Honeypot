@@ -51,7 +51,7 @@
        :default-active="$route.name"
        background-color=""
        mode="horizontal"
-       active-text-color="#76EE00"
+       active-text-color="#66CD00"
 
        @select="handleSelect"
         router
@@ -107,10 +107,7 @@
             margin-left: 40px;
         }
         hr{
-            
-    margin-top: 0px;
-
-
+            margin-top: 0px;
         }
        .ttt{
            padding: 0px;
