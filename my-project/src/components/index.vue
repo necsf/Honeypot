@@ -1,5 +1,5 @@
 <template>
-    <el-container style="height:100%; overflow-y:hidden; " direction="vertrcal">
+    <el-container style="height:100%; width:100% overflow-y:hidden; " direction="vertrcal">
         <!--******************************* head -->
         <el-header height=80px; >
       <div class="header-1">
@@ -104,7 +104,7 @@
         html { 
             overflow-y:hidden; 
             overflow-x:hidden;
-            margin-left: 40px;
+            margin-left: 0px;
         }
         hr{
             margin-top: 0px;

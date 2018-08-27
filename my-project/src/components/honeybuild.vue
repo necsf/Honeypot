@@ -18,7 +18,7 @@
                 <el-tab-pane label="节点配置">
                     <div class="tab-1">
                         <div class="tab-1-1">
-                            <el-button  class="button4"  @click="dialogText1 = true" style="background-color:#E95513">添加模板</el-button>
+                            <el-button  class="button4"  @click="dialogText1 = true">添加模板</el-button>
                             <el-dialog title="添加模板" :visible.sync="dialogText1">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
@@ -77,16 +77,15 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogText = false">取 消</el-button>
-                                <el-button  class="button2"  @click="dialogText = false" style="background-color:#E95513">确 定</el-button>
+                                <el-button  class="button2"  @click="dialogText = false" >确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button class="button4"  @click="open2" style="background-color:#E95513">删除</el-button>
+                            <el-button class="button4"  @click="open2" >删除</el-button>
                         </div><!--table-1-1-->
                         <div class="tab-1-2">
                             <el-table
                                 :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
-
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
@@ -126,7 +125,6 @@
                                       :data="temdata"
                                       style="width: 100%"><!--表的名字-->
                                       <!-- 选择框   -->
-
                                       <el-table-column
                                         type="index"
                                         label="编号"
@@ -203,7 +201,7 @@
                 <el-tab-pane label="服务器配置">
                     <div class="tab-2">
                         <div class="tab-2-1">
-                                <el-button class="button4" @click="dialogFormVisible = true" style="background-color:#E95513">添加服务器</el-button>
+                                <el-button class="button4" @click="dialogFormVisible = true" >添加服务器</el-button>
                                 <el-dialog title="添加服务器" :visible.sync="dialogFormVisible">
                                 <el-form :model="form">
                                     <el-form-item label="服务器名称" :label-width="formLabelWidth">
@@ -215,11 +213,11 @@
                                 </el-form>
                                 <div slot="footer" class="dialog-footer">
                                     <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
-                                    <el-button class="button2" @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
+                                    <el-button class="button2" @click="dialogFormVisible = false">确 定</el-button>
                                 </div>
                                 </el-dialog>
                                 &nbsp;&nbsp;
-                                <el-button class="button4"  @click="open2" style="background-color:#E95513">删除</el-button>
+                                <el-button class="button4"  @click="open2">删除</el-button>
                                 &nbsp;&nbsp;
                         </div><!--table-2-1-->
 
@@ -229,7 +227,7 @@
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
-                                id="table11"
+                                id="table21"
                                 :data="temdata"
                                 style="width: 100%"><!--表的名字-->
                                 <!-- 选择框   -->
