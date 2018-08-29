@@ -639,10 +639,7 @@
     height: 30px;
     line-height: 30px;
   }
-  /*侧面导航栏布局*/
-  .tab-2-1 {
-    margin-left: 0px;
-  }
+
   /*导航栏背景颜色*/
   .el-tabs__nav-wrap.is-left {
     background: #F2F2F2;

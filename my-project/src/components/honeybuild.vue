@@ -46,7 +46,7 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogText1 = false">取 消</el-button>
-                                <el-button class="button2"  @click="dialogText1 = false" style="background-color:#E95513">确 定</el-button>
+                                <el-button class="button2" @click="dialogText1 = false">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
@@ -77,7 +77,7 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogText = false">取 消</el-button>
-                                <el-button  class="button2"  @click="dialogText = false" >确 定</el-button>
+                                <el-button class="button2" @click="dialogText = false">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
@@ -161,7 +161,7 @@
                                     </el-table>
                                     <div slot="footer" class="dialog-footer">
                                       <el-button class="button3" @click="dialog = false">取 消</el-button>
-                                      <el-button  class="button2" @click="dialog = false">确 定</el-button>
+                                      <el-button class="button2" @click="dialog = false">确 定</el-button>
                                     </div>
                                   </el-dialog>
                                 </template>
@@ -536,9 +536,9 @@
        margin-top:15px;
        margin-bottom: 10px;
     }
-       .el-table__body, .el-table__footer, .el-table__header{
-         font-size: 12px;
-       }
+    .el-table__body, .el-table__footer, .el-table__header{
+        font-size: 12px;
+    }
     .table-p1{
         font-family: 'Microsoft YaHei';
         font-size: 12pt;
