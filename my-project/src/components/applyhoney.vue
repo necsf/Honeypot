@@ -150,7 +150,7 @@
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
-    color:#76EE00;
+    color:#5EBF18;
     ;}
        /* *********************************************mian start*****************/
     /* 绿色字体 */

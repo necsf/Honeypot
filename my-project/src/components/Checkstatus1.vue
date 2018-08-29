@@ -33,22 +33,22 @@
                         <el-table-column
                         type="index"
                         label="编号"
-                        width="80"
+                        width="100"
                         :index="indexMethod">
                         </el-table-column>
                         <el-table-column
                         prop="warningtype"
                         label="警告类型"
-                        width="180">
+                        width="240">
                         </el-table-column>
                         <el-table-column
                         prop="realtimewarning"
                         label="实时警告"
-                        width="180">
+                        width="200">
                         </el-table-column>
                         <el-table-column
                         prop="date"
-                        width="180"
+                        width="215"
                         label="创建时间">
                         </el-table-column>
                     </el-table>
@@ -78,7 +78,7 @@
                             
                     </div>
                     <div class="chatrs-1" >
-                        <div id="myChart2" style="width: 100%; height:300px;max-width:750px"></div>
+                        <div id="myChart2" style="width: 100%; height:300px;width:800px"></div>
                     </div>
             </div><!--main-2-1-->
             <div class="main-2-2">
@@ -110,7 +110,7 @@
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
-    color:#76EE00;
+    color:#5EBF18;
     ;}
 
                /* *********************************************header结束*****************/       
@@ -120,6 +120,33 @@
     bottom:15px;
 
     }
+  /* 内联样式 canvas */
+
+    /* 内联样式 canvas */
+.canvas{
+    left: 0px;
+    top: 0px;
+    width: 800px;
+    height: 300px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    position: absolute;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+    
     .header-2{
         margin: 0;
         height:60px;
@@ -243,7 +270,7 @@
     }
     */
     .charts-1{
-        width:740px;
+        width:720px;
         height: 730px;
         float: left;
         

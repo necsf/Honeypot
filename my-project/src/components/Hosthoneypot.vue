@@ -177,7 +177,7 @@
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.4px;
-    color:#76EE00;
+    color:#5EBF18;
     ;}
 
   /* *********************************************mian start*****************/

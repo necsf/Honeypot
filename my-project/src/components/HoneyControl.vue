@@ -45,7 +45,7 @@
                   <el-table-column
                     prop="number"
                     label="编号"
-                    width="100">
+                    width="150">
                   </el-table-column>
                   <el-table-column
                     prop="user"
@@ -60,12 +60,12 @@
                   <el-table-column
                     prop="role"
                     label="角色"
-                    width="200">
+                    width="250">
                   </el-table-column>
                   <el-table-column
                     prop="department"
                     label="部门"
-                    width="220">
+                    width="250">
                   </el-table-column>
                   <el-table-column
                     prop="operater"
@@ -201,13 +201,13 @@
                                 <el-table-column
                                   prop="number"
                                   label="编号"
-                                  width="200">
+                                  width="250">
                                 </el-table-column>
 
                                 <el-table-column
                                   prop="department"
                                   label="部门"
-                                  width="360">
+                                  width="460">
                                 </el-table-column>
                                 <el-table-column
                                   prop="departmentman"
@@ -348,7 +348,7 @@
                         <el-table-column
                           prop="number"
                           label="编号"
-                          width="100">
+                          width="150">
                         </el-table-column>
                         <el-table-column
                           prop="time"
@@ -363,7 +363,7 @@
                         <el-table-column
                           prop="operationName"
                           label="操作名称"
-                          width="220">
+                          width="305">
                         </el-table-column>
                         <el-table-column
                           prop="message"
@@ -439,7 +439,7 @@
                         <el-table-column
                           prop="time"
                           label="操作时间"
-                          width="350">
+                          width="380">
                         </el-table-column>
                         <el-table-column
                           prop="operator"
@@ -449,12 +449,12 @@
                         <el-table-column
                           prop="role"
                           label="操作人身份"
-                          width="200">
+                          width="280">
                         </el-table-column>
                         <el-table-column
                           prop="operationName"
                           label="操作名称"
-                          width="220">
+                          width="250">
                         </el-table-column>
                         <el-table-column
                           prop="message"
@@ -519,7 +519,7 @@
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
-    color:#76EE00;
+    color:#5EBF18;
     ;}
   /* *********************************************mian start*****************/
   /* 绿色字体 */

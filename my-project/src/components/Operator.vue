@@ -168,7 +168,7 @@
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
-    color:#76EE00;
+    color:#5EBF18;
     ;}
 .top{
   padding: 0;
@@ -200,9 +200,9 @@
   }
   .center{
       text-align: left;
-      margin-left: 300px;
+      margin-left: 400px;
       font-size: 30.2pt;
-      margin-top: 150px;
+      margin-top: 200px;
   }
   .big{
       width: 300px;
