@@ -73,7 +73,7 @@
                                         <el-button
                                           type="text"
                                           size="mini"
-                                          style="font-weight:bold"
+                                        
                                           @click="dialog = true">查看详情 蜜罐管理</el-button>
                                         <el-dialog title="查看更多" :visible.sync="dialog">
                                           <el-table
@@ -182,7 +182,6 @@
         padding: 2px !important;
     }
        .el-table__body, .el-table__footer, .el-table__header{
-         font-weight: bold;
          font-size: 12px;
        }
     .el-main-2{

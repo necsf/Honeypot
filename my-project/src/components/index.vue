@@ -51,11 +51,7 @@
        :default-active="$route.name"
        background-color=""
        mode="horizontal"
-<<<<<<< HEAD
        active-text-color="#5EBF18"
-=======
-       active-text-color="#66CD00"
->>>>>>> 4bc4e1e24a2b0f72a5f40f03dbfd1d70824dc76f
 
        @select="handleSelect"
         router
