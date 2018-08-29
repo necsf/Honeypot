@@ -506,6 +506,7 @@
 
 </template>
 <style >
+<<<<<<< HEAD
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -785,6 +786,9 @@
     line-height: 30px;
     height: 30px;
   }
+=======
+  @import '../assets/css/honeycontrol.css';
+>>>>>>> 4bc4e1e24a2b0f72a5f40f03dbfd1d70824dc76f
 </style>
 <script>
   export default {

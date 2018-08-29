@@ -1,5 +1,5 @@
 <template>
-    <el-container style="height:100%; overflow-y:hidden; " direction="vertrcal">
+    <el-container style="height:100%; width:100% overflow-y:hidden; " direction="vertrcal">
         <!--******************************* head -->
         <el-header height=80px; >
       <div class="header-1">
@@ -51,7 +51,11 @@
        :default-active="$route.name"
        background-color=""
        mode="horizontal"
+<<<<<<< HEAD
        active-text-color="#5EBF18"
+=======
+       active-text-color="#66CD00"
+>>>>>>> 4bc4e1e24a2b0f72a5f40f03dbfd1d70824dc76f
 
        @select="handleSelect"
         router
@@ -83,10 +87,6 @@
     padding-right: 0px;
 }
 
- html
-{
-    margin-left: 40px;
-}
 
 @font-face {
   font-family: 'iconfont';  /* project id 789791 */
@@ -108,12 +108,11 @@
         /* 黑色条框 */
         html { 
             overflow-y:hidden; 
-            overflow-x:hidden;}
+            overflow-x:hidden;
+            margin-left: 0px;
+        }
         hr{
-            
-    margin-top: 0px;
-
-
+            margin-top: 0px;
         }
        .ttt{
            padding: 0px;
