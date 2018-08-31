@@ -182,19 +182,18 @@
 
   /* *********************************************mian start*****************/
   /* 白色条框 */
- 
+
 
   .header-2{
     margin: 0;
     height:60px;
     width:100%;
     color:black;
-  
+
     overflow: hidden;
   }
   /* 绿色字体 */
   .p-2{
-
     position: relative;
     top: 10px;
     font-size: 18pt;
@@ -206,7 +205,7 @@
   .el-main-1{
     padding: 2px !important;
   }
-  
+
   .tab-1-1{
     margin-left: 30px;
     margin-top:15px;
@@ -292,7 +291,7 @@
     color: #E95513 !important;
     background-color: #ebecf2;
   }
-  
+
   .origindairy .el-submenu__title{
     background: #ebecf2;
   }
@@ -311,7 +310,7 @@
   .el-menu-item-group__title {
     padding: 0px 0 0px 20px;
   }
-  
+
   /*按钮样式调整*/
   .funButton{
     width: 80px;
@@ -359,31 +358,31 @@
   }
   /*原始日志侧面导航栏*/
   .el-menu-item, .el-submenu__title {
-    height: 30px;
-    line-height: 30px;
+    height: 56px;
+    line-height: 56px;
     position: relative;
-   
+
     white-space: nowrap;
     list-style: none;
   }
 
-  .el-submenu .el-menu-item {
-    height: 30px;
-    line-height: 30px;
+  .el-submenu .el-menu-item,.el-submenu >.el-menu-item {
+    height: 56px;
+    line-height: 56px;
     padding: 0 45px;
     min-width: 200px;
 
   }
-  .el-submenu__title {
-    font-size: 12px;
-  }
-  .el-menu-item {
-    font-size: 12px;
-  }
+  /*.el-submenu__title {*/
+    /*font-size: 12px;*/
+  /*}*/
+  /*.el-menu-item {*/
+    /*font-size: 12px;*/
+  /*}*/
   #nav-left.el-menu-item{
     padding-left: 20px;
   }
-  
+
   .el-pagination__jump{
     position: relative;
     left: -1140px;
@@ -402,7 +401,6 @@
     background: #e95513;
   }
   .el-select .el-input .el-select__caret{
-
     font-size: 12px;
   }
   .el-select.el-input__icon{
@@ -496,7 +494,7 @@
       return {
         jumper:10,
         pagesize:10,
-    
+
         administrator:'wulala',
         times:'2018-5-21',
         admindata:[

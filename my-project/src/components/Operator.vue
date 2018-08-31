@@ -1,6 +1,6 @@
 <template>
  <el-container class="what" style="height:100%;" direction="vertrcal">
-  <el-header class="top"  height="150px"> 
+  <el-header class="top"  height="150px">
       <div class="header-2">
               <p class="p-2"><i class="iconfont">&#xe652;</i>样本操作
               </p>
@@ -13,7 +13,7 @@
     <el-aside width="250px">
         <el-row class="tac">
   <el-col :span="12">
-      <el-menu>  
+      <el-menu>
       <el-menu-item index="1">
         <span slot="title">192.168.1.12</span>
       </el-menu-item>
@@ -141,18 +141,18 @@
         <div class="center">
             样本上传:<el-input class="big" v-model="input" placeholder="请选择样本上传"></el-input>
              <el-button  class="button5"  style="font-size:20px;background:#E95513;color:#ffffff;">&nbsp;&nbsp;&nbsp;分析样本&nbsp;&nbsp;&nbsp;</el-button>
-          
+
 
         </div>
     </el-tab-pane>
-    
+
   </el-tabs>
 
         </div>
 </el-header>
-  
+
 </el-container>
- 
+
 </template>
 <style >
 @font-face {
@@ -192,9 +192,9 @@
         font-family: '微软雅黑';
         margin: 0;
     }
-  
+
   .what{
-     
+
       margin-right: 20px;
 
   }
@@ -208,7 +208,7 @@
       width: 300px;
       margin-left: 10px;
       font-size:30px;
-    
+
   }
   .bottom{
       width:300px;
@@ -227,7 +227,7 @@
     color: #666666;
     background: #F2F2F2;
   }
-  
+
   /*tabs的颜色 */
   .el-tabs__item.is-active{
       color: #666666 !important;
@@ -331,7 +331,7 @@
     top:-15px;
     font-size: 12px;
     border-radius: 0px;
-  }   
+  }
   .el-pagination__jump{
     position: relative;
     left: -1140px;
@@ -416,7 +416,7 @@
         padding: 2px;
         font-size: 12px;
         margin-left:10px ;
-    } 
+    }
  /*********************普通按钮样式*********************/
     .button4{
          background-color: #E95513 !important;
@@ -428,8 +428,8 @@
          padding: 2px;
          font-size: 12px;
          margin-left:10px ;
-    }   
-/*********************分析样本 按钮样式*********************/  
+    }
+/*********************分析样本 按钮样式*********************/
     .button5{
          background-color: #E95513 !important;
          color: #ffff !important;
@@ -441,13 +441,41 @@
          font-size: 12px;
          margin-left:10px ;
     }
+    /*修改侧面导航栏样式*/
+.el-menu-item.is-active {
+  color: #e95513;
+}
+
+.el-menu-item :hover {
+
+}
+.el-menu-item:focus, .el-menu-item:hover {
+  outline: 0;
+  background-color: #ecf5ff;
+}
+.el-menu {
+  font-size: 14px !important;
+}
+.el-col-12.el-main.el-main-item{
+  font-size: 14px;
+  height: 56px;
+}
+.el-col-12 {
+  width: 90%;
+
+}
+.el-col-12 >.el-menu {
+  background: #f2f2f2;
+  height: 525px;
+  font-size: 14px !important;
+}
 
 </style>
 <script>
 export default {
     data() {
       return {
-        
+
         activeName2: 'first',
         jumper:10,
         pagesize:10,
@@ -545,6 +573,6 @@ export default {
       }
     }
 
-    
+
 };
 </script>

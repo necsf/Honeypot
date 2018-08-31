@@ -136,7 +136,7 @@
   .p-page{
     font-size: 12pt;
   }
-  
+
   .el-pagination__jump{
     position: relative;
     left: -1140px;
@@ -156,7 +156,6 @@
     background: #e95513;
   }
   .el-select .el-input .el-select__caret{
-
     font-size: 12px;
   }
   .el-select.el-input__icon{

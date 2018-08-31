@@ -166,7 +166,7 @@
           <!-- 配置管理 -->
           <el-tab-pane label="配置管理">
             <div class="tab-2">
-              <div class="tab-2-1">
+              <div class="tab-2-1 left-nav">
                 <el-tabs tab-position="left" style="height: 500px;width: 100%">
 
                   <el-tab-pane label="部门管理" >
@@ -627,7 +627,7 @@
     color: #909399;
   }
   .el-tabs__active-bar {
-    background-color: #eee;
+  display: none;
   }
   /*刚修改的分页背景颜色问题*/
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
@@ -682,7 +682,7 @@
     background: #fff;
   }
   .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
-    background: #fff;
+
   }
   /*导航栏样式*/
   .el-tabs__item.is-left.is-active{
@@ -855,6 +855,40 @@
          margin-left:10px ;
 
     }
+  .left-nav{
+    margin-left: 0px!important;
+  }
+.el-tabs--left .el-tabs__item.is-left, .el-tabs--left .el-tabs__item.is-left.is-active {
+  text-align: left;
+  width: 250px;
+  height: 30px;
+  line-height: 56px;
+  font-size: 14px;
+  text-align: left;
+  height: 56px;
+  padding-left: 40px !important;
+}
+.el-tabs--left .el-tabs__item.is-left, .el-tabs--left .el-tabs__item.is-left {
+  text-align: left;
+  width: 250px;
+  height: 30px;
+  line-height: 56px;
+  font-size: 14px;
+  text-align: left;
+  height: 56px;
+  padding-left: 40px;
+}
+.el-tabs__nav>.is-left{
+  text-align: left;
+  width: 250px;
+  height: 30px;
+  line-height: 56px;
+  font-size: 14px;
+  text-align: left;
+  height: 56px;
+  padding-left: 40px !important;
+}
+
 
 </style>
 <script>
