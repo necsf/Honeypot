@@ -506,7 +506,6 @@
 
 </template>
 <style >
-<<<<<<< HEAD
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -687,7 +686,7 @@
     background: #e95513;
     color: #fff;
     /*border-right: 1px solid #fff;*/
-    font-weight: bold;
+
     font-size: 12px;
 
     vertical-align: center;
@@ -700,7 +699,7 @@
     border-right: 1px solid #fff;
   }
   .el-table__body, .el-table__footer, .el-table__header{
-    font-weight: bold;
+   
     font-size: 12px;
   }
 
@@ -786,9 +785,6 @@
     line-height: 30px;
     height: 30px;
   }
-=======
-  @import '../assets/css/honeycontrol.css';
->>>>>>> 4bc4e1e24a2b0f72a5f40f03dbfd1d70824dc76f
 </style>
 <script>
   export default {

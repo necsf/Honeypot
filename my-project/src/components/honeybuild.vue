@@ -426,7 +426,7 @@
          background: #e95513;
          color: #fff;
          /*border-right: 1px solid #fff;*/
-         font-weight: bold;
+     
          font-size: 12px;
 
          vertical-align: center;
@@ -538,7 +538,7 @@
        margin-bottom: 10px;
     }
        .el-table__body, .el-table__footer, .el-table__header{
-         font-weight: bold;
+  
          font-size: 12px;
        }
     .table-p1{

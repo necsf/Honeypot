@@ -182,7 +182,7 @@
         padding: 2px !important;
     }
        .el-table__body, .el-table__footer, .el-table__header{
-         font-weight: bold;
+
          font-size: 12px;
        }
     .el-main-2{
