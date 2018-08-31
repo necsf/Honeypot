@@ -101,8 +101,8 @@
                     </el-form-item>
                   </el-form>
                   <div slot="footer" class="dialog-footer">
-                    <el-button @click="dialogFormVisible = false">取 消</el-button>
-                    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                    <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
+                    <el-button class="button2" @click="dialogFormVisible = false">确 定</el-button>
                   </div>
                 </el-dialog>
                 <el-dialog title="修改信息" :visible.sync="dialogFormVisible1"  >
@@ -127,8 +127,8 @@
                     </el-form-item>
                   </el-form>
                   <div slot="footer" class="dialog-footer">
-                    <el-button @click="dialogFormVisible = false">取 消</el-button>
-                    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                    <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
+                    <el-button class="button2" @click="dialogFormVisible = false">确 定</el-button>
                   </div>
                 </el-dialog>
               </div><!--table-1-2-->
@@ -226,8 +226,8 @@
                                 </el-form-item>
                               </el-form>
                               <div slot="footer" class="dialog-footer">
-                                <el-button @click="dialogFormVisible2_0 = false">取 消</el-button>
-                                <el-button type="primary" @click="dialogFormVisible2_0 = false">确 定</el-button>
+                                <el-button class="button3" @click="dialogFormVisible2_0 = false">取 消</el-button>
+                                <el-button class="button2" @click="dialogFormVisible2_0 = false">确 定</el-button>
                               </div>
                             </el-dialog>
 
@@ -246,8 +246,8 @@
                                 </el-form-item>
                               </el-form>
                               <div slot="footer" class="dialog-footer">
-                                <el-button @click="dialogFormVisible2_1 = false">取 消</el-button>
-                                <el-button type="primary" @click="dialogFormVisible12_1 = false">确 定</el-button>
+                                <el-button class="button3" @click="dialogFormVisible2_1 = false">取 消</el-button>
+                                <el-button class="button2" @click="dialogFormVisible12_1 = false">确 定</el-button>
                               </div>
                             </el-dialog>
                           </el-main>
@@ -639,10 +639,7 @@
     height: 30px;
     line-height: 30px;
   }
-  /*侧面导航栏布局*/
-  .tab-2-1 {
-    margin-left: 0px;
-  }
+
   /*导航栏背景颜色*/
   .el-tabs__nav-wrap.is-left {
     background: #F2F2F2;
@@ -685,10 +682,12 @@
   .el-table th>.cell {
     background: #e95513;
     color: #fff;
+<<<<<<< HEAD
     /*border-right: 1px solid #fff;*/
 
+=======
+>>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
     font-size: 12px;
-
     vertical-align: center;
     padding-left: 20px;
     margin-bottom: 0px;
@@ -699,7 +698,10 @@
     border-right: 1px solid #fff;
   }
   .el-table__body, .el-table__footer, .el-table__header{
+<<<<<<< HEAD
    
+=======
+>>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
     font-size: 12px;
   }
 
@@ -713,17 +715,6 @@
     top:-15px;
     font-size: 12px;
     border-radius: 0px;
-  }
-  .button2{
-    background-color: #E95513 !important;
-    color: #ffff !important;
-    width: 60px;
-    height: 30px;
-    border-radius: 0px;
-    vertical-align: center;
-    padding: 2px;
-    font-size: 12px;
-    margin-left:10px ;
   }
   .el-pagination__jump{
     position: relative;
@@ -785,6 +776,45 @@
     line-height: 30px;
     height: 30px;
   }
+<<<<<<< HEAD
+=======
+  /*********************确定 跳转 按钮样式*********************/
+    .button2{
+        background-color: #E95513 !important;
+        color: #ffff !important;
+        width: 60px;
+        height: 30px;
+        border-radius: 0px;
+        vertical-align: center;
+        padding: 2px;
+        font-size: 12px;
+        margin-left:10px ;
+    }
+    /*********************取消按钮样式*********************/
+    .button3{
+         background-color: #ffffff !important;
+         color: black !important;
+         width: 60px;
+         height: 30px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+    }
+    /*********************普通按钮样式*********************/
+    .button4{
+         background-color: #E95513 !important;
+         color: #ffff !important;
+         width: 80px;
+         height: 30px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+    } 
+>>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
 </style>
 <script>
   export default {

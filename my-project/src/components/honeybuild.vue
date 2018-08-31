@@ -46,7 +46,7 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogText1 = false">取 消</el-button>
-                                <el-button class="button2"  @click="dialogText1 = false" style="background-color:#E95513">确 定</el-button>
+                                <el-button class="button2" @click="dialogText1 = false">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
@@ -77,7 +77,7 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogText = false">取 消</el-button>
-                                <el-button  class="button2"  @click="dialogText = false" >确 定</el-button>
+                                <el-button class="button2" @click="dialogText = false">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
@@ -161,7 +161,7 @@
                                     </el-table>
                                     <div slot="footer" class="dialog-footer">
                                       <el-button class="button3" @click="dialog = false">取 消</el-button>
-                                      <el-button  class="button2" @click="dialog = false">确 定</el-button>
+                                      <el-button class="button2" @click="dialog = false">确 定</el-button>
                                     </div>
                                   </el-dialog>
                                 </template>
@@ -306,7 +306,7 @@
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
-    color:#5EBF18;
+    color:#76EE00;
     ;}
 
        /* *********************************************mian start*****************/
@@ -315,7 +315,7 @@
     .p-2{
         position: relative;
       
-      font-weight: bold;
+        font-weight: bold;
         font-size: 18pt;
         left: 20px;
         font-family: '微软雅黑';
@@ -426,7 +426,10 @@
          background: #e95513;
          color: #fff;
          /*border-right: 1px solid #fff;*/
+<<<<<<< HEAD
      
+=======
+>>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
          font-size: 12px;
 
          vertical-align: center;
@@ -537,10 +540,16 @@
        margin-top:15px;
        margin-bottom: 10px;
     }
+<<<<<<< HEAD
        .el-table__body, .el-table__footer, .el-table__header{
   
          font-size: 12px;
        }
+=======
+    .el-table__body, .el-table__footer, .el-table__header{
+        font-size: 12px;
+    }
+>>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
     .table-p1{
         font-family: 'Microsoft YaHei';
         font-size: 12pt;
