@@ -519,11 +519,7 @@
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
-
-    color:#76EE00;
-
     color:#5EBF18;
-
     ;}
   /* *********************************************mian start*****************/
   /* 绿色字体 */
@@ -531,7 +527,6 @@
     position: relative;
     bottom:15px;
   }
-
   .p-2{
     position: relative;
     top: 10px;
@@ -632,14 +627,17 @@
     color: #909399;
   }
   .el-tabs__active-bar {
-    background-color:#eee;
+    background-color: #eee;
   }
-
   /*刚修改的分页背景颜色问题*/
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
           border-bottom: 2px solid #E95513;
           background: #fff;
         }
+  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
+    border-bottom: 2px solid #E95513;}
+
+
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
     border-bottom: 2px solid #E95513;
 
@@ -651,10 +649,12 @@
     line-height: 30px;
   }
 
+
   /*侧面导航栏布局*/
   .tab-2-1 {
     margin-left: 0px;
   }
+
 
   /*导航栏背景颜色*/
   .el-tabs__nav-wrap.is-left {
@@ -687,7 +687,6 @@
   /*导航栏样式*/
   .el-tabs__item.is-left.is-active{
     color: #E95513 !important;
-
     background: #fff;
   }
   /*侧面导航栏间距问题*/
@@ -706,12 +705,15 @@
     background: #e95513;
     color: #fff;
 
-    /*border-right: 1px solid #fff;*/
     font-weight: bold;
     font-size: 12px;
 
 
     /*border-right: 1px solid #fff;*/
+
+    font-size: 12px;
+
+
 
     font-size: 12px;
 
@@ -725,9 +727,7 @@
     border-right: 1px solid #fff;
   }
   .el-table__body, .el-table__footer, .el-table__header{
-
     font-weight: bold;
-
     font-size: 12px;
   }
 
@@ -743,6 +743,7 @@
     border-radius: 0px;
   }
 
+
   .button2{
     background-color: #E95513 !important;
     color: #ffff !important;
@@ -754,6 +755,7 @@
     font-size: 12px;
     margin-left:10px ;
   }
+
 
   .el-pagination__jump{
     position: relative;
@@ -816,7 +818,6 @@
     height: 30px;
   }
 
-
   /*********************确定 跳转 按钮样式*********************/
     .button2{
         background-color: #E95513 !important;
@@ -852,6 +853,7 @@
          padding: 2px;
          font-size: 12px;
          margin-left:10px ;
+
     }
 
 </style>
