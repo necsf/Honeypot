@@ -1,5 +1,5 @@
 <template>
-    <el-container style="height:100%; overflow-y:hidden; " direction="vertrcal">
+    <el-container style="height:100%; width:100% overflow-y:hidden; " direction="vertrcal">
         <!--******************************* head -->
         <el-header height=80px; >
       <div class="header-1">
@@ -51,13 +51,13 @@
        :default-active="$route.name"
        background-color=""
        mode="horizontal"
-       active-text-color="#76EE00"
+       active-text-color="#5EBF18"
 
        @select="handleSelect"
         router
         class="font"
        >
-    <el-menu-item  index="systemindex"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe606;</i>系统主页</p></el-menu-item>
+    <el-menu-item  index="systemindex"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe61f;</i>系统主页</p></el-menu-item>
     <el-menu-item index="Checkstatus1" ><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe61a;</i>监测状态</p></el-menu-item>
     <el-menu-item index="honeybuild" ><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe603;</i>蜜网构建</p></el-menu-item>
     <el-menu-item index="applyhoney"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe651;</i>应用蜜罐</p></el-menu-item>
@@ -76,6 +76,7 @@
 </el-container>
 </template>
 <style scoped>
+
  header.el-header
 {
     padding-left: 0px;
@@ -84,12 +85,12 @@
 
 
 @font-face {
-  font-family: 'iconfont';  /* project id 796633 */
-  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
-  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 789791 */
+  src: url('//at.alicdn.com/t/font_789791_1n8tl020l1l.eot');
+  src: url('//at.alicdn.com/t/font_789791_1n8tl020l1l.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_789791_1n8tl020l1l.woff') format('woff'),
+  url('//at.alicdn.com/t/font_789791_1n8tl020l1l.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_789791_1n8tl020l1l.svg#iconfont') format('svg');
 }
 .iconfont{
     font-family:"iconfont" !important;
@@ -104,13 +105,10 @@
         html { 
             overflow-y:hidden; 
             overflow-x:hidden;
-            margin-left: 40px;
+            margin-left: 0px;
         }
         hr{
-            
-    margin-top: 0px;
-
-
+            margin-top: 0px;
         }
        .ttt{
            padding: 0px;
@@ -121,8 +119,7 @@
         }
         .el-dropdown-link{
              position: relative;
-             bottom:20px;
-          
+             bottom:5px;
         }
         span.lefttop{
             text-align: left;

@@ -18,8 +18,8 @@
                 <el-tab-pane label="节点配置">
                     <div class="tab-1">
                         <div class="tab-1-1">
-                            <el-button  class="button4"  @click="dialogFormVisible = true" style="background-color:#E95513">添加模板</el-button>
-                            <el-dialog title="添加模板" :visible.sync="dialogFormVisible">
+                            <el-button  class="button4"  @click="dialogText1 = true">添加模板</el-button>
+                            <el-dialog title="添加模板" :visible.sync="dialogText1">
                             <el-form :model="form">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
                                     <el-input v-model="form.name" auto-complete="off"></el-input>
@@ -45,8 +45,8 @@
                                 </el-form-item>
                             </el-form>
                             <div slot="footer" class="dialog-footer">
-                                <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
-                                <el-button class="button2"  @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
+                                <el-button class="button3" @click="dialogText1 = false">取 消</el-button>
+                                <el-button class="button2" @click="dialogText1 = false">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
@@ -77,16 +77,15 @@
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogText = false">取 消</el-button>
-                                <el-button  class="button2"  @click="dialogText = false" style="background-color:#E95513">确 定</el-button>
+                                <el-button class="button2" @click="dialogText = false">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button class="button4"  @click="open2" style="background-color:#E95513">删除</el-button>
+                            <el-button class="button4"  @click="open2" >删除</el-button>
                         </div><!--table-1-1-->
                         <div class="tab-1-2">
                             <el-table
                                 :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
-
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
@@ -126,7 +125,6 @@
                                       :data="temdata"
                                       style="width: 100%"><!--表的名字-->
                                       <!-- 选择框   -->
-
                                       <el-table-column
                                         type="index"
                                         label="编号"
@@ -163,7 +161,7 @@
                                     </el-table>
                                     <div slot="footer" class="dialog-footer">
                                       <el-button class="button3" @click="dialog = false">取 消</el-button>
-                                      <el-button  class="button2" @click="dialog = false">确 定</el-button>
+                                      <el-button class="button2" @click="dialog = false">确 定</el-button>
                                     </div>
                                   </el-dialog>
                                 </template>
@@ -203,7 +201,7 @@
                 <el-tab-pane label="服务器配置">
                     <div class="tab-2">
                         <div class="tab-2-1">
-                                <el-button class="button4" @click="dialogFormVisible = true" style="background-color:#E95513">添加服务器</el-button>
+                                <el-button class="button4" @click="dialogFormVisible = true" >添加服务器</el-button>
                                 <el-dialog title="添加服务器" :visible.sync="dialogFormVisible">
                                 <el-form :model="form">
                                     <el-form-item label="服务器名称" :label-width="formLabelWidth">
@@ -215,11 +213,11 @@
                                 </el-form>
                                 <div slot="footer" class="dialog-footer">
                                     <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
-                                    <el-button class="button2" @click="dialogFormVisible = false" style="background-color:#E95513">确 定</el-button>
+                                    <el-button class="button2" @click="dialogFormVisible = false">确 定</el-button>
                                 </div>
                                 </el-dialog>
                                 &nbsp;&nbsp;
-                                <el-button class="button4"  @click="open2" style="background-color:#E95513">删除</el-button>
+                                <el-button class="button4"  @click="open2">删除</el-button>
                                 &nbsp;&nbsp;
                         </div><!--table-2-1-->
 
@@ -229,7 +227,7 @@
                                 class="table1"
                                 row-style="30px"
                                 cell-style="padding:0"
-                                id="table11"
+                                id="table21"
                                 :data="temdata"
                                 style="width: 100%"><!--表的名字-->
                                 <!-- 选择框   -->
@@ -317,7 +315,7 @@
     .p-2{
         position: relative;
       
-      font-weight: bold;
+        font-weight: bold;
         font-size: 18pt;
         left: 20px;
         font-family: '微软雅黑';
@@ -428,7 +426,10 @@
          background: #e95513;
          color: #fff;
          /*border-right: 1px solid #fff;*/
-         font-weight: bold;
+<<<<<<< HEAD
+     
+=======
+>>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
          font-size: 12px;
 
          vertical-align: center;
@@ -539,10 +540,16 @@
        margin-top:15px;
        margin-bottom: 10px;
     }
+<<<<<<< HEAD
        .el-table__body, .el-table__footer, .el-table__header{
-         font-weight: bold;
+  
          font-size: 12px;
        }
+=======
+    .el-table__body, .el-table__footer, .el-table__header{
+        font-size: 12px;
+    }
+>>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
     .table-p1{
         font-family: 'Microsoft YaHei';
         font-size: 12pt;
@@ -626,6 +633,7 @@ export default {
       jumper:10,
       pagesize:10,
       dialogFormVisible: false,
+      dialogText1: false,
       dialogText: false,
       dialog: false,
       form: {

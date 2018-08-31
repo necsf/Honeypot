@@ -73,7 +73,7 @@
                                         <el-button
                                           type="text"
                                           size="mini"
-                                          style="font-weight:bold"
+                                        
                                           @click="dialog = true">查看详情 蜜罐管理</el-button>
                                         <el-dialog title="查看更多" :visible.sync="dialog">
                                           <el-table
@@ -86,8 +86,8 @@
 
                                           </el-table>
                                           <div slot="footer" class="dialog-footer">
-                                            <el-button @click="dialog = false">取 消</el-button>
-                                            <el-button type="danger" @click="dialog = false">确 定</el-button>
+                                            <el-button class="button3" dialog = false>取 消</el-button>
+                                            <el-button class="button2" @click="dialog = false">确 定</el-button>
                                           </div>
                                         </el-dialog>
 
@@ -150,7 +150,7 @@
      font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
-    color:#76EE00;
+    color:#5EBF18;
     ;}
        /* *********************************************mian start*****************/
     /* 绿色字体 */
@@ -182,7 +182,10 @@
         padding: 2px !important;
     }
        .el-table__body, .el-table__footer, .el-table__header{
-         font-weight: bold;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
          font-size: 12px;
        }
     .el-main-2{
@@ -385,6 +388,18 @@
         font-size: 12px;
         margin-left:10px ;
     } 
+/*********************取消按钮样式*********************/
+    .button3{
+         background-color: #ffffff !important;
+         color: black !important;
+         width: 60px;
+         height: 30px;
+         border-radius: 0px;
+         vertical-align: center;
+         padding: 2px;
+         font-size: 12px;
+         margin-left:10px ;
+    }
  /*********************普通按钮样式*********************/
     .button4{
          background-color: #E95513 !important;
@@ -404,6 +419,7 @@ export default {
       return {
         jumper:10,
         pagesize:10,
+        dialog:false,
         dialogFormVisible: false,
         dialogText: false,
         dialogTable: false,
