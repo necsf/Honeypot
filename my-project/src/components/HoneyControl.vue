@@ -690,9 +690,7 @@
     background: #fff;
   }
   /*侧面导航栏间距问题*/
-.tab-2-1 {
-  margin-top: 0px;
-}
+
 
   /*输入框样式*/
   .inputType1 .el-input__inner{
