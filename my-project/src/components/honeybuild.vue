@@ -426,10 +426,7 @@
          background: #e95513;
          color: #fff;
          /*border-right: 1px solid #fff;*/
-<<<<<<< HEAD
      
-=======
->>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
          font-size: 12px;
 
          vertical-align: center;
@@ -540,16 +537,10 @@
        margin-top:15px;
        margin-bottom: 10px;
     }
-<<<<<<< HEAD
        .el-table__body, .el-table__footer, .el-table__header{
   
          font-size: 12px;
        }
-=======
-    .el-table__body, .el-table__footer, .el-table__header{
-        font-size: 12px;
-    }
->>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
     .table-p1{
         font-family: 'Microsoft YaHei';
         font-size: 12pt;
