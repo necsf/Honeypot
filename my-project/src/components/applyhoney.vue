@@ -2,15 +2,15 @@
 <el-container style="height:100%;" direction="vertrcal">
     <!-- header -->
       <!-- main -->
-  <el-main class="el-main-2" > 
+  <el-main class="el-main-2" >
       <div class="header-2">
               <p class="p-2"><i class="iconfont">&#xe651;</i>应用蜜罐</p>
           </div>
           <hr style="margin-bottom:0;"/>
       <div class="main-1" >
-            <el-tabs 
+            <el-tabs
                 class="tabs-1"
-                :tab-position="top" 
+                :tab-position="top"
                 type="card"
                 @tab-click="handleClick"
 
@@ -22,8 +22,8 @@
                     <div class="tab-1">
                         <div class="tab-1-1">
                                 <p class="IP" style="position: relative;top:0px">IP地址:
-                                    <el-input v-model="temdata.IP" style="width:187px"></el-input>
-                                    <el-button class="button4" style="background:#E95513;color:#ffffff;"  @click="onSubmit">查询主机</el-button>
+                                    <el-input v-model="temdata_ip" style="width:187px"></el-input>
+                                    <el-button class="button4" style="background:#E95513;color:#ffffff;"  @click="getListHostByIp">查询主机</el-button>
                                 </p>
                         </div>
                         <div class="tab-1-2">
@@ -33,15 +33,15 @@
                                 row-style="30px"
                                 cell-style="padding:0"
                                 id="table11"
-                                :data="temdata"
+                                :data="temdata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                                 style="width: 100%">
                                     <el-table-column
-                                        prop="number"
+                                        prop="id"
                                         label="序号"
                                         width="150">
                                     </el-table-column>
                                     <el-table-column
-                                        prop="IP"
+                                        prop="ip"
                                         label="IP地址"
                                         width="250">
                                     </el-table-column>
@@ -51,17 +51,17 @@
                                         width="250">
                                     </el-table-column>
                                     <el-table-column
-                                        prop="pan"
+                                        prop="disk"
                                         label="硬盘"
                                         width="220">
                                     </el-table-column>
                                     <el-table-column
-                                        prop="CPU"
+                                        prop="cpu"
                                         label="CPU"
                                         width="250">
                                     </el-table-column>
                                     <el-table-column
-                                        prop="load"
+                                        prop="memory"
                                         label="内存"
                                         width="200">
                                     </el-table-column>
@@ -73,7 +73,7 @@
                                         <el-button
                                           type="text"
                                           size="mini"
-                                        
+
                                           @click="dialog = true">查看详情 蜜罐管理</el-button>
                                         <el-dialog title="查看更多" :visible.sync="dialog">
                                           <el-table
@@ -99,13 +99,13 @@
 
                            </div>
                         </div><!--table-1-2-->
-                  <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+                  <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(temdata.length))?currentPage * pagesize:temdata.length}}条记录，总共{{temdata.length}}条记录
                     <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
                     <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
                       <el-option label="10" value="10"></el-option>
                       <el-option label="20" value="20"></el-option>
                     </el-select>
-                    <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span>
+                    <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
                   </div>
 
                   <div style="float:right;margin-top:10px;margin-right: 30px;">
@@ -117,21 +117,22 @@
                       jumper-text="转到"
                       @size-change="handleSizeChange"
                       @current-change="handleCurrentChange"
-                      :current-page="currentPage4"
+                      :current-page="currentPage"
                       :page-sizes="[10, 20]"
-                      :page-size="100"
-                      layout="slot,prev, pager, next" :total="50">
+                      :page-size="pagesize"
+                      :total="temdata.length"
+                      layout="slot,prev, pager, next,total" >
                       <!-- <slot name="as">dddd</slot> -->
                     </el-pagination>
                   </div>
 
 
  </el-tab-pane>
-                
+
             </el-tabs>
       </div> <!--main-1-->
 
-    
+
  </el-main>
   <!-- footer -->
 </el-container>
@@ -154,7 +155,7 @@
     ;}
        /* *********************************************mian start*****************/
     /* 绿色字体 */
-  
+
     .p-page{
     padding-top: 15px;
     color:#666666;
@@ -162,13 +163,13 @@
     font-size: 12pt;}
     .p-2{
         position: relative;
-        
+
         font-size: 18pt;
         font-weight: bold;
         left: 20px;
         font-family: '微软雅黑';
         margin-bottom: 20px;
-    }       
+    }
     /* 白色条框 */
     .header-2{
         margin: 0;
@@ -182,10 +183,8 @@
         padding: 2px !important;
     }
        .el-table__body, .el-table__footer, .el-table__header{
-<<<<<<< HEAD
 
-=======
->>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
+
          font-size: 12px;
        }
     .el-main-2{
@@ -283,7 +282,7 @@
     .tab-1-1{
         margin-left: 30px;
         margin-top:15px;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
 
     .tab-2-1{
@@ -314,7 +313,7 @@
     top:-15px;
     font-size: 12px;
     border-radius: 0px;
-  }   
+  }
   .el-pagination__jump{
     position: relative;
     left: -1140px;
@@ -387,7 +386,7 @@
         padding: 2px;
         font-size: 12px;
         margin-left:10px ;
-    } 
+    }
 /*********************取消按钮样式*********************/
     .button3{
          background-color: #ffffff !important;
@@ -411,13 +410,15 @@
          padding: 2px;
          font-size: 12px;
          margin-left:10px ;
-    }  
+    }
 </style>
 <script>
 export default {
+
+
     data() {
       return {
-        jumper:10,
+        jumper:1,
         pagesize:10,
         dialog:false,
         dialogFormVisible: false,
@@ -437,70 +438,59 @@ export default {
         },
         formLabelWidth: '120px',
         // 表的名字
-          temdata:[
-              
-              {
-            number: '1',
-            IP: '192.168.1.13',
-            type: '复合蜜罐',
-            pan:"100G",
-            CPU:"1cpu",
-            load:"5g",
-            operater:"查看详情 蜜罐管理",
-          }, {
-            number: '2',
-            IP: '192.168.1.15',
-            type: '复合蜜罐',
-            pan:"100G",
-            CPU:"1cpu",
-            load:"5g",
-            operater:"查看详情 蜜罐管理",
-          }, {
-            number: '3',
-            IP: '192.168.13.110',
-            type: '复合蜜罐',
-            pan:"100G",
-            CPU:"1cpu",
-            load:"5g",
-            operater:"查看详情 蜜罐管理",
-          }, {
-            number: '4',
-            IP: '192.168.13.112',
-            type: '复合蜜罐',
-            pan:"100G",
-            CPU:"1cpu",
-            load:"5g",
-            operater:"查看详情 蜜罐管理",
-          }, {
-            number: '5',
-            IP: '192.168.13.114',
-            type: '复合蜜罐',
-            pan:"100G",
-            CPU:"1cpu",
-            load:"5g",
-            operater:"查看详情 蜜罐管理",
-          }, {
-            number: '6',
-            IP: '192.168.13.116',
-            type: '复合蜜罐',
-            pan:"100G",
-            CPU:"1cpu",
-            load:"5g",
-            operater:"查看详情 蜜罐管理",
-          }, {
-            number: '7',
-            IP: '192.168.13.118',
-            type: '复合蜜罐',
-            pan:"100G",
-            CPU:"1cpu",
-            load:"5g",
-            operater:"查看详情 蜜罐管理",},
+        temdata_ip:'',
+        currentPage: 1,
+
+          temdata:[{
+            id:1,
+            ip:'192.168.13.117',
+            type:'复合蜜罐',
+            cpu:'1cpu',
+            memory:'5g',
+            disk:'100g',
+          }
+
           ]
-          
-    
         }
     },
+  created(){
+      this.getListHost()
+  },
+  mounted:function(){
+    this.getListHost();
+  },
     methods: {
+      // 获取应用蜜罐信息
+      getListHost(){
+        var that = this;
+        this.$axios.get('/getListHost')
+          .then(function (response) {
+            that.temdata = response.data;
+          })
+          .catch(function (error) {
+            alert('handle error')
+            console.log(error);
+          })
+          .then(function () {
+          });
+      },
+      getListHostByIp(){
+        var that = this;
+        this.$axios.get('/getPotByIp',{
+          params: {
+            ip: that.temdata_ip
+          }
+        })
+          .then(function (response) {
+            that.temdata = response.data;
+          })
+          .catch(function (error) {
+            alert('handle error')
+          })
+          .then(function () {
+            //什么时候都执行的
+          });
+      },
       open2() {
         this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
           confirmButtonText: '确定',
@@ -518,10 +508,12 @@ export default {
           });
         });
       },
-      handleSizeChange(val) {
+      handleSizeChange(size) {
+        this.pagesize = size;
         console.log(`每页 ${val} 条`);
       },
-      handleCurrentChange(val) {
+      handleCurrentChange(currentPage) {
+        this.currentPage = currentPage;
         console.log(`当前页: ${val}`);
       }
     },

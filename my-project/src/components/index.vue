@@ -3,9 +3,9 @@
         <!--******************************* head -->
         <el-header height=80px; >
       <div class="header-1">
-          
+
           <p class="ps-1">
-    
+
                <el-dropdown>
                   <span class="el-dropdown-link" >
                       <span class="smallpeople">
@@ -27,17 +27,17 @@
                         <el-dropdown-item>关于</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
-           
+
           </p>
              <span class="lefttop">
               <img src="../assets/lefttop.png"/>
           </span>
-         
-          
-          
+
+
+
           <!-- <i class="el-icon-minus"></i> <i class="el-icon-close"></i>     减号和X号 -->
           </div>
-         
+
 
       </el-header>
     <el-main class="ttt">
@@ -45,8 +45,8 @@
     </el-main>
   <el-footer class="nmd">
       <hr class="image"/>
-    
-    
+
+
          <el-menu
        :default-active="$route.name"
        background-color=""
@@ -63,14 +63,14 @@
     <el-menu-item index="applyhoney"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe651;</i>应用蜜罐</p></el-menu-item>
     <el-menu-item index="Hosthoneypot"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe652;</i>主机蜜罐</p></el-menu-item>
     <el-menu-item index="Operator"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe652;</i>样本操作</p></el-menu-item>
-    <el-menu-item index="honeycontrol"><p class="menu-1" style="font-size:18pt"><i class="iconfont">&#xe606;</i>平台管理</p></el-menu-item>
+    <el-menu-item index="honeycontrol"><p class="menu-1"  style="font-size:18pt" ><i class="iconfont">&#xe606;</i>平台管理</p></el-menu-item>
     </el-menu>
     <div class="footer-1">
         <p class="footer-p"> <i class="el-icon-info"></i>&nbsp;&nbsp;&nbsp;监测状态：</p>
         <p class="footer-p2">登录时间:&nbsp;&nbsp;{{date|formatDate}}</p>
-        
+
     </div>
-  
+
 
   </el-footer>
 </el-container>
@@ -98,12 +98,12 @@
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
     ;}
- 
+
 
         /* ***********************head开始*********************** */
         /* 黑色条框 */
-        html { 
-            overflow-y:hidden; 
+        html {
+            overflow-y:hidden;
             overflow-x:hidden;
             margin-left: 0px;
         }
@@ -125,13 +125,13 @@
             text-align: left;
             margin-right:1600px;
               position: relative;
-              bottom:45px;    
+              bottom:45px;
 
-        }   
+        }
         .nmd{
             padding:0;
         }
-        
+
     .header-1{
         text-align: right;
         background-color:rgb(21,21,21);
@@ -151,7 +151,7 @@
         top: 27px;
     }
     /* ***********************************head end */
-    
+
 /* ****************************************foot */
  .menu-1{
         font-size: 15pt;
@@ -202,6 +202,31 @@ export default {
         }
 
     },
+  method:{
+    getUser(){
+      this.$axios.get('/getuser')
+        .then(function (response) {
+          // handle success
+          // alert(response.data);     // 输出后端传过来的数据
+          var jsondata = [];
+          jsondata = response.data;
+          // data.temdata = jsondata[0];
+          alert(jsondata[0].username)
+
+
+        })
+        .catch(function (error) {
+          // handle error     //请求出错的时候运行的代码
+          alert('handle error')
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+          // alert('always executed');
+          //什么时候都执行的
+        });
+    },
+  },
   mounted: function () {
     var _this = this;
     setInterval(function(){

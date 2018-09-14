@@ -20,7 +20,7 @@
               <div class="tab-1-1">
                 <el-row>
                   <el-input v-model="input" class="inputType1"  placeholder="请输入查询信息" style="width: 200px;margin-right:0px"></el-input>
-                  <el-button   class="button1" >查询</el-button>
+                  <el-button   class="button1" @click="getUser" >查询</el-button>
                   <el-button   class="button1" @click="dialogFormVisible = true" >添加</el-button>
                   <el-button   class="button1" @click="dialogFormVisible1 = true">修改</el-button>
                   <el-button   class="button1"  @click="open2">删除</el-button>
@@ -43,17 +43,17 @@
                     width="55">
                   </el-table-column>
                   <el-table-column
-                    prop="number"
+                    prop="id"
                     label="编号"
                     width="150">
                   </el-table-column>
                   <el-table-column
-                    prop="user"
+                    prop="username"
                     label="用户"
                     width="350">
                   </el-table-column>
                   <el-table-column
-                    prop="name"
+                    prop="realName"
                     label="真实姓名"
                     width="220">
                   </el-table-column>
@@ -858,6 +858,7 @@
 
 </style>
 <script>
+
   export default {
     name: "honey-admin",
     data() {
@@ -865,29 +866,14 @@
         jumper:10,
         pagesize:10,
         temdata: [{
-          number: '1',
-          user: 'test1',
-          name: 'test',
+          id: '1',
+          username: 'test1',
+          realName: 'test',
           role:"普通用户",
           department:"安全处",
           operater:"解锁/重置密码",
         },
-          {
-            number: '2',
-            user: 'test',
-            name: 'LiLei',
-            role:"普通用户",
-            department:"测试部",
-            operater:"解锁/重置密码",
-          },
-          {
-            number: '3',
-            user: 'aaa',
-            name: 'aaa',
-            role:"安全审计管理员",
-            department:"办公室",
-            operater:"解锁/重置密码",
-          }
+
         ],
         options: [{
           value: '选项1',
@@ -1153,10 +1139,36 @@
 
       };
     },
+    mounted:function(){
+      // this.getUser();
+    },
     methods: {
-      // handleClick(tab, event) {
-      //    console.log(tab, event);
-      // },
+
+
+      getUser(){
+        var that = this;
+        this.$axios.get('/getuser')
+          .then(function (response) {
+            // handle success
+            // alert(response.data);     // 输出后端传过来的数据
+            var jsondata = [];
+            jsondata = response.data;
+            // data.temdata = jsondata[0];
+            that.temdata = jsondata;
+            alert(that.temdata);
+            // this.data.temdata.put(jsondata[0])
+          })
+          .catch(function (error) {
+            // handle error     //请求出错的时候运行的代码
+            alert('handle error')
+            console.log(error);
+          })
+          .then(function () {
+            // always executed
+            // alert('always executed');
+            //什么时候都执行的
+          });
+      },
 
       getUserList(){
         this.$axios.get('/honeycontrol/queryuser')

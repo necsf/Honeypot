@@ -3,7 +3,7 @@
     <!-- header -->
 
       <!-- main -->
-  <el-main  class="el-main-3">  
+  <el-main  class="el-main-3">
         <div class="header-2">
             <p class="p-2"> <i class="iconfont">&#xe61a;</i> 监测状态
             </p>
@@ -11,7 +11,7 @@
         <hr/>
       <el-row>
       <!-- main-1 父标签-1，，一共两个父标签-->
-      <div class="main-1"> 
+      <div class="main-1">
           <!--   main-1-1子标签  -->
           <div class="main-1-1">
               <!-- 灰色 条状-->
@@ -58,9 +58,9 @@
                 <!-- main-1-2 -->
                 <div class="main-1-2">
                         <!-- 灰色条框 -->
-                        <div class="main-1-2-1"> 
+                        <div class="main-1-2-1">
                             <p class="main-p3">一周警告走势图</p>
-                            
+
                         </div>
                  <!-- 折线图1 -->
                     <div class="chatrs" >
@@ -75,7 +75,7 @@
             <div class=" main-2-1" >
                     <div class="main-2-1-1">
                             <p class="main-p4">实时告警版</p>
-                            
+
                     </div>
                     <div class="chatrs-1" >
                         <div id="myChart2" style="width: 100%; height:300px;width:800px"></div>
@@ -113,7 +113,7 @@
     color:#5EBF18;
     ;}
 
-               /* *********************************************header结束*****************/       
+               /* *********************************************header结束*****************/
             /* **********************************************************mian开始**************** */
      /* 白色条框 */
       .wow{position: relative;
@@ -146,7 +146,7 @@
 }
 
 
-    
+
     .header-2{
         margin: 0;
         height:60px;
@@ -154,17 +154,17 @@
         color:black;
         font-weight: 500;
         overflow: hidden;
-    }     
+    }
     /* 绿色字体 */
     .p-2{
-      
+
         position: relative;
         top: 10px;
         font-size: 18pt;
         left: 20px;
         font-family: '微软雅黑';
         margin: 0;
-    }   
+    }
     .el-main-3{
         padding:2px ;
     }
@@ -173,7 +173,7 @@
        height: 50%;
        width: 100%;
        /* font-family: '微软雅黑'; */
-   } 
+   }
     .main-1-1{
        width: 40%;
        height: 100%;
@@ -196,7 +196,7 @@
     .main-1-2-1{
        width: 100%;
        height: 30px;
-       background-color: #EDEDED;  
+       background-color: #EDEDED;
        font-size: 11pt;
 
    }
@@ -211,7 +211,7 @@
        float: left;
    }
     .main-2-1-1{
-       margin-top:20px; 
+       margin-top:20px;
        width: 100%;
        height: 30px;
        background-color: #EDEDED;
@@ -224,7 +224,7 @@
        float:right;
    }
    .main-2-2-2{
-       margin-top:20px; 
+       margin-top:20px;
        width: 100%;
        height: 30px;
        background-color: #EDEDED;
@@ -235,7 +235,7 @@
   .main-p1{
        /* 实时警告版 */
        margin: 0;
-       margin-top:4px; 
+       margin-top:4px;
        margin-left:10px;
        margin-bottom: 10px;
        font-family:'Microsoft YaHei';
@@ -243,13 +243,13 @@
     }
     .main-p2{
         margin: 0;
-        margin-top:4px; 
+        margin-top:4px;
         margin-right:10px;
-        float: right; 
+        float: right;
     }
    .main-p3{
        margin: 0;
-       margin-top:4px; 
+       margin-top:4px;
        margin-left:10px;
        margin-bottom: 10px;
        font-family:'Microsoft YaHei';
@@ -257,13 +257,13 @@
    }
    .main-p4{
         margin: 0;
-       margin-top:4px; 
+       margin-top:4px;
        margin-left:10px;
        margin-bottom: 10px;
        font-family:'Microsoft YaHei';
        float: left;
    }
-   
+
     /* .table1 td{
         padding: 0;
         height: 30px;
@@ -273,18 +273,19 @@
         width:720px;
         height: 730px;
         float: left;
-        
+
     }
     /****************************************** main  end */
-    
+
 </style>
 <script>
 
 export default {
 
-    
+
     data() {
       return {
+          myChart2_data:[],
           administrator:'wulala',
           times:'2018-5-21',
             // ***************表格数据start
@@ -331,24 +332,33 @@ export default {
             ],
             // *****************表格数据end
         }
-      
+
     },
     mounted(){
         // *****************echarts图  2个折线图，一个柱状图
-        this.drawLine();
-         window.addEventListener("resize", function() {
-                 myChart.resize();
-            }); 
-            
+      this.getWarningSum();
+      this.drawLine();
+        //图表自适应
+      this.myChart.resize();
+         // window.addEventListener("resize", function() {
+         //         myChart.resize();
+         //    });
         },
      methods: {
+      //获取实时警告板信息（柱形图）
+      getWarningSum(){
+        var that = this;
+        this.$axios.get("/getWarningSum").then(function (response) {
+          that.myChart2_data = response.data;
+          that.drawLine();
+        });
+      },
         drawLine(){
             // 基于准备好的dom，初始化echarts实例
             let myChart = this.$echarts.init(document.getElementById('myChart'))//单折线图
             let myChart2 = this.$echarts.init(document.getElementById('myChart2'))// 柱状图
             let myChart3 = this.$echarts.init(document.getElementById('myChart3'))// 双折线图
             // 绘制图表
-
             //双折线图
              myChart3.setOption({
                 title: {  },
@@ -370,7 +380,7 @@ export default {
                     bottom: '3%',
                     containLabel: true
                 },
-                 
+
                 xAxis: {
                     type : 'category',
                     boundaryGap : false,
@@ -393,7 +403,7 @@ export default {
                     areaStyle: {normal: {}},
                     data: [900,0, 300,0,0,0,0,0]
                 }
-                ]            
+                ]
             })
             //柱状图
              myChart2.setOption({
@@ -410,8 +420,8 @@ export default {
                 series: [{
                     name: '告警数量',
                     type: 'bar',
-                    data: [900, 1000, 8200]
-                }]            
+                    data: this.myChart2_data,
+                }]
             })
             // 单折线图
             myChart.setOption({
@@ -444,7 +454,7 @@ export default {
                     type: 'line',
                     data: [0, 0, 0, 0, 0, 0,0]
                 }
-                ]            
+                ]
             })
             window.addEventListener("resize", function() {
               //     myChart1.setOption(option1);
@@ -452,13 +462,13 @@ export default {
                  myChart2.resize();
                  myChart3.resize();
 
-             }); 
+             });
 
         },
-        
+
     }
-   
+
 }
 
- 
+
 </script>
