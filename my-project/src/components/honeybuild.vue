@@ -197,6 +197,8 @@
                   </div>
                 </el-tab-pane>
 
+
+
                 <!-- 服务器配置 -->
                 <el-tab-pane label="服务器配置">
                     <div class="tab-2">
@@ -205,15 +207,15 @@
                                 <el-dialog title="添加服务器" :visible.sync="dialogFormVisible">
                                 <el-form :model="form">
                                     <el-form-item label="服务器名称" :label-width="formLabelWidth">
-                                    <el-input v-model="form.temserver" auto-complete="off"></el-input>
+                                    <el-input v-model="addServerForm.server" auto-complete="off"></el-input>
                                     </el-form-item>
                                     <el-form-item label="服务器IP" :label-width="formLabelWidth">
-                                    <el-input v-model="form.IP" auto-complete="off"></el-input>
+                                    <el-input v-model="addServerForm.serverIp" auto-complete="off"></el-input>
                                     </el-form-item>
                                 </el-form>
                                 <div slot="footer" class="dialog-footer">
                                     <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
-                                    <el-button class="button2" @click="dialogFormVisible = false">确 定</el-button>
+                                    <el-button class="button2" @click="addServer">确 定</el-button>
                                 </div>
                                 </el-dialog>
                                 &nbsp;&nbsp;
@@ -236,18 +238,18 @@
                                     width="55">
                                 </el-table-column>
                                 <el-table-column
-                                    type="index"
+                                    prop="id"
                                     width="130"
                                     label="编号"
                                     :index="indexMethod">
                                 </el-table-column>
                                 <el-table-column
-                                    prop="temserver"
+                                    prop="server"
                                     label="服务器名"
                                     width="250">
                                 </el-table-column>
                                 <el-table-column
-                                    prop="IP"
+                                    prop="serverIp"
                                     label="服务器IP">
                                 </el-table-column>
                             </el-table>
@@ -292,7 +294,7 @@
 </el-container>
 
 </template>
-<style >
+<style>
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -426,10 +428,6 @@
          background: #e95513;
          color: #fff;
          /*border-right: 1px solid #fff;*/
-<<<<<<< HEAD
-     
-=======
->>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
          font-size: 12px;
 
          vertical-align: center;
@@ -540,16 +538,14 @@
        margin-top:15px;
        margin-bottom: 10px;
     }
-<<<<<<< HEAD
        .el-table__body, .el-table__footer, .el-table__header{
   
          font-size: 12px;
        }
-=======
+
     .el-table__body, .el-table__footer, .el-table__header{
         font-size: 12px;
     }
->>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
     .table-p1{
         font-family: 'Microsoft YaHei';
         font-size: 12pt;
@@ -651,44 +647,25 @@ export default {
       formLabelWidth: '120px',
       // 表的名字
       temdata: [
-
         {
           IP: '168.196.2.1',
           template: '123',
           user: 'win789',
           temserver: 'server1'
         },
-        {
-          IP: '168.196.2.1',
-          template: '123',
-          user: 'win789',
-          temserver: 'server2'
-        },
-        {
-          IP: '168.196.2.1',
-          template: '123',
-          user: 'win789',
-          temserver: 'server3'
-        },
-        {
-          IP: '168.196.2.1',
-          template: '123',
-          user: 'win789',
-          temserver: 'server4'
-        },
-        {
-          domainIP: '168.196.2.1',
-          domainID: '123',
-          user: 'win789',
-
-        },
-      ]
+      ],
+      addServerForm:{
+        server: '',
+        serverIp: ''
+      }
 
     }
   },
 
   mounted() {
-    this.initChart()
+    this.getServer();
+    this.initChart();
+
   },
 
   beforeDestroy() {
@@ -707,6 +684,26 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    getServer(){
+      var that = this;
+
+      this.$axios.get("/getAllServer").then(function (response) {
+          that.temdata = response.data.serverList;
+      })
+    },
+    addServer(){
+      var that = this;
+      var server = this.addServerForm;
+      alert(this.addServerForm.server);
+      this.$axios.get("/addServer",{
+        server : "happer",
+        happy : "happer"
+      }).then(function (response) {
+        alert("服务器添加成功")
+
+      });
+      // this.dialogFormVisible = false;
     },
     open2() {
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
