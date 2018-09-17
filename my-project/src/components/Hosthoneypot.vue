@@ -20,13 +20,6 @@
             <div class="tab-1">
               <div class="tab-1-1">
 
-                <el-button style="background:#E95513;color:#ffffff;" class="funButton">删除</el-button>
-
-                <el-button style="background:#E95513;color:#ffffff;" class="funButton" >  删除  </el-button>
-
-
-                <el-button style="background:#E95513;color:#ffffff;" class="funButton" >  删除  </el-button>
-
                 &nbsp;&nbsp;
                 <el-button style="background:#E95513;color:#ffffff;" class="funButton">编辑</el-button>
               </div><!--table-1-1-->
@@ -37,16 +30,16 @@
                   row-style="30px"
                   cell-style="padding:0"
                   id="table11"
-                  :data="admindata"
+                  :data="admindata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                   style="width: 100%">
                   <el-table-column
-                    type="index"
+                    prop="id"
                     width="80"
                     label="编号"
                     :index="indexMethod">
                   </el-table-column>
                   <el-table-column
-                    prop="IP"
+                    prop="ip"
                     label="IP"
                     width="180">
                   </el-table-column>
@@ -56,18 +49,28 @@
                     width="180">
                   </el-table-column>
                   <el-table-column
-                    prop="user"
+                    prop="type"
                     label="使用者">
+                  </el-table-column>
+                  <el-table-column
+                    prop="operater"
+                    label="基本操作">
+                    <template slot-scope="scope">
+                      <el-button
+                        type="text"
+                        size="mini"
+                        @click="open2">删除</el-button>
+                    </template>
                   </el-table-column>
                 </el-table>
               </div><!--table-1-2-->
-              <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+              <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(admindata.length))?currentPage * pagesize:admindata.length}}条记录，总共{{admindata.length}}条记录
                 <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
                 <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
                   <el-option label="10" value="10"></el-option>
                   <el-option label="20" value="20"></el-option>
                 </el-select>
-                <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span>
+                <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
               </div>
 
               <div style="float:right;margin-top:10px;margin-right: 30px;">
@@ -79,10 +82,11 @@
                   jumper-text="转到"
                   @size-change="handleSizeChange"
                   @current-change="handleCurrentChange"
-                  :current-page="currentPage4"
+                  :current-page="currentPage"
                   :page-sizes="[10, 20]"
-                  :page-size="100"
-                  layout="slot,prev, pager, next" :total="50">
+                  :page-size="pagesize"
+                  :total="admindata.length"
+                  layout="slot,prev, pager, next">
                   <!-- <slot name="as">dddd</slot> -->
                 </el-pagination>
               </div>
@@ -492,58 +496,29 @@
 
     data() {
       return {
-        jumper:10,
+        jumper:1,
         pagesize:10,
-
+        currentPage: 1,
         administrator:'wulala',
         times:'2018-5-21',
+        dialog:false,
         admindata:[
-
           {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-
+            index:'1',
+            ip:'168.196.2.1',
+            domainID:'null',
+            type:'win789'
+          }
         ]
 
       }
     },
+  created(){
+    this.getListHostPot()
+  },
+  mounted:function(){
+    this.getListHostPot();
+  },
     methods: {
       handleSlect(key,keypath){
         this.$emit('updata:activ',key)
@@ -551,9 +526,52 @@
       indexMethod(index) {
         return index;
       },
+      getListHostPot(){
+        var that = this;
+        this.$axios.get('/getListHostPot')
+          .then(function (response) {
+            // that.admindata["IP"]= response.data["IP"];
+            // that.admindata["type"]= response.data["type"];
+            // that.admindata["domainID"] = "null";
+            that.admindata = response.data;
+          })
+          .catch(function (error) {
+            alert('handle error')
+            console.log(error);
+          })
+          .then(function () {
+          });
+      },
 
 
-    },
+      handleSizeChange(size) {
+        this.pagesize = size;
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(currentPage) {
+        this.currentPage = currentPage;
+        console.log(`当前页: ${val}`);
+      },
+      open2() {
+      this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
+        });
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        });
+      });
+    }
+
+
+    }
 
   };
 </script>
