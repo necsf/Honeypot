@@ -2,17 +2,17 @@
 <el-container style="height:100%;" direction="vertrcal">
     <!-- header -->
       <!-- main -->
-  <el-main class="el-main-2" > 
+  <el-main class="el-main-2" >
       <div class="header-2">
               <p class="p-2"> <i class="iconfont">&#xe603;</i>蜜罐构建
               </p>
           </div>
           <hr style="margin-bottom:0;"/>
       <div class="main-1">
-            <el-tabs 
+            <el-tabs
                 class="tabs-1"
-                :tab-position="top" 
-                type="card" 
+                :tab-position="top"
+                type="card"
                 @tab-click="handleClick">
                 <!-- 节点配置 -->
                 <el-tab-pane label="节点配置">
@@ -90,7 +90,7 @@
                                 row-style="30px"
                                 cell-style="padding:0"
                                 id="table11"
-                                :data="temdata"
+                                :data="temdata1"
                                 style="width: 100%"><!--表的名字-->
                                 <!-- 选择框   -->
                                 <el-table-column
@@ -219,7 +219,7 @@
                                 </div>
                                 </el-dialog>
                                 &nbsp;&nbsp;
-                                <el-button class="button4"  @click="open2">删除</el-button>
+                                <el-button class="button4"  @click=delectServer>删除</el-button>
                                 &nbsp;&nbsp;
                         </div><!--table-2-1-->
 
@@ -230,7 +230,8 @@
                                 row-style="30px"
                                 cell-style="padding:0"
                                 id="table21"
-                                :data="temdata"
+                                :data="temdata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                @selection-change="handleSelectionChange"
                                 style="width: 100%"><!--表的名字-->
                                 <!-- 选择框   -->
                                 <el-table-column
@@ -254,36 +255,38 @@
                                 </el-table-column>
                             </el-table>
                         </div><!--table-2-2-->
-                        <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
-                           <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
-                           <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
-                              <el-option label="10" value="10"></el-option>
-                              <el-option label="20" value="20"></el-option>
-                            </el-select>
-                        <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span>
-                         </div>
+                      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(temdata.length))?currentPage * pagesize:temdata.length}}条记录，总共{{temdata.length}}条记录
+                        <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                        <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                          <el-option label="10" value="10"></el-option>
+                          <el-option label="20" value="20"></el-option>
+                        </el-select>
+                        <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
+                      </div>
 
-                        <div style="float:right;margin-top:10px;margin-right: 30px;">
-                          <!-- *********************************分页按钮 -->
-                           <el-pagination
-                              background="#E95513"
-                              prev-text="上一页"
-                              next-text="下一页"
-                              jumper-text="转到"
-                              @size-change="handleSizeChange"
-                              @current-change="handleCurrentChange"
-                              :current-page="currentPage4"
-                              :page-sizes="[10, 20]"
-                              :page-size="100"
-                          layout="slot,prev, pager, next" :total="50">
+                      <div style="float:right;margin-top:10px;margin-right: 30px;">
+                        <!-- *********************************分页按钮 -->
+                        <el-pagination
+                          background="#E95513"
+                          prev-text="上一页"
+                          next-text="下一页"
+                          jumper-text="转到"
+                          @size-change="handleSizeChange"
+                          @current-change="handleCurrentChange"
+                          :current-page="currentPage"
+                          :page-sizes="[10, 20]"
+                          :page-size="pagesize"
+                          :total="temdata.length"
+                          layout="slot,prev, pager, next,total" >
                           <!-- <slot name="as">dddd</slot> -->
                         </el-pagination>
                       </div>
+
                     </div>
                 </el-tab-pane>
 
                 <!-- 原始日志查询 -->
-                <el-tab-pane label="网络拓扑"><!--写了部分代码，但是一直没有出现树形图-->          
+                <el-tab-pane label="网络拓扑"><!--写了部分代码，但是一直没有出现树形图-->
                 </el-tab-pane>
             </el-tabs>
       </div> <!--main-1-->
@@ -313,10 +316,10 @@
 
        /* *********************************************mian start*****************/
     /* 绿色字体 */
-   
+
     .p-2{
         position: relative;
-      
+
         font-weight: bold;
         font-size: 18pt;
         left: 20px;
@@ -325,14 +328,14 @@
     }
     /* 白色条框 */
     .header-2{
-   
+
         height:60px;
         width:100%;
         color:black;
         font-weight: 500;
         overflow: hidden;
     }
-       
+
        .el-pagination .el-pager .active{
          background-color: #E95513 !important;
        }
@@ -450,7 +453,7 @@
     top:-15px;
     font-size: 12px;
     border-radius: 0px;
-  }   
+  }
   .el-pagination__jump{
     position: relative;
     left: -1140px;
@@ -511,11 +514,11 @@
     line-height: 30px;
     height: 30px;
   }
-  html { 
-            overflow-y:hidden; 
+  html {
+            overflow-y:hidden;
             overflow-x:hidden;
             overflow: hidden;
-           
+
         }
 /********************************** 查看详情的颜色 */
     .el-button--text{
@@ -539,7 +542,7 @@
        margin-bottom: 10px;
     }
        .el-table__body, .el-table__footer, .el-table__header{
-  
+
          font-size: 12px;
        }
 
@@ -555,7 +558,7 @@
     .tab-aside{
         height: 100%;
         overflow: hidden;
-        
+
     }
     /*********************确定 跳转 按钮样式*********************/
     .button2{
@@ -592,14 +595,17 @@
          padding: 2px;
          font-size: 12px;
          margin-left:10px ;
-    } 
-    
+    }
+
 </style>
 <script>
 export default {
 
   data() {
     return {
+      pagesize:10,
+      jumper:1,
+      pagesize1:10,
         chartData: [
           {
             IP: '168.196.2.1',
@@ -622,12 +628,27 @@ export default {
             temserver: 'server2'
           },
       ],
+      temdata1:[
+        {
+          template:"centos+pot"
+        },
+        {
+          template:"test"
+        },
+        {
+          template:"wintest"
+        },
+        {
+          template:"主机蜜罐场景"
+        },
+      ],
+      multipleSelection: [],
+
+      currentPage: 1,
       currentPage1: 5,
       currentPage2: 5,
       currentPage3: 5,
       currentPage4: 4,
-      jumper:10,
-      pagesize:10,
       dialogFormVisible: false,
       dialogText1: false,
       dialogText: false,
@@ -679,11 +700,27 @@ export default {
 
 
   methods: {
-    handleSizeChange(val) {
+
+    handleSelectionChange(val) {
+      this.multipleSelection = val;
+      // alert(this.multipleSelection[0].id);
+
+    }
+  ,
+
+  handleSizeChange(size) {
+      this.pagesize = size;
       console.log(`每页 ${val} 条`);
     },
-    handleCurrentChange(val) {
+    handleCurrentChange(currentPage) {
+      this.currentPage = currentPage;
       console.log(`当前页: ${val}`);
+    },
+    delectServer(){
+      var that = this;
+      this.$axios.get("/delServer?id="+that.multipleSelection[0].id).then(function (response) {
+          alert("删除成功");
+      })
     },
     getServer(){
       var that = this;
@@ -695,15 +732,14 @@ export default {
     addServer(){
       var that = this;
       var server = this.addServerForm;
-      alert(this.addServerForm.server);
-      this.$axios.get("/addServer",{
-        server : "happer",
-        happy : "happer"
-      }).then(function (response) {
-        alert("服务器添加成功")
+      // alert(this.addServerForm.server);
+      this.$axios.post("/addServer?serverIp="  + that.addServerForm.serverIp +"&"+ "server="+that.addServerForm.server + "&"+"id="+(that.temdata.length+1)).then(function (response) {
+        alert("服务器添加成功");
+        that.dialogFormVisible = false;
+        getServer();
 
       });
-      // this.dialogFormVisible = false;
+
     },
     open2() {
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
@@ -758,6 +794,7 @@ export default {
     }
 
   }
-
 }
+
+
 </script>

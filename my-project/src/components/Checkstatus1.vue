@@ -78,7 +78,7 @@
 
                     </div>
                     <div class="chatrs-1" >
-                        <div id="myChart2" style="width: 100%; height:300px;width:800px"></div>
+                        <div id="myChart2" style="width: 100%; height:300px;max-width:800px"></div>
                     </div>
             </div><!--main-2-1-->
             <div class="main-2-2">
@@ -285,7 +285,7 @@ export default {
 
     data() {
       return {
-          myChart2_data:[],
+          myChart2_data:[1,1,5000],
           administrator:'wulala',
           times:'2018-5-21',
             // ***************表格数据start
@@ -338,11 +338,6 @@ export default {
         // *****************echarts图  2个折线图，一个柱状图
       this.getWarningSum();
       this.drawLine();
-        //图表自适应
-      this.myChart.resize();
-         // window.addEventListener("resize", function() {
-         //         myChart.resize();
-         //    });
         },
      methods: {
       //获取实时警告板信息（柱形图）
@@ -351,6 +346,7 @@ export default {
         this.$axios.get("/getWarningSum").then(function (response) {
           that.myChart2_data = response.data;
           that.drawLine();
+
         });
       },
         drawLine(){
@@ -455,7 +451,8 @@ export default {
                     data: [0, 0, 0, 0, 0, 0,0]
                 }
                 ]
-            })
+            });
+            // echart自适应
             window.addEventListener("resize", function() {
               //     myChart1.setOption(option1);
                  myChart.resize();
