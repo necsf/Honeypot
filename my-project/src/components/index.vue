@@ -29,9 +29,10 @@
                 </el-dropdown>
 
           </p>
-             <span class="lefttop">
-              <img src="../assets/lefttop.png"/>
-          </span>
+             <div class="lefttop"style="overflow: hidden;height: 78px">
+              <!--<img src="../assets/lefttop.png"/>-->
+               <img src="../assets/elex.png" style="width:348px;height: 110px;margin-left: 5px;overflow-y: hidden"/>
+          </div>
 
 
 
@@ -121,7 +122,7 @@
              position: relative;
              bottom:5px;
         }
-        span.lefttop{
+        div.lefttop{
             text-align: left;
             margin-right:1600px;
               position: relative;
@@ -134,8 +135,8 @@
 
     .header-1{
         text-align: right;
-        background-color:rgb(21,21,21);
-        color: rgb(252, 249, 249);
+        background:url("../assets/back.jpg");
+        /*color: rgb(252, 249, 249);*/
         height: 80px;
         font-family: "微软雅黑";
         width: 100%;

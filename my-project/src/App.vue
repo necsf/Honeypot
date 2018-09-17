@@ -48,6 +48,7 @@ html,body,#app {
   position: relative;
   bottom:15px;
 }
+
 .p-2{
   position: relative;
   top: 10px;

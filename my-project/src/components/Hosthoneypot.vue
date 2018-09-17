@@ -109,7 +109,7 @@
                   @select="handleSelect"
                   @open="handleOpen"
                   @close="handleClose"
-                  style="width: 250px;height: 465px;background: #f2f2f2; ">
+                  style="width: 250px;height:100%;background: #f2f2f2; ">
                   <el-submenu index="1">
                     <template slot="title">
                                 <span>
@@ -504,7 +504,30 @@
         dialog:false,
         admindata:[
           {
-            index:'1',
+            id:'1',
+            ip:'168.196.2.1',
+            domainID:'null',
+            type:'win789'
+          },
+          {
+            id:'2',
+            ip:'168.196.2.1',
+            domainID:'null',
+            type:'win789'
+          },{
+            id:'3',
+            ip:'168.196.2.1',
+            domainID:'null',
+            type:'win789'
+          },
+          {
+            id:'4',
+            ip:'168.196.2.1',
+            domainID:'null',
+            type:'win789'
+          },
+          {
+            id:'5',
             ip:'168.196.2.1',
             domainID:'null',
             type:'win789'
@@ -514,10 +537,10 @@
       }
     },
   created(){
-    this.getListHostPot()
+    // this.getListHostPot()
   },
   mounted:function(){
-    this.getListHostPot();
+    // this.getListHostPot();
   },
     methods: {
       handleSlect(key,keypath){

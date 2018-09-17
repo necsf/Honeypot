@@ -7,35 +7,34 @@
       <img class="logo"  src="../assets/elex.png"/>
         <div class="login">
             <div>
-            <img  class="name" src="../assets/name.png"/>   
+            <img  class="name" src="../assets/name.png"/>
             <el-input class="kuang1" size="large" v-model="input1" style="width:270px" ></el-input>
              </div>
-          
+
             <div>
-        
-            <img  class="password" src="../assets/password.png"/>  
+
+            <img  class="password" src="../assets/password.png"/>
             <el-input class="kuang2" size="large" v-model="input2" style="width:270px" ></el-input>
             </div>
             <br/>
         <div class="sb">
-            <el-button type="danger" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
+            <el-button  class="loginbutton" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
             &nbsp;&nbsp;&nbsp;
             <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
-         </div>        
+         </div>
 
         </div>
 </el-main>
-</el-container>  
+</el-container>
 
 </template>
-dw
 
 <style  scoped>
 
 
-.el-main{
-    background-color: rgb(26,26,26);
-}
+/*.el-main{*/
+    /*background-color: rgb(26,26,26);*/
+/*}*/
 .logo{
     margin-top: 50px;
 }
@@ -50,14 +49,14 @@ dw
 .name{
    position: relative;
    top:20px;
-  
+
 
 
 }
 .password{
     position: relative;
     top:24px;
-  
+
 
 }
 .kuang2{
@@ -68,6 +67,7 @@ dw
     position: relative;
     left:20px;
 }
+
 
 
 </style>

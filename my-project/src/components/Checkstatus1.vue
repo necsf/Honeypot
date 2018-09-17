@@ -337,9 +337,16 @@ export default {
     mounted(){
         // *****************echarts图  2个折线图，一个柱状图
       this.getWarningSum();
+      this.getAllWarningSum();
       this.drawLine();
         },
      methods: {
+      getAllWarningSum(){
+        var that = this;
+        this.$axios.get("/getAllWarningSum").then(function (response) {
+          // alert(response.data);
+        })
+      },
       //获取实时警告板信息（柱形图）
       getWarningSum(){
         var that = this;
@@ -388,13 +395,13 @@ export default {
                         }
                     ],
                 series: [{
-                    name: '虚拟机告警',
+                    name: '敏感行为告警',
                     type: 'line',
                     areaStyle: {normal: {}},
                     data: [4100,4000, 4300,2900,4800, 5500,3800]
                 },
                 {
-                    name: '敏感行为告警',
+                    name: '虚拟机告警',
                     type: 'line',
                     areaStyle: {normal: {}},
                     data: [900,0, 300,0,0,0,0,0]
