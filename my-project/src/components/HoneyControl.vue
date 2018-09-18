@@ -330,7 +330,7 @@
                   <!-- header -->
                   <!-- main -->
                   <el-main class="el-main-2" >
-                    <div style="margin-left: 30px;
+                    <div style="margin-left:-5px;
     margin-right: 30px;">
                       <el-table
                         :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
@@ -368,7 +368,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="650">
+                          width="772">
                         </el-table-column>
                       </el-table>
                     </div>
@@ -416,7 +416,7 @@
                   <!-- header -->
                   <!-- main -->
                   <el-main class="el-main-2" >
-                    <div style="margin-left: 30px;
+                    <div style="margin-left: -5px;
     margin-right: 30px;">
                       <el-table
                         :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
@@ -459,7 +459,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="522">
+                          width="636">
                         </el-table-column>
                       </el-table>
                     </div>

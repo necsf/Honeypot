@@ -78,7 +78,7 @@
 
                     </div>
                     <div class="chatrs-1" >
-                        <div id="myChart2" style="width: 100%; height:300px;width:800px"></div>
+                        <div id="myChart2" style="width: 100%; height:300px;max-width:800px"></div>
                     </div>
             </div><!--main-2-1-->
             <div class="main-2-2">
@@ -285,7 +285,7 @@ export default {
 
     data() {
       return {
-          myChart2_data:[],
+          myChart2_data:[1,1,5000],
           administrator:'wulala',
           times:'2018-5-21',
             // ***************表格数据start
@@ -337,20 +337,23 @@ export default {
     mounted(){
         // *****************echarts图  2个折线图，一个柱状图
       this.getWarningSum();
+      this.getAllWarningSum();
       this.drawLine();
-        //图表自适应
-      this.myChart.resize();
-         // window.addEventListener("resize", function() {
-         //         myChart.resize();
-         //    });
         },
      methods: {
+      getAllWarningSum(){
+        var that = this;
+        this.$axios.get("/getAllWarningSum").then(function (response) {
+          // alert(response.data);
+        })
+      },
       //获取实时警告板信息（柱形图）
       getWarningSum(){
         var that = this;
         this.$axios.get("/getWarningSum").then(function (response) {
           that.myChart2_data = response.data;
           that.drawLine();
+
         });
       },
         drawLine(){
@@ -392,13 +395,13 @@ export default {
                         }
                     ],
                 series: [{
-                    name: '虚拟机告警',
+                    name: '敏感行为告警',
                     type: 'line',
                     areaStyle: {normal: {}},
                     data: [4100,4000, 4300,2900,4800, 5500,3800]
                 },
                 {
-                    name: '敏感行为告警',
+                    name: '虚拟机告警',
                     type: 'line',
                     areaStyle: {normal: {}},
                     data: [900,0, 300,0,0,0,0,0]
@@ -455,7 +458,8 @@ export default {
                     data: [0, 0, 0, 0, 0, 0,0]
                 }
                 ]
-            })
+            });
+            // echart自适应
             window.addEventListener("resize", function() {
               //     myChart1.setOption(option1);
                  myChart.resize();

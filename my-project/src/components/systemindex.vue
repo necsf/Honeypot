@@ -5,33 +5,37 @@
     </div>
     <div class="login">
         <div class="first">
-            <img  class="name" src="../assets/name.png"/>   
+            <img  class="name" src="../assets/name.png"/>
             <el-input class="kuang1" size="large" v-model="input" style="width:270px" ></el-input>
         </div>
 
         <div class="second">
-            <img  class="password" src="../assets/password.png"/>  
+            <img  class="password" src="../assets/password.png"/>
             <el-input class="kuang2" v-model="input" style="width:270px" ></el-input>
         </div>
 
         <div class="ss">&nbsp;&nbsp;&nbsp;&nbsp;
-            <el-button type="danger" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>          
+            <el-button  type="danger" class="loginbutton" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
             <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
-        </div>        
+        </div>
 
     </div>
 
 </div>
-    
+
 </template>
 
 
 <style>
+  .loginbutton{
+    background-color:#e95513;
+    color: #eeeeee;
+  }
 
 .biggest{
     width:100%;
     height:800px;
-    background:rgb(26,26,26);
+    background:url("../assets/back.jpg");
 }
 .page{
     position: relative;
@@ -67,7 +71,7 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 
