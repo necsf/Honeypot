@@ -44,7 +44,7 @@
                     width="180">
                   </el-table-column>
                   <el-table-column
-                    prop="domainID"
+                    data="null"
                     label="domainID"
                     width="180">
                   </el-table-column>
