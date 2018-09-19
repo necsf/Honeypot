@@ -79,7 +79,7 @@
                                           <el-table
                                             :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                             class="table1"
-                                            id="table11"
+                                            id="table1"
                                             :data="temdata"
                                             style="width: 100%"><!--表的名字-->
                                             <!-- 选择框   -->
