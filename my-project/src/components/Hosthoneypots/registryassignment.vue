@@ -6,24 +6,57 @@
                size="small"
                class="demo-form-inline"
                :label-position="right" >
-        <el-form-item label="进程名:">
-          <el-input v-model="formInline.progress" style="padding-left:27px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="进程ID:">
-          <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="键名:">
-          <el-input v-model="formInline.keyname" style="padding-left:15px;width:187px"></el-input>
-        </el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <el-form-item label="注册表路径:">
-          <el-input v-model="formInline.path" style="padding-left:1px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="操作时间:">
-          <el-input v-model="formInline.date" style="padding-left:1px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
-        </el-form-item>
+      <el-row :gutter="0" type="flex">
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="进程名:">
+              <el-input v-model="formInline.progress" style="padding-left:27px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="进程ID:">
+              <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="键名:">
+              <el-input v-model="formInline.keyname" style="padding-left:15px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+      </el-row> 
+      <el-row :gutter="0" type="flex">
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="注册表路径:">
+              <el-input v-model="formInline.path" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="操作时间:">
+              <el-input v-model="formInline.date" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item>
+              <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
+            </el-form-item>
+          </div>
+        </el-col>
+      </el-row>
       </el-form>
     </el-header>
     <el-main class="m-table">
@@ -112,6 +145,31 @@
           padding: 0;
           height: 30px;
   } */
+  /*布局对齐*/
+  .el-row {
+    margin-bottom: 0px;
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #ffffff;
+  }
+  .bg-purple {
+    background: #ffffff;
+  }
+  .bg-purple-light {
+    background: #ffffff;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 10px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #ffffff;
+  }
+
   .m-table{
     width: 100%;
     height: 100%;

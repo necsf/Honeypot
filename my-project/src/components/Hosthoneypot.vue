@@ -219,7 +219,7 @@
           </el-tab-pane>
 
           <!-- 原始日志查询 -->
-          <el-tab-pane label="原始日志查询" class="origindairy">
+          <el-tab-pane label="原始日志查询" class="origindairy"  @click="sign=flase">
             <el-container style="height:100%;" direction="vertrcal">
               
               <!-- 左侧菜单栏 -->
@@ -241,7 +241,7 @@
                                     文件操作信息</span>
                     </template>
                     <el-menu-item-group>
-                      <el-menu-item  class="nav-left" index="fileoperations"><img src="../assets/arrow4.png" class="arrow1"/>文件操作详情</el-menu-item>
+                      <el-menu-item  class="nav-left" index="fileoperations" @click="sign=flase" ><img src="../assets/arrow4.png" class="arrow1" />文件操作详情</el-menu-item>
                       <el-menu-item class="nav-left" index="filemap"><img src="../assets/arrow4.png" class="arrow1"/>文件map操作详情</el-menu-item>
                     </el-menu-item-group>
                   </el-submenu>
@@ -274,8 +274,7 @@
                 </el-menu>
                 <!-- </el-col> -->
               </el-aside>
-              
-              <div class="tab-1"> 
+              <div class="tab-1" v-if = "sign" > 
               <div class="tab-1-2">
                 <el-table
                   :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
@@ -313,14 +312,14 @@
                   
                 </el-table>
               </div><!--table-1-2-->          
-              <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(admindata.length))?currentPage * pagesize:admindata.length}}条记录，总共{{admindata.length}}条记录
-                <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
-                <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
-                  <el-option label="10" value="10"></el-option>
-                  <el-option label="20" value="20"></el-option>
-                </el-select>
-                <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
-              </div>
+                <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(admindata.length))?currentPage * pagesize:admindata.length}}条记录，总共{{admindata.length}}条记录
+                  <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                  <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                    <el-option label="10" value="10"></el-option>
+                    <el-option label="20" value="20"></el-option>
+                  </el-select>
+                  <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
+                </div>
               <div style="float:right;margin-top:10px;margin-right: 30px;">
                 <!-- *********************************分页按钮 -->
                 <el-pagination
@@ -337,14 +336,17 @@
                   layout="slot,prev, pager, next">
                   <!-- <slot name="as">dddd</slot> -->
                 </el-pagination>
+                </div>
               </div>
-             </div>
-             <el-main class="tab-main">
-                <router-view></router-view>
+              <el-main class="tab-main"  v-else>
+              
+                <router-view>
+                  
+                </router-view>
               </el-main>
-            </el-container>
-            
-
+              </el-container>
+              
+              
           </el-tab-pane>
 
 
@@ -693,6 +695,7 @@
         administrator:'wulala',
         times:'2018-5-21',
         dialog:false,
+        sign:true,
         admindata:[
           {
             index:'1',
