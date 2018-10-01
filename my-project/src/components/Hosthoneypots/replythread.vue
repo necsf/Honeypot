@@ -6,59 +6,27 @@
                size="small"
                class="demo-form-inline"
                :label-position="right" >
-        <el-row :gutter="0" type="flex">
-        <el-col :span="6">
-          <div class="grid-content bg-purple">
-            <el-form-item label="当前进程名:">
-              <el-input v-model="formInline.progress" style="padding-left:70px;width:187px"></el-input>
-            </el-form-item>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="grid-content bg-purple">
-            <el-form-item label="当前进程ID:">
-              <el-input v-model="formInline.progressID" style="padding-left:70px;width:187px"></el-input>
-            </el-form-item>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="grid-content bg-purple">
-            <el-form-item label="被恢复线程:">
-              <el-input v-model="formInline.Xthread" style="padding-left:0px;width:187px"></el-input>
-            </el-form-item>
-          </div>
-        </el-col>
-      </el-row> 
-      <el-row :gutter="0" type="flex">
-        <el-col :span="8">
-          <div class="grid-content bg-purple">
-            <el-form-item label="被恢复线程依附线程名:" >
-              <el-input v-model="formInline.Xattthread" style="padding-left:0px;width:187px"></el-input>
-            </el-form-item>
-          </div>
-        </el-col>
-        <el-col :span="8">
-          <div class="grid-content bg-purple">
-            <el-form-item label="被恢复线程依附线程ID:" >
-              <el-input v-model="formInline.XprogressID" style="padding-left:0px;width:187px"></el-input>
-            </el-form-item>
-          </div>
-        </el-col>
-        <el-col :span="8">
-          <div class="grid-content bg-purple">
-            <el-form-item label="操作时间:">
-              <el-input v-model="formInline.date" style="padding-left:15px;width:187px" ></el-input>
-            </el-form-item>
-          </div>
-        </el-col>
-        <el-col :span="8">
-          <div class="grid-content bg-purple">
-            <el-form-item>
-              <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
-            </el-form-item>
-          </div>
-        </el-col>
-      </el-row> 
+        <el-form-item label="当前进程名:">
+          <el-input v-model="formInline.progress" style="padding-left:70px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item label="当前进程ID:">
+          <el-input v-model="formInline.progressID" style="padding-left:70px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item label="被恢复线程:">
+          <el-input v-model="formInline.Xthread" style="padding-left:0px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item label="被恢复线程依附线程名:" >
+          <el-input v-model="formInline.Xattthread" style="padding-left:0px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item label="被恢复线程依附线程ID:" >
+          <el-input v-model="formInline.XprogressID" style="padding-left:0px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item label="操作时间:">
+          <el-input v-model="formInline.date" style="padding-left:15px;width:187px" ></el-input>
+        </el-form-item>
+        <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
+        </el-form-item>
       </el-form>
     </el-header>
     <el-main class="m-table">
@@ -132,36 +100,7 @@
     </el-main>
   </el-container>
 </template>
-<<<<<<< HEAD
 <style scoped>
-=======
-<style>
- /*布局对齐*/
-  .el-row {
-    margin-bottom: 0px;
-  }
-  .el-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #ffffff;
-  }
-  .bg-purple {
-    background: #ffffff;
-  }
-  .bg-purple-light {
-    background: #ffffff;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 10px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #ffffff;
-  }
-
->>>>>>> 4ed866cc1500efcf89628128282bdd7d48b738cf
   .table1 td{
     padding: 0;
     height: 30px;
