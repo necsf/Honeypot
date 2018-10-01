@@ -22,8 +22,9 @@
                     <div class="tab-1">
                         <div class="tab-1-1">
                                 <p class="IP" style="position: relative;top:0px">IP地址:
-                                    <el-input v-model="temdata_ip" style="width:187px"></el-input>
-                                    <el-button class="button4" style="background:#E95513;color:#ffffff;"  @click="getListHostByIp">查询主机</el-button>
+                                    <el-input v-model="potdata_ip" style="width:187px"></el-input>
+                                    <el-button class="button4" style="background:#E95513;color:#ffffff;"  @click="getPotList">
+                                        查询主机</el-button>
                                 </p>
                         </div>
                         <div class="tab-1-2">
@@ -33,7 +34,7 @@
                                 row-style="30px"
                                 cell-style="padding:0"
                                 id="table11"
-                                :data="temdata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                :data="potdata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                                 style="width: 100%">
                                     <el-table-column
                                         prop="id"
@@ -80,7 +81,7 @@
                                             :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                             class="table1"
                                             id="table1"
-                                            :data="temdata"
+                                            :data="potdata"
                                             style="width: 100%"><!--表的名字-->
                                             <!-- 选择框   -->
 
@@ -99,7 +100,7 @@
 
                            </div>
                         </div><!--table-1-2-->
-                  <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(temdata.length))?currentPage * pagesize:temdata.length}}条记录，总共{{temdata.length}}条记录
+                  <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(potdata.length))?currentPage * pagesize:potdata.length}}条记录，总共{{potdata.length}}条记录
                     <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
                     <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
                       <el-option label="10" value="10"></el-option>
@@ -120,7 +121,7 @@
                       :current-page="currentPage"
                       :page-sizes="[10, 20]"
                       :page-size="pagesize"
-                      :total="temdata.length"
+                      :total="potdata.length"
                       layout="slot,prev, pager, next,total" >
                       <!-- <slot name="as">dddd</slot> -->
                     </el-pagination>
@@ -137,7 +138,7 @@
   <!-- footer -->
 </el-container>
 </template>
-<style >
+<style scoped>
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -418,8 +419,7 @@ export default {
 
     data() {
       return {
-        jumper:1,
-        pagesize:10,
+
         dialog:false,
         dialogFormVisible: false,
         dialogText: false,
@@ -438,34 +438,23 @@ export default {
         },
         formLabelWidth: '120px',
         // 表的名字
-        temdata_ip:'',
+        potdata_ip:'',
         currentPage: 1,
-
-          temdata:[{
-            id:1,
-            ip:'192.168.13.117',
-            type:'复合蜜罐',
-            cpu:'1cpu',
-            memory:'5g',
-            disk:'100g',
-          }
-
-          ]
+          jumper:1,
+          pagesize:10,
+          potdata:[]
         }
     },
-  created(){
-      this.getListHost()
-  },
   mounted:function(){
-    this.getListHost();
+    this.getListPot();
   },
     methods: {
       // 获取应用蜜罐信息
-      getListHost(){
+      getListPot(){
         var that = this;
         this.$axios.get('/getListHost')
           .then(function (response) {
-            that.temdata = response.data;
+            that.potdata = response.data;
           })
           .catch(function (error) {
             alert('handle error')
@@ -474,15 +463,15 @@ export default {
           .then(function () {
           });
       },
-      getListHostByIp(){
+      getPotList(){
         var that = this;
         this.$axios.get('/getPotByIp',{
           params: {
-            ip: that.temdata_ip
+            ip: that.potdata_ip
           }
         })
           .then(function (response) {
-            that.temdata = response.data;
+            that.potdata = response.data;
           })
           .catch(function (error) {
             alert('handle error')

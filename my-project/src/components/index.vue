@@ -1,5 +1,5 @@
 <template>
-    <el-container style="height:100%; width:100% overflow-y:hidden; " direction="vertrcal">
+    <el-container style="height:100%; width:100% ;overflow-y:hidden; " direction="vertrcal">
         <!--******************************* head -->
         <el-header height=80px; >
       <div class="header-1">
@@ -14,7 +14,7 @@
                   </span>
                    <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>修改密码</el-dropdown-item>
-                        <el-dropdown-item>注销账号</el-dropdown-item>
+                        <el-dropdown-item><router-link to="systemindex" style="text-decoration: none;">注销账号</router-link></el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
                 <el-dropdown>

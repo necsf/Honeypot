@@ -71,6 +71,12 @@
     </el-main>
   </div>
 </template>
+<style scoped>
+
+  .el-menu-item-group__title{
+    padding: 0px;
+  }
+</style>
 <script>
   export default {
     data(){

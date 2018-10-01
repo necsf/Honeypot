@@ -154,7 +154,7 @@
 </el-container>
 
 </template>
-<style >
+<style scoped>
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');

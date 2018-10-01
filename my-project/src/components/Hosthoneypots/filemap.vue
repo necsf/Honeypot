@@ -136,7 +136,6 @@
   .p-page{
     font-size: 12pt;
   }
-
   .el-pagination__jump{
     position: relative;
     left: -1140px;
@@ -163,9 +162,6 @@
   }
   .el-input{
     font-size: 12px;
-  }
-  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
-    background: #e95513;
   }
   .el-select.el-input{
     height: 30px;

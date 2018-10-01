@@ -20,33 +20,49 @@
                         <div class="tab-1-1">
                             <el-button  class="button4"  @click="dialogText1 = true">添加模板</el-button>
                             <el-dialog title="添加模板" :visible.sync="dialogText1">
-                            <el-form :model="form">
+                            <el-form :model="form1">
                                 <el-form-item label="模板名称" :label-width="formLabelWidth">
-                                    <el-input v-model="form.name" auto-complete="off"></el-input>
+                                    <el-input v-model="form1.name" auto-complete="off"></el-input>
                                 </el-form-item>
                                 <el-form-item label="IP" :label-width="formLabelWidth">
-                                    <el-input v-model="form.IP" auto-complete="off"></el-input>
+                                    <el-input v-model="form1.IP" auto-complete="off"></el-input>
                                 </el-form-item>
                                 <el-form-item label="服务器" :label-width="formLabelWidth">
-                                <el-select v-model="form.region" placeholder="请选择服务器">
-                                    <el-option label="服务器1" value="111"></el-option>
-                                    <el-option label="服务器2" value="222"></el-option>
-                                </el-select>
+                                    <el-select v-model="form1.serverTypeValue" placeholder="请选择">
+                                        <el-option
+                                                v-for="item in serverType"
+                                                :key="item.serverIp"
+                                                :label="item.server"
+                                                :value="item.serverIp">
+                                        </el-option>
+                                    </el-select>
                                 </el-form-item>
                                 <el-form-item label="蜜罐类型" :label-width="formLabelWidth">
-                                <el-select v-model="form.region" >
-                                    <el-option label="蜜罐类型1" value="111"></el-option>
-                                    <el-option label="蜜罐类型2" value="222"></el-option>
-                                </el-select>
-                                <el-select v-model="form.region" >
-                                    <el-option label="蜜罐类型1" value="111"></el-option>
-                                    <el-option label="蜜罐类型2" value="222"></el-option>
-                                </el-select>
+                                <!--<el-select v-model="form.region" >-->
+                                    <!--<el-option label="蜜罐类型1" value="111"></el-option>-->
+                                    <!--<el-option label="蜜罐类型2" value="222"></el-option>-->
+                                <!--</el-select>-->
+                                    <el-select v-model="form1.honeyTypeValue1" placeholder="请选择" @change="changeType">
+                                        <el-option
+                                                v-for="item in honeyType1"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                        </el-option>
+                                    </el-select>
+                                    <el-select v-model="form1.honeyTypeValue2" placeholder="请选择">
+                                        <el-option
+                                                v-for="item in honeyType2"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.label">
+                                        </el-option>
+                                    </el-select>
                                 </el-form-item>
                             </el-form>
                             <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogText1 = false">取 消</el-button>
-                                <el-button class="button2" @click="dialogText1 = false">确 定</el-button>
+                                <el-button class="button2" @click="addModel">确 定</el-button>
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
@@ -72,7 +88,7 @@
                                     <el-input v-model="form.server_name" auto-complete="off"></el-input>
                                 </el-form-item>
                                 <el-form-item label="蜜罐类型" :label-width="formLabelWidth">
-                                    <el-input v-model="form.region" auto-complete="off"></el-input>
+                                    <el-input v-model="form.region" auto-complete="off" ></el-input>
                                 </el-form-item>
                             </el-form>
                             <div slot="footer" class="dialog-footer">
@@ -81,7 +97,7 @@
                             </div>
                             </el-dialog>
                             &nbsp;&nbsp;
-                            <el-button class="button4"  @click="open2" >删除</el-button>
+                            <el-button class="button4"  @click="delectModel" >删除</el-button>
                         </div><!--table-1-1-->
                         <div class="tab-1-2">
                             <el-table
@@ -90,7 +106,8 @@
                                 row-style="30px"
                                 cell-style="padding:0"
                                 id="table11"
-                                :data="temdata1"
+                                :data="modeldata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                @selection-change="handleSelectionChange"
                                 style="width: 100%"><!--表的名字-->
                                 <!-- 选择框   -->
                                 <el-table-column
@@ -98,13 +115,13 @@
                                     width="55">
                                 </el-table-column>
                                 <el-table-column
-                                type="index"
+                                prop="index"
                                 width="130"
                                 label="编号"
                                 :index="indexMethod">
                                 </el-table-column>
                                 <el-table-column
-                                prop="template"
+                                prop="name"
                                 label="模板名"
                                 width="250">
                                 </el-table-column>
@@ -122,7 +139,8 @@
                                       :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
                                       class="table1"
                                       id="table11"
-                                      :data="temdata"
+                                      :data="serverData"
+                                      @selection-change="handleSelectionChange"
                                       style="width: 100%"><!--表的名字-->
                                       <!-- 选择框   -->
                                       <el-table-column
@@ -170,31 +188,33 @@
                             </el-table>
                         </div><!--table-1-2-->
                     </div><!--table-1-->
-                  <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
-                    <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
-                    <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
-                      <el-option label="10" value="10"></el-option>
-                      <el-option label="20" value="20"></el-option>
-                    </el-select>
-                    <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span>
-                  </div>
+                    <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(modeldata.length))?currentPage * pagesize:modeldata.length}}条记录，总共{{modeldata.length}}条记录
+                        <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                        <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                            <el-option label="10" value="10"></el-option>
+                            <el-option label="20" value="20"></el-option>
+                        </el-select>
+                        <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
+                    </div>
 
-                  <div style="float:right;margin-top:10px;margin-right: 30px;">
-                    <!-- *********************************分页按钮 -->
-                    <el-pagination
-                      background="#E95513"
-                      prev-text="上一页"
-                      next-text="下一页"
-                      jumper-text="转到"
-                      @size-change="handleSizeChange"
-                      @current-change="handleCurrentChange"
-                      :current-page="currentPage4"
-                      :page-sizes="[10, 20]"
-                      :page-size="100"
-                      layout="slot,prev, pager, next" :total="50">
-                      <!-- <slot name="as">dddd</slot> -->
-                    </el-pagination>
-                  </div>
+                    <div style="float:right;margin-top:10px;margin-right: 30px;">
+                        <!-- *********************************分页按钮 -->
+                        <el-pagination
+                                background="#E95513"
+                                prev-text="上一页"
+                                next-text="下一页"
+                                jumper-text="转到"
+                                @size-change="handleSizeChange"
+                                @current-change="handleCurrentChange"
+                                :current-page="currentPage"
+                                :page-sizes="[10, 20]"
+                                :page-size="pagesize"
+                                :total="modeldata.length"
+                                layout="slot,prev, pager, next,total" >
+                            <!-- <slot name="as">dddd</slot> -->
+                        </el-pagination>
+                    </div>
+
                 </el-tab-pane>
 
 
@@ -230,7 +250,7 @@
                                 row-style="30px"
                                 cell-style="padding:0"
                                 id="table21"
-                                :data="temdata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                :data="serverData.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                                 @selection-change="handleSelectionChange"
                                 style="width: 100%"><!--表的名字-->
                                 <!-- 选择框   -->
@@ -255,7 +275,7 @@
                                 </el-table-column>
                             </el-table>
                         </div><!--table-2-2-->
-                      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(temdata.length))?currentPage * pagesize:temdata.length}}条记录，总共{{temdata.length}}条记录
+                      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(serverData.length))?currentPage * pagesize:serverData.length}}条记录，总共{{serverData.length}}条记录
                         <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
                         <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
                           <el-option label="10" value="10"></el-option>
@@ -276,7 +296,7 @@
                           :current-page="currentPage"
                           :page-sizes="[10, 20]"
                           :page-size="pagesize"
-                          :total="temdata.length"
+                          :total="serverData.length"
                           layout="slot,prev, pager, next,total" >
                           <!-- <slot name="as">dddd</slot> -->
                         </el-pagination>
@@ -297,7 +317,7 @@
 </el-container>
 
 </template>
-<style>
+<style scoped>
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -317,36 +337,11 @@
        /* *********************************************mian start*****************/
     /* 绿色字体 */
 
-    .p-2{
-        position: relative;
-
-        font-weight: bold;
-        font-size: 18pt;
-        left: 20px;
-        font-family: '微软雅黑';
-        margin-bottom: 20px;
-    }
-    /* 白色条框 */
-    .header-2{
-
-        height:60px;
-        width:100%;
-        color:black;
-        font-weight: 500;
-        overflow: hidden;
-    }
-
        .el-pagination .el-pager .active{
          background-color: #E95513 !important;
        }
        .el-pagination.is-background .el-pager li:not(.disabled):hover{
          color:#E95513 !important;
-       }
-       .p-page{
-         padding-top: 15px;
-         color:#666666;
-         float:left;
-         font-size: 12pt;
        }
 
        .el-pagination .el-select .el-input .el-input__inner{
@@ -603,9 +598,47 @@ export default {
 
   data() {
     return {
-      pagesize:10,
-      jumper:1,
-      pagesize1:10,
+        form1: {
+            name: '',
+            IP: '',
+            honeyTypeValue1: '',
+            honeyTypeValue2: '',
+            serverTypeValue:'',
+        },
+      honeyType1: [{
+          value: 'hostPot',
+          label: '主机蜜罐',
+      },
+          {
+              value: 'applyPot',
+              label: '应用蜜罐',
+          }] ,
+        honeyType2: [],
+        hostPot: [{
+            value: '1',
+            label: 'win732',
+        },{
+            value: '2',
+            label: 'win764',
+        },
+            {
+                value: '3',
+                label: 'centos',
+            }] ,
+        applyPot: [{
+            value: '4',
+            label: '路由器蜜罐',
+        },
+            {
+                value: '5',
+                label: '复合蜜罐',
+            }] ,
+      serverType: [{
+          serverIp: '192.168.1.1',
+          server: '服务器'
+        }],
+        jumper:1,
+        pagesize:10,
         chartData: [
           {
             IP: '168.196.2.1',
@@ -628,18 +661,9 @@ export default {
             temserver: 'server2'
           },
       ],
-      temdata1:[
+      modeldata:[
         {
           template:"centos+pot"
-        },
-        {
-          template:"test"
-        },
-        {
-          template:"wintest"
-        },
-        {
-          template:"主机蜜罐场景"
         },
       ],
       multipleSelection: [],
@@ -667,7 +691,7 @@ export default {
       },
       formLabelWidth: '120px',
       // 表的名字
-      temdata: [
+      serverData: [
         {
           IP: '168.196.2.1',
           template: '123',
@@ -678,15 +702,22 @@ export default {
       addServerForm:{
         server: '',
         serverIp: ''
-      }
+      },
+        currentPage: 1,
 
     }
   },
+    updated() {
+        // if(this.honeyType2 != null){
+        //     this.addModel();
+        // }
+    },
+
 
   mounted() {
+    this.getModel();
     this.getServer();
-    this.initChart();
-
+    // this.initChart();
   },
 
   beforeDestroy() {
@@ -700,14 +731,37 @@ export default {
 
 
   methods: {
+      changeType(){
+        if(this.form1.honeyTypeValue1 == "hostPot"){
+            this.honeyType2 = this.hostPot;
+        }else if(this.form1.honeyTypeValue1 == "applyPot"){
+            this.honeyType2 = this.applyPot;
+        }
 
+      },
+      //增加模板的方法
+    addModel() {
+        var jsondata = {
+            "modelName" : this.form1.name,
+            "ip" : this.form1.IP,
+            "honeyType" : this.form1.honeyTypeValue2,
+            "serverIp" : this.form1.serverTypeValue
+        }
+        var that = this;
+        this.$axios.post("/addModel",jsondata).then(function (response) {
+            alert("模板添加成功");
+            this.getModel();
+        });
+        that.dialogText1 = false
+    },
+    //获取表格选中项信息的方法
     handleSelectionChange(val) {
       this.multipleSelection = val;
       // alert(this.multipleSelection[0].id);
 
     }
   ,
-
+    // 处理分页的两个方法
   handleSizeChange(size) {
       this.pagesize = size;
       console.log(`每页 ${val} 条`);
@@ -716,32 +770,77 @@ export default {
       this.currentPage = currentPage;
       console.log(`当前页: ${val}`);
     },
+    //删除服务器方法
     delectServer(){
       var that = this;
       this.$axios.get("/delServer?id="+that.multipleSelection[0].id).then(function (response) {
           alert("删除成功");
+          that.getServer();
       })
+
     },
+      //获取所有服务器方法
     getServer(){
       var that = this;
 
       this.$axios.get("/getAllServer").then(function (response) {
-          that.temdata = response.data.serverList;
+          that.serverData = response.data.serverList;
+          that.serverType = response.data.serverList;
       })
     },
+      //添加服务器方法
     addServer(){
       var that = this;
       var server = this.addServerForm;
-      // alert(this.addServerForm.server);
-      this.$axios.post("/addServer?serverIp="  + that.addServerForm.serverIp +"&"+ "server="+that.addServerForm.server + "&"+"id="+(that.temdata.length+1)).then(function (response) {
+      // alert(this.addServerForm.server)
+      this.$axios.post("/addServer?serverIp="  + that.addServerForm.serverIp +"&"+ "server="+that.addServerForm.server + "&"+"id="+(that.serverData.length+1)).then(function (response) {
         alert("服务器添加成功");
         that.dialogFormVisible = false;
-        getServer();
+        that.getServer();
 
       });
+      that.addServerForm.server='';
+      that.addServerForm.serverIp='';
 
     },
+      //获取模板列表方法
+    getModel() {
+      var that = this;
+
+      this.$axios.post("/getModelList").then(function (response) {
+          that.modeldata = response.data;
+          // alert(response.data);
+      })
+    },
+      //增加模板方法
+    // addModel() {
+    //     var that = this;
+    //     this.$axios.post("/addModel").then(function (response) {
+    //        if(response.data.success){
+    //            alert("模板添加成功");
+    //        }
+    //     })
+    // },
+      //删除模板方法
+    delectModel() {
+      var that = this;
+        alert(this.multipleSelection[0].id);
+        // var jsondata = {
+        //     'id': JSON.stringify(that.multipleSelection.id)
+        // };
+        var jsondata = {
+            'id' : this.multipleSelection[0].id
+        }
+        // alert(jsondata)
+      this.$axios.post("/delectModel",jsondata).then(function (response){
+          if (response.data){
+              alert("删除成功");
+          }
+      })
+    },
+      //原来删除键的方法
     open2() {
+        var that = this;
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',

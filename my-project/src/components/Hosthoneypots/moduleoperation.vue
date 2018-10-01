@@ -38,7 +38,7 @@
   </div>
 
 </template>
-<style>
+<style scoped>
   .table-p1{
     font-family: 'Microsoft YaHei';
     font-size: 12pt;

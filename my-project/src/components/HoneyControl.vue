@@ -354,7 +354,7 @@
                         cell-style="padding:0"
                         id="table3"
                         :data="temdata3"
-                        style="width: 100%">
+                        style="width: 100%;left:-33px">
                         <el-table-column
                           type="selection"
                           width="55">
@@ -382,7 +382,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="650">
+                          width="737">
                         </el-table-column>
                       </el-table>
                     </div>
@@ -440,7 +440,7 @@
                         cell-style="padding:0"
                         id="table4"
                         :data="temdata4"
-                        style="width: 100%">
+                        style="width: 100%;left:-33px">
                         <el-table-column
                           type="selection"
                           width="55">
@@ -473,7 +473,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="522">
+                          width="602">
                         </el-table-column>
                       </el-table>
                     </div>
@@ -519,7 +519,7 @@
   </el-container>
 
 </template>
-<style >
+<style scoped>
 
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
