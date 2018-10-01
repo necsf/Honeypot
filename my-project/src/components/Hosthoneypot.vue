@@ -17,12 +17,7 @@
           <!-- 主机蜜罐管理 -->
           <el-tab-pane
             label="主机蜜罐管理">
-            <div class="tab-1">
-              <div class="tab-1-1">
-
-                &nbsp;&nbsp;
-                <el-button style="background:#E95513;color:#ffffff;" class="funButton">编辑</el-button>
-              </div><!--table-1-1-->
+            <div class="tab-1"> 
               <div class="tab-1-2">
                 <el-table
                   :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
@@ -44,22 +39,28 @@
                     width="180">
                   </el-table-column>
                   <el-table-column
-                    data="null"
+                    prop='domainId'
                     label="domainID"
                     width="180">
                   </el-table-column>
                   <el-table-column
                     prop="type"
-                    label="使用者">
+                    label="使用者"
+                    width="180">
                   </el-table-column>
                   <el-table-column
                     prop="operater"
-                    label="基本操作">
+                    label="基本操作"
+                    width="1235">
                     <template slot-scope="scope">
                       <el-button
                         type="text"
                         size="mini"
                         @click="open2">删除</el-button>
+                      <el-button
+                        type="text"
+                        size="mini"
+                        @click="AddHostPot">编辑</el-button>
                     </template>
                   </el-table-column>
                 </el-table>
@@ -92,11 +93,8 @@
               </div>
             </div><!--table-1-->
           </el-tab-pane>
+          <!-- 主机告警分析 -->
           <el-tab-pane label="主机告警分析">
-
-          </el-tab-pane>
-          <!-- 原始日志查询 -->
-          <el-tab-pane label="原始日志查询" class="origindairy">
             <el-container style="height:100%;" direction="vertrcal">
               <!-- 左侧菜单栏 -->
               <el-aside class="tab-aside" style="width: 220px">
@@ -109,7 +107,133 @@
                   @select="handleSelect"
                   @open="handleOpen"
                   @close="handleClose"
-                  style="width: 250px;height:100%;background: #f2f2f2; ">
+                  style="width: 250px;height: 620px;background: #f2f2f2; ">
+                  <el-menu-item index="moduleoperation">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   启动自释放文件</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   注册表服务动态库</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />    添加系统防火墙放过列表</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   禁止服务</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   降低系统安全性</span>
+                  </el-menu-item>                            
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   修改注册表自启动项</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   释放PE文件</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   入侵过程</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   自我删除</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   利用互斥量</span>
+                  </el-menu-item>
+                  <el-menu-item index="networkusage">
+                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   伪装系统服务</span>
+                  </el-menu-item>
+                </el-menu>
+                <!-- </el-col> -->
+              </el-aside>
+              <div class="tab-1"> 
+              <div class="tab-1-2">
+                <el-table
+                  :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
+                  class="table1"
+                  row-style="30px"
+                  cell-style="padding:0"
+                  id="table11"
+                  :data="admindata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                  style="width: 100%">
+                  <el-table-column
+                    type="selection"
+                    width="55">
+                  </el-table-column>
+                  <el-table-column
+                    prop="id"
+                    width="80"
+                    label="编号"
+                    :index="indexMethod">
+                  </el-table-column>
+                  <el-table-column
+                    prop="ip"
+                    label="IP"
+                    width="180">
+                  </el-table-column>
+                  <el-table-column
+                    prop='domainId'
+                    label="domainID"
+                    width="180">
+                  </el-table-column>
+                  <el-table-column
+                    prop="type"
+                    label="使用者"
+                     width="1150">
+                  </el-table-column>
+                  
+                </el-table>
+              </div><!--table-1-2-->
+             
+
+   
+              <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(admindata.length))?currentPage * pagesize:admindata.length}}条记录，总共{{admindata.length}}条记录
+                <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                  <el-option label="10" value="10"></el-option>
+                  <el-option label="20" value="20"></el-option>
+                </el-select>
+                <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
+              </div>
+              <div style="float:right;margin-top:10px;margin-right: 30px;">
+                <!-- *********************************分页按钮 -->
+                <el-pagination
+                  background="#E95513"
+                  prev-text="上一页"
+                  next-text="下一页"
+                  jumper-text="转到"
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage"
+                  :page-sizes="[10, 20]"
+                  :page-size="pagesize"
+                  :total="admindata.length"
+                  layout="slot,prev, pager, next">
+                  <!-- <slot name="as">dddd</slot> -->
+                </el-pagination>
+              </div>
+             </div>
+              <el-main class="tab-main">
+                <router-view></router-view>
+              </el-main>
+            </el-container>
+            
+          </el-tab-pane>
+
+          <!-- 原始日志查询 -->
+          <el-tab-pane label="原始日志查询" class="origindairy"  @click="sign=flase">
+            <el-container style="height:100%;" direction="vertrcal">
+              
+              <!-- 左侧菜单栏 -->
+              <el-aside class="tab-aside" style="width: 220px">
+                <!-- <el-col :span="5"> -->
+                <el-menu
+                  router
+                  active-text-color="#E95513"
+                  default-active="$route.name"
+                  class="el-menu-vertical"
+                  @select="handleSelect"
+                  @open="handleOpen"
+                  @close="handleClose"
+                  style="width: 250px;height: 465px;background: #f2f2f2; ">
                   <el-submenu index="1">
                     <template slot="title">
                                 <span>
@@ -117,7 +241,7 @@
                                     文件操作信息</span>
                     </template>
                     <el-menu-item-group>
-                      <el-menu-item  class="nav-left" index="fileoperations"><img src="../assets/arrow4.png" class="arrow1"/>文件操作详情</el-menu-item>
+                      <el-menu-item  class="nav-left" index="fileoperations" @click="sign=flase" ><img src="../assets/arrow4.png" class="arrow1" />文件操作详情</el-menu-item>
                       <el-menu-item class="nav-left" index="filemap"><img src="../assets/arrow4.png" class="arrow1"/>文件map操作详情</el-menu-item>
                     </el-menu-item-group>
                   </el-submenu>
@@ -150,12 +274,82 @@
                 </el-menu>
                 <!-- </el-col> -->
               </el-aside>
-              <el-main class="tab-main">
-                <router-view></router-view>
+              <div class="tab-1" v-if = "sign" > 
+              <div class="tab-1-2">
+                <el-table
+                  :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
+                  class="table1"
+                  row-style="30px"
+                  cell-style="padding:0"
+                  id="table11"
+                  :data="admindata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                  style="width: 100%">
+                  <el-table-column
+                    type="selection"
+                    width="55">
+                  </el-table-column>
+                  <el-table-column
+                    prop="id"
+                    width="80"
+                    label="编号"
+                    :index="indexMethod">
+                  </el-table-column>
+                  <el-table-column
+                    prop="ip"
+                    label="IP"
+                    width="180">
+                  </el-table-column>
+                  <el-table-column
+                    prop='domainId'
+                    label="domainID"
+                    width="180">
+                  </el-table-column>
+                  <el-table-column
+                    prop="type"
+                    label="使用者"
+                     width="1150">
+                  </el-table-column>
+                  
+                </el-table>
+              </div><!--table-1-2-->          
+                <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(admindata.length))?currentPage * pagesize:admindata.length}}条记录，总共{{admindata.length}}条记录
+                  <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                  <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                    <el-option label="10" value="10"></el-option>
+                    <el-option label="20" value="20"></el-option>
+                  </el-select>
+                  <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
+                </div>
+              <div style="float:right;margin-top:10px;margin-right: 30px;">
+                <!-- *********************************分页按钮 -->
+                <el-pagination
+                  background="#E95513"
+                  prev-text="上一页"
+                  next-text="下一页"
+                  jumper-text="转到"
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage"
+                  :page-sizes="[10, 20]"
+                  :page-size="pagesize"
+                  :total="admindata.length"
+                  layout="slot,prev, pager, next">
+                  <!-- <slot name="as">dddd</slot> -->
+                </el-pagination>
+                </div>
+              </div>
+              <el-main class="tab-main"  v-else>
+              
+                <router-view>
+                  
+                </router-view>
               </el-main>
-            </el-container>
-
+              </el-container>
+              
+              
           </el-tab-pane>
+
+
           <el-tab-pane label="样本捕获">
 
           </el-tab-pane>
@@ -211,6 +405,11 @@
   }
 
   .tab-1-1{
+    margin-left: 30px;
+    margin-top:15px;
+    margin-bottom: 10px;
+  }
+  .tab-1-2{
     margin-left: 30px;
     margin-top:15px;
     margin-bottom: 10px;
@@ -377,12 +576,6 @@
     min-width: 200px;
 
   }
-  /*.el-submenu__title {*/
-    /*font-size: 12px;*/
-  /*}*/
-  /*.el-menu-item {*/
-    /*font-size: 12px;*/
-  /*}*/
   #nav-left.el-menu-item{
     padding-left: 20px;
   }
@@ -499,6 +692,7 @@
         jumper: 1,
         pagesize: 10,
         currentPage: 1,
+<<<<<<< HEAD
         administrator: 'wulala',
         times: '2018-5-21',
         dialog: false,
@@ -532,17 +726,38 @@
             ip: '168.196.2.1',
             domainID: 'null',
             type: 'win789'
+=======
+        administrator:'wulala',
+        times:'2018-5-21',
+        dialog:false,
+        sign:true,
+        admindata:[
+          {
+            index:'1',
+            ip:'168.196.2.1',
+            domainId:'null',
+            type:'win789'
+>>>>>>> 4ed866cc1500efcf89628128282bdd7d48b738cf
           }
         ]
 
       }
     },
+<<<<<<< HEAD
     created () {
     // this.getListHostPot()
     },
     mounted: function () {
     // this.getListHostPot();
     },
+=======
+  created(){
+    this.getListHostPot()
+  },
+  mounted:function(){
+    this.getListHostPot();
+  },
+>>>>>>> 4ed866cc1500efcf89628128282bdd7d48b738cf
     methods: {
       handleSlect (key, keypath) {
         this.$emit('updata:activ', key)
@@ -570,8 +785,16 @@
       handleCurrentChange (currentPage) {
         this.currentPage = currentPage
       },
+<<<<<<< HEAD
       open2 (){
         this.$confirm ('此操作将永久删除该数据, 是否继续?', '提示', {
+=======
+      AddHostPot(){
+
+      },
+      open2() {
+      this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+>>>>>>> 4ed866cc1500efcf89628128282bdd7d48b738cf
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -587,8 +810,6 @@
         });
       });
     }
-
-
     }
 
   };

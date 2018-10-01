@@ -6,27 +6,59 @@
                size="small"
                class="demo-form-inline"
                :label-position="right" >
-        <el-form-item label="当前进程名:">
-          <el-input v-model="formInline.progress" style="padding-left:15px;width:187px"></el-input>
+      <el-row :gutter="0" type="flex">   
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="当前进程名:">
+              <el-input v-model="formInline.progress" style="padding-left:15px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="当前进程ID:">
+              <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px" ></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="线程句柄:">
+              <el-input v-model="formInline.handle" style="padding-left:15px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+      </el-row>  
+      <el-row :gutter="0" type="flex">   
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+             <el-form-item label="被操作进程名:">
+              <el-input v-model="formInline.progressname" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="被操作进程ID:">
+              <el-input v-model="formInline.XprogressID" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="操作时间:">
+          <el-input v-model="formInline.date" style="padding-left:15px;width:187px" ></el-input>
         </el-form-item>
-        <el-form-item label="当前进程ID:">
-          <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px" ></el-input>
-        </el-form-item>
-        <el-form-item label="线程句柄:">
-          <el-input v-model="formInline.handle" style="padding-left:15px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="被操作进程名:">
-          <el-input v-model="formInline.progressname" style="padding-left:1px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="被操作进程ID:">
-          <el-input v-model="formInline.XprogressID" style="padding-left:1px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="操作时间:">
-          <el-input v-model="formInline.date" style="padding-left:30px;width:187px" ></el-input>
-        </el-form-item>
-        <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
-        </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item>
+              <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
+            </el-form-item>
+          </div>
+        </el-col>
+      </el-row>  
       </el-form>
     </el-header>
     <el-main class="m-table">
