@@ -40,8 +40,9 @@ html,body,#app {
   font-size:36px;font-style:normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0px;
-  color:#5EBF18;
+  color:#76EE00;
 ;}
+
 /* *********************************************mian start*****************/
 /* 绿色字体 */
 .wow{
@@ -92,7 +93,6 @@ html,body,#app {
 }
 /********************************** 查看详情的颜色 */
 .el-button--text{
-
   color:#E95513 !important;
 }
 .el-button--text.is-active{

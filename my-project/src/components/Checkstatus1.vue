@@ -16,10 +16,70 @@
           <div class="main-1-1">
               <!-- 灰色 条状-->
               <div class="main-1-1-1">
-                  <p class="main-p1"> 实时警告版</p>
+                  <p class="main-p1"> 实时警告板</p>
                   <!-- **********************************更多！！！还没做路由 -->
-                  <p class="main-p2">更多</p>
+                  <p class="main-p2" @click="moreAlarmInfoDisplay = true">更多</p>
               </div>
+              <el-dialog title="所有警告" :visible.sync="moreAlarmInfoDisplay" style="width: 2000px;">
+                  <el-table
+                          :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
+                          height=274
+                          row-style="30px"
+                          cell-style="padding:0"
+                          class="table1"
+                          :data="moreAlarmInfoData.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                          style="width: 100%; ">
+                      <el-table-column
+                              prop="index"
+                              label="编号"
+                              width="100"
+                              :index="indexMethod">
+                      </el-table-column>
+                      <el-table-column
+                              prop="warnType"
+                              label="警告类型"
+                              width="240">
+                      </el-table-column>
+                      <el-table-column
+                              prop="warn"
+                              label="实时警告"
+                              width="200">
+                      </el-table-column>
+                      <el-table-column
+                              prop="time"
+                              width="215"
+                              label="创建时间">
+                      </el-table-column>
+                  </el-table>
+                  <div style="width: 100%;height:20px">
+                  <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(moreAlarmInfoData.length))?currentPage * pagesize:moreAlarmInfoData.length}}条记录，总共{{moreAlarmInfoData.length}}条记录
+                      <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                      <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                          <el-option label="10" value="10"></el-option>
+                          <el-option label="20" value="20"></el-option>
+                      </el-select>
+                      <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
+                  </div>
+
+                  <div style="float:right;margin-top:10px;margin-right: 30px;">
+                      <!-- *********************************分页按钮 -->
+                      <el-pagination
+                              background="#E95513"
+                              prev-text="上一页"
+                              next-text="下一页"
+                              jumper-text="转到"
+                              @size-change="handleSizeChange"
+                              @current-change="handleCurrentChange"
+                              :current-page="currentPage"
+                              :page-sizes="[10, 20]"
+                              :page-size="pagesize"
+                              :total="moreAlarmInfoData.length"
+                              layout="slot,prev, pager, next,total" >
+                          <!-- <slot name="as">dddd</slot> -->
+                      </el-pagination>
+                  </div>
+                  </div>
+              </el-dialog>
               <!-- **************表格********* -->
               <div class="main-1-1-2">
                     <el-table
@@ -28,7 +88,7 @@
                         row-style="30px"
                         cell-style="padding:0"
                         class="table1"
-                        :data="tableData"
+                        :data="newAlarmData"
                         style="width: 100%; ">
                         <el-table-column
                         type="index"
@@ -37,17 +97,17 @@
                         :index="indexMethod">
                         </el-table-column>
                         <el-table-column
-                        prop="warningtype"
+                        prop="warnType"
                         label="警告类型"
                         width="240">
                         </el-table-column>
                         <el-table-column
-                        prop="realtimewarning"
+                        prop="warn"
                         label="实时警告"
                         width="200">
                         </el-table-column>
                         <el-table-column
-                        prop="date"
+                        prop="time"
                         width="215"
                         label="创建时间">
                         </el-table-column>
@@ -74,11 +134,11 @@
         <div class="main-2">
             <div class=" main-2-1" >
                     <div class="main-2-1-1">
-                            <p class="main-p4">实时告警版</p>
+                            <p class="main-p4">实时告警分级</p>
 
                     </div>
                     <div class="chatrs-1" >
-                        <div id="myChart2" style="width: 100%; height:300px;max-width:800px"></div>
+                        <div id="myChart2" style="width: 100%; height:300px;max-width:800px;top: 31px"></div>
                     </div>
             </div><!--main-2-1-->
             <div class="main-2-2">
@@ -97,56 +157,10 @@
 </el-container>
 </template>
 <style scoped>
-@font-face {
-  font-family: 'iconfont';  /* project id 796633 */
-  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
-  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
-}
-.iconfont{
-    font-family:"iconfont" !important;
-     font-size:36px;font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0px;
-    color:#5EBF18;
-    ;}
 
                /* *********************************************header结束*****************/
             /* **********************************************************mian开始**************** */
      /* 白色条框 */
-      .wow{position: relative;
-    bottom:15px;
-
-    }
-  /* 内联样式 canvas */
-
-    /* 内联样式 canvas */
-.canvas{
-    left: 0px;
-    top: 0px;
-    width: 800px;
-    height: 300px;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    position: absolute;
-    -ms-user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-
-
     .header-2{
         margin: 0;
         height:60px;
@@ -264,11 +278,6 @@
        float: left;
    }
 
-    /* .table1 td{
-        padding: 0;
-        height: 30px;
-    }
-    */
     .charts-1{
         width:720px;
         height: 730px;
@@ -285,11 +294,22 @@ export default {
 
     data() {
       return {
+          //实时警告板更多警告信息
+          moreAlarmInfoData:[],
+          //分页变量
+          currentPage: 1,
+          jumper:1,
+          pagesize:10,
+          //实施警告版更多页面是否显示
+          moreAlarmInfoDisplay:false,
+          //一周警告走势
+          chart1_timeList2 :[0,0,0,0],
+          chart1_sumList2 : [0,0,0,0],
           myChart2_data:[1,1,5000],
           administrator:'wulala',
           times:'2018-5-21',
             // ***************表格数据start
-            tableData: [{
+            newAlarmData: [{
             date: '2016-05-03',
             realtimewarning: '王小虎',
             warningtype: '可疑序列警告 ',
@@ -331,21 +351,61 @@ export default {
             }
             ],
             // *****************表格数据end
+
+          // 总体走势表格数据
+          chart3_timeList: [],
+          chart3_sumList: [],
+
         }
 
     },
     mounted(){
         // *****************echarts图  2个折线图，一个柱状图
-      this.getWarningSum();
+        this.getNewWarnMsg();
+        this.getMoreWarnMsg();
+        this.getWarningSum();
       this.getAllWarningSum();
+      this.getWarnMsgNum();
       this.drawLine();
         },
      methods: {
+      getMoreWarnMsg(){
+          var that = this;
+          this.$axios.get("/getMoreWarnMsg").then(function (response) {
+              that.moreAlarmInfoData = response.data;
+          })
+      },
+
+        //实时警告板表格的警告信息获取方法
+      getNewWarnMsg(){
+          var that = this;
+          this.$axios.get("/getNewWarnMsg").then(function (response) {
+              that.newAlarmData = response.data;
+          })
+      },
+
+      getWarnMsgNum() {
+           var that = this;
+           this.$axios.get("/getWarnMsgNum").then(function (response) {
+               that.chart1_timeList2 = response.data.timeList;
+               that.chart1_sumList2 = response.data.sumList;
+               // alert(that.timeList2)
+               that.drawLine();
+           })
+
+          // // alert(this.timeList2)
+          // alert(this.timeList2+"numlist")
+         },
       getAllWarningSum(){
         var that = this;
         this.$axios.get("/getAllWarningSum").then(function (response) {
           // alert(response.data);
+            that.chart3_timeList = response.data.timeList;
+            that.chart3_sumList = response.data.numList;
+            // alert(that.timeList);
+            that.drawLine();
         })
+
       },
       //获取实时警告板信息（柱形图）
       getWarningSum(){
@@ -356,6 +416,14 @@ export default {
 
         });
       },
+         handleSizeChange(size) {
+             this.pagesize = size;
+             console.log(`每页 ${val} 条`);
+         },
+         handleCurrentChange(currentPage) {
+             this.currentPage = currentPage;
+             console.log(`当前页: ${val}`);
+         },
         drawLine(){
             // 基于准备好的dom，初始化echarts实例
             let myChart = this.$echarts.init(document.getElementById('myChart'))//单折线图
@@ -364,50 +432,35 @@ export default {
             // 绘制图表
             //双折线图
              myChart3.setOption({
-                title: {  },
-                tooltip : {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross',
-                        label: {
-                            backgroundColor: '#E0FFFF'
-                        }
-                    }
-                },
-                legend: {
-                    data:['敏感行为告警','虚拟机告警']
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
+                 xAxis: {
+                     type: 'category',
+                     boundaryGap: false,
+                     data: this.chart3_timeList
+                 },
+                 yAxis: {
+                     type: 'value'
+                 },
+                 series: [{
+                     data: this.chart3_sumList,
+                     type: 'line',
+                     areaStyle: {
+                         normal:{
+                             color:'rgba(112, 168, 255, 0.5)'
+                         }
+                     },
+                     symbolSize: 10,
+                     itemStyle: {
+                         normal: {
+                             color: "#70A8FF",
+                             lineStyle: {
+                                 color: "#70A8FF"
+                             }
+                         }
+                     },
+                 }]
+                 }
 
-                xAxis: {
-                    type : 'category',
-                    boundaryGap : false,
-                    data: ["03-1","03-2","03-3","03-4","03-5","03-6","03-7","03-8"]
-                },
-                    yAxis : [
-                        {
-                            type : 'value'
-                        }
-                    ],
-                series: [{
-                    name: '敏感行为告警',
-                    type: 'line',
-                    areaStyle: {normal: {}},
-                    data: [4100,4000, 4300,2900,4800, 5500,3800]
-                },
-                {
-                    name: '虚拟机告警',
-                    type: 'line',
-                    areaStyle: {normal: {}},
-                    data: [900,0, 300,0,0,0,0,0]
-                }
-                ]
-            })
+             );
             //柱状图
              myChart2.setOption({
                 title: {  },
@@ -428,36 +481,32 @@ export default {
             })
             // 单折线图
             myChart.setOption({
-                title: {  },
-                tooltip: {
-                    trigger:'axis'
-                },
-                legend:{
-                    data:['敏感行为告警','虚拟机告警',]
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
                 xAxis: {
-                    type:'category',
+                    type: 'category',
                     boundaryGap: false,
-                    data: [18,19,20,21,22,23,24]
+                    data: this.chart1_timeList2
                 },
-                yAxis: {},
+                yAxis: {
+                    type: 'value'
+                },
                 series: [{
-                    name: '敏感行为告警',
+                    data: this.chart1_sumList2,
                     type: 'line',
-                    data: [0, 0, 7, 0, 0, 0,0]
-                },
-                {
-                    name: '虚拟机告警',
-                    type: 'line',
-                    data: [0, 0, 0, 0, 0, 0,0]
-                }
-                ]
+                    areaStyle: {
+                        normal:{
+                            color:'rgba(112, 168, 255, 0.5)'
+                        }
+                    },
+                    symbolSize: 10,
+                    itemStyle: {
+                        normal: {
+                            color:"#70A8FF",
+                            lineStyle: {
+                                color: "#70A8FF"
+                            }
+                        }
+                    }
+                }]
             });
             // echart自适应
             window.addEventListener("resize", function() {

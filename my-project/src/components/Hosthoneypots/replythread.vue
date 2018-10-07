@@ -25,7 +25,7 @@
           <el-input v-model="formInline.date" style="padding-left:15px;width:187px" ></el-input>
         </el-form-item>
         <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <el-button style="background:#E95513;color:#ffffff;"  @click="getAimPendingThread" class="funButton">查询</el-button>
+          <el-button style="background:#E95513;color:#ffffff;"  @click="getAimRecoverThread" class="funButton">查询</el-button>
         </el-form-item>
       </el-form>
     </el-header>
@@ -100,7 +100,7 @@
     </el-main>
   </el-container>
 </template>
-<style>
+<style scoped>
   .table1 td{
     padding: 0;
     height: 30px;
@@ -284,7 +284,7 @@
           .then(function () {
           });
       },
-      getAimPendingThread(){
+        getAimRecoverThread(){
         var that = this;
         this.$axios.get('/getAimRecoverThread',{
           params:{

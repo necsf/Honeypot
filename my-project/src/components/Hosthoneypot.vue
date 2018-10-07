@@ -166,7 +166,7 @@
     <!-- footer -->
   </el-container>
 </template>
-<style  >
+<style  scoped>
 
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
@@ -494,89 +494,84 @@
 <script>
   export default {
 
-    data() {
+    data () {
       return {
-        jumper:1,
-        pagesize:10,
+        jumper: 1,
+        pagesize: 10,
         currentPage: 1,
-        administrator:'wulala',
-        times:'2018-5-21',
-        dialog:false,
-        admindata:[
+        administrator: 'wulala',
+        times: '2018-5-21',
+        dialog: false,
+        admindata: [
           {
-            id:'1',
-            ip:'168.196.2.1',
-            domainID:'null',
-            type:'win789'
+            id: '1',
+            ip: '168.196.2.1',
+            domainID: 'null',
+            type: 'win789'
           },
           {
-            id:'2',
-            ip:'168.196.2.1',
-            domainID:'null',
-            type:'win789'
-          },{
-            id:'3',
-            ip:'168.196.2.1',
-            domainID:'null',
-            type:'win789'
+            id: '2',
+            ip: '168.196.2.1',
+            domainID: 'null',
+            type: 'win789'
           },
           {
-            id:'4',
-            ip:'168.196.2.1',
-            domainID:'null',
-            type:'win789'
+            id: '3',
+            ip: '168.196.2.1',
+            domainID: 'null',
+            type: 'win789'
           },
           {
-            id:'5',
-            ip:'168.196.2.1',
-            domainID:'null',
-            type:'win789'
+            id: '4',
+            ip: '168.196.2.1',
+            domainID: 'null',
+            type: 'win789'
+          },
+          {
+            id: '5',
+            ip: '168.196.2.1',
+            domainID: 'null',
+            type: 'win789'
           }
         ]
 
       }
     },
-  created(){
+    created () {
     // this.getListHostPot()
-  },
-  mounted:function(){
+    },
+    mounted: function () {
     // this.getListHostPot();
-  },
+    },
     methods: {
-      handleSlect(key,keypath){
-        this.$emit('updata:activ',key)
+      handleSlect (key, keypath) {
+        this.$emit('updata:activ', key)
       },
-      indexMethod(index) {
-        return index;
+      indexMethod (index) {
+        return index
       },
-      getListHostPot(){
-        var that = this;
+      getListHostPot () {
+        var that = this
         this.$axios.get('/getListHostPot')
           .then(function (response) {
-            // that.admindata["IP"]= response.data["IP"];
-            // that.admindata["type"]= response.data["type"];
-            // that.admindata["domainID"] = "null";
-            that.admindata = response.data;
+            that.admindata = response.data
           })
           .catch(function (error) {
             alert('handle error')
-            console.log(error);
+            console.log(error)
           })
           .then(function () {
-          });
+          })
       },
 
-
-      handleSizeChange(size) {
-        this.pagesize = size;
-        console.log(`每页 ${val} 条`);
+      handleSizeChange (size) {
+        this.pagesize = size
       },
-      handleCurrentChange(currentPage) {
-        this.currentPage = currentPage;
-        console.log(`当前页: ${val}`);
+      handleCurrentChange (currentPage) {
+        this.currentPage = currentPage
       },
-      open2() {
-      this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+      open2 (){
+        this.$confirm ('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'

@@ -97,6 +97,7 @@
     </el-main>
   </el-container>
 </template>
+<<<<<<< HEAD
 <style>
   /* .table1 td{
           padding: 0;
@@ -108,9 +109,6 @@
   }
   .h-input{
     width: 100%;
-  }
-  .p-page{
-    font-size: 12pt;
   }
 
   /*表格样式*/

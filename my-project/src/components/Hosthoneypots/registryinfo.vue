@@ -71,6 +71,7 @@
     </el-main>
   </div>
 </template>
+
 <style>
   /*表格样式*/
   .el-table th>.cell {
@@ -161,9 +162,14 @@
     line-height: 10px;
     height: 30px;
   }
-  .is-reverse{
+  .is-reverse {
     line-height: 30px;
     height: 30px;
+  }
+
+  .el-menu-item-group__title{
+    padding: 0px;
+
   }
 </style>
 <script>

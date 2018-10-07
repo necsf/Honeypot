@@ -44,9 +44,7 @@
     font-size: 12pt;
     color:#BFBFBF;
   }
-  .el-menu-item :hover {
-    color: #E95513;
-  }
+
 
 
 </style>

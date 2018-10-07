@@ -20,10 +20,10 @@
               <div class="tab-1-1">
                 <el-row>
                   <el-input v-model="input" class="inputType1"  placeholder="请输入查询信息" style="width: 200px;margin-right:0px"></el-input>
-                  <el-button   class="button1" @click="getUser" >查询</el-button>
+                  <el-button   class="button1">查询</el-button>
                   <el-button   class="button1" @click="dialogFormVisible = true" >添加</el-button>
                   <el-button   class="button1" @click="dialogFormVisible1 = true">修改</el-button>
-                  <el-button   class="button1"  @click="open2">删除</el-button>
+                  <el-button   class="button1"  @click="delUser">删除</el-button>
                 </el-row>
 
               </div><!--table-1-1-->
@@ -37,6 +37,7 @@
                   id="table11"
                   border="true"
                   :data="temdata"
+                  @selection-change="handleSelectionChange1"
                   style="width: 100%">
                   <el-table-column
                     type="selection"
@@ -89,20 +90,25 @@
                     </el-form-item>
                     <el-form-item label="角色" :label-width="formLabelWidth">
                       <el-select v-model="form.role" placeholder="">
-                        <el-option label="普通用户" value="shanghai"></el-option>
-                        <el-option label="安全审计管理员" value="beijing"></el-option>
+                        <el-option label="系统管理员" value=1></el-option>
+                        <el-option label="安全审计管理员" value=2></el-option>
+                        <el-option label="普通用户" value=3></el-option>
+                        <el-option label="安全保密管理员" value=4></el-option>
                       </el-select>
                     </el-form-item>
                     <el-form-item label="部门" :label-width="formLabelWidth">
                       <el-select v-model="form.department" placeholder="">
-                        <el-option label="测试部" value="shanghai"></el-option>
-                        <el-option label="安全处" value="beijing"></el-option>
+                        <el-option label="安全处" value=1></el-option>
+                        <el-option label="办公室" value=2></el-option>
+                        <el-option label="科技处" value=3></el-option>
+                        <el-option label="测试部" value=7></el-option>
+                        <el-option label="督察处" value=10></el-option>
                       </el-select>
                     </el-form-item>
                   </el-form>
                   <div slot="footer" class="dialog-footer">
                     <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
-                    <el-button class="button2" @click="dialogFormVisible = false">确 定</el-button>
+                    <el-button class="button2" @click="addUser">确 定</el-button>
                   </div>
                 </el-dialog>
                 <el-dialog title="修改信息" :visible.sync="dialogFormVisible1"  >
@@ -121,14 +127,17 @@
                     </el-form-item>
                     <el-form-item label="部门" :label-width="formLabelWidth">
                       <el-select v-model="form1.department" placeholder="">
-                        <el-option label="测试部" value="shanghai"></el-option>
-                        <el-option label="安全处" value="beijing"></el-option>
+                        <el-option label="安全处" value=1></el-option>
+                        <el-option label="办公室" value=2></el-option>
+                        <el-option label="科技处" value=3></el-option>
+                        <el-option label="测试部" value=7></el-option>
+                        <el-option label="督察处" value=10></el-option>
                       </el-select>
                     </el-form-item>
                   </el-form>
                   <div slot="footer" class="dialog-footer">
-                    <el-button class="button3" @click="dialogFormVisible = false">取 消</el-button>
-                    <el-button class="button2" @click="dialogFormVisible = false">确 定</el-button>
+                    <el-button class="button3" @click="dialogFormVisible1 = false">取 消</el-button>
+                    <el-button class="button2" @click="updateUser">确 定</el-button>
                   </div>
                 </el-dialog>
               </div><!--table-1-2-->
@@ -174,10 +183,10 @@
                       <div  id="main1">
                         <el-row>
                           <el-input v-model="input" class="inputType1" placeholder="请输入查询信息" style="width: 200px"></el-input>
-                          <el-button  class="button1" @click=" getUserList">查询</el-button>
+                          <el-button  class="button1" >查询</el-button>
                           <el-button  class="button1" @click="dialogFormVisible2_0 = true">添加</el-button>
                           <el-button  class="button1" @click="dialogFormVisible2_1 = true">修改</el-button>
-                          <el-button  class="button1"  @click="open2_">删除</el-button>
+                          <el-button  class="button1" @click="delDept">删除</el-button>
                         </el-row>
                         <el-container style="height:100%;" direction="vertrcal">
                           <!-- header -->
@@ -193,6 +202,7 @@
                                 id="table12"
                                 border="true"
                                 :data="temdata2"
+                                @selection-change="handleSelectionChange2"
                                 style="width: 100%">
                                 <el-table-column
                                   type="selection"
@@ -219,7 +229,7 @@
                             <el-dialog title="添加部门" :visible.sync="dialogFormVisible2_0"  >
                               <el-form :model="form2">
                                 <el-form-item label="部门名称" :label-width="formLabelWidth">
-                                  <el-input v-model="form2.departmentName" placeholder=""></el-input>
+                                  <el-input v-model="form2.department" placeholder=""></el-input>
                                 </el-form-item>
                                 <el-form-item label="部门负责人" :label-width="formLabelWidth">
                                   <el-input v-model="form2.departmentman" placeholder=""></el-input>
@@ -227,18 +237,22 @@
                               </el-form>
                               <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogFormVisible2_0 = false">取 消</el-button>
-                                <el-button class="button2" @click="dialogFormVisible2_0 = false">确 定</el-button>
+                                <el-button class="button2" @click="addDept">确 定</el-button>
                               </div>
                             </el-dialog>
 
 
-                            <el-dialog title="添加部门" :visible.sync="dialogFormVisible2_1"  >
+                            <el-dialog title="修改部门" :visible.sync="dialogFormVisible2_1"  >
                               <el-form :model="form2_1">
-
+                                <!-- *************************************** -->
+                                <!-- option所含的部门需要修改，不能写死，未完成 -->
                                 <el-form-item label="部门" :label-width="formLabelWidth">
                                   <el-select v-model="form2_1.department" placeholder="">
-                                    <el-option label="测试部" value="shanghai"></el-option>
-                                    <el-option label="安全处" value="beijing"></el-option>
+                                    <el-option label="安全处" value=1></el-option>
+                                    <el-option label="办公室" value=2></el-option>
+                                    <el-option label="科技处" value=3></el-option>
+                                    <el-option label="测试部" value=7></el-option>
+                                    <el-option label="督察处" value=10></el-option>
                                   </el-select>
                                 </el-form-item>
                                 <el-form-item label="部门负责人" :label-width="formLabelWidth">
@@ -247,7 +261,7 @@
                               </el-form>
                               <div slot="footer" class="dialog-footer">
                                 <el-button class="button3" @click="dialogFormVisible2_1 = false">取 消</el-button>
-                                <el-button class="button2" @click="dialogFormVisible12_1 = false">确 定</el-button>
+                                <el-button class="button2" @click="updateDept">确 定</el-button>
                               </div>
                             </el-dialog>
                           </el-main>
@@ -304,7 +318,7 @@
                       </tr>
 
                     </table>
-                    <el-button class="button1"  style="margin-left: 39%;margin-top: 15px">保存</el-button>
+                    <el-button class="button1"  style="margin-left: 39%;margin-top: 15px" @click="updateSystemSecurityConf">保存</el-button>
                   </div>
                   </el-tab-pane>
 
@@ -330,7 +344,7 @@
                   <!-- header -->
                   <!-- main -->
                   <el-main class="el-main-2" >
-                    <div style="margin-left:-5px;
+                    <div style="margin-left: 30px;
     margin-right: 30px;">
                       <el-table
                         :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
@@ -340,7 +354,7 @@
                         cell-style="padding:0"
                         id="table3"
                         :data="temdata3"
-                        style="width: 100%">
+                        style="width: 100%;left:-33px">
                         <el-table-column
                           type="selection"
                           width="55">
@@ -368,7 +382,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="772">
+                          width="737">
                         </el-table-column>
                       </el-table>
                     </div>
@@ -416,7 +430,7 @@
                   <!-- header -->
                   <!-- main -->
                   <el-main class="el-main-2" >
-                    <div style="margin-left: -5px;
+                    <div style="margin-left: 30px;
     margin-right: 30px;">
                       <el-table
                         :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
@@ -426,7 +440,7 @@
                         cell-style="padding:0"
                         id="table4"
                         :data="temdata4"
-                        style="width: 100%">
+                        style="width: 100%;left:-33px">
                         <el-table-column
                           type="selection"
                           width="55">
@@ -459,7 +473,7 @@
                         <el-table-column
                           prop="message"
                           label="备注"
-                          width="636">
+                          width="602">
                         </el-table-column>
                       </el-table>
                     </div>
@@ -505,7 +519,7 @@
   </el-container>
 
 </template>
-<style >
+<style scoped>
 
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
@@ -863,18 +877,13 @@
     name: "honey-admin",
     data() {
       return {
+        // 用户管理表格的勾选项
+        multipleSelection1: [],
+        // 配置管理/部门管理表格的勾选项
+        multipleSelection2: [],
         jumper:10,
         pagesize:10,
-        temdata: [{
-          id: '1',
-          username: 'test1',
-          realName: 'test',
-          role:"普通用户",
-          department:"安全处",
-          operater:"解锁/重置密码",
-        },
-
-        ],
+        temdata: [],  // 用户管理表格所需的数据
         options: [{
           value: '选项1',
           label: '10'
@@ -885,7 +894,7 @@
         ],
 
         input: '',
-        dialogFormVisible: false,
+        dialogFormVisible: false, // 添加用户对应对话框
         form: {
           name: '',
           password: '',
@@ -897,7 +906,7 @@
           resource: '',
           desc: ''
         },
-        dialogFormVisible1: false,
+        dialogFormVisible1: false,  // 修改用户信息对应对话框
         form1: {
           name: '',
           password0: '',
@@ -914,33 +923,10 @@
 
 
         //
-        dialogFormVisible2_0: false,
-        dialogFormVisible2_1: false,
-        temdata2: [{
-          number: '1',
-          user: 'test1',
-          name: 'test',
-          role:"普通用户",
-          department:"科技部",
-          departmentman:"bbb",
-        },
-          {
-            number: '2',
-            user: 'test',
-            name: 'LiLei',
-            role:"普通用户",
-            department:"督察部",
-            departmentman:"李惟一",
-          },
-          {
-            number: '3',
-            user: 'aaa',
-            name: 'aaa',
-            role:"安全审计管理员",
-            department:"测试部",
-            departmentman:"Luffy",
-          }
-        ],
+        dialogFormVisible2_0: false,  // 添加部门对应对话框
+        dialogFormVisible2_1: false,  // 修改部门信息对应对话框
+        temdata2: [],                 // 管理配置/部门管理的表格所需数据
+        // 添加部门对应的form
         form2: {
           department:'',
           departmentman:'',
@@ -949,6 +935,7 @@
           resource: '',
           desc: ''
         },
+        // 修改部门信息对应的form
         form2_1: {
           department:'',
           departmentman:'',
@@ -1132,98 +1119,274 @@
             message:"",
           },
         ],
-        num1: 8,
-        num2: 5,
-        num3: 7,
-        num4: 20,
+        num1: 2,
+        num2: 2,
+        num3: 2,
+        num4: 2,
 
       };
     },
     mounted:function(){
-      // this.getUser();
+      this.getAllUsers()
+      this.getAllDepts()
+      this.getSystemSecurityConf()
     },
     methods: {
+      // 各方法中json的键要与后端对应，值要与前端如form中的变量名对应
+      // 用户管理 和 配置管理/部门管理下的 查找尚未实现
+      // 分页尚未实现
 
-
-      getUser(){
+      // 用户管理界面的勾选项      
+      handleSelectionChange1(val){
+        this.multipleSelection1 = val
+      },
+      // 配置管理/部门管理界面的勾选项
+      handleSelectionChange2(val){
+        this.multipleSelection2 = val
+      },
+      // 获取所有用户信息（除super外）
+      getAllUsers(){
         var that = this;
-        this.$axios.get('/getuser')
-          .then(function (response) {
-            // handle success
-            // alert(response.data);     // 输出后端传过来的数据
+        this.$axios.get('/honeycontrol/getAllUsers')
+          .then(function (response){
             var jsondata = [];
             jsondata = response.data;
-            // data.temdata = jsondata[0];
             that.temdata = jsondata;
-            alert(that.temdata);
-            // this.data.temdata.put(jsondata[0])
           })
-          .catch(function (error) {
-            // handle error     //请求出错的时候运行的代码
-            alert('handle error')
-            console.log(error);
-          })
-          .then(function () {
-            // always executed
-            // alert('always executed');
-            //什么时候都执行的
-          });
       },
-
-      getUserList(){
-        this.$axios.get('/honeycontrol/queryuser')
-          .then(function (response) {
-            // handle success
-            alert(response.data.data);     // 输出后端传过来的数据
-
-            console.log(response);
+      // 添加用户
+      addUser(){
+        if (this.form.password != this.form.password1)
+          alert('密码不一致，请重新输入！');
+        else{
+          var jsondata = 
+          {
+            // 不清楚id的由来，暂时用不超过1000的随机数标记
+            'id': Math.floor(Math.random()*1000),
+            'username': this.form.name,
+            'password': this.form.password,
+            'realName': this.form.truename,
+            'authority': this.form.role,
+            'dept': this.form.department
+          };
+          var that = this;
+          this.$axios.post('/honeycontrol/addUser', jsondata)
+          .then(function (response){
+            alert(JSON.stringify(response.data['result']))
+            that.dialogFormVisible = false
+            // 清空添加用户框中的数据
+            that.form.name = ''
+            that.form.password = ''
+            that.form.password1 = ''
+            that.form.truename = ''
+            that.form.role = ''
+            that.form.department = ''
+            // 获得最新的数据
+            that.getAllUsers();
           })
-          .catch(function (error) {
-            // handle error     //请求出错的时候运行的代码
-            alert('handle error')
-            console.log(error);
-          })
-          .then(function () {
-            // always executed
-            alert('always executed');
-                               //什么时候都执行的
-          });
-
+        }
       },
-      open2() {
-        this.$confirm('您确定要删除这条用户信息吗', '警告', {
+      // 修改用户信息
+      updateUser(){
+          var that = this;
+          if(this.multipleSelection1.length > 1)
+          {
+            alert('修改时请仅选择一项！')
+            this.dialogFormVisible1 = false;
+          }
+          else if(this.form1.newpassword != this.form1.newpassword1)
+                  alert('两次密码不一致，请重新输入！')
+          else{
+            var jsondata = 
+               {
+                 'id': this.multipleSelection1[0].id,
+                 'oldpassword': this.form1.password0,
+                 'newpassword': this.form1.newpassword,
+                 'newrealname': this.form1.truename,
+                 'newdept': this.form1.department
+               };
+               this.$axios.post('/honeycontrol/updateUser', jsondata)
+               .then(function (response){
+                 alert(response.data['result'])
+                 that.dialogFormVisible1 = false
+                 // 清空数据
+                 that.form1.password0 = ''
+                 that.form1.newpassword = ''
+                 that.fomr1.newpassword1 = ''
+                 that.form1.truename = ''
+                 that.form1.department = ''
+                // 获取最新数据
+                 that.getAllUsers()
+               })
+              }
+      },
+      // 删除勾选中的用户
+      delUser(){
+        var that = this;
+        this.$confirm('您确定要删除选中的用户信息吗', '警告',{
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          });
+          var jsonarray = [];
+          var i = 0;
+          for(; i < this.multipleSelection1.length; i ++){
+            // 传递给后端的json数组形式为：
+            // [{'id': 1}, ..., {'id': n}]
+            var jsondata = {
+              'id': this.multipleSelection1[i].id
+            }
+            jsonarray.push(jsondata)
+          }
+          this.$axios.post('/honeycontrol/delUser', jsonarray)
+          .then(function (response){
+            // 根据返回情况显示弹出不同的提示
+            if(response.data['result'] == 'success')
+              that.$message({
+                type: 'success',
+                message: '删除成功'
+              })
+            else
+              that.$message({
+                type: 'error',
+                message: '删除用户' + response.data['result'] + '发生错误'
+              })
+            // 获取最新数据
+            that.getAllUsers();
+          })
         }).catch(() => {
           this.$message({
             type: 'info',
             message: '已取消删除'
-          });
-        });
+          })
+        })
       },
-      open2_() {
-        this.$confirm('您确定要删除这条部门信息吗', '警告', {
+      // 获取所有部门信息
+      getAllDepts(){
+        var that = this;
+        this.$axios.get('/honeycontrol/getAllDepts')
+        .then(function (response){
+          var jsondata = []
+          jsondata = response.data
+          that.temdata2 = jsondata
+        })
+      },
+      // 添加部门
+      // *** 此处还未实现新的部门出现在“添加用户” “修改用户”等select的option中
+      // 应该存入一个数组中，在option处调用而不是写死的
+      addDept(){
+        if(this.form2.department == '')
+          alert('部门名称不能为空')
+        else{
+          var jsondata = {
+            // 同添加用户，暂时用不超过100的随机数
+            'id': Math.floor(Math.random()*100),
+            'depName': this.form2.department,
+            'dutyName': this.form2.departmentman
+          }
+          var that = this
+          this.$axios.post('/honeycontrol/addDept', jsondata)
+          .then(function (response){
+            alert(response.data['result'])
+            that.dialogFormVisible2_0 = false
+            // 清空数据
+            that.form2.department = ''
+            that.form2.departmentman = ''
+            // 获取最新数据
+            that.getAllDepts()
+          })
+        }
+      },
+      // 修改部门信息
+      updateDept(){
+        var that = this
+        var jsondata = {
+           'id': this.form2_1.department,
+           'dutyName': this.form2_1.departmentman
+         }
+         this.$axios.post('/honeycontrol/updateDept', jsondata)
+         .then(function (response){
+           alert(response.data['result'])
+           that.dialogFormVisible2_1 = false
+           // 清空数据
+           that.form2_1.department = ''
+           that.form2_1.departmentman = ''
+           // 获取最新数据
+           that.getAllDepts()
+          })
+        
+      },
+      // 删除部门信息
+      delDept(){
+        var that = this
+        this.$confirm('您确定要删除选中的部门信息吗', '警告', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          });
+          var jsonarray = []
+          var i = 0
+          for (; i < this.multipleSelection2.length; i ++){
+            var jsondata = {
+              'id': this.multipleSelection2[i].number
+            }
+            jsonarray.push(jsondata)
+          }
+          this.$axios.post('/honeycontrol/delDept', jsonarray)
+          .then(function (response){
+            if(response.data['result'] == 'success')
+              that.$message({
+                type: 'success',
+                message: '删除成功'
+              })
+            else
+              that.$message({
+                type: 'error',
+                message: '删除部门' + response.data['result'] + '发生错误'
+              })
+            that.getAllDepts()
+          })
         }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          });
-        });
+            that.$message({
+              type: 'info',
+              message: '已取消删除'
+            })
+        })
       },
+      // 获取系统安全配置
+      getSystemSecurityConf(){
+        var that = this
+        this.$axios.get('/honeycontrol/getSystemSecurityConf')
+        .then(function (response){
+          var jsondata = response.data
+          // num1 - num4 分别对应四项安全配置
+          that.num1 = jsondata.password_length
+          that.num2 = jsondata.try_times
+          that.num3 = jsondata.password_period
+          that.num4 = jsondata.lock_period
+        })
+      },
+      // 修改系统安全配置
+      updateSystemSecurityConf(){
+        var that = this
+        // json的key与数据库system_security_conf表中的名称对应
+        // 方便后端处理
+        var jsondata = {
+          'password_length': this.num1,
+          'try_times': this.num2,
+          'password_period': this.num3,
+          'lock_period': this.num4
+        }
+        this.$axios.post('/honeycontrol/updateSystemSecurityConf', jsondata)
+        .then(function (response){
+          alert(response.data['result'])
+          // 获取最新数据
+          that.getSystemSecurityConf()
+        })
+      },
+      // 以上 用户管理和配置管理 项宇涵进行
+      // --------------------------------------------------------------------------
+      
       open3() {
         this.$confirm('您确定要删除这条系统日志信息吗', '警告', {
           confirmButtonText: '确定',

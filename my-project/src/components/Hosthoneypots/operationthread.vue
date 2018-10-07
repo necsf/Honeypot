@@ -104,7 +104,7 @@
     </el-main>
   </el-container>
 </template>
-<style>
+<style scoped>
   /* .table1 td{
           padding: 0;
           height: 30px;

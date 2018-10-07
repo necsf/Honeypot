@@ -15,8 +15,7 @@
         </div>
 
         <div class="ss">&nbsp;&nbsp;&nbsp;&nbsp;
-            <el-button  type="danger" class="loginbutton" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
-            <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
+            <el-button  type="danger" class="loginbutton" style="width:273px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
         </div>
 
     </div>
@@ -26,8 +25,24 @@
 </template>
 
 
-<style>
-  .loginbutton{
+<style scoped>
+    @font-face {
+        font-family: 'iconfont';  /* project id 796633 */
+        src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
+        src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
+        url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+    }
+    .iconfont{
+        font-family:"iconfont" !important;
+        font-size:36px;font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0px;
+        color:#76EE00;
+    ;}
+
+    .loginbutton{
     background-color:#e95513;
     color: #eeeeee;
   }

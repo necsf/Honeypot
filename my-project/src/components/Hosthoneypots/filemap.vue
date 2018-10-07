@@ -157,6 +157,7 @@
   .p-page{
     font-size: 12pt;
   }
+
   /* 翻页背景色 */
   .el-pagination .el-pager .active{
     background-color: #E95513 !important;
@@ -176,6 +177,7 @@
     font-size: 12px;
     border-radius: 0px;
   }
+
   .el-pagination__jump{
     position: relative;
     left: -1140px;
@@ -204,6 +206,10 @@
   /*.el-select.el-input*/ .el-input--suffix{
                             height: 30px;
                           }
+
+  .el-select.el-input {
+    height: 30px;
+  }
   .el-select .el-input.is-focus .el-input__inner{
     border-color:#c0c4cc;
   }
