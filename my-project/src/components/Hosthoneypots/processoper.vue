@@ -10,8 +10,9 @@
         <div class="h">
           <el-form-item label="操作类型:">
             <el-select v-model="formInline.operations" style="padding-left:30px;width:187px" >
-              <el-option label="结束当前进程" value="111"></el-option>
-              <el-option label="创建进程" value="222"></el-option>
+              <el-option label="结束当前进程" value="1"></el-option>
+              <el-option label="结束另一进程" value="2"></el-option>
+              <el-option label="创建进程" value="3"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="当前进程名:">
@@ -30,7 +31,7 @@
             <el-input v-model="formInline.date" style="padding-left:30px;width:187px"></el-input>
           </el-form-item>
           <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
+            <el-button style="background:#E95513;color:#ffffff;"  @click="getAimProcessOperation" class="funButton">查询</el-button>
           </el-form-item>
         </div>
       </el-form>
@@ -44,45 +45,45 @@
         row-style="30px"
         cell-style="padding:0"
         id="table11"
-        :data="filemap"
+        :data="filemap.slice((currentPage-1)*pagesize,currentPage*pagesize)"
         style="width: 100%">
         <el-table-column
-          prop="number"
+          prop="id"
           width="80"
           label="序号">
 
         </el-table-column>
         <el-table-column
-          prop="progressID"
+          prop="currentProcessID"
           label="当前进程ID"
           width="150">
         </el-table-column>
         <el-table-column
-          prop="progress"
+          prop="currentProcessName"
           label="当前进程名"
           width="200">
         </el-table-column>
         <el-table-column
-          prop="operation"
+          prop="opType"
           label="操作类型"
           width="200">
         </el-table-column>
         <el-table-column
-          prop="XoperationsID"
+          prop="objectProcessID"
           label="被操作进程ID"
           width="150">
         </el-table-column>
         <el-table-column
-          prop="Xoperationsname"
+          prop="objectProcessName"
           label="被操作进程名"
           width="250">
         </el-table-column>
         <el-table-column
-          prop="date"
+          prop="time"
           label="操作时间">
         </el-table-column>
       </el-table>
-      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(filemap.length))?currentPage * pagesize:filemap.length}}条记录，总共{{filemap.length}}条记录
         <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
         <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
           <el-option label="10" value="10"></el-option>
@@ -103,21 +104,28 @@
           @current-change="handleCurrentChange"
           :current-page="currentPage4"
           :page-sizes="[10, 20]"
-          :page-size="100"
-
-          layout="slot,prev, pager, next" :total="50">
+          :page-size="pagesize"
+          :total="filemap.length"
+          layout="slot,prev, pager, next,total">
           <!-- <slot name="as">dddd</slot> -->
         </el-pagination>
       </div>
 
     </el-main>
+
   </el-container>
 </template>
 <style>
+
+
+
+
   /* .table1 td{
           padding: 0;
           height: 30px;
   } */
+
+
   .m-table{
     width: 100%;
     height: 100%;
@@ -134,6 +142,93 @@
   .el-submenu__title{
     font-size:12px;
   }
+  /*表格样式*/
+  /*表格样式*/
+  .el-table th>.cell {
+    background: #e95513;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 12px;
+    vertical-align: center;
+    padding-left: 20px;
+    margin-bottom: 0px;
+  }
+
+  .tab-1-2 tr:hover{
+    background-color: #fff !important;
+  }
+  /*分页*/
+  .el-pagination .el-select .el-input {
+    position: absolute;
+    left: -640px;
+    top:-15px;
+    font-size: 12px;
+    border-radius: 0px;
+  }
+  .el-pagination__jump{
+    position: relative;
+    left: -1140px;
+    top:9px;
+  }
+  el-pagination__sizes .el-input .el-input__inner:hover {
+    border-color: #fff;
+  }
+  .el-select-dropdown__item.selected {
+    color: #fff;
+    font-weight: 700;
+    background: #e95513;
+  }
+  .el-select .el-input .el-select__caret{
+    font-size: 12px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+  }
+  .el-input{
+    font-size: 12px;
+  }
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
+    background: #e95513;
+  }
+  /*.el-select.el-input*/ .el-input--suffix{
+                            height: 30px;
+                          }
+  .el-select .el-input.is-focus .el-input__inner{
+    border-color:#c0c4cc;
+  }
+  .el-select.el-input.el-input__inner {
+    color: #606266;
+    height: 30px;
+    line-height: 30px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-select>.el-input--suffix{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-input__suffix{
+    height: 30px;
+  }
+  .el-input__inner{
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .el-icon-arrow-up{
+    line-height: 10px;
+    height: 30px;
+  }
+  .is-reverse{
+    line-height: 30px;
+    height: 30px;
+  }
+
+
+
+
 </style>
 <script>
   export default {
@@ -141,8 +236,19 @@
       return {
         jumper:10,
         pagesize:10,
+        dialog:false,
+        dialogFormVisible: false,
+        dialogText: false,
+        dialogTable: false,
+        formLabelWidth: '120px',
+        currentPage:1,
         formInline: {
-
+          operations:'',
+          progress:'',
+          progressID:'',
+          progressname:'',
+          XprogressID:'',
+          date:'',
         },
         filemap:[
           {
@@ -180,8 +286,69 @@
         ]
       }
     },
+    created(){
+      this.getAllProcessOperation()
+    },
+    mounted:function(){
+      this.getAllProcessOperation()
+    },
     methods: {
+      getAllProcessOperation(){
+        var that = this;
+        this.$axios.get('/getAllProcessOperation')
+          .then(function (response) {
+            that.filemap = response.data.AllProcessOperation;
+          })
+          .catch(function (error) {
+            alert('handle error')
+            console.log(error);
+          })
+          .then(function () {
+          });
+      },
+      getAimProcessOperation(){
+        var that = this;
+        that.$axios.get("/getAimProcessOperation",{
+          params:{
+            currentProcessName
+              :
+            that.formInline.progress,
+            currentProcessID
+              :
+            that.formInline.progressID,
+            opType
+              :
+            that.formInline.operations,
+            objectProcessID
+              :
+            that.formInline.XprogressID,
+            objectProcessName
+              :
+            that.formInline.progressname,
+            time
+              :
+            that.formInline.date
+          }
+        })
+          .then(function (response) {
+            that.filemap = response.data.AimProcessOperation;
+          })
+          .catch(function (error) {
+            alert('handle error')
+          })
+          .then(function () {
+            //什么时候都执行的
+          });
+      },
       // 分页
+      handleSizeChange(size) {
+        this.pagesize = size;
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(currentPage) {
+        this.currentPage = currentPage;
+        console.log(`当前页: ${val}`);
+      },
       //      handleSizeChange(val) {
       //     console.log(`每页 ${val} 条`);
       //   },

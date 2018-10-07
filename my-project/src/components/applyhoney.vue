@@ -138,6 +138,10 @@
 </el-container>
 </template>
 <style >
+
+
+
+
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -424,6 +428,7 @@ export default {
         dialogFormVisible: false,
         dialogText: false,
         dialogTable: false,
+        currentPage: 1,
         form: {
           name: '',
           IP:'',
@@ -439,7 +444,7 @@ export default {
         formLabelWidth: '120px',
         // 表的名字
         temdata_ip:'',
-        currentPage: 1,
+
 
           temdata:[{
             id:1,

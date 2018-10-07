@@ -1,75 +1,304 @@
 <template>
-  <div class="table-network">
-    <!-- <div style="height:100px;"></div> -->
-    <el-table
-      :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
-      class="table1"
-      row-style="30px"
-      cell-style="padding:0"
-      id="table11"
-      :data="admindata"
-      style="width: 100%">
-      <el-table-column
-        type="selection"
-        width="55">
-      </el-table-column>
-      <el-table-column
-        type="index"
-        width="80"
-        label="编号"
-        :index="indexMethod">
-      </el-table-column>
-      <el-table-column
-        prop="IP"
-        label="IP"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="domainID"
-        label="domainID"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="user"
-        label="使用者">
-      </el-table-column>
-    </el-table>
-    <p class="table-p1">显示第1条到第{{page}}条记录，总共{{page}}记录</p>
-  </div>
+  <el-container style="height:100%;" direction="vertrcal">
+    <el-header class="h-input" height=150px; >
+      <el-form :inline="true"
+               :model="formInline"
+               size="small"
+               class="demo-form-inline"
+               :label-position="right" >
+        <el-form-item label="操作类型:">
+          <el-input v-model="formInline.opType" style="padding-left:70px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item label="进程名:">
+          <el-input v-model="formInline.processName" style="padding-left:70px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item label="操作时间:">
+          <el-input v-model="formInline.time" style="padding-left:1px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item label="进程ID:" >
+          <el-input v-model="formInline.processNum" ></el-input>
+        </el-form-item>
+        <el-form-item label="模块名:" >
+          <el-input v-model="formInline.regeditName" style="padding-left:1px;width:187px"></el-input>
+        </el-form-item>
+        <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <el-button style="background:#E95513;color:#ffffff;"  @click="getAimModule" class="funButton">查询</el-button>
+        </el-form-item>
+      </el-form>
+    </el-header>
+    <el-main class="m-table">
+      <el-table
+        :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
+        class="table1"
+        row-style="30px"
+        cell-style="padding:0"
+        id="table11"
+        :data="filemap.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+        style="width: 100%">
+        <el-table-column
+          prop="id"
+          width="80"
+          label="序号">
 
+        </el-table-column>
+        <el-table-column
+          prop="opType"
+          label="操作类型"
+          width="150">
+        </el-table-column>
+        <el-table-column
+          prop="processNum"
+          label="进程ID"
+          width="200">
+        </el-table-column>
+        <el-table-column
+          prop="processName"
+          label="进程名称"
+          width="200">
+        </el-table-column>
+        <el-table-column
+          prop="regeditName"
+          label="模块名"
+          width="250">
+        </el-table-column>
+        <el-table-column
+          prop="time"
+          label="操作时间">
+        </el-table-column>
+      </el-table>
+      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(filemap.length))?currentPage * pagesize:filemap.length}}条记录，总共{{filemap.length}}条记录
+        <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+        <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+          <el-option label="10" value="10"></el-option>
+          <el-option label="20" value="20"></el-option>
+
+        </el-select>
+        <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;">跳转</el-button></span></div>
+
+      <div style="float:right;margin-top:10px;">
+
+        <!-- *********************************分页按钮 -->
+        <el-pagination
+          background="#E95513"
+          prev-text="上一页"
+          next-text="下一页"
+          jumper-text="转到"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage4"
+          :page-sizes="[10, 20]"
+          :page-size="pagesize"
+          :total="filemap.length"
+          layout="slot,prev, pager, next,total" >
+          <!-- <slot name="as">dddd</slot> -->
+        </el-pagination>
+      </div>
+
+    </el-main>
+  </el-container>
 </template>
 <style>
-  .table-p1{
-    font-family: 'Microsoft YaHei';
+  /* .table1 td{
+          padding: 0;
+          height: 30px;
+  } */
+  .m-table{
+    width: 100%;
+    height: 100%;
+  }
+  .h-input{
+    width: 100%;
+  }
+  .p-page{
     font-size: 12pt;
-    color:#BFBFBF;
   }
 
+  /*表格样式*/
+  .el-table th>.cell {
+    background: #e95513;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 12px;
+    vertical-align: center;
+    padding-left: 20px;
+    margin-bottom: 0px;
+  }
+
+  .tab-1-2 tr:hover{
+    background-color: #fff !important;
+  }
+
+  /* 翻页背景色 */
+  .el-pagination .el-pager .active{
+    background-color: #E95513 !important;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled):hover{
+    color:#E95513 !important;
+  }
+  .el-pagination .el-select .el-input .el-input__inner{
+    float:left;
+  }
+  /*分页*/
+  .el-pagination .el-select .el-input {
+    position: absolute;
+    left: -640px;
+    top:-15px;
+    font-size: 12px;
+    border-radius: 0px;
+  }
+  .el-pagination__jump{
+    position: relative;
+    left: -1140px;
+    top:9px;
+  }
+  el-pagination__sizes .el-input .el-input__inner:hover {
+    border-color: #fff;
+  }
+  .el-select-dropdown__item.selected {
+    color: #fff;
+    font-weight: 700;
+    background: #e95513;
+  }
+  .el-select .el-input .el-select__caret{
+    font-size: 12px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+  }
+  .el-input{
+    font-size: 12px;
+  }
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
+    background: #e95513;
+  }
+  /*.el-select.el-input*/ .el-input--suffix{
+                            height: 30px;
+                          }
+  .el-select .el-input.is-focus .el-input__inner{
+    border-color:#c0c4cc;
+  }
+  .el-select.el-input.el-input__inner {
+    color: #606266;
+    height: 30px;
+    line-height: 30px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-select>.el-input--suffix{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-input__suffix{
+    height: 30px;
+  }
+  .el-input__inner{
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .el-icon-arrow-up{
+    line-height: 10px;
+    height: 30px;
+  }
+  .is-reverse{
+    line-height: 30px;
+    height: 30px;
+  }
 
 </style>
-
 <script>
   export default {
     data(){
-      return{
+      return {
         jumper:10,
         pagesize:10,
-        page:'4',
-        admindata:[
-
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          }
-        ]
+        dialog:false,
+        dialogFormVisible: false,
+        dialogText: false,
+        dialogTable: false,
+        currentPage: 1,
+        formInline: {
+          opType:'',
+          processName:'',
+          time:'',
+          processNum:'',
+          regeditName:'',
+        },
+        filemap:[]
       }
-
+    },
+    created(){
+      this.getAllModule()
+    },
+    mounted:function(){
+      this.getAllModule();
+    },
+    methods: {
+      getAllModule(){
+        var that = this;
+        this.$axios.get('/getAllModule')
+          .then(function (response) {
+            that.filemap = response.data.AllModule;
+          })
+          .catch(function (error) {
+            alert('handle error')
+            console.log(error);
+          })
+          .then(function () {
+          });
+      },
+      getAimModule(){
+        var that = this;
+        this.$axios.get('/getAimModule',{
+          params:{
+            opType
+              :
+            that.formInline.opType,
+            processNum
+              :
+            that.formInline.processNum,
+            processName
+              :
+            that.formInline.processName,
+            regeditName
+              :
+            that.formInline.regeditName,
+            time
+              :
+            that.formInline.time,
+          }
+        })
+          .then(function (response) {
+            that.filemap = response.data.AimModule;
+          })
+          .catch(function (error) {
+            alert('handle error')
+          })
+          .then(function () {
+            //什么时候都执行的
+          });
+      },
+      // 分页
+      handleSizeChange(size) {
+        this.pagesize = size;
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(currentPage) {
+        this.currentPage = currentPage;
+        console.log(`当前页: ${val}`);
+      },
+      //      handleSizeChange(val) {
+      //     console.log(`每页 ${val} 条`);
+      //   },
+      //   handleCurrentChange(val) {
+      //     console.log(`当前页: ${val}`);
+      //   }
+      // },
+      onSubmit() {
+        console.log('submit!');
+      }
     }
-  }
+  };
 </script>
