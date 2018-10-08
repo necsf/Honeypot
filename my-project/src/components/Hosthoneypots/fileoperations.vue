@@ -276,7 +276,40 @@
           progress:'',
           date:''
         },
-        fileoperation:[]
+
+        fileoperation:[],
+        fileoperation:[
+          {
+            number:'1223',
+            operations:"打开文件",
+            files:'IO_TYPE_FILE',
+            routers:'C:win/di',
+            progress:'hosthoney.exe',
+            progressID:'11222',
+            date:'2018'
+          },
+          {
+            number:'1223',
+            operations:"打开文件",
+            files:'IO_TYPE_FILE',
+            routers:'C:win/di',
+            progress:'hosthoney.exe',
+            progressID:'11222',
+            date:'2018'
+
+          },
+          {
+            number:'1223',
+            operations:"打开文件",
+            files:'IO_TYPE_FILE',
+            routers:'C:win/di',
+            progress:'hosthoney.exe',
+            progressID:'11222',
+            date:'2018'
+
+          },
+
+        ]
       }
     },
     created(){

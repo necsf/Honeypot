@@ -236,6 +236,7 @@
           date:''
         },
         filemap:[],
+
       }
     },
     created(){

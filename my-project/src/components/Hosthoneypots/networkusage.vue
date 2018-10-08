@@ -56,7 +56,20 @@
         jumper: 10,
         pagesize: 10,
         page: '4',
-        admindata: []
+        admindata: [],
+        admindata: [
+
+          {
+            IP: '168.196.2.1',
+            domainID: '123',
+            user: 'win789'
+          },
+          {
+            IP: '168.196.2.1',
+            domainID: '123',
+            user: 'win789'
+          }
+        ]
       }
 
     },
