@@ -8,14 +8,35 @@
                :label-position="right" >
         <el-form-item label="操作类型:">
           <el-select v-model="formInline.operations" style="padding-left:1px;width:187px">
-            <el-option label="打开文件" value="111"></el-option>
-            <el-option label="写文件" value="222"></el-option>
+            <el-option label="读文件" value="1"></el-option>
+            <el-option label="写文件" value="2"></el-option>
+            <el-option label="创建文件" value="3"></el-option>
+            <el-option label="打开文件" value="4"></el-option>
+            <el-option label="删除文件" value="5"></el-option>
+            <el-option label="CreateSection" value="6"></el-option>
+            <el-option label="MapView" value="7"></el-option>
+            <el-option label="UnmapView" value="8"></el-option>
+            <el-option label="重命名" value="9"></el-option>
+            <el-option label="删除目录" value="10"></el-option>
+            <el-option label="未知" value="11"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="文件类型:">
           <el-select v-model="formInline.files" style="padding-left:1px;width:187px" >
-            <el-option label="IO_TYPE_FILE" value="IO_TYPE_FILE"></el-option>
-            <el-option label="IO_TYPE_FILE" value="IO_TYPE_FILE"></el-option>
+            <el-option label="IO_TYPE_ADAPTRE" value="1"></el-option>
+            <el-option label="IO_TYPE_CONTROLLFR" value="2"></el-option>
+            <el-option label="IO_TYPE_DEVICE" value="3"></el-option>
+            <el-option label="IO_TYPE_DRIVER" value="4"></el-option>
+            <el-option label="IO_TYPE_FILE" value="5"></el-option>
+            <el-option label="IO_TYPE_IRP" value="6"></el-option>
+            <el-option label="IO_TYPE_ADAPTER" value="7"></el-option>
+            <el-option label="IO_TYPE_PACKET" value="8"></el-option>
+            <el-option label="IO_TYPE_TIMER" value="9"></el-option>
+            <el-option label="IO_TYPE_" value="10"></el-option>
+            <el-option label="IO_TYPE_LOG" value="11"></el-option>
+            <el-option label="IO_TYPE_MESSAGE" value="12"></el-option>
+            <el-option label="IO_TYPE_EXTENSION" value="13"></el-option>
+            <el-option label="ERROR" value="14"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="文件路径:">
@@ -34,7 +55,7 @@
           <el-input v-model="formInline.date" style="padding-left:1px;width:187px"></el-input>
         </el-form-item>
         <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
+          <el-button style="background:#E95513;color:#ffffff;"  @click="getAimFileMapOperation" class="funButton">查询</el-button>
         </el-form-item>
       </el-form>
     </el-header>
@@ -45,46 +66,46 @@
         cell-style="padding:0"
         class="table1"
         id="table11"
-        :data="filemap"
+        :data="filemap.slice((currentPage-1)*pagesize,currentPage*pagesize)"
         style="width: 100%">
         <el-table-column
-          prop="number"
+          prop="id"
           width="80"
           label="序号">
 
         </el-table-column>
         <el-table-column
-          prop="operations"
+          prop="opType"
           label="操作类型"
           width="150">
         </el-table-column>
         <el-table-column
-          prop="files"
+          prop="state"
           label="文件类型或进程句柄"
           width="200">
         </el-table-column>
         <el-table-column
-          prop="routers"
+          prop="filePath"
           label="文件路径或unmap地址"
           width="450">
         </el-table-column>
         <el-table-column
-          prop="progress"
+          prop="processName"
           label="进程名称"
           width="200">
         </el-table-column>
         <el-table-column
-          prop="progressID"
+          prop="processPath"
           label="进程ID"
           width="150">
         </el-table-column>
         <el-table-column
-          prop="date"
+          prop="time"
           label="操作时间"
           width="150">
         </el-table-column>
       </el-table>
-      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(filemap.length))?currentPage * pagesize:filemap.length}}条记录，总共{{filemap.length}}条记录
         <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
         <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
           <el-option label="10" value="10"></el-option>
@@ -105,9 +126,9 @@
           @current-change="handleCurrentChange"
           :current-page="currentPage4"
           :page-sizes="[10, 20]"
-          :page-size="100"
-
-          layout="slot,prev, pager, next" :total="50">
+          :page-size="pagesize"
+          :total="filemap.length"
+          layout="slot,prev, pager, next,total" >
           <!-- <slot name="as">dddd</slot> -->
         </el-pagination>
       </div>
@@ -136,15 +157,31 @@
   .p-page{
     font-size: 12pt;
   }
+
+  /* 翻页背景色 */
+  .el-pagination .el-pager .active{
+    background-color: #E95513 !important;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled):hover{
+    color:#E95513 !important;
+  }
+  .el-pagination .el-select .el-input .el-input__inner{
+    float:left;
+  }
+/*分页*/
+  /*分页*/
+  .el-pagination .el-select .el-input {
+    position: absolute;
+    left: -640px;
+    top:-15px;
+    font-size: 12px;
+    border-radius: 0px;
+  }
+
   .el-pagination__jump{
     position: relative;
     left: -1140px;
     top:9px;
-  }
-  .el-select-dropdown__item.selected {
-    color: #409EFF;
-    font-weight: 700;
-    background: #e95513;
   }
   el-pagination__sizes .el-input .el-input__inner:hover {
     border-color: #fff;
@@ -163,7 +200,14 @@
   .el-input{
     font-size: 12px;
   }
-  .el-select.el-input{
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
+    background: #e95513;
+  }
+  /*.el-select.el-input*/ .el-input--suffix{
+                            height: 30px;
+                          }
+
+  .el-select.el-input {
     height: 30px;
   }
   .el-select .el-input.is-focus .el-input__inner{
@@ -205,47 +249,89 @@
       return {
         jumper:10,
         pagesize:10,
+        dialog:false,
+        dialogFormVisible: false,
+        dialogText: false,
+        dialogTable: false,
+        currentPage: 1,
         formInline: {
-
+          operations:'',
+          files:'',
+          routers:'',
+          progressID:'',
+          progress:'',
+          date:''
         },
-        filemap:[
-          {
-            number:'1223',
-            operations:"打开文件",
-            files:'IO_TYPE_FILE',
-            routers:'C:win/di',
-            progress:'hosthoney.exe',
-            progressID:'11222',
-            date:'2018'
-
-          },
-          {
-            number:'1223',
-            operations:"打开文件",
-            files:'IO_TYPE_FILE',
-            routers:'C:win/di',
-            progress:'hosthoney.exe',
-            progressID:'11222',
-            date:'2018'
-
-          },
-          {
-            number:'1223',
-            operations:"打开文件",
-            files:'IO_TYPE_FILE',
-            routers:'C:win/di',
-            progress:'hosthoney.exe',
-            progressID:'11222',
-            date:'2018'
-
-          }
-
-
-        ]
+        filemap:[]
       }
     },
+    created(){
+      this.getAllFileMapOperation()
+    },
+    mounted:function(){
+      this.getAllFileMapOperation();
+    },
     methods: {
+      /*查询全部数据*/
+      getAllFileMapOperation(){
+        var that = this;
+        this.$axios.get('/getAllFileMapOperation')
+          .then(function (response) {
+            that.filemap = response.data;
+          })
+          .catch(function (error) {
+            alert('handle error')
+            console.log(error);
+          })
+          .then(function () {
+          });
+      },
+      /*模糊查询得到目标文件操作信息*/
+      getAimFileMapOperation(){
+        var that = this;
+        this.$axios.get('/getAimFileMapOperation',
+          {
+            params:{
+              opType
+                :
+              that.formInline.operations,
+              state
+                :
+              that.formInline.files,
+              filePath
+                :
+              that.formInline.routers,
+              processPath
+                :
+              that.formInline.progressID,
+              processName
+                :
+              that.formInline.progress,
+              time
+                :
+              that.formInline.date
+            }
+          })
+          .then(function(response){
+            that.filemap = response.data;
+          })
+          .catch(function (error){
+            alert('handle error')
+            console.log('error');
+          })
+          .then(function () {
+
+          });
+      },
       // 分页
+      handleSizeChange(size) {
+        this.pagesize = size;
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(currentPage) {
+        this.currentPage = currentPage;
+        console.log(`当前页: ${val}`);
+      },
       //      handleSizeChange(val) {
       //     console.log(`每页 ${val} 条`);
       //   },

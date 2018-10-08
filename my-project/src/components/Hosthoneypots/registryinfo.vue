@@ -6,41 +6,41 @@
         class="table1"
         row-style="30px"
         cell-style="padding:0"
-        :data="registryinfos"
+        :data="registryinfos.slice((currentPage-1)*pagesize,currentPage*pagesize)"
         style="width: 100%">
         <el-table-column
-          prop="number"
+          prop="id"
           width="80"
           label="序号">
 
         </el-table-column>
         <el-table-column
-          prop="progressID"
+          prop="processId"
           label="进程ID"
           width="150">
         </el-table-column>
         <el-table-column
-          prop="progress"
+          prop="processName"
           label="进程名称"
           width="200">
         </el-table-column>
         <el-table-column
-          prop="routers"
+          prop="regPath"
           label="注册表路径"
           width="450">
         </el-table-column>
         <el-table-column
-          prop="operations"
+          prop="opType"
           label="操作类型"
           width="150">
         </el-table-column>
         <el-table-column
-          prop="date"
+          prop="time"
           label="操作时间"
           width="150">
         </el-table-column>
       </el-table>
-      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第1到第{{1}}条记录，总共{{10}}条记录
+      <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(registryinfos.length))?currentPage * pagesize:registryinfos.length}}条记录，总共{{registryinfos.length}}条记录
         <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
         <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
           <el-option label="10" value="10"></el-option>
@@ -61,9 +61,9 @@
           @current-change="handleCurrentChange"
           :current-page="currentPage4"
           :page-sizes="[10, 20]"
-          :page-size="100"
-
-          layout="slot,prev, pager, next" :total="50">
+          :page-size="pagesize"
+          :total="registryinfos.length"
+          layout="slot,prev, pager, next,total" >
           <!-- <slot name="as">dddd</slot> -->
         </el-pagination>
       </div>
@@ -71,10 +71,105 @@
     </el-main>
   </div>
 </template>
-<style scoped>
+
+<style>
+  /*表格样式*/
+  .el-table th>.cell {
+    background: #e95513;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 12px;
+    vertical-align: center;
+    padding-left: 20px;
+    margin-bottom: 0px;
+  }
+
+  .tab-1-2 tr:hover{
+    background-color: #fff !important;
+  }
+
+  /* 翻页背景色 */
+  .el-pagination .el-pager .active{
+    background-color: #E95513 !important;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled):hover{
+    color:#E95513 !important;
+  }
+  .el-pagination .el-select .el-input .el-input__inner{
+    float:left;
+  }
+  /*分页*/
+  .el-pagination .el-select .el-input {
+    position: absolute;
+    left: -640px;
+    top:-15px;
+    font-size: 12px;
+    border-radius: 0px;
+  }
+  .el-pagination__jump{
+    position: relative;
+    left: -1140px;
+    top:9px;
+  }
+  el-pagination__sizes .el-input .el-input__inner:hover {
+    border-color: #fff;
+  }
+  .el-select-dropdown__item.selected {
+    color: #fff;
+    font-weight: 700;
+    background: #e95513;
+  }
+  .el-select .el-input .el-select__caret{
+    font-size: 12px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+  }
+  .el-input{
+    font-size: 12px;
+  }
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
+    background: #e95513;
+  }
+  /*.el-select.el-input*/ .el-input--suffix{
+                            height: 30px;
+                          }
+  .el-select .el-input.is-focus .el-input__inner{
+    border-color:#c0c4cc;
+  }
+  .el-select.el-input.el-input__inner {
+    color: #606266;
+    height: 30px;
+    line-height: 30px;
+  }
+  .el-select.el-input__icon{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-select>.el-input--suffix{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-input__suffix{
+    height: 30px;
+  }
+  .el-input__inner{
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .el-icon-arrow-up{
+    line-height: 10px;
+    height: 30px;
+  }
+  .is-reverse {
+    line-height: 30px;
+    height: 30px;
+  }
 
   .el-menu-item-group__title{
     padding: 0px;
+
   }
 </style>
 <script>
@@ -83,11 +178,56 @@
       return {
         jumper:10,
         pagesize:10,
+        dialog:false,
+        dialogFormVisible: false,
+        dialogText: false,
+        dialogTable: false,
+        currentPage: 1,
+        registryinfos:[],
       }
+
+    },
+    created(){
+      this.getAllReginfo()
+    },
+    mounted:function(){
+      this.getAllReginfo()
     },
     methods: {
+      getAllReginfo(){
+        var that = this;
+        this.$axios.get('/getAllReginfo')
+          .then(function (response) {
+            that.registryinfos = response.data.AllReginFo;
+          })
+          .catch(function (error) {
+            alert('handle error')
+            console.log(error);
+          })
+          .then(function () {
+          });
+      },
+      // 分页
 
+      handleSizeChange(size) {
+        this.pagesize = size;
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(currentPage) {
+        this.currentPage = currentPage;
+        console.log(`当前页: ${val}`);
+      },
+      //      handleSizeChange(val) {
+      //     console.log(`每页 ${val} 条`);
+      //   },
+      //   handleCurrentChange(val) {
+      //     console.log(`当前页: ${val}`);
+      //   }
+      // },
+      onSubmit() {
+        console.log('submit!');
+      }
     }
-  };
+    };
 </script>
 

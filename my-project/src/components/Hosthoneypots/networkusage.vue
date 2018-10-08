@@ -20,17 +20,17 @@
         :index="indexMethod">
       </el-table-column>
       <el-table-column
-        prop="IP"
+        prop="ip"
         label="IP"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="domainID"
+        prop="domainId"
         label="domainID"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="user"
+        prop="type"
         label="使用者">
       </el-table-column>
     </el-table>
@@ -51,26 +51,35 @@
 
 <script>
   export default {
-    data(){
-      return{
-        jumper:10,
-        pagesize:10,
-        page:'4',
-        admindata:[
-
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          },
-          {
-            IP:'168.196.2.1',
-            domainID:'123',
-            user:'win789'
-          }
-        ]
+    data() {
+      return {
+        jumper: 10,
+        pagesize: 10,
+        page: '4',
+        admindata: []
       }
 
+    },
+    created() {
+      this.getAllNetInfo()
+    },
+    mounted: function () {
+      this.getAllNetInfo();
+    },
+    methods: {
+      getAllNetInfo() {
+        var that = this;
+        this.$axios.get('/getAllNetInfo')
+          .then(function (response) {
+            that.admindata = response.data.AllNetInfo;
+          })
+          .catch(function (error) {
+            alert('handle error')
+            console.log(error);
+          })
+          .then(function () {
+          });
+      },
     }
-  }
+  };
 </script>

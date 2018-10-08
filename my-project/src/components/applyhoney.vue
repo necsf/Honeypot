@@ -138,7 +138,13 @@
   <!-- footer -->
 </el-container>
 </template>
-<style scoped>
+<<<<<<< HEAD
+<style >
+
+
+
+
+
 @font-face {
   font-family: 'iconfont';  /* project id 796633 */
   src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
@@ -424,6 +430,7 @@ export default {
         dialogFormVisible: false,
         dialogText: false,
         dialogTable: false,
+        currentPage: 1,
         form: {
           name: '',
           IP:'',
@@ -438,11 +445,27 @@ export default {
         },
         formLabelWidth: '120px',
         // 表的名字
+
+        temdata_ip:'',
+
+
+          temdata:[{
+            id:1,
+            ip:'192.168.13.117',
+            type:'复合蜜罐',
+            cpu:'1cpu',
+            memory:'5g',
+            disk:'100g',
+          }
+
+          ],
+
         potdata_ip:'',
         currentPage: 1,
           jumper:1,
           pagesize:10,
           potdata:[]
+
         }
     },
   mounted:function(){

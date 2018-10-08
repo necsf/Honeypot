@@ -1,0 +1,120 @@
+.common_input>.el-input__inner{
+    position: relative;
+    left:5px;
+    height: 30px;
+}
+.el-tabs--left.el-tabs__item.is-left, .el-tabs--left.el-tabs__item.is-left {
+    text-align: left;
+    width: 250px;
+    line-height: 56px;
+    font-size: 14px;
+    height: 56px;
+    padding-left: 40px;
+}
+.el-tabs__nav.is-left{
+    text-align: left;
+    width: 250px;
+    line-height: 56px;
+    font-size: 14px;
+    height: 56px;
+
+}
+
+/*--------------------------------------------------原来写在app里面影响全局的但是build以后无效的样式*/
+
+/*分页功能样式*/
+.el-pagination .el-pager .active{
+    background-color: #E95513 !important;
+}
+/**激活标签的字体的颜色,顶部导航栏 */
+.el-tabs__item.is-active{
+    color: #E95513 !important;
+}
+/*鼠标经过时顶部导航栏的字体变色*/
+.el-tabs__item:hover{
+    color: #E95513 !important;
+}
+
+.el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    background: #fff;
+    border-bottom: 2px solid #E95513;
+    color:#E95513 ;
+}
+
+/*导航栏背景颜色*/
+.el-tabs__nav-wrap.is-left {
+    background: #F2F2F2;
+}
+.el-tabs__nav-wrap::after {
+    background: #F2F2F2;
+}
+.el-tabs--card>.el-tabs__header .el-tabs__nav {
+    background: #F2F2F2;
+}
+.el-button--text{
+    color: #e95513;
+}
+/*普通按钮颜色*/
+.el-button--primary {
+    color: #fff;
+    background-color: #E95513 !important;
+    border-color:#E95513 !important;
+}
+/*复选框颜色*/
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #E95513 !important;
+    border-color:#E95513 !important;
+}
+
+
+.el-table th>.cell {
+    background: #e95513;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    vertical-align: center;
+    padding-left: 20px;
+    margin-bottom: 0px;
+    /* line-height: initial; */
+}
+.el-table th{
+    height: 29px;
+    border-right: 1px solid #fff;
+}
+.el-table__body, .el-table__footer, .el-table__header{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.el-input__suffix{
+    height: 30px;
+}
+.el-input__inner{
+    line-height: 30px;
+    height: 30px;
+}
+
+.el-icon-arrow-up{
+    line-height: 10px;
+    height: 30px;
+}
+.is-reverse{
+    line-height: 30px;
+    height: 30px;
+}
+.el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    border-bottom-color: #e95513;
+}
+.button2{
+    background-color: #E95513 !important;
+    color: #ffff !important;
+    width: 60px;
+    height: 30px;
+    border-radius: 0px;
+    vertical-align: center;
+    padding: 2px;
+    font-size: 12px;
+    margin-left:10px ;
+}
+
+
