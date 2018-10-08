@@ -119,96 +119,20 @@
   .p-page{
     font-size: 12pt;
   }
-
-  .el-submenu__title{
-    font-size:12px;
-  }
-  /*表格样式*/
-  /*表格样式*/
-  .el-table th>.cell {
-    background: #e95513;
-    color: #fff;
-    font-weight: lighter;
-    font-size: 12px;
-    vertical-align: center;
-    padding-left: 20px;
-    margin-bottom: 0px;
-  }
-
-  .tab-1-2 tr:hover{
-    background-color: #fff !important;
-  }
-  /*分页*/
-  .el-pagination .el-select .el-input {
-    position: absolute;
-    left: -640px;
-    top:-15px;
-    font-size: 12px;
+  .button2{
+    background-color: #E95513 !important;
+    color: #ffff !important;
+    width: 60px;
+    height: 30px;
     border-radius: 0px;
-  }
-  .el-pagination__jump{
-    position: relative;
-    left: -1140px;
-    top:9px;
-  }
-  el-pagination__sizes .el-input .el-input__inner:hover {
-    border-color: #fff;
-  }
-  .el-select-dropdown__item.selected {
-    color: #fff;
-    font-weight: 700;
-    background: #e95513;
-  }
-  .el-select .el-input .el-select__caret{
+    vertical-align: center;
+    padding: 2px;
     font-size: 12px;
+    margin-left:10px ;
   }
-  .el-select.el-input__icon{
-    line-height: 30px;
-  }
-  .el-input{
-    font-size: 12px;
-  }
-  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
-    background: #e95513;
-  }
-  /*.el-select.el-input*/ .el-input--suffix{
-                            height: 30px;
-                          }
-  .el-select .el-input.is-focus .el-input__inner{
-    border-color:#c0c4cc;
-  }
-  .el-select.el-input.el-input__inner {
-    color: #606266;
-    height: 30px;
-    line-height: 30px;
-  }
-  .el-select.el-input__icon{
-    line-height: 30px;
-    height: 30px;
-  }
-  .el-select>.el-input--suffix{
-    line-height: 30px;
-    height: 30px;
-  }
-  .el-input__suffix{
-    height: 30px;
-  }
-  .el-input__inner{
-    line-height: 30px;
-    height: 30px;
-  }
-
-  .el-icon-arrow-up{
-    line-height: 10px;
-    height: 30px;
-  }
-  .is-reverse{
-    line-height: 30px;
-    height: 30px;
-  }
-
 </style>
 <script>
+    import '../../assets/css/new.css'
   export default {
     data(){
       return {

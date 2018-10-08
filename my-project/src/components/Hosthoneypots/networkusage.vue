@@ -38,11 +38,22 @@
   </div>
 
 </template>
-<style>
+<style scoped>
   .table-p1{
     font-family: 'Microsoft YaHei';
     font-size: 12pt;
     color:#BFBFBF;
+  }
+  .button2{
+    background-color: #E95513 !important;
+    color: #ffff !important;
+    width: 60px;
+    height: 30px;
+    border-radius: 0px;
+    vertical-align: center;
+    padding: 2px;
+    font-size: 12px;
+    margin-left:10px ;
   }
 
 
@@ -50,6 +61,7 @@
 </style>
 
 <script>
+    import '../../assets/css/new.css'
   export default {
     data() {
       return {

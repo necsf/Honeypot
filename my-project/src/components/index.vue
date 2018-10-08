@@ -78,60 +78,60 @@
 </template>
 <style scoped>
 
- header.el-header
-{
-    padding-left: 0px;
-    padding-right: 0px;
-}
+    header.el-header
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 
 
-@font-face {
-  font-family: 'iconfont';  /* project id 789791 */
-  src: url('//at.alicdn.com/t/font_789791_1n8tl020l1l.eot');
-  src: url('//at.alicdn.com/t/font_789791_1n8tl020l1l.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_789791_1n8tl020l1l.woff') format('woff'),
-  url('//at.alicdn.com/t/font_789791_1n8tl020l1l.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_789791_1n8tl020l1l.svg#iconfont') format('svg');
-}
-.iconfont{
-    font-family:"iconfont" !important;
-     font-size:36px;font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0px;
+    @font-face {
+        font-family: 'iconfont';  /* project id 789791 */
+        src: url('//at.alicdn.com/t/font_789791_1n8tl020l1l.eot');
+        src: url('//at.alicdn.com/t/font_789791_1n8tl020l1l.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_789791_1n8tl020l1l.woff') format('woff'),
+        url('//at.alicdn.com/t/font_789791_1n8tl020l1l.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_789791_1n8tl020l1l.svg#iconfont') format('svg');
+    }
+    .iconfont{
+        font-family:"iconfont" !important;
+        font-size:36px;font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0px;
     ;}
 
 
-        /* ***********************head开始*********************** */
-        /* 黑色条框 */
-        html {
-            overflow-y:hidden;
-            overflow-x:hidden;
-            margin-left: 0px;
-        }
-        hr{
-            margin-top: 0px;
-        }
-       .ttt{
-           padding: 0px;
-       }
-        .smallpeople{
-            position: relative;
-            top:6px;
-        }
-        .el-dropdown-link{
-             position: relative;
-             bottom:5px;
-        }
-        div.lefttop{
-            text-align: left;
-            margin-right:1600px;
-              position: relative;
-              bottom:45px;
+    /* ***********************head开始*********************** */
+    /* 黑色条框 */
+    html {
+        overflow-y:hidden;
+        overflow-x:hidden;
+        margin-left: 0px;
+    }
+    hr{
+        margin-top: 0px;
+    }
+    .ttt{
+        padding: 0px;
+    }
+    .smallpeople{
+        position: relative;
+        top:6px;
+    }
+    .el-dropdown-link{
+        position: relative;
+        bottom:5px;
+    }
+    div.lefttop{
+        text-align: left;
+        margin-right:1600px;
+        position: relative;
+        bottom:45px;
 
-        }
-        .nmd{
-            padding:0;
-        }
+    }
+    .nmd{
+        padding:0;
+    }
 
     .header-1{
         text-align: right;
@@ -153,8 +153,8 @@
     }
     /* ***********************************head end */
 
-/* ****************************************foot */
- .menu-1{
+    /* ****************************************foot */
+    .menu-1{
         font-size: 15pt;
         font-weight: normal;
         margin: 0;
@@ -166,33 +166,33 @@
         background-color: #515151;
     }
 
-   .footer-p{
-       margin: 0;
-       position: relative;
-       left: 35px;
-       top:4px;
-       font-size: 12px;
-       font-family: 'Microsoft YaHei';
-       color:aliceblue;
-       float: left;
-   }
-   .footer-p2{
-       position: relative;
-       right: 35px;
-       top:4px;
-       font-size: 12px;
-       font-family: 'Microsoft YaHei';
-       color:aliceblue;
-       margin: 0;
-       float: right;
-   }
-   .el-footer{
+    .footer-p{
+        margin: 0;
+        position: relative;
+        left: 35px;
+        top:4px;
+        font-size: 12px;
+        font-family: 'Microsoft YaHei';
+        color:aliceblue;
+        float: left;
+    }
+    .footer-p2{
+        position: relative;
+        right: 35px;
+        top:4px;
+        font-size: 12px;
+        font-family: 'Microsoft YaHei';
+        color:aliceblue;
+        margin: 0;
+        float: right;
+    }
+    .el-footer{
 
         margin-bottom:40px;
 
 
-   }
-   /* ***************************************foot end */
+    }
+    /* ***************************************foot end */
 </style>
 <script>
 import {formatDate} from './common/date.js';

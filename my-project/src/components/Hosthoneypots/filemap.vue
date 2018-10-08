@@ -136,7 +136,7 @@
     </el-main>
   </el-container>
 </template>
-<style scoped>
+<<style scoped>
   /* .table1 td{
           padding: 0;
           height: 30px;
@@ -157,31 +157,15 @@
   .p-page{
     font-size: 12pt;
   }
-
-  /* 翻页背景色 */
-  .el-pagination .el-pager .active{
-    background-color: #E95513 !important;
-  }
-  .el-pagination.is-background .el-pager li:not(.disabled):hover{
-    color:#E95513 !important;
-  }
-  .el-pagination .el-select .el-input .el-input__inner{
-    float:left;
-  }
-/*分页*/
-  /*分页*/
-  .el-pagination .el-select .el-input {
-    position: absolute;
-    left: -640px;
-    top:-15px;
-    font-size: 12px;
-    border-radius: 0px;
-  }
-
   .el-pagination__jump{
     position: relative;
     left: -1140px;
     top:9px;
+  }
+  .el-select-dropdown__item.selected {
+    color: #409EFF;
+    font-weight: 700;
+    background: #e95513;
   }
   el-pagination__sizes .el-input .el-input__inner:hover {
     border-color: #fff;
@@ -200,14 +184,7 @@
   .el-input{
     font-size: 12px;
   }
-  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover:active{
-    background: #e95513;
-  }
-  /*.el-select.el-input*/ .el-input--suffix{
-                            height: 30px;
-                          }
-
-  .el-select.el-input {
+  .el-select.el-input{
     height: 30px;
   }
   .el-select .el-input.is-focus .el-input__inner{
@@ -242,8 +219,20 @@
     line-height: 30px;
     height: 30px;
   }
+  .button2{
+    background-color: #E95513 !important;
+    color: #ffff !important;
+    width: 60px;
+    height: 30px;
+    border-radius: 0px;
+    vertical-align: center;
+    padding: 2px;
+    font-size: 12px;
+    margin-left:10px ;
+  }
 </style>
 <script>
+  import '../../assets/css/new.css'
   export default {
     data(){
       return {

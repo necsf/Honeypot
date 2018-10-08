@@ -6,12 +6,12 @@
     <div class="login">
         <div class="first">
             <img  class="name" src="../assets/name.png"/>
-            <el-input class="kuang1" size="large" v-model="input" style="width:270px" ></el-input>
+            <el-input class="common_input" size="large" v-model="input" style="width:270px" ></el-input>
         </div>
 
         <div class="second">
             <img  class="password" src="../assets/password.png"/>
-            <el-input class="kuang2" v-model="input" style="width:270px" ></el-input>
+            <el-input class="common_input" v-model="input" style="width:270px;top: -4px;left: -6px" ></el-input>
         </div>
 
         <div class="ss">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -43,50 +43,48 @@
     ;}
 
     .loginbutton{
-    background-color:#e95513;
-    color: #eeeeee;
-  }
+        background-color:#e95513;
+        color: #eeeeee;
+    }
 
-.biggest{
-    width:100%;
-    height:800px;
-    background:url("../assets/back.jpg");
-}
-.page{
-    position: relative;
-    top:120px;
-}
-.login{
-    position: relative;
-    left:1300px;
-    top:150px;
-}
-.name{
-    position: relative;
-    top:18px;
-}
-.password{
-    position: relative;
-    top:20px;
-    right:8px;
-}
-.kuang1{
-    position: relative;
-    left:5px;
+    .biggest{
+        width:100%;
+        height:800px;
+        background:url("../assets/back.jpg");
+    }
+    .page{
+        position: relative;
+        top:120px;
+    }
+    .login{
+        position: relative;
+        left:1300px;
+        top:150px;
+    }
+    .name{
+        position: relative;
+        top:18px;
+    }
+    .password{
+        position: relative;
+        top:20px;
+        right:8px;
+    }
 
-}
-.ss{
-    position: relative;
-    top:15px;
-    left:30px;
-}
+    .ss{
+        position: relative;
+        top:15px;
+        left:30px;
+    }
+
 
 
 </style>
 
 <script>
-export default {
+    import "../assets/css/new.css";
+    export default {
 
-}
+    }
 </script>
 

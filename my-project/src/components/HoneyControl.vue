@@ -44,7 +44,7 @@
                     width="55">
                   </el-table-column>
                   <el-table-column
-                    prop="id"
+                    type="index"
                     label="编号"
                     width="150">
                   </el-table-column>
@@ -209,7 +209,7 @@
                                   width="55">
                                 </el-table-column>
                                 <el-table-column
-                                  prop="number"
+                                  type="index"
                                   label="编号"
                                   width="250">
                                 </el-table-column>
@@ -521,46 +521,22 @@
 </template>
 <style scoped>
 
-@font-face {
-  font-family: 'iconfont';  /* project id 796633 */
-  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
-  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
-}
-.iconfont{
+  @font-face {
+    font-family: 'iconfont';  /* project id 796633 */
+    src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
+    src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
+    url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+  }
+  .iconfont{
     font-family:"iconfont" !important;
-     font-size:36px;font-style:normal;
+    font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0px;
     color:#5EBF18;
-    ;}
-  /* *********************************************mian start*****************/
-  /* 绿色字体 */
-  .wow{
-    position: relative;
-    bottom:15px;
-  }
-  .p-2{
-    position: relative;
-    top: 10px;
-    font-size: 18pt;
-    font-weight: bold;
-    left: 20px;
-    font-family: '微软雅黑';
-    margin: 0;
+  ;}
 
-  }
-  /* 白色条框 */
-  .header-2{
-    margin: 0;
-    height:60px;
-    width:100%;
-    color:black;
-    font-weight: 500;
-    overflow: hidden;
-  }
   .el-pagination .el-pager .active{
     background-color: #E95513 !important;
   }
@@ -646,17 +622,12 @@
   }
   /*刚修改的分页背景颜色问题*/
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
-          border-bottom: 2px solid #E95513;
-          background: #fff;
-        }
+    border-bottom: 2px solid #E95513;
+    background: #fff;
+  }
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
     border-bottom: 2px solid #E95513;}
 
-
-  .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
-    border-bottom: 2px solid #E95513;
-
-  }
   .el-tabs--left .el-tabs__item.is-left, .el-tabs--left .el-tabs__item.is-left.is-active{
     text-align: left;
     width: 250px;
@@ -796,8 +767,8 @@
     background: #e95513;
   }
   /*.el-select.el-input*/ .el-input--suffix{
-    height: 30px;
-  }
+                            height: 30px;
+                          }
   .el-select .el-input.is-focus .el-input__inner{
     border-color:#c0c4cc;
   }
@@ -832,47 +803,49 @@
   }
 
   /*********************确定 跳转 按钮样式*********************/
-    .button2{
-        background-color: #E95513 !important;
-        color: #ffff !important;
-        width: 60px;
-        height: 30px;
-        border-radius: 0px;
-        vertical-align: center;
-        padding: 2px;
-        font-size: 12px;
-        margin-left:10px ;
-    }
-    /*********************取消按钮样式*********************/
-    .button3{
-         background-color: #ffffff !important;
-         color: black !important;
-         width: 60px;
-         height: 30px;
-         border-radius: 0px;
-         vertical-align: center;
-         padding: 2px;
-         font-size: 12px;
-         margin-left:10px ;
-    }
-    /*********************普通按钮样式*********************/
-    .button4{
-         background-color: #E95513 !important;
-         color: #ffff !important;
-         width: 80px;
-         height: 30px;
-         border-radius: 0px;
-         vertical-align: center;
-         padding: 2px;
-         font-size: 12px;
-         margin-left:10px ;
+  .button2{
+    background-color: #E95513 !important;
+    color: #ffff !important;
+    width: 60px;
+    height: 30px;
+    border-radius: 0px;
+    vertical-align: center;
+    padding: 2px;
+    font-size: 12px;
+    margin-left:10px ;
+  }
+  /*********************取消按钮样式*********************/
+  .button3{
+    background-color: #ffffff !important;
+    color: black !important;
+    width: 60px;
+    height: 30px;
+    border-radius: 0px;
+    vertical-align: center;
+    padding: 2px;
+    font-size: 12px;
+    margin-left:10px ;
+  }
+  /*********************普通按钮样式*********************/
+  .button4{
+    background-color: #E95513 !important;
+    color: #ffff !important;
+    width: 80px;
+    height: 30px;
+    border-radius: 0px;
+    vertical-align: center;
+    padding: 2px;
+    font-size: 12px;
+    margin-left:10px ;
 
-    }
+  }
+
+
 
 
 </style>
 <script>
-
+  import "../assets/css/new.css"
   export default {
     name: "honey-admin",
     data() {
@@ -1136,7 +1109,7 @@
       // 用户管理 和 配置管理/部门管理下的 查找尚未实现
       // 分页尚未实现
 
-      // 用户管理界面的勾选项      
+      // 用户管理界面的勾选项
       handleSelectionChange1(val){
         this.multipleSelection1 = val
       },
@@ -1159,7 +1132,7 @@
         if (this.form.password != this.form.password1)
           alert('密码不一致，请重新输入！');
         else{
-          var jsondata = 
+          var jsondata =
           {
             // 不清楚id的由来，暂时用不超过1000的随机数标记
             'id': Math.floor(Math.random()*1000),
@@ -1197,7 +1170,7 @@
           else if(this.form1.newpassword != this.form1.newpassword1)
                   alert('两次密码不一致，请重新输入！')
           else{
-            var jsondata = 
+            var jsondata =
                {
                  'id': this.multipleSelection1[0].id,
                  'oldpassword': this.form1.password0,
@@ -1314,7 +1287,7 @@
            // 获取最新数据
            that.getAllDepts()
           })
-        
+
       },
       // 删除部门信息
       delDept(){
@@ -1386,7 +1359,7 @@
       },
       // 以上 用户管理和配置管理 项宇涵进行
       // --------------------------------------------------------------------------
-      
+
       open3() {
         this.$confirm('您确定要删除这条系统日志信息吗', '警告', {
           confirmButtonText: '确定',

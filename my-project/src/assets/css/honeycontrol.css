@@ -190,13 +190,6 @@
   height: 29px;
   border-right: 1px solid #fff;
 }
-.el-table__body, .el-table__footer, .el-table__header{
-<<<<<<< HEAD
- 
-=======
->>>>>>> 2776334b946da5d9157ee8e206fd2e98fd9c43fe
-  font-size: 12px;
-}
 
 .el-pagination .el-select .el-input .el-input__inner{
   float:left;
