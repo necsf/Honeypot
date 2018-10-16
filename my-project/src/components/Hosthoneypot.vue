@@ -13,7 +13,7 @@
           class="tabs-1"
           :tab-position="top"
           type="card"
-          @tab-click="handleClick">
+          @tab-click="show = true">
           <!-- 主机蜜罐管理 -->
           <el-tab-pane
             label="主机蜜罐管理">
@@ -54,7 +54,11 @@
                       <el-button
                         type="text"
                         size="mini"
-                        @click="open2">删除</el-button>
+                        @click="delect">删除</el-button>
+                        <el-button
+                        type="text"
+                        size="mini"
+                        @click="editor">编辑</el-button>
                     </template>
                   </el-table-column>
                 </el-table>
@@ -91,7 +95,7 @@
 
           </el-tab-pane>
           <!-- 原始日志查询 -->
-          <el-tab-pane label="原始日志查询" class="origindairy">
+          <el-tab-pane label="原始日志查询" class="origindairy" >
             <el-container style="height:100%;" direction="vertrcal">
               <!-- 左侧菜单栏 -->
               <el-aside class="tab-aside" style="width: 220px">
@@ -107,25 +111,25 @@
                   style="width: 250px;height:100%;background: #f2f2f2; ">
                   <el-submenu index="1">
                     <template slot="title">
-                                <span>
+                                <span @click="show = flase">
                                   <img src="../assets/arrow3.png" class="arrow" />
                                     文件操作信息</span>
                     </template>
                     <el-menu-item-group>
-                      <el-menu-item  class="nav-left" index="fileoperations"><img src="../assets/arrow4.png" class="arrow1"/>文件操作详情</el-menu-item>
-                      <el-menu-item class="nav-left" index="filemap"><img src="../assets/arrow4.png" class="arrow1"/>文件map操作详情</el-menu-item>
+                      <el-menu-item  class="nav-left" index="fileoperations" @click="show = flase"><img src="../assets/arrow4.png" class="arrow1"/>文件操作详情</el-menu-item>
+                      <el-menu-item class="nav-left" index="filemap"  @click="show = flase"><img src="../assets/arrow4.png" class="arrow1"/>文件map操作详情</el-menu-item>
                     </el-menu-item-group>
                   </el-submenu>
                   <el-menu-item index="networkusage">
-                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   网络使用信息</span>
+                    <span slot="title" @click="show = flase"><img src="../assets/arrow3.png" class="arrow" />   网络使用信息</span>
                   </el-menu-item>
                   <el-submenu index="3">
                     <template slot="title">
                       <span><img src="../assets/arrow3.png" class="arrow" />   注册表信息</span>
                     </template>
                     <el-menu-item-group>
-                      <el-menu-item class="nav-left" index="registryinfo"><img src="../assets/arrow4.png" class="arrow1"/>注册表基本信息</el-menu-item>
-                      <el-menu-item class="nav-left" index="registryassignment"><img src="../assets/arrow4.png" class="arrow1"/>注册表赋值操作</el-menu-item>
+                      <el-menu-item class="nav-left" index="registryinfo"  @click="show = flase"><img src="../assets/arrow4.png" class="arrow1"/>注册表基本信息</el-menu-item>
+                      <el-menu-item class="nav-left" index="registryassignment"  @click="show = flase"><img src="../assets/arrow4.png" class="arrow1"/>注册表赋值操作</el-menu-item>
                     </el-menu-item-group>
                   </el-submenu>
                   <el-submenu index="4">
@@ -133,24 +137,107 @@
                       <span><img src="../assets/arrow3.png" class="arrow" />   进程操作信息</span>
                     </template>
                     <el-menu-item-group>
-                      <el-menu-item class="nav-left" index="processoper"><img src="../assets/arrow4.png" class="arrow1"/>进程操作信息</el-menu-item>
-                      <el-menu-item class="nav-left" index="operationthread"><img src="../assets/arrow4.png" class="arrow1"/>进程操作线程信息</el-menu-item>
-                      <el-menu-item class="nav-left" index="Hungthread"><img src="../assets/arrow4.png" class="arrow1"/>挂起线程操作信息</el-menu-item>
-                      <el-menu-item class="nav-left" index="replythread"><img src="../assets/arrow4.png" class="arrow1"/>恢复线程操作信息</el-menu-item>
+                      <el-menu-item class="nav-left" index="processoper"  @click="show = flase"><img src="../assets/arrow4.png" class="arrow1"/>进程操作信息</el-menu-item>
+                      <el-menu-item class="nav-left" index="operationthread"  @click="show = flase"><img src="../assets/arrow4.png" class="arrow1"/>进程操作线程信息</el-menu-item>
+                      <el-menu-item class="nav-left" index="Hungthread"  @click="show = flase"><img src="../assets/arrow4.png" class="arrow1"/>挂起线程操作信息</el-menu-item>
+                      <el-menu-item class="nav-left" index="replythread" @click="show = flase"><img src="../assets/arrow4.png" class="arrow1"/>恢复线程操作信息</el-menu-item>
                     </el-menu-item-group>
                   </el-submenu>
                   <el-menu-item index="moduleoperation">
-                    <span slot="title"><img src="../assets/arrow3.png" class="arrow" />   模块操作</span>
+                    <span slot="title"  @click="show = flase"><img src="../assets/arrow3.png" class="arrow" />   模块操作</span>
                   </el-menu-item>
                 </el-menu>
                 <!-- </el-col> -->
               </el-aside>
-             <el-main class="tab-main"  >
-                <router-view></router-view>
+
+             
+              
+              
+
+              <el-main class="tab-main" >
+                 <div class="tab-1-2"   v-if="show">
+                <el-table
+                  :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
+                  class="table1"
+                  row-style="30px"
+                  cell-style="padding:0"
+                  id="table11"
+                  :data="admindata.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                  @select="show = false"
+                  style="width: 100%">
+                  <!-- 选择框   -->
+                  <el-table-column
+                    type="selection"
+                    width="55">
+                  </el-table-column>
+                  <el-table-column
+                    prop="id"
+                    width="80"
+                    label="编号"
+                    :index="indexMethod">
+                  </el-table-column>
+                  <el-table-column
+                    prop="ip"
+                    label="IP"
+                    width="180">
+                  </el-table-column>
+                  <el-table-column
+                    data="null"
+                    label="domainID"
+                    width="180">
+                  </el-table-column>
+                  <el-table-column
+                    prop="type"
+                    label="使用者">
+                  </el-table-column>
+                  <el-table-column
+                    prop="operater"
+                    label="基本操作">
+                    <template slot-scope="scope">
+                      <el-button
+                        type="text"
+                        size="mini"
+                        @click="delect">删除</el-button>
+                    </template>
+                  </el-table-column>
+                </el-table>
+                <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(admindata.length))?currentPage * pagesize:admindata.length}}条记录，总共{{admindata.length}}条记录
+                <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
+                <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
+                  <el-option label="10" value="10"></el-option>
+                  <el-option label="20" value="20"></el-option>
+                </el-select>
+                <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
+              </div>
+              
+              <div style="float:right;margin-top:10px;margin-right: 30px;">
+                <!-- *********************************分页按钮 -->
+                <el-pagination
+                  background="#E95513"
+                  prev-text="上一页"
+                  next-text="下一页"
+                  jumper-text="转到"
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage"
+                  :page-sizes="[10, 20]"
+                  :page-size="pagesize"
+                  :total="admindata.length"
+                  layout="slot,prev, pager, next">
+                  <!-- <slot name="as">dddd</slot> -->
+                </el-pagination>
+              </div>
+              </div><!--table-1-2-->
+                <router-view v-else>
+
+                </router-view>
+              
               </el-main>
+
+
+             
             </el-container>
             
-
           </el-tab-pane>
 
 
@@ -226,6 +313,10 @@
   .el-tabs__item:hover{
       color: #E95513 !important;
   }
+  /*删除 添加的颜色*/
+  .el-button--text{
+        color:#E95513;
+    }
   /*导航栏背景颜色*/
        .el-tabs__nav-wrap.is-left {
          background: #F2F2F2;
@@ -489,6 +580,30 @@
         font-size: 12px;
         margin-left:10px ;
     }
+    /*********************取消按钮样式*********************/
+    .button3{
+        background-color: #ffffff !important;
+        color: black !important;
+        width: 60px;
+        height: 30px;
+        border-radius: 0px;
+        vertical-align: center;
+        padding: 2px;
+        font-size: 12px;
+        margin-left:10px ;
+    }
+    /*********************普通按钮样式*********************/
+    .button4{
+        background-color: #E95513 !important;
+        color: #ffff !important;
+        width: 80px;
+        height: 30px;
+        border-radius: 0px;
+        vertical-align: center;
+        padding: 2px;
+        font-size: 12px;
+        margin-left:10px ;
+    }
 </style>
 <script>
   export default {
@@ -558,7 +673,10 @@
       handleCurrentChange (currentPage) {
         this.currentPage = currentPage
       },
-      open2 (){
+      editor(){
+
+      },
+      delect (){
         this.$confirm ('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
