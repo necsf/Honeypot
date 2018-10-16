@@ -6,23 +6,57 @@
                size="small"
                class="demo-form-inline"
                :label-position="right" >
-        <el-form-item label="操作类型:">
-          <el-input v-model="formInline.opType" style="padding-left:70px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="进程名:">
-          <el-input v-model="formInline.processName" style="padding-left:70px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="操作时间:">
-          <el-input v-model="formInline.time" style="padding-left:1px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="进程ID:" >
-          <el-input v-model="formInline.processNum" ></el-input>
-        </el-form-item>
-        <el-form-item label="模块名:" >
-          <el-input v-model="formInline.regeditName" style="padding-left:1px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <el-button style="background:#E95513;color:#ffffff;"  @click="getAimModule" class="funButton">查询</el-button>
+        <el-row :gutter="0" type="flex">
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-form-item label="操作类型:">
+              <el-input v-model="formInline.opType" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-form-item label="进程名:">
+              <el-input v-model="formInline.processName" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-form-item label="操作时间:">
+              <el-input v-model="formInline.time" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+      </el-row> 
+      <el-row :gutter="0" type="flex">
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-form-item label="进程ID:" >
+              <el-input v-model="formInline.processNum" style="padding-left:15px;width:187px" ></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-form-item label="模块名:" >
+              <el-input v-model="formInline.regeditName" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-form-item>
+              <el-button style="background:#E95513;color:#ffffff;"  @click="getAimModule" class="funButton">查询</el-button>
+            </el-form-item>
+          </div>
+        </el-col>
+      </el-row> 
         </el-form-item>
       </el-form>
     </el-header>

@@ -6,59 +6,90 @@
                :model="formInline"
                size="small"
                class="demo-form-inline"
-               :label-position="right"
-      >
-        <el-form-item label="操作类型:">
-          <el-select v-model="formInline.operations" style="padding-left:1px;width:187px" >
-            <el-option label="读文件" value="1"></el-option>
-            <el-option label="写文件" value="2"></el-option>
-            <el-option label="创建文件" value="3"></el-option>
-            <el-option label="打开文件" value="4"></el-option>
-            <el-option label="删除文件" value="5"></el-option>
-            <el-option label="CreateSection" value="6"></el-option>
-            <el-option label="MapView" value="7"></el-option>
-            <el-option label="UnmapView" value="8"></el-option>
-            <el-option label="重命名" value="9"></el-option>
-            <el-option label="删除目录" value="10"></el-option>
-            <el-option label="未知" value="11"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="文件类型:">
-          <el-select v-model="formInline.files"  style="padding-left:1px;width:187px">
-            <el-option label="IO_TYPE_ADAPTRE" value="1"></el-option>
-            <el-option label="IO_TYPE_CONTROLLFR" value="2"></el-option>
-            <el-option label="IO_TYPE_DEVICE" value="3"></el-option>
-            <el-option label="IO_TYPE_DRIVER" value="4"></el-option>
-            <el-option label="IO_TYPE_FILE" value="5"></el-option>
-            <el-option label="IO_TYPE_IRP" value="6"></el-option>
-            <el-option label="IO_TYPE_ADAPTER" value="7"></el-option>
-            <el-option label="IO_TYPE_PACKET" value="8"></el-option>
-            <el-option label="IO_TYPE_TIMER" value="9"></el-option>
-            <el-option label="IO_TYPE_" value="10"></el-option>
-            <el-option label="IO_TYPE_LOG" value="11"></el-option>
-            <el-option label="IO_TYPE_MESSAGE" value="12"></el-option>
-            <el-option label="IO_TYPE_EXTENSION" value="13"></el-option>
-            <el-option label="ERROR" value="14"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="文件路径:">
-          <el-select v-model="formInline.routers" style="padding-left:1px;width:187px">
-            <el-option label="C://" value="C:/"></el-option>
-            <el-option label="C://" value="C:/"></el-option>
-          </el-select>
-        </el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <el-form-item label="进程ID:" >
-          <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item label="进程名:">
-          <el-input v-model="formInline.progress" style="padding-left:15px;width:187px" ></el-input>
-        </el-form-item>
-        <el-form-item label="操作时间:">
-          <el-input v-model="formInline.date" style="padding-left:1px;width:187px"></el-input>
-        </el-form-item>
-        <el-form-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <el-button style="background:#E95513;color:#ffffff;"  @click="getAimFileOperation" class="funButton">查询</el-button>
-        </el-form-item>
+               :label-position="right">
+      <el-row :gutter="0" type="flex">
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="操作类型:">
+              <el-select v-model="formInline.operations" style="padding-left:1px;width:187px">
+                <el-option label="读文件" value="1"></el-option>
+                <el-option label="写文件" value="2"></el-option>
+                <el-option label="创建文件" value="3"></el-option>
+                <el-option label="打开文件" value="4"></el-option>
+                <el-option label="删除文件" value="5"></el-option>
+                <el-option label="CreateSection" value="6"></el-option>
+                <el-option label="MapView" value="7"></el-option>
+                <el-option label="UnmapView" value="8"></el-option>
+                <el-option label="重命名" value="9"></el-option>
+                <el-option label="删除目录" value="10"></el-option>
+                <el-option label="未知" value="11"></el-option>
+              </el-select>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="文件类型:">
+              <el-select v-model="formInline.files" style="padding-left:1px;width:187px" >
+                <el-option label="IO_TYPE_ADAPTRE" value="1"></el-option>
+                <el-option label="IO_TYPE_CONTROLLFR" value="2"></el-option>
+                <el-option label="IO_TYPE_DEVICE" value="3"></el-option>
+                <el-option label="IO_TYPE_DRIVER" value="4"></el-option>
+                <el-option label="IO_TYPE_FILE" value="5"></el-option>
+                <el-option label="IO_TYPE_IRP" value="6"></el-option>
+                <el-option label="IO_TYPE_ADAPTER" value="7"></el-option>
+                <el-option label="IO_TYPE_PACKET" value="8"></el-option>
+                <el-option label="IO_TYPE_TIMER" value="9"></el-option>
+                <el-option label="IO_TYPE_" value="10"></el-option>
+                <el-option label="IO_TYPE_LOG" value="11"></el-option>
+                <el-option label="IO_TYPE_MESSAGE" value="12"></el-option>
+                <el-option label="IO_TYPE_EXTENSION" value="13"></el-option>
+                <el-option label="ERROR" value="14"></el-option>
+              </el-select>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="文件路径:">
+              <el-select v-model="formInline.routers" style="padding-left:1px;width:187px">
+                <el-option label="C://" value="C:/"></el-option>
+                <el-option label="C://" value="C:/"></el-option>
+              </el-select>
+            </el-form-item>
+          </div>
+        </el-col>
+      </el-row>  
+      <el-row :gutter="0" type="flex">   
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="进程ID:" >
+              <el-input v-model="formInline.progressID" style="padding-left:15px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="进程名:">
+              <el-input v-model="formInline.progress" style="padding-left:15px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item label="操作时间:">
+              <el-input v-model="formInline.date" style="padding-left:1px;width:187px"></el-input>
+            </el-form-item>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-form-item>
+              <el-button style="background:#E95513;color:#ffffff;"  @click="onSubmit" class="funButton">查询</el-button>
+            </el-form-item>
+          </div>
+        </el-col>
+      </el-row>  
       </el-form>
     </el-header>
     <el-main class="m-table">
