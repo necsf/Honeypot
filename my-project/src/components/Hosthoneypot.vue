@@ -39,13 +39,17 @@
                     width="180">
                   </el-table-column>
                   <el-table-column
-                    data="null"
-                    label="domainID"
+                    prop="domainId"
+                    label="domainId"
                     width="180">
                   </el-table-column>
                   <el-table-column
                     prop="type"
                     label="使用者">
+                  </el-table-column>
+                  <el-table-column
+                    prop="uniqueId"
+                    label="uniqueId">
                   </el-table-column>
                   <el-table-column
                     prop="operater"
@@ -55,10 +59,7 @@
                         type="text"
                         size="mini"
                         @click="delect">删除</el-button>
-                        <el-button
-                        type="text"
-                        size="mini"
-                        @click="editor">编辑</el-button>
+            
                     </template>
                   </el-table-column>
                 </el-table>
@@ -171,8 +172,8 @@
                     width="180">
                   </el-table-column>
                   <el-table-column
-                    data="null"
-                    label="domainID"
+                    prop="domainId"
+                    label="domainId"
                     width="180">
                   </el-table-column>
                   <el-table-column
@@ -274,11 +275,6 @@
                 </el-menu>
                 <!-- </el-col> -->
               </el-aside>
-
-             
-              
-              
-
               <el-main class="tab-main" >
                  <div class="tab-1-2"   v-if="show">
                 <el-table
@@ -307,8 +303,8 @@
                     width="180">
                   </el-table-column>
                   <el-table-column
-                    data="null"
-                    label="domainID"
+                    prop="domainId"
+                    label="domainId"
                     width="180">
                   </el-table-column>
                   <el-table-column
@@ -737,30 +733,33 @@
           {
             id: '3',
             ip: '168.196.2.1',
-            domainID: 'null',
-            type: 'win789'
+            domainId: 'null',
+            type: 'win789',
+            uniqueId:''
           },
           {
             id: '4',
             ip: '168.196.2.1',
-            domainID: 'null',
-            type: 'win789'
+            domainId: 'null',
+            type: 'win789',
+            uniqueId:''
           },
           {
             id: '5',
             ip: '168.196.2.1',
-            domainID: 'null',
-            type: 'win789'
+            domainId: 'null',
+            type: 'win789',
+            uniqueId:''
           }
         ]
 
       }
     },
     created () {
-    // this.getListHostPot()
+      this.getListHostPot()
     },
     mounted: function () {
-    // this.getListHostPot();
+      this.getListHostPot();
     },
     methods: {
       handleSlect (key, keypath) {
@@ -789,9 +788,14 @@
       handleCurrentChange (currentPage) {
         this.currentPage = currentPage
       },
-      editor(){
+      delectServer(){
+                var that = this;
+                this.$axios.get("/delServer?id="+that.multipleSelection[0].id).then(function (response) {
+                    alert("删除成功");
+                    that.getServer();
+                })
 
-      },
+            },
       delect (){
         this.$confirm ('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',

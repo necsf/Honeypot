@@ -215,13 +215,7 @@
                                 <!-- <slot name="as">dddd</slot> -->
                             </el-pagination>
                         </div>
-
-
-
                     </el-tab-pane>
-
-
-
                     <!-- 服务器配置 -->
                     <el-tab-pane label="服务器配置">
                         <div class="tab-2">
