@@ -18,11 +18,6 @@
           <el-tab-pane
             label="主机蜜罐管理">
             <div class="tab-1">
-              <div class="tab-1-1">
-
-                &nbsp;&nbsp;
-                <el-button style="background:#E95513;color:#ffffff;" class="funButton">编辑</el-button>
-              </div><!--table-1-1-->
               <div class="tab-1-2">
                 <el-table
                   :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
@@ -150,12 +145,16 @@
                 </el-menu>
                 <!-- </el-col> -->
               </el-aside>
-              <el-main class="tab-main">
+             <el-main class="tab-main"  >
                 <router-view></router-view>
               </el-main>
             </el-container>
+            
 
           </el-tab-pane>
+
+
+
           <el-tab-pane label="样本捕获">
 
           </el-tab-pane>
@@ -168,21 +167,21 @@
 </template>
 <style  scoped>
 
-  @font-face {
-    font-family: 'iconfont';  /* project id 796633 */
-    src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
-    src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
-    url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
-  }
-  .iconfont{
+@font-face {
+  font-family: 'iconfont';  /* project id 796633 */
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
+  src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+}
+.iconfont{
     font-family:"iconfont" !important;
-    font-size:36px;font-style:normal;
+     font-size:36px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.4px;
     color:#5EBF18;
-  ;}
+    ;}
 
   /* *********************************************mian start*****************/
   /* 白色条框 */
@@ -222,39 +221,39 @@
   }
   /*tabs的颜色 */
   .el-tabs__item.is-active{
-    color: #666666 !important;
+      color: #666666 !important;
   }
   .el-tabs__item:hover{
-    color: #E95513 !important;
+      color: #E95513 !important;
   }
   /*导航栏背景颜色*/
-  .el-tabs__nav-wrap.is-left {
-    background: #F2F2F2;
-  }
-  .el-tabs__nav-wrap::after {
-    background: #F2F2F2;
-  }
-  .el-tabs--card>.el-tabs__header .el-tabs__nav {
-    background: #F2F2F2;
-  }
-  /*导航栏间隔*/
-  .el-tabs__header {
-    padding: 0;
-    position: relative;
-    margin: 0 0 10px;
-  }
-  .el-tabs__item:active {
-    color: #E95513 !important;
-    background: #fff;
-  }
-  .el-tabs__item:focus, .el-tabs__item:active {
-    color: #E95513 !important;
-    outline: 0;
-    background: #fff;
-  }
-  .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
-    background: #fff;
-  }
+       .el-tabs__nav-wrap.is-left {
+         background: #F2F2F2;
+       }
+       .el-tabs__nav-wrap::after {
+         background: #F2F2F2;
+       }
+       .el-tabs--card>.el-tabs__header .el-tabs__nav {
+         background: #F2F2F2;
+       }
+    /*导航栏间隔*/
+       .el-tabs__header {
+         padding: 0;
+         position: relative;
+         margin: 0 0 10px;
+       }
+       .el-tabs__item:active {
+         color: #E95513 !important;
+         background: #fff;
+       }
+       .el-tabs__item:focus, .el-tabs__item:active {
+         color: #E95513 !important;
+         outline: 0;
+         background: #fff;
+       }
+       .el-tabs--left .el-tabs__active-bar.is-left, .el-tabs--left .el-tabs__nav-wrap.is-left::after {
+         background: #fff;
+       }
   /*标签页背景色*/
   .el-tabs__item {
     font-size: 12px;
@@ -278,7 +277,7 @@
   .el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
     border-bottom: 2px solid #E95513;
   }
-  /*导航栏样式*/
+/*导航栏样式*/
   .el-tabs__item.is-left.is-active{
     color: #E95513 !important;
   }
@@ -297,6 +296,9 @@
   }
 
   .origindairy .el-submenu__title{
+    background: #ebecf2;
+  }
+  .origindairy .el-menu-item{
     background: #ebecf2;
   }
 
@@ -375,10 +377,10 @@
 
   }
   /*.el-submenu__title {*/
-  /*font-size: 12px;*/
+    /*font-size: 12px;*/
   /*}*/
   /*.el-menu-item {*/
-  /*font-size: 12px;*/
+    /*font-size: 12px;*/
   /*}*/
   #nav-left.el-menu-item{
     padding-left: 20px;
@@ -475,21 +477,20 @@
     border-radius: 0px;
   }
 
-  /*********************确定 跳转 按钮样式*********************/
-  .button2{
-    background-color: #E95513 !important;
-    color: #ffff !important;
-    width: 60px;
-    height: 30px;
-    border-radius: 0px;
-    vertical-align: center;
-    padding: 2px;
-    font-size: 12px;
-    margin-left:10px ;
-  }
+ /*********************确定 跳转 按钮样式*********************/
+    .button2{
+        background-color: #E95513 !important;
+        color: #ffff !important;
+        width: 60px;
+        height: 30px;
+        border-radius: 0px;
+        vertical-align: center;
+        padding: 2px;
+        font-size: 12px;
+        margin-left:10px ;
+    }
 </style>
 <script>
-  import "../assets/css/new.css"
   export default {
 
     data () {
@@ -497,22 +498,11 @@
         jumper: 1,
         pagesize: 10,
         currentPage: 1,
-        administrator: 'wulala',
-        times: '2018-5-21',
-        dialog: false,
-        admindata: [
-          {
-            id: '1',
-            ip: '168.196.2.1',
-            domainID: 'null',
-            type: 'win789'
-          },
-          {
-            id: '2',
-            ip: '168.196.2.1',
-            domainID: 'null',
-            type: 'win789'
-          },
+        administrator:'wulala',
+        times:'2018-5-21',
+        dialog:false,
+        show:true,
+        admindata:[
           {
             id: '3',
             ip: '168.196.2.1',
