@@ -16,7 +16,7 @@ Vue.use(VueResource);
 
 // 跨域设置
 var axios = require('axios');
-axios.defaults.baseURL = 'http://localhost:8433';
+axios.defaults.baseURL = 'http://127.0.0.1:8433';
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 

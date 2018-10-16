@@ -5,8 +5,7 @@
         <!-- main -->
         <el-main  class="el-main-3">
             <div class="header-2">
-                <p class="p-2"> <i class="iconfont">&#xe61a;</i> 监测状态
-                </p>
+                <p class="menu-1" style="font-size:18pt;position: relative;top: -15px;left:17px;"><i class="iconfont" style="margin-right: 2px">&#xe61a;</i>监测状态</p>
             </div>
             <hr/>
             <el-row>
@@ -43,25 +42,25 @@
                                 <el-table-column
                                         prop="warn"
                                         label="实时警告"
-                                        width="200">
+                                        width="300">
                                 </el-table-column>
                                 <el-table-column
                                         prop="time"
-                                        width="215"
+                                        width="300"
                                         label="创建时间">
                                 </el-table-column>
                             </el-table>
                             <div style="width: 100%;height:20px">
-                                <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(moreAlarmInfoData.length))?currentPage * pagesize:moreAlarmInfoData.length}}条记录，总共{{moreAlarmInfoData.length}}条记录
+                                <div class="p-page" style="font-size: 12px;padding-left: 10px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(moreAlarmInfoData.length))?currentPage * pagesize:moreAlarmInfoData.length}}条记录
                                     <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
                                     <el-select v-model="pagesize" slot="prepend" placeholder="" id="pagesize" style="width: 65px;height: 30px;border-radius: 0px;font-size: 12px;left: 35px;">
                                         <el-option label="10" value="10"></el-option>
                                         <el-option label="20" value="20"></el-option>
                                     </el-select>
-                                    <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
+                                    <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px"></span></span>
                                 </div>
 
-                                <div style="float:right;margin-top:10px;margin-right: 30px;">
+                                <div style="float:right;margin-top:-30px;margin-right: 30px;">
                                     <!-- *********************************分页按钮 -->
                                     <el-pagination
                                             background="#E95513"
@@ -157,6 +156,22 @@
     </el-container>
 </template>
 <style scoped>
+    @font-face {
+        font-family: 'iconfont';  /* project id 796633 */
+        src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot');
+        src: url('//at.alicdn.com/t/font_796633_b3c1isjjwu.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_796633_b3c1isjjwu.woff') format('woff'),
+        url('//at.alicdn.com/t/font_796633_b3c1isjjwu.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_796633_b3c1isjjwu.svg#iconfont') format('svg');
+    }
+    .iconfont{
+        font-family:"iconfont" !important;
+        font-size:36px;font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0px;
+        color: #5ebf18;
+    ;}
+
 
     .el-main-3{
         padding:2px ;

@@ -13,11 +13,11 @@ module.exports = {
 
     //配置跨域
     proxyTable: {
-      'api':{
-        target:'http://localhost:8433',
+      '/api/*':{
+        target:'http://119.29.219.27:8433',
         changeOrigin :true,
         pathRewrite:{
-          '^/api':''
+            '^/api': '/'
         }
       }
     },

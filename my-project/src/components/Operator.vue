@@ -2,9 +2,9 @@
  <el-container class="what" style="height:100%;" direction="vertrcal">
   <el-header class="top"  height="150px">
       <div class="header-2">
-              <p class="p-2"><i class="iconfont">&#xe652;</i>样本操作
-              </p>
-          </div>
+          <p class="menu-1" style="font-size:18pt;position: relative;top: -15px;left:17px;"><i class="iconfont">&#xe652;</i>样本操作</p>
+
+      </div>
           <hr style="margin-bottom:0;"/>
         <div class="tab">
             <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">

@@ -4,7 +4,7 @@
         <!-- main -->
         <el-main class="el-main-2" >
             <div class="header-2">
-                <p class="p-2"><i class="iconfont">&#xe651;</i>应用蜜罐</p>
+                <p class="menu-1" style="font-size:18pt;position: relative;top: -15px;left:17px;"><i class="iconfont">&#xe651;</i>应用蜜罐</p>
             </div>
             <hr style="margin-bottom:0;"/>
             <div class="main-1" >
@@ -71,11 +71,17 @@
                                             label="操作"
                                     >
                                         <template slot-scope="scope">
+                                            <!--暂时连接到百度-->
+                                            <!--<el-button-->
+                                                    <!--type="text"-->
+                                                    <!--size="mini"-->
+
+                                                    <!--@click="dialog = true">查看详情 蜜罐管理</el-button>-->
                                             <el-button
                                                     type="text"
                                                     size="mini"
 
-                                                    @click="dialog = true">查看详情 蜜罐管理</el-button>
+                                            ><a href="https://www.baidu.com" style="color: #E95513;text-decoration: none">查看详情 蜜罐管理</a></el-button>
                                             <el-dialog title="查看更多" :visible.sync="dialog">
                                                 <el-table
                                                         :header-cell-style="{background:'#E95513',padding:0,color:'#FFFFFF'}"
