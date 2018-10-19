@@ -8,17 +8,17 @@
         <div class="login">
             <div>
             <img  class="name" src="../assets/name.png"/>
-            <el-input class="kuang1" size="large" v-model="input1" style="width:270px" ></el-input>
+            <el-input class="kuang1" size="large" v-model="username" style="width:270px" ></el-input>
              </div>
 
             <div>
 
             <img  class="password" src="../assets/password.png"/>
-            <el-input class="kuang2" size="large" v-model="input2" style="width:270px" ></el-input>
+            <el-input class="kuang2" size="large" v-model="password" style="width:270px" ></el-input>
             </div>
             <br/>
         <div class="sb">
-            <el-button  class="loginbutton" style="width:130px" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
+            <el-button  class="loginbutton" style="width:130px" @click="login" >&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</el-button>
             &nbsp;&nbsp;&nbsp;
             <el-button type="info" style="width:130px">&nbsp;&nbsp;&nbsp;&nbsp;退出&nbsp;&nbsp;&nbsp;</el-button>
          </div>
@@ -75,10 +75,13 @@
 export default {
     data() {
     return {
-      input1: '',
-      input2: ''
+      username: '',
+      password: ''
     }
-  }
+  },
+    methods: {
+
+    }
 
 }
 </script>

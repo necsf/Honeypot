@@ -66,29 +66,25 @@
                                 </el-dialog>
                                 &nbsp;&nbsp;
                                 <el-button class="button4" @click="dialogText = true" style="background-color:#E95513">部署网络</el-button><!--找不到别的合法信号量了，只能用dialogText了-->
-                                <el-dialog title="部署网络" :visible.sync="dialogText">
-                                    <el-form :model="form">
+                                <el-dialog title="部署网络" :visible.sync="dialogText" class="set-net">
+
                                         <el-form-item label="模板名称" :label-width="formLabelWidth">
-                                            <el-input v-model="form.name" auto-complete="off"></el-input>
+                                            <el-input v-model="moduleName" auto-complete="off"></el-input>
                                         </el-form-item>
-                                        <el-form-item label="IP" :label-width="formLabelWidth">
-                                            <el-input v-model="form.IP" auto-complete="off"></el-input>
-                                        </el-form-item>
-                                        <el-form-item label="服务器" :label-width="formLabelWidth">
-                                            <el-input v-model="form.server_name" auto-complete="off"></el-input>
-                                        </el-form-item>
-                                        <el-form-item label="蜜罐类型" :label-width="formLabelWidth">
-                                            <el-input v-model="form.region" auto-complete="off"></el-input>
-                                        </el-form-item>
-                                        <el-form-item label="IP" :label-width="formLabelWidth">
-                                            <el-input v-model="form.IP" auto-complete="off"></el-input>
-                                        </el-form-item>
-                                        <el-form-item label="服务器" :label-width="formLabelWidth">
-                                            <el-input v-model="form.server_name" auto-complete="off"></el-input>
-                                        </el-form-item>
-                                        <el-form-item label="蜜罐类型" :label-width="formLabelWidth">
-                                            <el-input v-model="form.region" auto-complete="off" ></el-input>
-                                        </el-form-item>
+                                        <el-form :model="form" v-for="form in forms">
+                                        <div>
+                                            <el-form-item label="IP" :label-width="formLabelWidth">
+                                                <el-input v-model="form.IP" auto-complete="off" style="display: inline-block;width: 70%"></el-input>
+                                            </el-form-item>
+                                            <el-form-item label="服务器" :label-width="formLabelWidth">
+                                                <el-input v-model="form.serverName" auto-complete="off" style="display: inline-block;width: 70%"></el-input>
+                                            </el-form-item>
+                                            <el-form-item label="蜜罐类型" :label-width="formLabelWidth">
+                                                <el-input v-model="form.region" auto-complete="off" style="display: inline-block;width: 70%"></el-input>
+                                                <img src="../assets/加号.png" @click=" addHoneypot" style="width: 31px;height: 31px;display: inline-block;position: relative;top: 12px;left: 20px"/>
+                                                <img src="../assets/减号.png" @click=" delHoneypot" style="width: 28px;height: 28px;display: inline-block;position: relative;top: 10px;left: 20px"/>
+                                            </el-form-item>
+                                        </div>
                                     </el-form>
                                     <div slot="footer" class="dialog-footer">
                                         <el-button class="button3" @click="dialogText = false">取 消</el-button>
@@ -593,6 +589,9 @@
     .el-main-2{
         padding: 2px !important;
     }
+    .set-net > .el-input__inner {
+        width: 70%;
+    }
 </style>
 <script>
     import "../assets/css/new.css";
@@ -679,10 +678,10 @@
                 dialogText1: false,
                 dialogText: false,
                 dialog: false,
-                form: {
+                forms: [{
                     name: '',
                     IP: '',
-                    temserver: '',
+                    serverName: '',
                     region: '',
                     date1: '',
                     date2: '',
@@ -690,7 +689,7 @@
                     type: [],
                     resource: '',
                     desc: ''
-                },
+                }],
                 formLabelWidth: '120px',
                 // 表的名字
                 serverData: [
@@ -733,6 +732,24 @@
 
 
         methods: {
+            delHoneypot () {
+                this.forms.pop();
+            },
+            addHoneypot () {
+              var json = {
+                  name: '',
+                  IP: '',
+                  serverName: '',
+                  region: '',
+                  date1: '',
+                  date2: '',
+                  delivery: false,
+                  type: [],
+                  resource: '',
+                  desc: ''
+              }
+              this.forms.push(json)
+            },
             changeType(){
                 if(this.form1.honeyTypeValue1 == "hostPot"){
                     this.honeyType2 = this.hostPot;

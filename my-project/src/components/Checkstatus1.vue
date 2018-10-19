@@ -356,13 +356,17 @@
             this.drawLine();
         },
         methods: {
+            cleanUserName() {
+                // alert(1111)
+                // sessionStorage.setItem("username","0");
+                // window.location.href = "#/systemindex"
+            },
             getMoreWarnMsg(){
                 var that = this;
                 this.$axios.get("/getMoreWarnMsg").then(function (response) {
                     that.moreAlarmInfoData = response.data;
                 })
             },
-
             //实时警告板表格的警告信息获取方法
             getNewWarnMsg(){
                 var that = this;

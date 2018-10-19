@@ -14,7 +14,7 @@
                   </span>
                    <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>修改密码</el-dropdown-item>
-                        <el-dropdown-item><router-link to="systemindex" style="text-decoration: none;">注销账号</router-link></el-dropdown-item>
+                        <el-dropdown-item><router-link to="systemindex" style="text-decoration: none;" >注销账号</router-link></el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
                 <el-dropdown>
@@ -204,6 +204,11 @@ export default {
 
     },
   method:{
+    cleanUserName() {
+        alert(1111)
+        sessionStorage.setItem("username","0");
+        window.location.href = "#/systemindex"
+    },
     getUser(){
       this.$axios.get('/getuser')
         .then(function (response) {

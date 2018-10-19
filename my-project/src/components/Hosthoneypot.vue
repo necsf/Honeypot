@@ -60,7 +60,7 @@
                         type="text"
                         size="mini"
                         @click="delect">删除</el-button>
-            
+
                     </template>
                   </el-table-column>
                 </el-table>
@@ -143,8 +143,8 @@
 
                 </el-menu>
                 <!-- </el-col> -->
-              </el-aside>      
-  
+              </el-aside>
+
               <el-main class="tab-main" >
                  <div class="tab-1-2"   v-if="show">
                 <el-table
@@ -181,7 +181,7 @@
                     prop="type"
                     label="使用者">
                   </el-table-column>
-                 
+
                 </el-table>
                 <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(admindata.length))?currentPage * pagesize:admindata.length}}条记录，总共{{admindata.length}}条记录
                 <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
@@ -191,7 +191,7 @@
                 </el-select>
                 <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
               </div>
-              
+
               <div style="float:right;margin-top:10px;margin-right: 30px;">
                 <!-- *********************************分页按钮 -->
                 <el-pagination
@@ -213,11 +213,11 @@
                 <router-view v-else>
 
                 </router-view>
-              
+
               </el-main>
 
 
-             
+
             </el-container>
 
           </el-tab-pane>
@@ -312,7 +312,7 @@
                     prop="type"
                     label="使用者">
                   </el-table-column>
-                  
+
                 </el-table>
                 <div class="p-page" style="font-size: 12px;padding-left: 34px">显示第{{(currentPage-1) * pagesize +1}}到第{{((currentPage * pagesize)<(admindata.length))?currentPage * pagesize:admindata.length}}条记录，总共{{admindata.length}}条记录
                 <span style="position: relative;left: 33px;font-size: 12px;">每页显示</span>
@@ -322,7 +322,7 @@
                 </el-select>
                 <span style="margin-left:2px;position: relative;left: 32px">条信息<span style="margin-left: 20px">转到<el-input  v-model="jumper" style="width: 50px;height: 30px;margin-left: 2px;margin-right: 4px"></el-input>页</span><el-button class="button2" style="font-size: 12px;" @click="handleCurrentChange(jumper)">跳转</el-button></span>
               </div>
-              
+
               <div style="float:right;margin-top:10px;margin-right: 30px;">
                 <!-- *********************************分页按钮 -->
                 <el-pagination
@@ -344,13 +344,13 @@
                 <router-view v-else>
 
                 </router-view>
-              
+
               </el-main>
 
 
-             
+
             </el-container>
-            
+
           </el-tab-pane>
 
 
@@ -717,6 +717,9 @@
         font-size: 12px;
         margin-left:10px ;
     }
+.el-menu-item.is-active{
+ background: #fff !important;
+}
 </style>
 <script>
   export default {
